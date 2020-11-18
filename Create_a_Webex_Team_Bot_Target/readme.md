@@ -76,3 +76,13 @@ You should be prompted to enter a message to send.  And then you should receive 
 
 ![](img/webex_team_target-4.png)
 
+## Make it Atomic
+
+Make this workflow atomic will allow you to use it as a single ready to use activity in other of your workflows.  And you will be able to share it with others.
+
+You can do that just by click on the **is atomic workflow**.
+
+![](img/webex_team_target-5.png)
+
+#You are Ready to go !
+
