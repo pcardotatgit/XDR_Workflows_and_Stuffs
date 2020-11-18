@@ -31,7 +31,7 @@ Let's see how to send messages to our room thanks to a SecureX activity.
 
 Create an new workflow.
 
-Give it a name and add to it a **input** variable named **message_to_send_to_webex_team_room** for example.
+Give it a name and add to it a **input** variable named **message_to_send_to_webex_team_room** for example. Make it **required**.
 
 Then go to the activity menu on the left side of the workflow editor and drag an drop in the canvas the **HTTP Request**.
 
@@ -67,4 +67,12 @@ It must be defined in the following JSON payload :
 **Remark** : the **text** and **markdown** keys are not mandatory together, you need to give one, or the other.
 
 **markdown** allows you to send nice formatted messages to the Webex Team Room.
+
+## Test your workflow
+
+Run Your Workflow.
+
+You should be prompted to enter a message to send.  And then you should receive it into your Webex Team Bot Room.
+
+![](img/webex_team_target-4.png)
 
