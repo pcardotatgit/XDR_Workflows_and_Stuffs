@@ -4,7 +4,7 @@ This document is about how to integrate Networking and security hardware devices
 
 Basically, these devices are just SSH Endpoint targets.
 
-Due to security reasons, It is not a good practice to connect SecureX directly to devices deployed into a customer network. As we must expose somehow the Internals Networking devices on the INTERNET.  We must do that thanks to Port Forwarding Features in the INTERNET Firewall, and we can't do that for dozens of Internal Network devices.
+Due to security reasons, It is not a good practice to connect SecureX directly to devices deployed into a customer network. As we must expose somehow the Internal Networking devices on the INTERNET.  We must do that thanks to Port Forwarding services on the INTERNET Firewall, and we can't do that for dozens of Internal Network devices.
 
 The good practice is to connect Networking Device thru a **remote connector**
 
@@ -34,15 +34,13 @@ Add an Account Key
 
 **Ok Done for the Target !**
 
-Let's interace with it from a SecureX Worflow activity
+Let's interact with it from a SecureX Worflow activity
 
 ## Send a cli show interface command
 
 Create an new workflow.
 
 The target to use for your workflow must be the **Terminal Endpoint** you created in the previous step.
-
-
 
 In the canvas, Drag and drop an **Execute Terminal Command(s)** activity from the activity list.
 
@@ -88,17 +86,17 @@ And regarding Cisco IOS devices you can use the **terminal length 0** command in
 
 ## Data parsing
 
-The goal here is not to go into all details of this parsing activity must must go thru after having recieved from our network device, the result of the show commands.
+The goal here is not to go into all the details of this parsing activity. Heavy text Parsing is a mandatory step after we have recieved from our network device, the result of a show commands.
 
 If you ran such activity into your SecureX platform, you saw that the result of your cli command is outputed into the **Ouput => Response Body** of the **Execute Terminal Commands(s)** activity.
 
-Everything is into one single variable in a raw and unstructured format.
+Everything is store into one single variable in a raw and unstructured text format.
 
 Let me share with you what I personnaly do.
 
-The best format for SecureX is JSON. SecureX handle very well natively the JSON format. A lot of SecureX activities a ready to deal with JSON.
+The best format for SecureX internal data is JSON. SecureX handle very well and natively the JSON format. A lot of SecureX activities are ready to deal with JSON data.
 
-A direct consequence of this is that it will be a good practice to generate JSON result from all parsing activities we will do. 
+A direct conclusion is that it will be a good practice to generate JSON results for every parsing activities we will do. 
 
 But text results ar good as well !
 
@@ -106,7 +104,7 @@ How do I parse the result of a cli **show something**
 
 - 1 - I try to identify into the raw text result any strings which could indicate an End Of Line.
 - 2 - The I split the raw result into lines.
-- 3 - Then I got a SecureX Table which contains all the lines
+- 3 - Then I got a SecureX Table which contains all the relevant lines
 - 4 - Then I use a **for each loop** in order to go to everylines one by one 
 - 5 - For each lines I go deep into it and I use a python activity to parse it.
 
