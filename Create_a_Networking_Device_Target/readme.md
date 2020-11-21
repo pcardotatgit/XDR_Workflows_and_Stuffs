@@ -104,11 +104,11 @@ But text results ar good as well !
 
 How do I parse the result of a cli **show something**
 
-1 - I try to identify into the raw text result any strings which could indicate an End Of Line.
-2 - The I split the raw result into lines.
-3 - Then I got a SecureX Table which contains all the lines
-4 - Then I use a **for each loop** in order to go to everylines one by one 
-5 - For each lines I go deep into it and I use a python activity to parse it.
+- 1 - I try to identify into the raw text result any strings which could indicate an End Of Line.
+- 2 - The I split the raw result into lines.
+- 3 - Then I got a SecureX Table which contains all the lines
+- 4 - Then I use a **for each loop** in order to go to everylines one by one 
+- 5 - For each lines I go deep into it and I use a python activity to parse it.
 
 **Remark** My preference for this parsing activity in definetely to use Python, instead of trying to do it Within SecureX. Mainly because I'm already very use to do parsing this way.   That means that I start to use python from step 4 instead of using the SecureX **for each loop**
 
