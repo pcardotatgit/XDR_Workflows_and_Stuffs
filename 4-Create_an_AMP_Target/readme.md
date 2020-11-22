@@ -18,7 +18,7 @@ Create a **HTTP Endpoint** target with the information bellow
 
 **OK Done** 
 
-## Query you AMP Back from SecureX
+## Query your AMP for Endpoint Backend from SecureX
 
 Interacting with AMP for Endpoint from SecureX is very easy.
 
@@ -48,4 +48,4 @@ The result will be a JSON result in the Output **BODY** of this **HTTP request**
 
 ![](img/amp-target-3.png)
 
-Next step is to parse this result.
+## Next step is to parse this result.
