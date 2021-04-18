@@ -42,7 +42,7 @@ GET htt://localhost:4000/test
 
 ![](assets/images/img18-1.png )
 
-## STEP 2 - Import modules and add script functions (app_1.py)
+## STEP 2 - Import modules and add script functions 
 
 Now let's add to the template some module import and some script functions that are needed as services for the script.
 
@@ -84,7 +84,7 @@ def jsonify_errors(data):
     return jsonify({'errors': [data]})
 ```
 
-## flask routes and python functions
+## Step 3 - flask routes and python functions  (app_1.py)
 
 Now let's add our function and the first one is the health function needed for the SecureX Integration.
 
@@ -101,7 +101,8 @@ def health():
 
 We just answer **{'status': 'ok'}** to the secureX **/health** request.
 
-That's enough and let's test it. Start NGROK ( instruction at the end of this article ).
+That's enough and let's test it. 
+Use NGROK in order to make your relay module reachable by SecureX ( instruction at the end of this article : **Make your Relay Module available to SecureX with NGROK**).
 
 ### SecureX Integration
 
@@ -116,7 +117,7 @@ That's enough and let's test it. Start NGROK ( instruction at the end of this ar
 
 ![](assets/images/img18-5.png )
 
-## Add some tiles into the Dashboard
+## Add some tiles into the Dashboard (app_2.py)
 
 Delete the previous SecureX Integration. Go to your integrations, find the Generate Serverless Relay module you just integrated, click on Delete and Confirm.
 
@@ -174,7 +175,7 @@ But we understand that we have an issue with missing data within the tiles.
 
 If we look to the relay module console, we see some calls from secureX to the **/tiles/tile-data** API endpoint on the relay module with **404** not found error code.
 
-## Add some data into our tiles (app3.py )
+## Add some data into our tiles (app_3.py )
 
 Ok we understand that we have to add a new flask route to **/tiles/tile-data** API endpoint.
 
@@ -258,13 +259,13 @@ If you had a look to the code we added you might understand that for every tiles
 
 The tile's type ( histogram, line chart, metrics, etc ) is defined in the JSON data we return to SecureX in the **/tiles** API Endpoint.
 
-## Return dynamic results into the tiles
+## Return dynamic results into the tiles (app_4.py )
 
 The static example above gives us the JSON result format we must return to secureX queries for these 2 specific tiles types ( **metric_group** and **line_chart**).
 
 So it is easy now to understand that for these two example, if you want to send back dynamic result, you just have to add to your relay module a function that will be called by the **/tiles/tile-data** API endpoint. This function can queries any data sources and they just have to format the result into the expected format and send them back to secureX.
 
-Okay, let's take an example. Let's display in the **test tile** ( id = test-summary) the current temperature in Paris.
+Okay, let's take an example. Let's display in the **test tile** ( id = test-summary) the **current temperature in Paris**.
 
 We can get this information thanks to this public API Endpoint :
 
