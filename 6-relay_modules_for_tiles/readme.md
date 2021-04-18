@@ -2,6 +2,8 @@
 
 This tutorial explains the basic details needed to create an integration that has some tiles into wich we will send some data to graph.
 
+![](assets/images/img18-12.png )
+
 ## STEP 0 - The basic python flask template (app_0.py )
 
 In order to understand step by step how we can built a basic dashboard relay module, let's start with a basic flask template.
