@@ -14,16 +14,15 @@ def jsonify_errors(data):
  
 app = Flask(__name__)
 
+@app.route('/')
+def test0():
+    return "<h1>RELAY MODULE IS UP</h1>"
+
 @app.route('/test')
 def test():
-    truc = 1 + 40
+    truc = 2 + 40
     return "<h1>Sounds Good the server is UP "+str(truc)+"</h1>"
     
-    
-@app.route('/test1')
-def test1():
-    truc = "toto"
-    return "<h1>"+truc+"</h1>"
 
 @app.errorhandler(404)
 def not_found(error):

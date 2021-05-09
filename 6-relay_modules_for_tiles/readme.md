@@ -337,6 +337,15 @@ Here we are !
 
 We are ready now for more complex graphs.
 
+Temperature in another city go to :
+
+https://prevision-meteo.ch/services
+
+Select a city and in the result copy and paste the url.
+
+For example the city of lens in France
+https://prevision-meteo.ch/services/json/lens-62
+
 
 ## Make your Relay Module available to SecureX with NGROK
 

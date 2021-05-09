@@ -4,6 +4,10 @@ import os
 
 app = Flask(__name__)
 
+@app.route('/')
+def test0():
+    return "<h1>RELAY MODULE IS UP</h1>"
+    
 @app.route('/test')
 def test():
     truc = 1 + 40
