@@ -366,7 +366,9 @@ https://ngrok.com/download
 Open a new CMD console window.  Change directory to the folder where you unzipped ngrok and start it thanks the following command.
 
     cd {ngrok directory}
-    ngrok http 5000
+    ngrok http 4000
+
+**The port number to use is 4000 !**
 
 ![](assets/images/relay_module-15.png )
 
