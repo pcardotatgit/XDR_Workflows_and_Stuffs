@@ -15,13 +15,21 @@ Create an HTTP endpoint. Name id **Webex_Team_Room_Target** for example.
 - PROTOCOL : **HTTPS**
 - HOST/IP ADDRESS : **webexapis.com** ( old host : api.ciscospark.com )
 
-The authentication will be passed to the API call as a bearer token within the header.
+According to the Webex API documentation ( https://developer.webex.com/docs/api/v1/messages/create-a-message ), the authentication will be passed to the API call as a bearer token within the header. This is the reason why we set **NO ACCOUNT KEY** to **TRUE**. We won't manage authentication at the Target Level. We will do it in the REST call.
 
 ![](img/webex_team_target-1.png)
 
-Add a global secured string variable named **webex_token** for example. And configure as it's value the Webex Bearer Token of your Webex Team Bot.
+Create a global ( or environnement ) secured string variable named **SecureX_webex_bot_token** for example. And assign to it the Webex Bearer Token of your Webex Team Bot.
 
-Add another global string variable named **webex_bot_room** for example and configure as it's value, the Webex Room ID attached to your Webex Team Bot.
+Go to the left menu and select **variable**.
+
+![](img/1.png)
+
+Then create a new variable.
+
+![](img/2.png)
+
+Create another global string variable named **webex_alert_room_id** for example and configure as it's value, the Webex Room ID attached to your Webex Team Bot.
 
 OK done, you are good to go.
 
@@ -29,9 +37,12 @@ OK done, you are good to go.
 
 Let's see how to send messages to our room thanks to a SecureX activity.
 
-Create an new workflow.
+Create a new workflow.
 
-Give it a name and add to it a **input** variable named **message_to_send_to_webex_team_room** for example. Make it **required**.
+![](img/3.png)
+
+
+Give it a name and add to it an **input** variable named **message_to_send_to_webex_team_room** for example. Make it **required**.
 
 Then go to the activity menu on the left side of the workflow editor and drag an drop in the canvas the **HTTP Request**.
 
@@ -67,6 +78,18 @@ It must be defined in the following JSON payload :
 **Remark** : the **text** and **markdown** keys are not mandatory together, you need to give one, or the other.
 
 **markdown** allows you to send nice formatted messages to the Webex Team Room.
+
+## why did we configured the HTTP request this way ?
+
+The above values come from the Webex API documentation.
+
+https://developer.webex.com/docs/api/v1/messages/create-a-message
+
+If we have a look to how to create a message all information are there.
+
+![](img/4.png)
+
+We understand that we have to use the **/v1/messages** api . We must use the **POST** verb. The authentication token is a **bearer** token. Parameters to pass to the API must be in the Body and the variable we are interested in to pass are **roomId** , **text** and **markdown**
 
 ## Test your workflow
 

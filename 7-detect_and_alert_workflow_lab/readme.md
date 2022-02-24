@@ -80,9 +80,9 @@ It will completely emulate the Cisco Secure Endpoint behavior but the counterpar
 
 API Keys are :
 
-AMP_API_KEY = 12345678-4f95-43d5-908d-7a7d41ad385z
+- AMP_API_KEY = 12345678-4f95-43d5-908d-7a7d41ad385z
 
-AMP_CLIENT_ID = defg26458064a05f1faz
+- AMP_CLIENT_ID = defg26458064a05f1faz
 
 ### Use NGROK to make the simulator exposed on the INTERNET
 
@@ -134,6 +134,7 @@ Add a **client name**, select **all scopes** and click on the **Add New Client**
 
 Save the **client-id** and **client-password** somewhere. 
 
-## STEP 0 - The basic python flask template (app_0.py )
+## Next Step - Create your workflow
 
+Click on this link to go to next step
 
