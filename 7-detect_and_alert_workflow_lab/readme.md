@@ -1,0 +1,139 @@
+# Introduction
+
+This article is a step by step tutorial that describes the creation of a SecureX automation Workflow.
+
+The goal is to share with readers all the details of the development of this workflow.
+
+The targeted audience is "beginners". So if you just discoverd SecureX Orchestration and you want to understand all the basics for creating a realistic automation workflow, then this tutorial is for you !.
+
+What is our goal ?
+
+We want the following behavior :
+
+- From the ribbon, and from the casebook manager
+- I want to copy and paste a SHA256 in the observable edit box ( this SHA256 is a malicious footprint )
+- Then I want to trigger from the pivot menu an SecureX Workflow named **which_host_are_infected_by_this_sha256**
+- And after a few seconds I want to receive into a Webex Team Room the list of the hostnames of all my infected machines.
+
+
+![](img/1.png )
+
+![](img/2.png )
+
+This realistic scenario would help any security administrators to know in less than 20 seconds if they had been infected by a malicious file, and which host must be repaired.
+
+## The workflow logic
+
+Here are the step thru which we will go thru to acheive our goal.
+
+The Security Backend is Cisco Secure Endpoint ( AMP4E ). This is the backend we will query in order to know if we are infected.
+
+The alerting system is Webex Team. And actually a Webex Team Bot.
+
+The workflow must be triggered from the pivot menu that appears when we click right on the sha256 value we put in a casebook.
+
+1. We must pass the sha256 value to the workflow
+2. We must check if the observable is a sha256 and nothing else and if is not empty.  We will use the SecureX Threat Response inspect API for this. And for this we must ask for an authentication token to SecureX.
+3. If the observable is valid an not empty then we will query Cisco Secure Endpoint to get the list of all endpoints that had an security event for the sha256.
+4. Then we will parse the JSON result we received from Cisco Secure Endpoint. We will extract infected machine hostnames
+5. We will then built a text message to be sent into our alert webex team room.
+6. We will send the resulting message webex team.
+
+## Prerequisits
+
+To be able to create this workflow example you need.
+
+- A Cisco Secure Account . No need to have protected machines attached to it as we are going to use AMP4E demo data.
+- A Webex Team Account
+- A SecureX Account. If you don't have one, then you can use Cisco DLCOUD SecureX Demos.  Go to cisco dcloud ( https://dcloud[.]cisco[.]com) then go to **catalog** and search for **Cisco SecureX Orchestration V1 - Instant Demo** and click on the **view** button. A good practice before going to the lab will be to switch your browser into the incognito ( private window )
+
+## Cisco Secure Endpoint - generate an API Key
+
+From the Cisco Secure Endpoint dasboard select **Accounts** on the top right menu. Then click on **API Credentials**.
+
+Then click on the **New API credential** on top right.
+
+Give a **name**, select **Read & Write**
+
+![](img/4.png )
+
+![](img/5.png )
+
+Click on **Create** and don't forget to save somewhere **Client-id** and **Client_API_Key_**.
+
+## Cisco Secure Endpoint - activate Demo Datas
+
+Our workflow example uses AMP4E demo data. So we have to activate ( or refresh ) these demo data into our Cisco Secure Console.
+
+![](img/3.png )
+
+
+## Cisco Secure Endpoint simulator
+
+If you don't have any Cisco Secure Endpoint console, use the simulator.
+
+The goal of this simulator is to help you to develop your SecureX workfow without the need to have a Cisco Secure Endpoint account.
+
+It will completely emulate the Cisco Secure Endpoint behavior but the counterpart is that it is limited only to the sha256 given in example. And second you must expose it on the INTERNET in order to make SecureX able to interact with it. For acheiving this, NGROK is an awesome solution for lab.
+
+[Go to this link](https://github.com/pcardotatgit/python_challenges/tree/master/Preparation_challenges_for_Threat_Hunting_Mission/6-AMP_Threat_Hunting/amp_simulator) in order to get the simulator have have instructions for using it.
+
+API Keys are :
+
+AMP_API_KEY = 12345678-4f95-43d5-908d-7a7d41ad385z
+
+AMP_CLIENT_ID = defg26458064a05f1faz
+
+### Use NGROK to make the simulator exposed on the INTERNET
+
+
+For the purpose of this lab, we need to make our Secure EndPpoint backend simulator reachable by SecureX. We need to expose it on the INTERNET.
+
+**NGROK** is a wonderful tool for doing that in minutes. 
+
+NGROK is going to expose a public URL on the INTERNET and built a tunnel between this public location and the Relay Module which work within your laptop.
+
+![](img/9.png )
+
+### Install NGROK
+
+https://ngrok.com/download
+
+![](img/7.png )
+
+Open a new CMD console window.  Change directory to the folder where you unzipped ngrok and start it thanks the following command.
+
+    cd {ngrok directory}
+    ngrok http 4000
+
+**The port number to use is 4000 !**
+
+![](img/8.png )
+
+Copy the NGROK FQDN that was assigned to you ( it will remain available during 7 hours ), we will used it in SecureX
+
+Test again your Relay Module with to Postman and now use the NGROK Relay Module FQDN
+
+Send a POST request to :
+
+    https://ngrok_relay_module_fqdn/health
+
+Perfect,  We are ready now to go to the next step that is to start the SecureX Integration.
+
+## SecureX generate Threat Response API token
+
+In our scenario, we will use the Threat Response **inspect** API in order to check that the observable type we pass from the ribbon is a SHA256. For this reason we need to create API credential.
+
+For this, from the SecureX landing page, go to **administration** on top right menu, then select **API Client** on the left menu, then click on the **Generate API Client**  button.
+
+![](img/10.png )
+
+Add a **client name**, select **all scopes** and click on the **Add New Client** Button.
+
+![](img/11.png )
+
+Save the **client-id** and **client-password** somewhere. 
+
+## STEP 0 - The basic python flask template (app_0.py )
+
+
