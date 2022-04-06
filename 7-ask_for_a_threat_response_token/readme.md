@@ -125,7 +125,7 @@ We need :
 
 This activity is the one that will query the SecureX Threat Response API to ask for an Bearer Token.
 
-On the activity panel on the left, search for **http requests** and drag and drop the activity within the canvas.
+On the activity panel on the left, search for **http request** and drag and drop the activity within the canvas.
 
 No inputs are needed for this activity. By default it will use the workflow target and use the Basic Authentication we defined for this target.
 
@@ -175,7 +175,7 @@ Next step is to extract the token from the JSON result
 
 ## The JSON Path Query activity
 
-Go to the activity panel on the left and serch for **JSON Path Query** and drag and drop the found activity into the canvas just after the first http requests activity.
+Go to the activity panel on the left and serch for **JSON Path Query** and drag and drop the found activity into the canvas just after the first http request activity.
 
 This activity extract the token value from the JSON result above.
 
@@ -189,7 +189,7 @@ Define this activity like the following way.
 
 ![](img/23.png)
 
-We have to select a JSON Source to parse. And this source is the output of the first http requests acitivity.
+We have to select a JSON Source to parse. And this source is the output of the first http request acitivity.
 
 In the **Source JSON to Query** textarea box click on the hashtag icon in order to launch the variable browser.
 
@@ -270,4 +270,4 @@ We are ready to test the whole workflow. Just Run it and have a look the the res
 Then the **PAT_CTR_TOKEN** can be used during 10 minutes into any workflow that need it.
 
 
-#Congratulation you have reached the end of this tutorial
+# Congratulation you have reached the end of this tutorial
