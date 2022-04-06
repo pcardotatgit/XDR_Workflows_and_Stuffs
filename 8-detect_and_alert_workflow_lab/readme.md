@@ -30,18 +30,18 @@ The Security Backend is Cisco Secure Endpoint ( AMP4E ). This is the backend we 
 
 The alerting system is Webex Team. And actually a Webex Team Bot.
 
-The workflow must be triggered from the pivot menu that appears when we click right on the sha256 value we put in a casebook.
+The workflow must be triggered from the pivot menu that appears when we right click on the sha256 value we put in a casebook.
 
 1. We must pass the sha256 value to the workflow
 2. We must check if the observable is a sha256 and nothing else and if is not empty.  We will use the SecureX Threat Response inspect API for this. And for this we must ask for an authentication token to SecureX.
-3. If the observable is valid an not empty then we will query Cisco Secure Endpoint to get the list of all endpoints that had an security event for the sha256.
-4. Then we will parse the JSON result we received from Cisco Secure Endpoint. We will extract infected machine hostnames
+3. If the observable is valid an not empty then we will query Cisco Secure Endpoint to get the list of all endpoints that had any security events which invovled this sha256.
+4. Then we will parse the JSON result we received from Cisco Secure Endpoint. We will extract all infected machine hostnames
 5. We will then built a text message to be sent into our alert webex team room.
-6. We will send the resulting message webex team.
+6. We will send the resulting message to the Alert Webex Team Room.
 
 ## Prerequisits
 
-To be able to create this workflow example you need.
+To be able to create this workflow we need.
 
 - A Cisco Secure Account . No need to have protected machines attached to it as we are going to use AMP4E demo data.
 - A Webex Team Account
@@ -68,7 +68,7 @@ Our workflow example uses AMP4E demo data. So we have to activate ( or refresh )
 ![](img/3.png )
 
 
-## Cisco Secure Endpoint simulator
+## If you don't have Cisco Secure Endpoint then use the Secure Endpoint simulator
 
 If you don't have any Cisco Secure Endpoint console, use the simulator.
 
@@ -76,7 +76,7 @@ The goal of this simulator is to help you to develop your SecureX workfow withou
 
 It will completely emulate the Cisco Secure Endpoint behavior but the counterpart is that it is limited only to the sha256 given in example. And second you must expose it on the INTERNET in order to make SecureX able to interact with it. For acheiving this, NGROK is an awesome solution for lab.
 
-[Go to this link](https://github.com/pcardotatgit/python_challenges/tree/master/Preparation_challenges_for_Threat_Hunting_Mission/6-AMP_Threat_Hunting/amp_simulator) in order to get the simulator have have instructions for using it.
+[Go to this link](https://github.com/pcardotatgit/python_challenges/tree/master/Preparation_challenges_for_Threat_Hunting_Mission/6-AMP_Threat_Hunting/amp_simulator) in order to get the simulator. Have a look to the instructions in order to use it.
 
 API Keys are :
 
@@ -87,7 +87,7 @@ API Keys are :
 ### Use NGROK to make the simulator exposed on the INTERNET
 
 
-For the purpose of this lab, we need to make our Secure EndPpoint backend simulator reachable by SecureX. We need to expose it on the INTERNET.
+For the purpose of this lab, we need to make our Secure Endpoint backend simulator reachable by SecureX. We need to expose it on the INTERNET.
 
 **NGROK** is a wonderful tool for doing that in minutes. 
 
@@ -112,11 +112,11 @@ Open a new CMD console window.  Change directory to the folder where you unzippe
 
 Copy the NGROK FQDN that was assigned to you ( it will remain available during 7 hours ), we will used it in the SecureX workflow.
 
-Test the simulator with Postman and now use the NGROK FQDN
+Test the simulator with Postman and use the NGROK FQDN for this.
 
 Send a POST request to :
 
-    https://ngrok_relay_module_fqdn/test
+    https://ngrok_simulator_fqdn/test
 
 Perfect,  We are ready now to go to the next step that is to start the SecureX Integration.
 
