@@ -137,7 +137,7 @@ Save the **client-id** and **client-password** somewhere.
 ## What to do Next ?
 
 * 1/ [Create a webex tem bot](https://github.com/pcardotatgit/Create_a_Webex_Team_Bot)
-* 2/ [ Create the Webex Team Target and Send to Webex Team atomic workflow ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/1-Create_a_Webex_Team_Bot_Target)
+* 2/ [ Create the Webex Team Target and Send messges to an alert Webex Team Room ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/1-Create_a_Webex_Team_Bot_Target)
 
 * 3/ [ Prepare interactions with Securex Threat Response  ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/7-ask_for_a_threat_response_token)
 * 4/ [ Create the automation workflow  ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/8-detect_and_alert_workflow_lab/step-2)
