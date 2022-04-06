@@ -97,7 +97,7 @@ In order to get the list of Network Objects, we are going to use the following A
 
 ![](img/fdm-9.png)
 
-**Important Remark ! : There is a space between Beare and the Token value !**
+**Important Remark ! : There is a space between Bearer and the Token value !**
 **OK You are good to go !**
 
 If you run your workflow, then the result wil be stored into **output.Body** of the **HTTP request** activity.

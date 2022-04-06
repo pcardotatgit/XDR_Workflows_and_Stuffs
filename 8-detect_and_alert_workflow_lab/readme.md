@@ -16,7 +16,7 @@ We want the following behavior :
 - And after a few seconds I want to receive into a Webex Team Room the list of the hostnames of all my infected machines.
 
 
-![](img/1.png )
+![](img/13.png )
 
 ![](img/2.png )
 
@@ -110,13 +110,13 @@ Open a new CMD console window.  Change directory to the folder where you unzippe
 
 ![](img/8.png )
 
-Copy the NGROK FQDN that was assigned to you ( it will remain available during 7 hours ), we will used it in SecureX
+Copy the NGROK FQDN that was assigned to you ( it will remain available during 7 hours ), we will used it in the SecureX workflow.
 
-Test again your Relay Module with to Postman and now use the NGROK Relay Module FQDN
+Test the simulator with Postman and now use the NGROK FQDN
 
 Send a POST request to :
 
-    https://ngrok_relay_module_fqdn/health
+    https://ngrok_relay_module_fqdn/test
 
 Perfect,  We are ready now to go to the next step that is to start the SecureX Integration.
 
