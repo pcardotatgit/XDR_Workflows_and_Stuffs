@@ -140,5 +140,6 @@ Save the **client-id** and **client-password** somewhere.
 * 2/ [ Create the SecureX Webex Team Target and Send messages to an alert Webex Team Room ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/1-Create_a_Webex_Team_Bot_Target)
 
 * 3/ [ Prepare interactions with Securex Threat Response  ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/7-ask_for_a_threat_response_token)
-* 4/ [ Create the automation workflow  ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/8-detect_and_alert_workflow_lab/step-2)
+* 4/ [ Create a Secure Endpoint Target ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/4-Create_an_AMP_Target)
+* 5/ [ Create the automation workflow  ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/8-detect_and_alert_workflow_lab/step-2)
 
