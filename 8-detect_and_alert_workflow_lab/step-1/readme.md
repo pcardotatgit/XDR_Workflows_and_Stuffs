@@ -20,7 +20,7 @@ Click on the link Bellow :
 
 # NEXT STEP : Interact with Cisco Threat Response
 
-In our workflow, we will interact with SecureX Threat Response for requesting some security services.  Actually we are going to use the **inpect** Threat response API that is a magic API that extract from any row text content ( security logs, blog posts ) all the observable it contains and their types.
+In our workflow, we will interact with SecureX Threat Response for requesting some security services.  Actually we are going to use the **inspect** Threat response API that is a magic API that extract from any row text content ( security logs, blog posts ) all the observable it contains and their types.
 
 In our example we will use it only to check if the type of the observable passed to the workflow is a sha256 or not. For doing this, we need to interact with Threat Response.
 

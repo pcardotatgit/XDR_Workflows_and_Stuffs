@@ -137,6 +137,8 @@ The result of this request will be a JSON result available in the output body of
 
 ![](img/17.png)
 **HTTP Request Section** :
+
+( **Remark :** Host/IPAddress will actually depend on your region ).
 ![](img/18.png)
 **Target Section** :
 ![](img/19.png)
