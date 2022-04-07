@@ -144,4 +144,4 @@ For information, if the Threat Response Token is not valid the the http status c
 
 It's up to you !
 
-[back to the Secure Endpoint lab](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/8-detect_and_alert_workflow_lab)
+[back to the detect_and_alert_workflow_lab](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/8-detect_and_alert_workflow_lab)
