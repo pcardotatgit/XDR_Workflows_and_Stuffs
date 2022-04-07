@@ -283,4 +283,4 @@ Then the **PAT_CTR_TOKEN** can be used during 10 minutes into any workflow that 
 
 The next step is to use the Authentication Token in order to query Threat Response for any relevant service.
 
-[example of how to interact with Threat Respoonse](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/7-ask_for_a_threat_response_token/inspect.md)
+[example of how to interact with Threat Response](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/7-ask_for_a_threat_response_token/inspect.md)
