@@ -143,3 +143,5 @@ For information, if the Threat Response Token is not valid the the http status c
 **TODO** : add to your workflow an activity that reads the content of any Security blog post and send it to your parser
 
 It's up to you !
+
+[back to the Secure Endpoint lab](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/8-detect_and_alert_workflow_lab)
