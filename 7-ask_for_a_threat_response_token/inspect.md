@@ -122,24 +122,24 @@ Dont' hesitate to try again with a very big text content or big files log file.
 
 # Improvement
 
-Here are some improvments 
+Here are some improvements examples. Try to add them by yourself.
 
 **1/ Manage the Authentication Token expiration**
 
-TODO : automate the Threat Response renewal if this one expires.
+**TODO** : automate the Threat Response renewal if this one expires.
 
 For information, if the Threat Response Token is not valid the the http status code will be 401.
 
 **2/ double quotes into the raw_text input will make the workflow fail**
 
-TODO : Manage this situation into your workflow
+**TODO** : Manage this situation into your workflow
 
 **3/ JSON PARSING**
 
-TODO : Parse the Threat Response JSON result and create a SecureX table from it.
+**TODO** : Parse the Threat Response JSON result and create a SecureX table from it.
 
 **4/ Imagine that you want to analyse the content of a security log file**
 
-TODO : add to your workflow an activity that reads the content of any Security blog post and send it to your parser
+**TODO** : add to your workflow an activity that reads the content of any Security blog post and send it to your parser
 
 It's up to you !
