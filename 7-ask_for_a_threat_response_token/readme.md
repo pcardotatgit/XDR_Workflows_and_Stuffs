@@ -46,15 +46,15 @@ Step 1 : from the SecureX main page, click on the question **Administration** li
 ![](img/1.png)
 
 
-Step 3 : Click on **API Client** on the left menu 
+Step 2 : Click on **API Client** on the left menu 
 
 ![](img/3.png)
 
-Step 4 : Give a name to your API client, **Select All** scopes and click on the **Add New Client**  button.
+Step 3 : Give a name to your API client, **Select All** scopes and click on the **Add New Client**  button.
 
 ![](img/4.png)
 
-Step 5 - Copy and save somewhere the client-ID and client-Password. This is the only opportunity to see the client-password in clear text !
+Step 4 - Copy and save somewhere the client-ID and client-Password. This is the only opportunity to see the client-password in clear text !
 
 ![](img/5.png)
 
@@ -64,7 +64,7 @@ That's it !!
 
 # SecureX Workflow
 
-Now let's create an atomic workflow that will ask an authentication token and that will store into a SecureX Global variable.
+Now let's create an atomic workflow that will ask to SecureX Threat Response an authentication token. And that will store this token into a SecureX Global variable.
 
 ## Create a Threat Response Target
 
@@ -84,9 +84,12 @@ I called it : **CTR Target for access token**.
 ![](img/11.png)
 ![](img/12.png)
 
+
+( Notice : Host/IPAddress depends on your region )
+
 ## Create a global variable that will store the Threat Response Token
 
-Step 2 - In orchestration, go to variables on the left and add a new global variable. Give it a name
+In orchestration, go to variables on the left and add a new global variable. Give it a name
 
 - Variable name : PAT_CTR_TOKEN
 - Type : Secure String
@@ -117,9 +120,9 @@ Drag and drop them from the activity panels on the left and put them one after t
 
 We need :
 
-- 1. an HTTP request activity
-- 2. a JSON Path Query activity
-- 3. a set variable activity
+- 1/ an HTTP request activity
+- 2/ a JSON Path Query activity
+- 3/ a set variable activity
 
 ## The HTTP REQUEST ACTIVITY
 
@@ -131,6 +134,8 @@ No inputs are needed for this activity. By default it will use the workflow targ
 
 The result of this request will be a JSON result available in the output body of the activity.
 
+Scroll Down to the **General** section.
+
 ![](img/16.png)
 
 **Custom Header Section** :
@@ -138,7 +143,8 @@ The result of this request will be a JSON result available in the output body of
 ![](img/17.png)
 **HTTP Request Section** :
 
-( **Remark :** Host/IPAddress will actually depend on your region ).
+Select the Target
+
 ![](img/18.png)
 **Target Section** :
 ![](img/19.png)
@@ -271,5 +277,10 @@ We are ready to test the whole workflow. Just Run it and have a look the the res
 
 Then the **PAT_CTR_TOKEN** can be used during 10 minutes into any workflow that need it.
 
+## Congratulation you have reached the end of this tutorial
 
-# Congratulation you have reached the end of this tutorial
+# Next Step
+
+The next step is to use the Authentication Token in order to query Threat Response for any relevant service.
+
+[Let's have a look to and example](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/7-ask_for_a_threat_response_token/inspect.md)
