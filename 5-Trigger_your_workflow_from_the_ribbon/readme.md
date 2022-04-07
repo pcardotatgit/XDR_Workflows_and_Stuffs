@@ -1,4 +1,4 @@
-# Trigger You SecureX Workflow from the Ribbon
+# Trigger Your SecureX Workflow from the Ribbon
 
 This section is about how to trigger Your workflow from the SecureX Ribbon or the from Pivot Menu.
 

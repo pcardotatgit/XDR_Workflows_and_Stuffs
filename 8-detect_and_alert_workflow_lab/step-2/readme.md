@@ -28,7 +28,7 @@ This is very important because this is the name of the variable that will be aut
 
 ![](img/19.png)
 
-Notice that there another variable name which act the same which is **observable_type**. And this one will contains the type of the observable passed to the worfklow.
+Notice that there is another variable name which act the same which is **observable_type**. And this one will contains the type of the observable passed to the worfklow.
 
 Now let's create our workflow.
 
