@@ -1,8 +1,8 @@
-# Let's parse some logs
+# Let's parse some logs thanks to the Threat Response inspect API
 
-Let's take a nice parsing example as a next step after having ask to SecureX Threat Response for a bearer token.
+Let's take a nice parsing example as a next step after having asked to SecureX Threat Response for a bearer token.
 
-Among all nice security services Threat Response provide us with we have the **inspect** API that is a very powerfull API which can parse for us very big raw text data, and will extract from it all the observables and their types.
+Among all nice security services Threat Response provides us with we have the **inspect** API that is a very powerfull API which can parse for us very big raw text data, and will extract from it all the observables it contains and their types.
 
 Do you see what we can do with this ?
 
@@ -10,7 +10,9 @@ We can ask to SecureX to tell us which observables contained in any security log
 
 Let's do it :-)
 
-we have some logs here in the file named **log/log**. You can have a look to this file content.
+We have in this github folder a text file named **log.log**. It contains some logs.Have a look to it.  We will use it as an exemple.
+
+But hesistate to use any other text files !!
 
 ## Create a new automation workflow
 
@@ -44,14 +46,17 @@ Now on the activity panel on the left click on the activity icon on the top left
 
 This activity will use a target that is Threat Response.
 
+This target is almost the same as the one we used for asking a token to Threat Response. Except that in this new one we will set the **No Account Key** to **True**. Because the authentication will based on a Bearer Token we will pass into the http header.
+
 Create an **HTTP Endpoint** target. Give it a name and define it this way :
 
     No Account Key : True
     protocol : HTTPS
     Host/IPAddress : visibility.eu.amp.cisco.com
 
+Notice : Host/IPAddress actually depends on your SecureX Tenant's region.
+
 ![](img/34.png)
-Notice : Host/IPAddress actually depends on your region.
 
 ![](img/35.png)
 
@@ -90,7 +95,7 @@ Put your cursor just after the space and then click on the hashtag icon in order
 
 Then search for the SecureX Global variable where you store the Threat Response token ( PAT_CTR_TOKEN in my case).
 
-So what we understand here is that this API and, anyother Threat Responses APIs, uses the Bearer Authentication Token we requested in the first activity.
+So what we understand here is that this API and any other Threat Responses APIs, uses the Bearer Authentication Token we requested in the first activity.
 
 This Beearer Token is passed to the Threat Response API thru the http header. It will be valid 10 minutes
 
@@ -102,13 +107,13 @@ Our workflow is ready for test !
 
 Click on the **RUN** button and check the result
 
-When the workflow starts, then it prompted us to enter the raw text into a textarea box.  At this point you can copy the whole content of the **log.log** located in the github repository, and paste it into the textarea box. Or you can copy and paste any other text content that contains observables.
+When the workflow starts, then it prompted us to enter the raw text into a textarea box.  At this point you can copy the whole content of the **log.log** file located in the github repository, and paste it into the textarea box. Or you can copy and paste any other text content that contains observables.
 
 Then click on the **RUN** button.
 
 ![](img/39.png)
 
-Every activities turned green, meaning that everything is Okay. Click on the last activity ( the http request acitvity ) and check the result of this activity on the right panel.
+Every activities turned green, meaning that everything was Okay. Click on the last activity ( the http request acitvity ) and check the result of this activity on the right panel.
 
 The answer to the Threat Response inspect API call is the body of this answer.
 
@@ -118,9 +123,9 @@ When we look deeper into it we see that this is a JSON result that contains all 
 
 ![](img/40.png)
 
-Dont' hesitate to try again with a very big text content or big files log file.
+Dont' hesitate to try again with a very big text content or big log file from any security solution.
 
-# Improvement
+# Improvements or Next Steps
 
 Here are some improvements examples. Try to add them by yourself.
 

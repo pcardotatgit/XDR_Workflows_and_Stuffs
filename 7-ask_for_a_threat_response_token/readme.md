@@ -107,7 +107,7 @@ Go to workflow and click on the **New Workflow** button.
 
 Go to the workflow properties on the right and give to it a meaningful name. Add a detailled description.
 
-I named mine **CTRGenerateAccesTOKEN_PAT**... Why not :-) ?
+I named mine **CTRGenerateAccesToken_PAT**... Why not :-) ?
 
 Tips : I personnaly add the **_PAT** keyword to all my workflow names. It helps me to easily find them in my workflow libray. 
 And the **category** value helps as well. you can create a n ew category with your name for example in the admin menu of the SecureX Orchestration.
@@ -151,6 +151,11 @@ Scroll Down to the **General** section.
 
 ![](img/18.png)
 **Custom Header Section** :
+
+Content-type : application/x-www-form-urlencoded
+
+Accept : JSON
+
 ![](img/19.png)
 
 **DONE**
@@ -163,7 +168,7 @@ Click on the run Button on the top right
 
 And check in the run that every activity goes to green. That means that the activity was successful.
 
-If the workflow stop somewhere you will see that the activity where there the issue will turn in red. Then Click on it and have a look to the activity results on the rigth panel.
+If the workflow stop somewhere you will see that the activity where there the issue is, will turn red. Then Click on this activity and have a look to it's results on the rigth panel.
 
 If everything went well you can watch the right panel and you will see the result of the workflow execution.
 
@@ -185,13 +190,13 @@ We can see that the token type is **bearer** and the token value is assigned to 
 
 Next step is to extract the token from the JSON result
 
-## The JSON Path Query activity
+## ABOUT THE JSON Path Query activity
 
 Go to the activity panel on the left and serch for **JSON Path Query** and drag and drop the found activity into the canvas just after the first http request activity.
 
 This activity extract the token value from the JSON result above.
 
-It need as an input the JSON result we got in the prior activity. And it must output it's result into a variable that is an activity variable.
+It needs as an input the JSON result we got in the prior activity. And it must output it's result into a variable that is an activity variable.
 
 Define this activity like the following way.
 
@@ -223,9 +228,9 @@ Why did we use this path filter ?.
 
 Because this is the full path to the key.value we want to extract from the JSON result.
 
-Let's me explain you that ion the coming section.
+Let's me explain you that in the coming section.
 
-### How to quickly parse JSON result ?
+### How to quickly parse JSON results withing SecureX ?
 
 
 Here is a nice tip about how to identify quickly what is the exact value of the **JSONPATH Query** filter we have to use.
@@ -234,9 +239,11 @@ Easy ....
 
 1. Copy the whole JSON result ( the example we have above )
 2. Go to the JSON Parser online tool : http://jsonpathfinder[.]com
-3. Locate the variable you want to extract and copy it's full path
-4. in the path result we got from jsonpathfinder, replace the first letter that is an **x** by **$**. And here we go !
-5. paste the **$.xxxx...path....** final filter into the JSONPATH Query edit box of the JSON Path Query activity.
+3. Paste the JSON data to parse on the left panel of the tool.
+4. You will see the tree structure appearing in the right panel. This one iw now easy to read for humans.
+5. Locate the variable you want to extract and copy it's full path
+6. in the path result we got from jsonpathfinder, replace the first letter that is an **x** by **$**. And here we go !
+7. paste the **$.xxxx...path....** final filter into the JSONPATH Query edit box of the JSON Path Query activity.
 
 And that's it !
 
@@ -244,11 +251,11 @@ And that's it !
 
 **Notice**.  I will show you in another tutorial how to parse more complex JSON data structure.
 
-The result of this activity is to store temporarly into a JSON Path Query output variable the bearer access token.
+The expected result of this activity is to store temporarly the bearer access token into a JSON Path Query output variable.
 
-## The set variable activity
+## ABOUT THE SET VARIABLE activity
 
-The goal of this activity is to uopdate the value of the **PAT_CTR_TOKEN** global variable with the content of the output ( access_token ) of the previous JSON Path Query activity.
+The goal of this activity is to update the value of the **PAT_CTR_TOKEN** global SecureX variable with the content of the output ( access_token ) of the previous JSON Path Query activity. This is the active Threat Reponse Token that we will use in all worflows that queries Threat Response.
 
 Go to the activity panel on the left and search for **set variables**. Drag and drop the found activity into your canvas just bellow the JSON Path Query Activity.
 
@@ -282,6 +289,18 @@ We are ready to test the whole workflow. Just Run it and have a look the the res
 Then the **PAT_CTR_TOKEN** can be used during 10 minutes into any workflow that need it.
 
 ## Congratulation you have reached the end of this tutorial
+
+# Improvements 
+
+We might have several workflows that will use the Global SecureX Threat Response Token.
+
+And if we ask for a new token every time we run a workflow, then first of off it is not really efficient, and second we might break some workflow executions because another workflow renewed the Threat Reponses Authentication Token !
+
+TODO : Imagine how to add an activity that checks first if the Threat Response Token is valid or not, before asking for a new token !
+
+A easy way to do this is to try to send a REST API call to Threat Response and check the status code.
+
+It's up to you !
 
 # Next Step
 
