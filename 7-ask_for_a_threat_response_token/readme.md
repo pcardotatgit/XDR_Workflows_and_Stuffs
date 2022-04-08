@@ -263,7 +263,7 @@ Go to the activity panel on the left and search for **set variables**. Drag and 
 
 Give a meaningful name to this activity and a description.
 
-This activity is very simple , it allows us to assign to a variable we are going to select, the value of another variable.
+The **set variable** activity is very simple , it allows us to assign to a variable we must select into the variable browser, the value of another variable.
 
 And what we are going to do is to assigne the the **PAT_CTR_GLOBAL** variable the content of the **JSON Path Query** activity **access_token** variable. Which is our final goal !!
 
@@ -294,7 +294,7 @@ Then the **PAT_CTR_TOKEN** can be used during 10 minutes into any workflow that 
 
 We might have several workflows that will use the Global SecureX Threat Response Token.
 
-And if we ask for a new token every time we run a workflow, then first of off it is not really efficient, and second we might break some workflow executions because another workflow renewed the Threat Reponses Authentication Token !
+And if we ask for a new token every time we run a workflow, then first of all, it is not really efficient, and second we might break some workflow executions because another workflow renewed the Threat Reponses Authentication Token !
 
 TODO : Imagine how to add an activity that checks first if the Threat Response Token is valid or not, before asking for a new token !
 
