@@ -4,15 +4,19 @@ This article is a step by step tutorial that describes the creation of a SecureX
 
 The goal is to share with readers all the details of the development of this workflow.
 
-The targeted audience is "beginners". So if you just discoverd SecureX Orchestration and you want to understand all the basics for creating a realistic automation workflow, then this tutorial is for you !.
+The targeted audience is "beginners". So if you just discoverd SecureX Orchestration and you want to understand all the basics needed for creating a realistic automation workflow, then this tutorial is for you !.
 
-What is our goal ?
+## What is our goal ?
+
+Imagine that one day in the morning you wake up and suddenly you need this !
+
+A tool that tells you if you are infected by a very bad file that came out yesterday during the night. And if yes... Who is infected ?
 
 We want the following behavior :
 
-- From the ribbon, and from the casebook manager
+- From the ribbon, and from the casebook manager. ( And later from Webex Team )
 - I want to copy and paste a SHA256 in the observable edit box ( this SHA256 is a malicious footprint )
-- Then I want to trigger from the pivot menu an SecureX Workflow named **which_host_are_infected_by_this_sha256**
+- Then I want to trigger from the pivot menu a SecureX Workflow named **which_host_are_infected_by_this_sha256**
 - And after a few seconds I want to receive into a Webex Team Room the list of the hostnames of all my infected machines.
 
 
@@ -24,20 +28,22 @@ This realistic scenario would help any security administrators to know in less t
 
 ## The workflow logic
 
-Here are the step thru which we will go thru to acheive our goal.
+Here are the steps thru which we will go thru to acheive our goal.
 
 The Security Backend is Cisco Secure Endpoint ( AMP4E ). This is the backend we will query in order to know if we are infected.
 
-The alerting system is Webex Team. And actually a Webex Team Bot.
+The alerting system is Webex Team. And actually a dedicated Webex Team Room.
 
 The workflow must be triggered from the pivot menu that appears when we right click on the sha256 value we put in a casebook.
 
 1. We must pass the sha256 value to the workflow
-2. We must check if the observable is a sha256 and nothing else and if is not empty.  We will use the SecureX Threat Response inspect API for this. And for this we must ask for an authentication token to SecureX.
+2. We must check if the observable is a valid sha256.  
 3. If the observable is valid an not empty then we will query Cisco Secure Endpoint to get the list of all endpoints that had any security events which invovled this sha256.
 4. Then we will parse the JSON result we received from Cisco Secure Endpoint. We will extract all infected machine hostnames
 5. We will then built a text message to be sent into our alert webex team room.
 6. We will send the resulting message to the Alert Webex Team Room.
+
+Nice isn't it ? 
 
 ## Prerequisits
 
@@ -45,7 +51,19 @@ To be able to create this workflow we need.
 
 - A Cisco Secure Account . No need to have protected machines attached to it as we are going to use AMP4E demo data.
 - A Webex Team Account
-- A SecureX Account. If you don't have one, then you can use Cisco DLCOUD SecureX Demos.  Go to cisco dcloud ( https://dcloud[.]cisco[.]com) then go to **catalog** and search for **Cisco SecureX Orchestration V1 - Instant Demo** and click on the **view** button. A good practice before going to the lab will be to switch your browser into the incognito ( private window )
+- A Account into a SecureX tenant with admin rights. 
+
+If you don't have a SecureX account, then you can use Cisco DLCOUD SecureX Demos.  
+
+Open your browser and a good practice before going to the lab will be to switch your browser into the incognito ( private window ).
+
+Then go to cisco dcloud ( https://dcloud[.]cisco[.]com) then go to **catalog** and search for **Cisco SecureX Orchestration V1 - Instant Demo** and click on the **view** button.  The lab will start and will be available for you for 2 hours.
+
+If Your company has a SecureX tenant, then find who is the Super Admin of the tenant and ask him to invite you as a new admin in the tenant.
+
+If you don't have any Secure Endpoint tenant, don't worry we share with you an AMP4E simulator you can use for this lab.
+
+We need some API keys.  Let's start with that !
 
 ## Cisco Secure Endpoint - generate an API Key
 
@@ -120,7 +138,7 @@ Send a POST request to :
 
 Perfect,  We are ready now to go to the next step that is to start the SecureX Integration.
 
-## SecureX generate Threat Response API token
+## SecureX Threat Response API token
 
 In our scenario, we will use the Threat Response **inspect** API in order to check that the observable type we pass from the ribbon is a SHA256. For this reason we need to create API credential.
 
@@ -141,5 +159,5 @@ Save the **client-id** and **client-password** somewhere.
 
 * 3/ [ Prepare interactions with Securex Threat Response  ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/7-ask_for_a_threat_response_token)
 * 4/ [ Create a Secure Endpoint Target ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/4-Create_an_AMP_Target)
-* 5/ [ Create the automation workflow  ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/8-detect_and_alert_workflow_lab/step-2)
+* 5/ [ Ready to Create the main automation workflow !! ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/8-detect_and_alert_workflow_lab/step-2)
 

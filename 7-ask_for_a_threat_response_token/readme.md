@@ -10,11 +10,13 @@ Threat Response is pure power !!  and it is fully based on APIs.
 
 The Threat Response APIs contains a very big set of APIs for a lot of very useful purposes.
 
-Threat Hunting is probably the first Threat Response API service we use within SecureX. The Threat Hunting relation graph is an example of application that uses Threat Reponse APÏs. And we can consider Threat Response enrich APIs as an access to the TALOS backend and other intergrated Threat Intelligences.
+Threat Hunting is probably the first Threat Response API service we use within SecureX. The Threat Hunting relation graph is an example of application that uses Threat Reponse APÏs. And we can consider Threat Response enrich APIs as an access to the TALOS backend and other integrated Threat Intelligences.
 
-But we have as well a lot of other APIs which can invoke  incident management services, casebooks, notifications, vulnérabilities , attacke campaigns, judgments , verdicts, feeds, databases and other services !!!
+But we have as well a lot of other APIs which can invoke  incident management services, casebooks, notifications, vulnérabilities , attack campaigns, judgments , verdicts, feeds, databases and other services !!!
 
-To conclude on this SecureX Threat Response is one of the most powerful security free platform of the market.
+What is great with those services is that they automatically do a lot of operations in the backend for you. That means the you just have to ingest into these services data collected from your investigation activities ( log, telemetry, observables,.. ) and everything will be at least linked together within SecureX.
+
+To conclude on this, thanks to it's APIs SecureX Threat Response is one of the most powerful security free platform of the market.
 
 To conclude, we will interact with SecureX Threat Response APIs all the time.
 
@@ -62,11 +64,11 @@ Step 4 - Copy and save somewhere the client-ID and client-Password. This is the 
 
 That's it !!
 
-# SecureX Workflow
+# Create a SecureX Workflow
 
 Now let's create an atomic workflow that will ask to SecureX Threat Response an authentication token. And that will store this token into a SecureX Global variable.
 
-## Create a Threat Response Target
+## 1- We need a Threat Response Target
 
 Step 1 - In orchestration, go to targets on the left menu and create a new **HTTP Endpoint** target.
 
@@ -87,7 +89,7 @@ I called it : **CTR Target for access token**.
 
 ( Notice : Host/IPAddress depends on your region )
 
-## Create a global variable that will store the Threat Response Token
+## 2 - We need a global variable that will store the Threat Response Token
 
 In orchestration, go to variables on the left and add a new global variable. Give it a name
 
@@ -97,7 +99,7 @@ In orchestration, go to variables on the left and add a new global variable. Giv
 
 ![](img/7.png)
 
-## Create the workflow
+## 3 -  the workflow
 
 Go to workflow and click on the **New Workflow** button.
 
@@ -105,7 +107,10 @@ Go to workflow and click on the **New Workflow** button.
 
 Go to the workflow properties on the right and give to it a meaningful name. Add a detailled description.
 
-Tips : I personnaly add the **_PAT** keyword to all my workflow names. It helps me to easily find in my workflow libray. ANd the **category** value helps as well.
+I named mine **CTRGenerateAccesTOKEN_PAT**... Why not :-) ?
+
+Tips : I personnaly add the **_PAT** keyword to all my workflow names. It helps me to easily find them in my workflow libray. 
+And the **category** value helps as well. you can create a n ew category with your name for example in the admin menu of the SecureX Orchestration.
 
 ![](img/14.png)
 
@@ -124,7 +129,7 @@ We need :
 - 2/ a JSON Path Query activity
 - 3/ a set variable activity
 
-## The HTTP REQUEST ACTIVITY
+## ABOUT THE HTTP REQUEST ACTIVITY
 
 This activity is the one that will query the SecureX Threat Response API to ask for an Bearer Token.
 
@@ -138,15 +143,14 @@ Scroll Down to the **General** section.
 
 ![](img/16.png)
 
-**Custom Header Section** :
+**Target Section** : Select the Target you created prior.
 
 ![](img/17.png)
+
 **HTTP Request Section** :
 
-Select the Target
-
 ![](img/18.png)
-**Target Section** :
+**Custom Header Section** :
 ![](img/19.png)
 
 **DONE**
