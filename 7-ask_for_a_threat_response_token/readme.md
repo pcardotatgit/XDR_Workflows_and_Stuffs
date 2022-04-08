@@ -298,7 +298,7 @@ And if we ask for a new token every time we run a workflow, then first of all, i
 
 TODO : Imagine how to add an activity that checks first if the Threat Response Token is valid or not, before asking for a new token !
 
-A easy way to do this is to try to send a REST API call to Threat Response and check the status code.
+An easy way to do this is to try to send a REST API call to Threat Response and check the status code.
 
 It's up to you !
 
