@@ -13,7 +13,7 @@ Open the followiing online JSON validator tool JSONPATH FINDER :
 3. Paste the JSON data to parse on the left panel of the tool.
 4. You will see the tree structure appearing in the right panel. This one is now easy to read for humans.
 
-![](img/image-12.png)
+![](./img/image-12.png)
 
 On the right panel click on any item in the JSON result and look at the path edit box on the top of the panel. It contains the full path to the item.
 
@@ -27,7 +27,7 @@ Comeback to your workflow and in the left activity panel search for the **JSONPa
 
 Name it : **extract current temperature**
 
-![](img/image-14.png)
+![](./img/image-14.png)
 
 Click on the activity and on it's properties panel on the right go to the **JSON Query / Source JSON to Query** edit box.
 
@@ -37,7 +37,7 @@ Then open the SecureX variable browser by clicking on the hastag icon of the **S
 
 Then select the **Body** variable of the **GET JSON DATA FROM WEB SITE** activity.
 
-![](img/image-15.png)
+![](./img/image-15.png)
 
 Then scroll down to the **JSONPATH QUERIES** Section and click on the **Add** button
 
@@ -49,7 +49,7 @@ Easy ...
 
 Comeback to the JSONPath Finder online tool and in the right panel select the **tmp** item in the parsed data. Then copy the Path on the top of the panel.
 
-![](img/image-16.png)
+![](./img/image-16.png)
 
 You should have copied the following path :
 
@@ -67,12 +67,12 @@ This filter will extract the **tmp** item from the JSON Result and now we must a
 **Property Type : Integer**
 
 
-![](img/image-17.png)
+![](./img/image-17.png)
 
 
 Okay, Run the workflow and check the result ... Bingo !!
 
-![](img/image-18.png)
+![](./img/image-18.png)
 
 So the current temperature in Paris had been assign to a SecureX Variable. This variable is now available in the SecureX Variable browser and you can use it as an input into anyother activity in this workflow.
 
@@ -95,8 +95,8 @@ In order to understand why the filter must be the one we use, open the following
 
 here under other filter you can use
 
-![](img/image-19.png)
-![](img/image-20.png)
+![](./img/image-19.png)
+![](./img/image-20.png)
 
 Thanks to these Path Query filters we can do complex filtering with only one single filter.
 
