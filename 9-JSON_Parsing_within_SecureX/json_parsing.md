@@ -100,60 +100,11 @@ here under other filter you can use
 
 Thanks to these Path Query filters we can do complex filtering with only one single filter.
 
-### Now How to deal with collection ( list or dictionnary ) ?
+## Parsing Nested JSON
 
-We saw in the JSON result that we have some items that are list. It will be very common for us to deal with list when interacting with security solutions.
+The previous parsing method works very well for flat JSON data structures. Typically JSON files that contains several items with same keys and values.
 
-What we will usually do within a SecureX workflow with this will be to put the list we got from a JSONPath Query activity into a SecureX table, and then we can use a **For Each** activity to go to all item in the created list one by one.
-
-In our temperature JSON example, we understand that within the JSON result we have forcasts for the 5 coming days and for each days we have forcasts for every hours.
-
-So let's say that we want to extract temperatures for every hours of every coming days and we want to keep the result into a SecureX table ( rows = days, columns = hours ).
-
-How to do this ?
-
-Let's see how to do this 
-
-Go back to the **JSONPath Finder** and have a look to the JSON structure. After a few minutes wa can see something to do... parsing in two steps 
-
-- step 1 : get a list of each days
-- step 2 : for each days, get temperature of every hours
-
-Okay let's go ... 
-
-Go to your workflow and add another **JSONPath Query** activity and put it under the first one ( or add a parallel block an put both **JSONPath Query** into it). Name it **extract current temperature B**.
-
-This second **JSONPath Query** will be exactly the same as the first one, except the **JSONPath Query** filter that will be now : **$.***.  Assign the result to a variable named **RESULTB** and the type of this variable must be : **string**  !!!.
-
-![](img/image-21.png)
-
-And run your workkflow and have a look to the result in the run page :
-
-![](img/image-22.png)
-
-Copy the content of **RESULTB** and paste it into the left panel of the **JSONPath finder** tool. And actually you can parse it, that means that this is a valid JSON data structure . But from Securex perspective this is a **string** !!!.
-
-And we understand that we have a list with items. 
-
-![](img/image-23.png)
-
-In this item list, we don't care about items [0] and [1] but we want to keep all other items ( days ).
-
-How to select only days information from the JSON result.
-
-After having struggling some minutes with filters here some thing we can do.
-
-We can create a list of all dates that are the dates of the coming days. And use this list as a filter to select only "days" items and extract temperature for every hours.
-
-Next, go back into the workflow and modify the **JSONPath Query** filter of the **extract current temperature B** to : **$..date**.  
-
-Run the workflow and check the result. It must be something like :
-
-    RESULTB = ["04.06.2022","04.06.2022","05.06.2022","06.06.2022","07.06.2022","08.06.2022"]
-
-
-
-**JSONPath finder** tool you should realize that 
+Parsing Nested JSON with unstructured data structure is much more complex. And actually trying do parsing with only SecureX **JSONPath Query** activities leads to complex workflows. Python scripting is more relevant for such tasks
 
 ## Conclusion
 
@@ -163,8 +114,7 @@ And we realize that such activity would be much more simpler to acheive thanks t
 
 Let's see this in the next chapter.
 
-## NEXT STEP JSON Parsning thru a python activity
+## NEXT STEP JSON Parsing with a python activity
 
+[Use python activity to parse JSON](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/blob/master/9-JSON_Parsing_within_SecureX/JSON_Parsing_with_python.md)
 
-
-===========

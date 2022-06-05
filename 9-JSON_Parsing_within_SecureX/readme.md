@@ -114,5 +114,5 @@ Let's see now how to extract this indicator from SecureX.
 
 ## Next STEP JSON Parsing within the SecureX workflow
 
-[Parse the JSON result]()
+[Parse the JSON result](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/blob/master/9-JSON_Parsing_within_SecureX/json_parsing.md)
 
