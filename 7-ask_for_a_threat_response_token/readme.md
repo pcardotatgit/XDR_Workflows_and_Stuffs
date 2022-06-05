@@ -240,7 +240,7 @@ Easy ....
 1. Copy the whole JSON result ( the example we have above )
 2. Go to the JSON Parser online tool : http://jsonpathfinder[.]com
 3. Paste the JSON data to parse on the left panel of the tool.
-4. You will see the tree structure appearing in the right panel. This one iw now easy to read for humans.
+4. You will see the tree structure appearing in the right panel. This one is now easy to read for humans.
 5. Locate the variable you want to extract and copy it's full path
 6. in the path result we got from jsonpathfinder, replace the first letter that is an **x** by **$**. And here we go !
 7. paste the **$.xxxx...path....** final filter into the JSONPATH Query edit box of the JSON Path Query activity.
