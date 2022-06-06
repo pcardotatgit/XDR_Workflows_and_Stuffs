@@ -69,9 +69,18 @@ It must be defined in the following JSON payload :
 
 ```
 {
-    "room_id":["Select from SecureX Variable browser tree, the : webex_bot_room variable, which is a Global Variable "],
-    "text":["Select from SecureX Variable browser tree, the : message_to_send_to_webex_team_room variable, which is a Global Variable "],
-    "markdown":["Select from SecureX Variable browser tree, the : message_to_send_to_webex_team_room variable, which is a Global Variable "]    
+    "roomId":"Select from SecureX Variable browser tree, the : webex_bot_room variable, which is a Global Variable ",
+    "text":"Select from SecureX Variable browser tree, the : message_to_send_to_webex_team_room variable, which is a Global Variable ",
+    "markdown":"Select from SecureX Variable browser tree, the : message_to_send_to_webex_team_room variable, which is a Global Variable "    
+}
+```
+
+or if you use markdown formatting :
+
+```
+{
+    "roomId":"Select from SecureX Variable browser tree, the : webex_bot_room variable, which is a Global Variable ",
+    "markdown":"Select from SecureX Variable browser tree, the : message_to_send_to_webex_team_room variable, which is a Global Variable "    
 }
 ```
 
