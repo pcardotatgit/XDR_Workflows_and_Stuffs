@@ -33,4 +33,4 @@ In the workflow you can retreive the sent data in the **Variable Browser** thru 
 
 You will have to parse the result !
 
-We have an alternative to webhooks for triggering a workflow. Response Workflows can be triggered thanks to their APIs. This is described in anotehr article.
+We have an alternative to webhooks for triggering a workflow. Response Workflows can be triggered thanks to their APIs. This is described in another article.
