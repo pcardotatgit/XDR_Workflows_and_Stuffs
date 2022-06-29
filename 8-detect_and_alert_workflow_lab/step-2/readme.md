@@ -72,7 +72,7 @@ The python script will be edited into the **script to execute on target** textar
 
 Then you must start the script with the **import sys** command. And after this use the **sys.argv[x]** python command exactly like we do in any python script.
 
-With the only difference that is ( as far as I saw ) to not start at the index 0 but the index 1.
+With the only difference that it is not startiong at the index 0 but the index 1. Because index 0 refers to the activity name.
 
 Meaning that **sys.argv[1]** will be the first **script argument** you defined.
 
