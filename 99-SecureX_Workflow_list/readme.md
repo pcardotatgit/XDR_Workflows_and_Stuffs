@@ -34,7 +34,10 @@ But you will find into each of them a lot of very good programming technics
 |[Microsoft Graph Security Events (including MCAS) to Cisco SecureX create Casebook](https://github.com/tekgourou/SecureX-Workflow-Microsoft_Graph_Alert_to_Casebook)|Microsoft Graph , Azure AD, SecureX Casebook||
 |[SecureX Orchestration Workflow - Umbrella Brand Watch](https://github.com/tekgourou/SecureX-Umbrella-Brandwatch)|Umbrella, Webex Team||
 |[Cisco SecureX Orchestration Workflows](https://github.com/chrivand/sxo-workflows)|Miscelaneous worklfows||
-|[Cisco SecureX Orchestration Atomics Action](https://github.com/tekgourou/sxo-atomics)|||
+|[Cisco SecureX Orchestration Atomics workflows](https://github.com/tekgourou/sxo-atomics)|Lot of workflows for AZURE AD, PAN, KENNA, DUO , ISE||
+|[Delete All SecureX Sightings](https://github.com/tekgourou/sxo-workflows/tree/main/threatReponseDeleteAllSightingsForAObservable__definition_workflow_01OLBBX9YU11J0zVE7tr27QFo98kQHeeZaB)|SecureX Incidents||
+|[Cisco SDWAN (vManage) integration with Cisco SecureX](https://github.com/tekgourou/sxo-workflows/tree/main/ciscoSdwanSecurityEvents__definition_workflow_01UTZ5EK3CSKR0gxHUSFAJPVtuW0Ht4lf2D)|vManage||
+|[Cisco Security Advisory (Critical Impact) to SecureX Casebook and Webex](https://github.com/tekgourou/sxo-workflows/tree/main/ciscoSecurityAdvisoryCriticalImpact__definition_workflow_01THBITJJ5Y5Z3KDeVU2ZxTVrpG3rGJAuYO)|Cisco PSIRT openVuln,Webex Team, SecureX casebook||
 |[cx-ao-shared-workflows](https://github.com/cisco-cx-workflows/cx-ao-shared-workflows)|Action Orchestration Workflows||
 
 ## Cisco Validated Workflows
