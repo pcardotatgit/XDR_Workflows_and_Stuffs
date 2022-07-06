@@ -2,9 +2,13 @@
 
 This article explains you how to create a SecureX Webex Team Target
 
-For SecureX, Webex Team appears just like an HTTPS target.
+For SecureX, Webex Team appears just like an HTTPS target. That means that you can quickly create it as a new target.
 
-That means that you can quickly create it as a new target
+A mandatory prerequist is to already have created a Webex Team Bot and an Alert Webex Team Room 
+
+[Create_a_Webex_Team_Bot ](https://github.com/pcardotatgit/Create_a_Webex_Team_Bot)
+
+If you already did it, then you are ready to go to next steps.
 
 # Create a New Target
 

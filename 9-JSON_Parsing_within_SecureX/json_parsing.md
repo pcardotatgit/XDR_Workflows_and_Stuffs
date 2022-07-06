@@ -23,7 +23,7 @@ For example, if you search for the **hourly_data** item in the JSON result. you 
 
 Okay Next step. Let's comeback to our SecureX Workflow and let's extract the current temperature in Paris.
 
-Comeback to your workflow and in the left activity panel search for the **JSONPath Query**. Then Drag and Drop it under the **GET JSOIN DATA FROM WEB SITE** activity.
+Comeback to your workflow and in the left activity panel search for the **JSONPath Query**. Then Drag and Drop it under the **GET JSON DATA FROM WEB SITE** activity.
 
 Name it : **extract current temperature**
 
@@ -112,7 +112,53 @@ We realize that SecureX has usefull JSON parsing feature that very efficient and
 
 And we realize that such activity would be much more simpler to acheive thanks to python scritping.
 
-Let's see this in the next chapter.
+We will see this in a chapter later.
+
+## Send an Alert to a Webex Team Room if the temperature is lower than 25°
+
+Okay, we were able to have the current temperature in Paris, now let's see how to send an alert into a Webex Team Room if the temperature is lower than 25°.
+
+At this achieving this goal should be easy for you.
+
+For doing this we assume that you already know how to send an alert into a Webex Team Room.
+
+If not have a look to the following section :
+
+[1-Create_a_Webex_Team_Bot_Target](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/1-Create_a_Webex_Team_Bot_Target)
+
+
+
+Here is what you have to do :
+
+From the left activity panel, in the **logic** tab, search for the **condition block** activity and drag and drop it under the **JSON Path Query** activity.
+
+This new activity contains 2 empty branches.  
+
+**Notice** : you can add additionnal branches, just by clicking on the 3 dots on the top right of on of the 2 empty activities, and then select the **duplicate** action.
+
+Then you have to customize the empty activities.
+
+Select the first one on the left, and go to it's properties panel on the right.
+
+- Give it a name
+- In the **Condition** Section go to **Left Operand** and open the variable browser in order to select the output variable of the **JSONPath Query** activity.
+- The **Operator** is : **Less Than**
+- the **Right Operand** is : **25**
+
+![](./img/image-34.png)
+
+![](./img/image-33.png)
+
+Now , in the left activity panel search for you **Webex_Team_Send_Alert...** activity and drag and drop it into the first empty branch. You will probably have to customize the message you want to send to tne Webex Team Alert Room. 
+
+![](./img/image-35.png)
+
+At this point, we don't really need the second branch as we don't want to do anything if the temperature is greater than 25 °. You can delete this second branch.
+
+Then you can test your workflow... Run it and check the result into your alert webex team room.
+
+![](./img/image-36.png)
+
 
 ## NEXT STEP JSON Parsing with a python activity
 

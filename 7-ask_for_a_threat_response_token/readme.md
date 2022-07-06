@@ -1,5 +1,8 @@
 # Ask for a Cisco Threat Response Authentication Token
 
+**Notice** This chapter shows how to deal with Oauth authentication. And we use SecureX Threat Response Target as an example. Be aware that regarding SecureX Targets, we have a simpler way to manage the authentication token. This is the **[SecureX Token](https://ciscosecurity.github.io/sxo-05-security-workflows/account-keys/securex-token)**. But still, this section discribes how to deal with Oauth in general.
+
+
 Asking to SecureX for a Threat Reponse authentication will be for us a very frequent operation.
 
 I would say that this is a mandatory operation.  At the point that we already have a pre-builted atomic automation workflow for this.
