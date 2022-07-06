@@ -4,7 +4,7 @@ I share with you here some very cool SecureX workflow made by a lot of SecureX A
 
 
 ### Disclaimer
-None of these workflows hand been validated by Cisco !  They are All Proof Of concepts !   they all must be reviewed before going to production !!!
+None of these workflows had been validated by Cisco !  They are All Proof Of concepts !   they all must be reviewed before going to production !!!
 
 But you will find into each of them a lot of very good programming technics
 
