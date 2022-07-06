@@ -106,25 +106,15 @@ The previous parsing method works very well for flat JSON data structures. Typic
 
 Parsing Nested JSON with unstructured data structure is much more complex. And actually trying do parsing with only SecureX **JSONPath Query** activities leads to complex workflows. Python scripting is more relevant for such tasks
 
-## Conclusion
-
-We realize that SecureX has usefull JSON parsing feature that very efficient and easy to use for flat JSON structure ( Same items within the JSON structure ). But if the JSON structure to parse is complex, then we come across a lot of limitation that makes the workflow very complex to create.
-
-And we realize that such activity would be much more simpler to acheive thanks to python scritping.
-
-We will see this in a chapter later.
-
 ## Send an Alert to a Webex Team Room if the temperature is lower than 25°
 
 Okay, we were able to have the current temperature in Paris, now let's see how to send an alert into a Webex Team Room if the temperature is lower than 25°.
 
-At this achieving this goal should be easy for you.
+At this point, achieving this goal should be easy for you.
 
 For doing this we assume that you already know how to send an alert into a Webex Team Room.
 
-If not have a look to the following section :
-
-[1-Create_a_Webex_Team_Bot_Target](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/1-Create_a_Webex_Team_Bot_Target)
+If not, then have a look to the following section : [1-Create_a_Webex_Team_Bot_Target](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/1-Create_a_Webex_Team_Bot_Target)
 
 
 
@@ -159,6 +149,16 @@ Then you can test your workflow... Run it and check the result into your alert w
 
 ![](./img/image-36.png)
 
+## Conclusion
+
+In this chapter a realistic example of alerting system if en even occur. Doing the same with Security telemetry instead of temerature is absolutely the same !.
+
+We saw that SecureX has a usefull JSON parsing feature that is very efficient and easy to use for flat JSON structure ( Same items within the JSON structure ). 
+But if the JSON structure to parse is complex, then we come across a lot of limitation that makes the workflow very complex to create.
+
+And we realize that the JSON parsing activity would be much more easier to acheive thanks to python scripting.
+
+We will see this in a chapter later.
 
 ## NEXT STEP JSON Parsing with a python activity
 
