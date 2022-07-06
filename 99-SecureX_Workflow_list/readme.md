@@ -39,7 +39,7 @@ But you will find into each of them a lot of very good programming technics
 |[Cisco SDWAN (vManage) integration with Cisco SecureX](https://github.com/tekgourou/sxo-workflows/tree/main/ciscoSdwanSecurityEvents__definition_workflow_01UTZ5EK3CSKR0gxHUSFAJPVtuW0Ht4lf2D)|vManage||
 |[Cisco Security Advisory (Critical Impact) to SecureX Casebook and Webex](https://github.com/tekgourou/sxo-workflows/tree/main/ciscoSecurityAdvisoryCriticalImpact__definition_workflow_01THBITJJ5Y5Z3KDeVU2ZxTVrpG3rGJAuYO)|Cisco PSIRT openVuln,Webex Team, SecureX casebook||
 |[cx-ao-shared-workflows](https://github.com/cisco-cx-workflows/cx-ao-shared-workflows)|Action Orchestration Workflows||
-|[Which host is targeted by this sah256](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/8-detect_and_alert_workflow_lab)|Secure Endpoint, Webex Team, SecureX Threat Response||
+|[Which host is targeted by this sha256](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/8-detect_and_alert_workflow_lab)|Secure Endpoint, Webex Team, SecureX Threat Response||
 |[MISP SecureX Orchestration Workflows](https://github.com/CiscoDevNet/MISP-SecureX-Orchestration-Workflows)|MISP,SecureX Threat Response, Webex Team||
 
 
