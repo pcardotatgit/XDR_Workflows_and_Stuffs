@@ -43,7 +43,7 @@ But you will find into each of them a lot of very good programming technics
 |[MISP SecureX Orchestration Workflows](https://github.com/CiscoDevNet/MISP-SecureX-Orchestration-Workflows)|MISP,SecureX Threat Response, Webex Team||
 |[Kenna - Add Compromise TAG to Asset](https://github.com/tekgourou/sxo-workflows/tree/main/kennaAddCompromiseTagToAsset__definition_workflow_01YAVEJRBRIMK03XhV2kP4BgpGep4vKJ2Gj)|Kenna||
 |[Kenna - Remove Compromise TAG from Asset](https://github.com/tekgourou/sxo-workflows/tree/main/kennaRemoveCompromiseTagFromAsset__definition_workflow_01YDEBGB63HPY0JUud2yxbCgbq3EzsPn5jS)|Kenna||
-|[Threat Response - Delete all sighting for an observable](https://github.com/tekgourou/sxo-workflows/tree/main/threatReponseDeleteAllSightingsForAObservable__definition_workflow_01OLBBX9YU11J0zVE7tr27QFo98kQHeeZaB)|SecureX Threat Response||
+|[Threat Response - Delete all sightings for an observable](https://github.com/tekgourou/sxo-workflows/tree/main/threatReponseDeleteAllSightingsForAObservable__definition_workflow_01OLBBX9YU11J0zVE7tr27QFo98kQHeeZaB)|SecureX Threat Response||
 
 ## Cisco Validated Workflows
 
