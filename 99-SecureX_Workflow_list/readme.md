@@ -41,7 +41,9 @@ But you will find into each of them a lot of very good programming technics
 |[cx-ao-shared-workflows](https://github.com/cisco-cx-workflows/cx-ao-shared-workflows)|Action Orchestration Workflows||
 |[Which host is targeted by this sha256](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/8-detect_and_alert_workflow_lab)|Secure Endpoint, Webex Team, SecureX Threat Response||
 |[MISP SecureX Orchestration Workflows](https://github.com/CiscoDevNet/MISP-SecureX-Orchestration-Workflows)|MISP,SecureX Threat Response, Webex Team||
-
+|[Kenna - Add Compromise TAG to Asset](https://github.com/tekgourou/sxo-workflows/tree/main/kennaAddCompromiseTagToAsset__definition_workflow_01YAVEJRBRIMK03XhV2kP4BgpGep4vKJ2Gj)|Kenna||
+|[Kenna - Remove Compromise TAG from Asset](https://github.com/tekgourou/sxo-workflows/tree/main/kennaRemoveCompromiseTagFromAsset__definition_workflow_01YDEBGB63HPY0JUud2yxbCgbq3EzsPn5jS)|Kenna||
+|[Threat Response - Delete all sighting for an observable](https://github.com/tekgourou/sxo-workflows/tree/main/threatReponseDeleteAllSightingsForAObservable__definition_workflow_01OLBBX9YU11J0zVE7tr27QFo98kQHeeZaB)|SecureX Threat Response||
 
 ## Cisco Validated Workflows
 
@@ -76,10 +78,10 @@ Have a look to the Cisco SecureX Validated Workflows.
 |[Investigate Retrospective Alerts](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-email/0025-investigate-retrospective-alerts)|Email, Secure Endpoint, SecureX Threat Response|YES|
 |[Multiple Low or Medium Alerts to ServiceNow](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-endpoint/0048-multiple-low-medium-alerts)|Secure EndPoint, ServiceNow|YES|
 |[Remove Inactive Endpoints](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-endpoint/0056-remove-inactive-endpoints)|Secure EndPoint|YES|
-|[Threat Detected Events to Incidents](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-endpoint/0026-threat-detected-to-incident)|Secure EndPoint, SecureX Incident adn casebook|YES|
-|[Threat Hunting Events to Incidents](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-endpoint/0012-threat-hunting-to-incidents)|Secure EndPoint, SecureX Incident adn casebook|YES|
-|[Vulnerabilities to SecureX Incidents](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-endpoint/0022-vulnerabilities-to-incidents)|Secure EndPoint, SecureX Incident adn casebook|YES|
-|[Vulnerabilities to ServiceNow Incidents](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-endpoint/0021-vulnerabilities-to-servicenow)|Secure EndPoint, SecureX Incident adn casebook|YES|
+|[Threat Detected Events to Incidents](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-endpoint/0026-threat-detected-to-incident)|Secure EndPoint, SecureX Incident and casebook|YES|
+|[Threat Hunting Events to Incidents](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-endpoint/0012-threat-hunting-to-incidents)|Secure EndPoint, SecureX Incident and casebook|YES|
+|[Vulnerabilities to SecureX Incidents](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-endpoint/0022-vulnerabilities-to-incidents)|Secure EndPoint, SecureX Incident and casebook|YES|
+|[Vulnerabilities to ServiceNow Incidents](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-endpoint/0021-vulnerabilities-to-servicenow)|Secure EndPoint, SecureX Incident and casebook|YES|
 |[Block Observable](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-firewall/0015B-block-observable)|FirePOWER, SecureX Threat Response Judgment|YES|
 |[Block Observable (Direct)](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-firewall/0065-block-observable-direct)|FirePOWER FMC, SecureX Threat Response Judgment, Webex Team|YES|
 |[Block Observable - Setup](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-firewall/0015A-block-observable-setup)|FirePOWER,SecureX Indicator and Feeds|YES|
