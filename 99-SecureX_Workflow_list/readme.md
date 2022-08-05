@@ -82,13 +82,14 @@ Have a look to the Cisco SecureX Validated Workflows.
 |[Threat Hunting Events to Incidents](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-endpoint/0012-threat-hunting-to-incidents)|Secure EndPoint, SecureX Incident and casebook|YES|
 |[Vulnerabilities to SecureX Incidents](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-endpoint/0022-vulnerabilities-to-incidents)|Secure EndPoint, SecureX Incident and casebook|YES|
 |[Vulnerabilities to ServiceNow Incidents](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-endpoint/0021-vulnerabilities-to-servicenow)|Secure EndPoint, SecureX Incident and casebook|YES|
-|[Block Observable](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-firewall/0015B-block-observable)|FirePOWER, SecureX Threat Response Judgment|YES|
-|[Block Observable (Direct)](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-firewall/0065-block-observable-direct)|FirePOWER FMC, SecureX Threat Response Judgment, Webex Team|YES|
-|[Block Observable - Setup](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-firewall/0015A-block-observable-setup)|FirePOWER,SecureX Indicator and Feeds|YES|
-|[Get Health Alerts](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-firewall/0064-get-health-alerts)|FirePOWER,ServiceNow, Webex Team|YES|
-|[Impact Red Remediation](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-firewall/0013-impact-red-remediation)|FirePOWER,SecureX incident, SecureX Threat Response|YES|
-|[Incident Endpoint Enrichment](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-firewall/0024-incident-endpoint-enrichment)|FirePOWER,SecureX Threat Response, SecureX casebook and sightings|YES|
-|[Microsoft Online Dynamic Object Update](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-firewall/0031-microsoft-online-object-update)|FirePOWER,Microsoft endpoint list, FMC Dynamic Objects|YES|
+|[Block Observable](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-firewall/0015B-block-observable)|Firewalls, SecureX Threat Response Judgment|YES|
+|[Block Observable (Direct)](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-firewall/0065-block-observable-direct)|Firewalls FMC, SecureX Threat Response Judgment, Webex Team|YES|
+|[Block Observable - Setup](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-firewall/0015A-block-observable-setup)|Firewalls,SecureX Indicator and Feeds|YES|
+|[Get Health Alerts](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-firewall/0064-get-health-alerts)|Firewalls,ServiceNow, Webex Team|YES|
+|[Impact Red Remediation](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-firewall/0013-impact-red-remediation)|Firewalls,SecureX incident, SecureX Threat Response|YES|
+|[Incident Endpoint Enrichment](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-firewall/0024-incident-endpoint-enrichment)|Firewalls,SecureX Threat Response, SecureX casebook and sightings|YES|
+|[Microsoft Online Dynamic Object Update](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-firewall/0031-microsoft-online-object-update)|Firewalls,Microsoft endpoint list, FMC Dynamic Objects|YES|
+|[Get Expiring Rules](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-firewall/0066-get-expiring-rules)|FirePOWER, FMC, Webex Team||
 |[Endpoint IOCs from File Hash](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-malware-analytics/0057-endpoint-iocs-from-file-hash)|ThreatGrid Malware Analytic, Orbital|YES|
 |[Block External Threats With Umbrella](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-network-analytics/0033-block-external-threats-with-umbrella)|Secure Network Analytics,Umbrella, Webex Team|YES|
 |[Generate Casebook with Top Hosts and Peers](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-network-analytics/0034-generate-casebook-with-top-hosts-and-peers)|Secure Network Analytics,SecureX Casebook|YES|
@@ -126,3 +127,6 @@ Have a look to the Cisco SecureX Validated Workflows.
 |[IPS Alert Enrichment](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/tufin/0038-tufin-ips-alert-enrichment)|Tufin, Microsoft Teams, Microsoft Graph|YES|
 |[Request Server Decommission](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/tufin/0040-tufin-request-server-decommission)|Tufin, Microsoft Teams|YES|
 |[Request Threat Containment](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/tufin/0039-tufin-request-threat-containment)|Tufin, Microsoft Teams|YES|
+|[Search PSIRT Advisories](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-firewall/0067-search-psirt-advisories)|Cisco API Console, Cisco Secure Firewall, Cisco Webex, ServiceNow |YES|
+|[Add Tag to Assets](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/kenna/0068-add-tag-to-assets)|Cisco Threat Response, Kenna Security |YES|
+|[Remove Tag from Assets](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/kenna/0069-remove-tag-from-assets)|Cisco Threat Response, Kenna Security |YES|
