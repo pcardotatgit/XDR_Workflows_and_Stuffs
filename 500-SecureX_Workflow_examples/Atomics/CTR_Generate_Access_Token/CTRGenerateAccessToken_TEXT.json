@@ -1,0 +1,181 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01YOD85MGAD8U5ekmZ5gQGNpG7628xbrmOD",
+    "name": "CTRGenerateAccessToken_TEXT",
+    "title": "CTRGenerateAccessToken_TEXT",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.secure_string",
+        "properties": {
+          "value": "*****",
+          "scope": "output",
+          "name": "Access Token",
+          "type": "datatype.secure_string",
+          "description": "New Access Token",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01YOD85MP0ZWR2yuEBsOoD9lsrC7DihFTar",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "atomic_group": "Atomic",
+        "is_atomic": true
+      },
+      "delete_workflow_instance": false,
+      "description": "Generates a new Access Token for CTR using the API client credentials as specified in the Account key for the target used. This allows access to CTR APIs",
+      "display_name": "CTRGenerateAccessToken_TEXT",
+      "favorite": false,
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "target_type": "web-service.endpoint",
+        "target_id": "definition_target_01GWHP3K1HYF727FePibjZyiXexsQXPbcji",
+        "execute_on_workflow_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01YOD85OBBKTV2tVzB5aGvKkEJ2JZjBg0W9",
+        "name": "HTTP Request",
+        "title": "Generate Access Token Request to Securex Threat Response",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "allow_headers_redirect": false,
+          "body": "grant_type=client_credentials",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "custom_headers": [
+            {
+              "name": "Content-Type",
+              "value": "application/x-www-form-urlencoded"
+            },
+            {
+              "name": "Accept",
+              "value": "application/json"
+            }
+          ],
+          "description": "Send Access Token Request to Securex Threat Response",
+          "display_name": "Generate Access Token Request to Securex Threat Response",
+          "method": "POST",
+          "relative_url": "/oauth2/token",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01GWHP3K1HYF727FePibjZyiXexsQXPbcji"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01YOD85OUWXSB5DT11lMr6NWaAEtv3jQplp",
+        "name": "JSONPath Query",
+        "title": "Fetch Access Token from Response",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Fetch Access Token from Response",
+          "input_json": "$activity.definition_activity_01YOD85OBBKTV2tVzB5aGvKkEJ2JZjBg0W9.output.response_body$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$.access_token",
+              "jsonpath_query_name": "access_token",
+              "jsonpath_query_type": "string",
+              "zdate_type_format": ""
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01YOD85PHO0KP62aq8qag98XQv1yeRdhQsa",
+        "name": "Set Variables",
+        "title": "Set Access Token",
+        "type": "core.set_multiple_variables",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Set Access Token",
+          "skip_execution": false,
+          "variables_to_update": [
+            {
+              "variable_to_update": "$global.variable_01K06RLF07HGZ6HH6LhXbqvjPXrKaMKhUTL.global.variable_01K06RLF07HGZ6HH6LhXbqvjPXrKaMKhUTL$",
+              "variable_value_new": "$activity.definition_activity_01YOD85OUWXSB5DT11lMr6NWaAEtv3jQplp.output.jsonpath_queries.access_token$"
+            }
+          ]
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "targets": {
+    "definition_target_01GWHP3K1HYF727FePibjZyiXexsQXPbcji": {
+      "unique_name": "definition_target_01GWHP3K1HYF727FePibjZyiXexsQXPbcji",
+      "name": "CTR Target for access token",
+      "title": "CTR Target for access token",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "default_runtime_user_id": "definition_runtime_user_01K05VVDQTXSV1xMWqpnPnidbN0OZG8lKYp",
+        "description": "CTR_For_Access_Token",
+        "disable_certificate_validation": false,
+        "display_name": "CTR Target for access token",
+        "host": "visibility.eu.amp.cisco.com",
+        "no_runtime_user": false,
+        "path": "/iroh",
+        "protocol": "https"
+      }
+    }
+  },
+  "runtime_users": {
+    "definition_runtime_user_01K05VVDQTXSV1xMWqpnPnidbN0OZG8lKYp": {
+      "unique_name": "definition_runtime_user_01K05VVDQTXSV1xMWqpnPnidbN0OZG8lKYp",
+      "name": "PAT_CTR_Credentials",
+      "title": "PAT_CTR_Credentials",
+      "type": "runtime_user.web-service_basic_credentials",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "auth_option": "Basic",
+        "basic_password": "*****",
+        "basic_username": "xxxx",
+        "display_name": "PAT_CTR_Credentials"
+      }
+    }
+  },
+  "variables": {
+    "variable_01K06RLF07HGZ6HH6LhXbqvjPXrKaMKhUTL": {
+      "unique_name": "variable_01K06RLF07HGZ6HH6LhXbqvjPXrKaMKhUTL",
+      "properties": {
+        "value": "",
+        "scope": "global",
+        "name": "CTR_TOKEN_IN_GLOBALS",
+        "type": "datatype.string",
+        "is_required": false,
+        "is_invisible": false
+      },
+      "object_type": "variable"
+    }
+  }
+}

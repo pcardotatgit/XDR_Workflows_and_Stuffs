@@ -1,0 +1,152 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01TO4M82QJDU17OxCZGSrFccDAksL3mHq02",
+    "name": "OPENPHISH_GET_URLs_IN_INDEX",
+    "title": "OPENPHISH_GET_URLs_IN_INDEX",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "-all-",
+          "scope": "input",
+          "name": "Monitored_brand",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01TO4XZYPPH213UGHoHXZsXKavZrVGYEfM7",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "atomic_group": "Atomic",
+        "is_atomic": true
+      },
+      "delete_workflow_instance": false,
+      "description": "Get extract all new URLs and brands from the openphish.com index page and store the resulting list into a global variable named openphish_url_list. The final goal will be to send it judgment thru another workflow",
+      "display_name": "OPENPHISH_GET_URLs_IN_INDEX",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "target_type": "web-service.endpoint",
+        "target_id": "definition_target_01TO4Z3GLU66I7lat5c4g0ycAwWT2siUmDP",
+        "execute_on_workflow_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01TO4VI4H14QE4sSCKwlL9utkG3uyazWJ5Z",
+        "name": "HTTP Request",
+        "title": "HTTP GET to openphish index page",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "allow_headers_redirect": false,
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "description": "Connect to openphish.com and retreive the http content",
+          "display_name": "HTTP GET to openphish index page",
+          "method": "GET",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01TO5135IDB6S3B0jpj37VjToSZV6ziRAfL",
+        "name": "Execute Python Script",
+        "title": "Parse HTML content",
+        "type": "python3.script",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "description": "Parse HTML content and extract URL and BRAND. Store URLs into a text variable. One URL per line",
+          "display_name": "Parse HTML content",
+          "script": "import sys\nimport time\nfrom datetime import datetime, timedelta\n\ndebug=0\t\nurls=''\nmonitored_brand=sys.argv[2]\n#monitored='-all-'\nhtml_page=sys.argv[1]\nmonitored=monitored_brand.lower()\nurl_list_txt='' # create a text variable for receiving urls\n# then parse the html page and extract all urls and assoicated targeted brand names\nhtml_line_list=html_page.split('\\n') # create a lis that contains every single line of the html result\nget_targeted_brand=0 # a flog used to trigger item storing into the database\t\nurl_to_add=''\nfor single_line in html_line_list:\t\t\n\tif get_targeted_brand:  # if the flag had been set to 1 prior, that means that an URL had been parsed in the previous line and then we can parse the targeted brand\n\t\ttargeted_brand_temp=single_line.split('>') # parsing for extracting targeted_brand\n\t\ttargeted_brand=targeted_brand_temp[1].split('<') # parsing for extracting targeted_brand\n\t\tbrand=targeted_brand[0].lower()\n\t\tif debug:\n\t\t\tprint(red(brand,bold=True))\n\t\tif monitored!='-all-':\n\t\t\tif monitored in brand:\n\t\t\t\tif debug:\n\t\t\t\t\tprint(green('   Adding this new row ',bold=True))\n\t\t\t\turl_list_txt=url_list_txt+'\\n'+url_to_add\n\t\t\t\turl_to_add=''\n\t\telse:\n\t\t\tif debug:\n\t\t\t\tprint(green('   Adding this new row ',bold=True))\n\t\t\turl_list_txt=url_list_txt+'\\n'+url_to_add\t\n\t\t\turl_to_add=''\n\t\tget_targeted_brand=0\n\tif \"url_entry\" in single_line and \"<td\" in single_line: # this line contains a URL to parse\n\t\turl=single_line.split('>') # parsing for extracting the URL\n\t\tif url[1]:\n\t\t\turl=url[1].split('<') # parsing for extracting the URL\t\t\t\t\t\n\t\t\t#judgment_definition=json.dumps(add_observable_to_judgment(url[0])) # let's create a SecureX Judgment in case we want to store the URL in the our private intell\n\t\t\tif debug:\n\t\t\t\tprint(yellow(url[0],bold=True))\t\n\t\t\turl_to_add=url[0]\n\t\t\tget_targeted_brand=1 # set flag to one in order to trigger targeted brand parsing in next line\n#print(url_list_txt)",
+          "script_arguments": [
+            "$activity.definition_activity_01TO4VI4H14QE4sSCKwlL9utkG3uyazWJ5Z.output.response_body$",
+            "$workflow.definition_workflow_01TO4M82QJDU17OxCZGSrFccDAksL3mHq02.input.variable_workflow_01TO4XZYPPH213UGHoHXZsXKavZrVGYEfM7$"
+          ],
+          "script_queries": [
+            {
+              "script_query": "url_list_txt",
+              "script_query_name": "URL_LIST_TEXT",
+              "script_query_type": "string"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01TOAGJEXD22U2xLqTJ3gNDkYopAkEqssDj",
+        "name": "Set Variables",
+        "title": "Set openphish url list",
+        "type": "core.set_multiple_variables",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Set openphish url list",
+          "skip_execution": false,
+          "variables_to_update": [
+            {
+              "variable_to_update": "$global.variable_01TO64BVTF0CT6bRFAK6T7luukDm6uZed0g.global.variable_01TO64BVTF0CT6bRFAK6T7luukDm6uZed0g$",
+              "variable_value_new": "$activity.definition_activity_01TO5135IDB6S3B0jpj37VjToSZV6ziRAfL.output.script_queries.URL_LIST_TEXT$"
+            }
+          ]
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "targets": {
+    "definition_target_01TO4Z3GLU66I7lat5c4g0ycAwWT2siUmDP": {
+      "unique_name": "definition_target_01TO4Z3GLU66I7lat5c4g0ycAwWT2siUmDP",
+      "name": "PAT_openphish_index_page",
+      "title": "PAT_openphish_index_page",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "description": "openphish.com",
+        "disable_certificate_validation": true,
+        "display_name": "PAT_openphish_index_page",
+        "host": "openphish.com",
+        "ignore_proxy": false,
+        "no_runtime_user": true,
+        "protocol": "https"
+      }
+    }
+  },
+  "variables": {
+    "variable_01TO64BVTF0CT6bRFAK6T7luukDm6uZed0g": {
+      "unique_name": "variable_01TO64BVTF0CT6bRFAK6T7luukDm6uZed0g",
+      "properties": {
+        "value": "",
+        "scope": "global",
+        "name": "openphish_url_list",
+        "type": "datatype.string",
+        "description": "text string that contains url list from openphish",
+        "is_required": false,
+        "is_invisible": false
+      },
+      "object_type": "variable"
+    }
+  }
+}
