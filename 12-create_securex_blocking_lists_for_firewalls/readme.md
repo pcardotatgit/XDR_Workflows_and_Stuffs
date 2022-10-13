@@ -164,3 +164,4 @@ You can download the workflow in this folder.
 
 This new one contains all modifications above. You will have to use it instead of the **0015B-SecureFirewall-BlockObservable** workflow
 
+[Add_an_observable_into_private_intell_judgment workflow](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Atomics/Add_an_observable_into_private_intell_judgment)
