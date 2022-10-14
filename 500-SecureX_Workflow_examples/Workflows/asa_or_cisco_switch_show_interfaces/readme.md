@@ -1,6 +1,6 @@
 ---
-title: SH_to_ASA_and_do_show_interfaces
-purpose: /workflows/PRODUCT-NAME/0xxx-WORKFLOW-NAME
+title: SSH_to_ASA_and_do_show_interfaces
+purpose: Proof of concept of interaction with a network device
 integrated products: Cisco ASA or Cisco Switches or Cisco IOS devices
 ---
 
@@ -23,7 +23,7 @@ This workflow is a proof of concept
 
 ## Requirements
 
-This workflow requires that the managed ASA ( or switch ) to be reachable by SecureX on the INTERNET. Meaning that you must expose the device's administration interface on the INTERNET thanks to a port redirection into INTERNET firewall.
+This workflow requires that the managed ASA ( or switch ) to be reachable by SecureX on the INTERNET. Meaning that you must expose the device's administration interface on the INTERNET thanks to port forwarding into INTERNET firewall.
 
 ## Input Variables
 
@@ -57,7 +57,7 @@ No Global Variables used by this workflow
 ---
 
 ## Targets
-Target Group: `Default TargetGroup`
+
 
 | Target Name | Type | Details | Account Keys | Notes |
 |:------------|:-----|:--------|:-------------|:------|
@@ -69,8 +69,7 @@ Target Group: `Default TargetGroup`
 
 | Account Key Name | Type | Details | Notes |
 |:-----------------|:-----|:--------|:------|
-| Device_Credential | username / password | _Username_: <br />_Password_:<br />
-_Enable_Password_: | |
+| Device_Credential | username / password | _Username_: <br />_Password_:<br />_Enable_Password_: | |
 
 ## Integrated Products
 
