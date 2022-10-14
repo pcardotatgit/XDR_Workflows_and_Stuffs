@@ -1,0 +1,276 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01HJQFGQU97E74ozjbaPULf9ZWRjtVnRrqB",
+    "name": "SSH_to_ASA_and_do_show_interfaces",
+    "title": "SSH_to_ASA_and_do_show_interfaces",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "local",
+          "name": "ligne",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01HS63KCZLT1G0YKq2ZzibeRpGtgDnlUEjS",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "observable_value",
+          "type": "datatype.string",
+          "description": "This variable is here just to give us the capability to trigger this workflows from the SecureX Pivot menu",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01K4OH669RD1O2zFiqZWG3qbJMeOWosjsum",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "local",
+          "name": "LIST_TEMP",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01K1201GPVIOK4U6mQ6zvYkoRv0ngL7ynkc",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "description": "This workflow open an SSH administration session with an ASA ( that is accessible thru INTERNET ) execute a show interface command and store the result into a JSON data",
+      "display_name": "SSH_to_ASA_and_do_show_interfaces",
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "target_type": "terminal.endpoint",
+        "target_id": "definition_target_01HJQFAIXBQ6R6JuUM7KJhvS6pONX6UGZHb",
+        "execute_on_workflow_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01HJQGVPO6IHV1o9M9bX5zQlx0FOLHuT6Jd",
+        "name": "Execute Terminal Command(s)",
+        "title": "SSH to ASA and Execute CLI Command(s)",
+        "type": "terminal.command",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "command_timeout": 60,
+          "commands": "enable\nshow interface\nshow clock\n\n\n",
+          "continue_on_failure": false,
+          "display_name": "SSH to ASA and Execute CLI Command(s)",
+          "merge_commands": false,
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "succeeded_expects": [
+            "ciscoasa#"
+          ],
+          "target": {
+            "override_workflow_target": false,
+            "override_workflow_target_group_criteria": false,
+            "use_workflow_target": true,
+            "use_workflow_target_group": false
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01HS53VTZW3K02dfWeqUJL4GPVxyu6jhEul",
+        "name": "Split String",
+        "title": "Result Parsing step 1 ( Split String  )",
+        "type": "core.splitstring",
+        "base_type": "activity",
+        "properties": {
+          "boundaries": [
+            {
+              "boundary": "Interface"
+            }
+          ],
+          "continue_on_failure": false,
+          "description": "Step 1 of parsing of the result of the show interface commands. Actually we put all \"interface chunk\" of the result into a list.  We have this way all interfaces and their details.  Next step is to parse every interface item of this list",
+          "display_name": "Result Parsing step 1 ( Split String  )",
+          "input_string": "$activity.definition_activity_01HJQGVPO6IHV1o9M9bX5zQlx0FOLHuT6Jd.output.response_body$",
+          "remove_empty": true,
+          "skip_execution": false,
+          "use_regexp": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01K0UPT3VE7XY5b8exfYfzR9eYfYB4eQHiS",
+        "name": "For Each",
+        "title": "For Each Interface chunk",
+        "type": "logic.for_each",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "description": "Loop to every interface chunk one by one",
+          "display_name": "For Each Interface chunk",
+          "skip_execution": false,
+          "source_array": "$activity.definition_activity_01HS53VTZW3K02dfWeqUJL4GPVxyu6jhEul.output.parts$"
+        },
+        "object_type": "definition_activity",
+        "actions": [
+          {
+            "unique_name": "definition_activity_01HS8PD48R5RV1OhHlX5Ctq14j90Ox4GytZ",
+            "name": "Execute Python Script",
+            "title": "Parse Interface line",
+            "type": "python3.script",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": false,
+              "description": "Extract from the interface chunk only relevant parameters and indicators ( interface name, status, IP addres, ... ). Put the result into a text list",
+              "display_name": "Parse Interface line",
+              "script": "import sys\ntext = sys.argv[1]\nif_list = sys.argv[2]\ntext=text.replace(\"\\t\",\",\")\ntext=text.replace(\"\\r\",\",\")\ntext=text.replace(\"\\n\",\" \")\nlignes = text.split('Interface')\nwords=['IP address',' \"','MAC address']\nlignes_out=''\nligne=''\ntemp_word=''\nif (lignes[0].find('address')>= 0):\n\tline_list=lignes[0].split(\"Hardware\")\n\tlignes_out=line_list[0]\n\ttemp_list=lignes_out.split('\"')\n\ttemp_word=temp_list[0]+';'+temp_list[1]+';'\n\ttemp_list=lignes_out.split(' is ')\n\ttemp_word+=temp_list[1]\t+';'+temp_list[2]+';'\n\ttemp_list2=line_list[1].split('IP address')\n\ttemp_list.clear()\n\ttemp_list=temp_list2[1].split(',')\t\n\ttemp_list[0]=temp_list[0].strip()\n\tif temp_list[0]==\"unassigned\":\n\t\ttemp_word+=temp_list[0]+\"; N/A \"\n\telse:\n\t\ttemp_list2=temp_list[1].split(' ')\n\t\ttemp_word+=temp_list[0]+';'+temp_list2[3]\n\ttemp_word=temp_word.replace(\", line protocol\",\"\")\nelse:\n\tlignes_out=\"Nothing\"\t\nlignes_out=temp_word\ninterfaces_list=if_list+'***'+temp_word\n",
+              "script_arguments": [
+                "$activity.definition_activity_01K0UPT3VE7XY5b8exfYfzR9eYfYB4eQHiS.input.source_array[@]$",
+                "$workflow.definition_workflow_01HJQFGQU97E74ozjbaPULf9ZWRjtVnRrqB.local.variable_workflow_01K1201GPVIOK4U6mQ6zvYkoRv0ngL7ynkc$"
+              ],
+              "script_queries": [
+                {
+                  "script_query": "lignes_out",
+                  "script_query_name": "for debugging",
+                  "script_query_type": "string"
+                },
+                {
+                  "script_query": "interfaces_list",
+                  "script_query_name": "W_INTERFACES_JSON",
+                  "script_query_type": "string"
+                }
+              ],
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01K12G7YKUJSC3ZrokibQ8e64VVBeIl68rO",
+            "name": "Set Variables",
+            "title": "Update Workflow Interface list",
+            "type": "core.set_multiple_variables",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "description": "Store the result of the python activity above into a temporary local variable ",
+              "display_name": "Update Workflow Interface list",
+              "skip_execution": false,
+              "variables_to_update": [
+                {
+                  "variable_to_update": "$workflow.definition_workflow_01HJQFGQU97E74ozjbaPULf9ZWRjtVnRrqB.local.variable_workflow_01K1201GPVIOK4U6mQ6zvYkoRv0ngL7ynkc$",
+                  "variable_value_new": "$activity.definition_activity_01HS8PD48R5RV1OhHlX5Ctq14j90Ox4GytZ.output.script_queries.W_INTERFACES_JSON$"
+                }
+              ]
+            },
+            "object_type": "definition_activity"
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_01K12IRNA11E24ZEKVCDXU80fGDUlyDHyaJ",
+        "name": "Execute Python Script",
+        "title": "Python convert Interface List into JSON",
+        "type": "python3.script",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "description": "Convert the final interface list into a JSON data that will be easy to compute by other SecureX Activities",
+          "display_name": "Python convert Interface List into JSON",
+          "script": "import sys\nimport json\nline = sys.argv[1]\nline_list=line.split(\"***\")\ninterface_dict={}\ndict_temp={}\nid=0\ninterfaces_json_list={}\ndebug=''\nfor interface_item in line_list:\n\ttemp_list=interface_item.split(\",\")\n\ttemp_list2=temp_list[0].split(\",\")\n\tproperty_list=temp_list2[0].split(\";\")\n\tdict_temp.update({'interface':property_list[0]})\n\tdebug=property_list",
+          "script_arguments": [
+            "$workflow.definition_workflow_01HJQFGQU97E74ozjbaPULf9ZWRjtVnRrqB.local.variable_workflow_01K1201GPVIOK4U6mQ6zvYkoRv0ngL7ynkc$"
+          ],
+          "script_queries": [
+            {
+              "script_query": "interfaces_json_list",
+              "script_query_name": "W_INTERFACE_JSON_LIST",
+              "script_query_type": "string"
+            },
+            {
+              "script_query": "debug",
+              "script_query_name": "DEBUG",
+              "script_query_type": "string"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_01FM7CGPZZCMY0KcvgiGjVH5UaB4y4aDJ7m"
+    ]
+  },
+  "categories": {
+    "category_01FM7CGPZZCMY0KcvgiGjVH5UaB4y4aDJ7m": {
+      "unique_name": "category_01FM7CGPZZCMY0KcvgiGjVH5UaB4y4aDJ7m",
+      "name": "response",
+      "title": "response",
+      "type": "basic.category",
+      "base_type": "category",
+      "category_type": "custom",
+      "object_type": "category"
+    }
+  },
+  "targets": {
+    "definition_target_01HJQFAIXBQ6R6JuUM7KJhvS6pONX6UGZHb": {
+      "unique_name": "definition_target_01HJQFAIXBQ6R6JuUM7KJhvS6pONX6UGZHb",
+      "name": "Cisco_ASA",
+      "title": "Cisco_ASA",
+      "type": "terminal.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "default_runtime_user_id": "definition_runtime_user_01HJQ8EAA2PDN4IPL0hSwQxls6j86k8JQPY",
+        "description": "Cisco Security Device",
+        "display_name": "Cisco_ASA",
+        "host": "123.124.7.220",
+        "port": 22,
+        "prompt_pattern": "ciscoasa>",
+        "protocol": "ssh",
+        "succeeded_prompt_patterns": [
+          "ciscoasa#"
+        ]
+      }
+    }
+  },
+  "runtime_users": {
+    "definition_runtime_user_01HJQ8EAA2PDN4IPL0hSwQxls6j86k8JQPY": {
+      "unique_name": "definition_runtime_user_01HJQ8EAA2PDN4IPL0hSwQxls6j86k8JQPY",
+      "name": "Device_Credential",
+      "title": "Device_Credential",
+      "type": "runtime_user.terminal_password_credentials",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "admin_password": "*****",
+        "display_name": "Device_Credential",
+        "password": "*****",
+        "user": "username"
+      }
+    }
+  }
+}
