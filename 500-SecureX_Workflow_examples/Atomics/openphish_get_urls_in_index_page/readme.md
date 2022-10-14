@@ -1,11 +1,7 @@
 ---
-layout: page
 title: OPENPHISH_GET_URLs_IN_INDEX
-permalink: /workflows/PRODUCT-NAME/0xxx-WORKFLOW-NAME
-redirect_from:
-  - /workflows/0xxx
-parent: PRODUCT NAME
-grand_parent: Workflows
+purpose: Get disposition of an observable
+Integrated products: SecureX Threat Response ( TALOS and Integrated Threat Intell )
 ---
 
 # OPENPHISH_GET_URLs_IN_INDEX

@@ -1,11 +1,7 @@
 ---
-layout: page
 title: CTR GET OBSERVABLE DISPOSITION GENERIC v2
-permalink: /workflows/PRODUCT-NAME/0xxx-WORKFLOW-NAME
-redirect_from:
-  - /workflows/0xxx
-parent: PRODUCT NAME
-grand_parent: Workflows
+purpose: Get disposition of an observable
+Integrated products: SecureX Threat Response ( TALOS and Integrated Threat Intell )
 ---
 
 # CTR GET OBSERVABLE DISPOSITION GENERIC v2
@@ -21,8 +17,6 @@ And if TALOS doesn't know the observable, then this one will have the Unknow sta
 | Date | Notes |
 |:-----|:------|
 | October 12, 2022 | - Initial release |
-
-_See the [Important Notes](/sxo-05-security-workflows/notes) page for more information about updating workflows_
 
 ---
 

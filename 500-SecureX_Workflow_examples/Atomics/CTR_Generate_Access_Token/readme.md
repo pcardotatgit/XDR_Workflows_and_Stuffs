@@ -1,18 +1,11 @@
 ---
-layout: page
 title: CTRGenerateAccessToken_TEXT
-permalink: /workflows/PRODUCT-NAME/0xxx-TRGenerateAccessToken_TEXT
-redirect_from:
-  - /workflows/0xxx
-parent: PRODUCT NAME
-grand_parent: Workflows
+purpose: Ask for an authentication token to SecureX
+Integrated products: SecureX Threat Response
 ---
 
 # CTRGenerateAccessToken_TEXT
-<div markdown="1">
-Workflow #0xxx
-{: .label }
-</div>
+
 
 This workflow Asks for an Access Token to SecureX Threat Response and store it into a global variable named **CTR_TOKEN_IN_GLOBALS**.
 
@@ -29,7 +22,6 @@ This is an alternative to the **SecureX Token** account key, that is need when w
 |:-----|:------|
 | july 21, 2022 | - Initial release |
 
-_See the [Important Notes](/sxo-05-security-workflows/notes) page for more information about updating workflows_
 
 ---
 

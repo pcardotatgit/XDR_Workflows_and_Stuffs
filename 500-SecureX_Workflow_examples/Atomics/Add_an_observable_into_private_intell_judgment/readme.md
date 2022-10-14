@@ -1,11 +1,7 @@
 ---
-layout: page
 title: Add Observable into Judgments and feeds
-permalink: /workflows/PRODUCT-NAME/0xxx-WORKFLOW-NAME
-redirect_from:
-  - /workflows/0xxx
-parent: PRODUCT NAME
-grand_parent: Workflows
+purpose: Create Judgements feeds and Blocking Lists for firewalls
+Integrated products: SecureX Private Intelligence
 ---
 
 # Add an Observable into Judgments and feeds
