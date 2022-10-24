@@ -44,6 +44,7 @@ But you will find into each of them a lot of very good programming technics
 |[Kenna - Add Compromise TAG to Asset](https://github.com/tekgourou/sxo-workflows/tree/main/kennaAddCompromiseTagToAsset__definition_workflow_01YAVEJRBRIMK03XhV2kP4BgpGep4vKJ2Gj)|Kenna||
 |[Kenna - Remove Compromise TAG from Asset](https://github.com/tekgourou/sxo-workflows/tree/main/kennaRemoveCompromiseTagFromAsset__definition_workflow_01YDEBGB63HPY0JUud2yxbCgbq3EzsPn5jS)|Kenna||
 |[Threat Response - Delete all sightings for an observable](https://github.com/tekgourou/sxo-workflows/tree/main/threatReponseDeleteAllSightingsForAObservable__definition_workflow_01OLBBX9YU11J0zVE7tr27QFo98kQHeeZaB)|SecureX Threat Response||
+|[Create Public Feeds for Firewalls](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/12-create_securex_blocking_lists_for_firewalls)|SecureX Private Intell Feeds, Secure Firewalls||
 
 ## Cisco Validated Workflows
 
@@ -130,3 +131,9 @@ Have a look to the Cisco SecureX Validated Workflows.
 |[Search PSIRT Advisories](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-firewall/0067-search-psirt-advisories)|Cisco API Console, Cisco Secure Firewall, Cisco Webex, ServiceNow |YES|
 |[Add Tag to Assets](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/kenna/0068-add-tag-to-assets)|Cisco Threat Response, Kenna Security |YES|
 |[Remove Tag from Assets](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/kenna/0069-remove-tag-from-assets)|Cisco Threat Response, Kenna Security |YES|
+|[Repeat Incident Alerting](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/securex/0070-repeat-incident-alerting)|Cisco SecureX  |YES|
+|[Microsoft Online Dynamic Object Update (SSE) ](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-firewall/0071-microsoft-online-object-update-sse )|Cisco Secure Firewall, Microsoft Online    |YES|
+|[Get Health Alerts (SSE) ](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-firewall/0073-block-observable-sse )|Cisco Secure Firewall, Cisco Webex, ServiceNow |YES|
+|[Block Observable (SSE)](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-firewall/0073-block-observable-sse)| Cisco Secure Firewall, Cisco Webex   |YES|
+|[Get Expiring Rules (SSE)](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-firewall/0074-get-expiring-rules-sse )|Cisco Secure Firewall, Cisco Webex |YES|
+|[Search PSIRT Advisories (SSE)](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-firewall/0075-search-psirt-advisories-sse )| Cisco API Console, Cisco Secure Firewall, Cisco Webex, ServiceNow   |YES|
