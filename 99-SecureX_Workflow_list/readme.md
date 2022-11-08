@@ -44,7 +44,7 @@ But you will find into each of them a lot of very good programming technics
 |[Kenna - Add Compromise TAG to Asset](https://github.com/tekgourou/sxo-workflows/tree/main/kennaAddCompromiseTagToAsset__definition_workflow_01YAVEJRBRIMK03XhV2kP4BgpGep4vKJ2Gj)|Kenna||
 |[Kenna - Remove Compromise TAG from Asset](https://github.com/tekgourou/sxo-workflows/tree/main/kennaRemoveCompromiseTagFromAsset__definition_workflow_01YDEBGB63HPY0JUud2yxbCgbq3EzsPn5jS)|Kenna||
 |[Threat Response - Delete all sightings for an observable](https://github.com/tekgourou/sxo-workflows/tree/main/threatReponseDeleteAllSightingsForAObservable__definition_workflow_01OLBBX9YU11J0zVE7tr27QFo98kQHeeZaB)|SecureX Threat Response||
-|[Create Public Feeds for Firewalls](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/12-create_securex_blocking_lists_for_firewalls)|SecureX Private Intell Feeds, Secure Firewalls||
+|[Create Public Feeds for Firewalls](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/12-create_securex_blocking_lists_for_firewalls)|SecureX Private Intell Feeds, Cisco Secure Firewalls||
 
 ## Cisco Validated Workflows
 

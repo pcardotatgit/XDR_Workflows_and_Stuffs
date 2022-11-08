@@ -2,22 +2,23 @@
 
 This article is a step by step tutorial that describes the creation of a SecureX automation Workflow.
 
-The goal is to share with readers all the details of the development of this workflow.
+The goal is to share with readers all the details of the development of the workflow.
 
 The targeted audience is "beginners". So if you just discoverd SecureX Orchestration and you want to understand all the basics needed for creating a realistic automation workflow, then this tutorial is for you !.
 
-## What is our goal ?
+## First Step, Let's setupthe goal ?
 
 Imagine that one day in the morning you wake up and suddenly you need this !
 
-A tool that tells you if you are infected by a very bad file that came out yesterday during the night. And if yes... Who is infected ?
+A tool that tells you if you are infected by this very bad malware that came out yesterday during the night. And if yes...Next question Who is infected ?
 
-We want the following behavior :
+We want :
 
-- From the ribbon, and from the casebook manager. ( And later from Webex Team )
-- I want to copy and paste a SHA256 in the observable edit box ( this SHA256 is a malicious footprint )
-- Then I want to trigger from the pivot menu a SecureX Workflow named **which_host_are_infected_by_this_sha256**
-- And after a few seconds I want to receive into a Webex Team Room the list of the hostnames of all my infected machines.
+- From the ribbon, and from the casebook manager. 
+- I want to ba able to copy and paste a SHA256 in the observable edit box ( the malware's SHA256 )
+- Then I want an activity in the pivot menu which triggers a SecureX Workflow named **which_host_are_infected_by_this_sha256**
+- And I expect to receive into a Webex Team Room the list of  hostnames of all my infected machines.
+- Then I will be able to repair them quickly
 
 
 ![](img/13.png )
@@ -53,7 +54,7 @@ To be able to create this workflow we need.
 - A Webex Team Account
 - A Account into a SecureX tenant with admin rights. 
 
-If you don't have a SecureX account, then you can use Cisco DLCOUD SecureX Demos.  
+If you don't have a SecureX account, then you can use Cisco DLCOUD SecureX Demos ( search for : Cisco SecureX Orchestration v1 - Instant Demo - and book it ).  
 
 Open your browser and a good practice before going to the lab will be to switch your browser into the incognito ( private window ).
 
