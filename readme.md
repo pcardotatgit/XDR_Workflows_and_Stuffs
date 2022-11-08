@@ -8,7 +8,7 @@ In this section you will find some information about how to create SecureX Targe
 
 **Notice** : a lot of these targets already exist within SecureX. Meaning you don't have to create them.
 
-These examples below cover differents Targets scenarios that will be common in production environments. And the goal is to show how we can create them step byt step.
+These examples below cover differents Targets scenarios that will be common in production environments. And the goal is to show how we can create them step by step.
 
 * [Create step by step a Webex Team Bot Target - example of HTTP bearer token target ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/1-Create_a_Webex_Team_Bot_Target)
 * [Create step by step a Networking Device target - example of SSH target](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/2-Create_a_Networking_Device_Target)
