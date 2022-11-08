@@ -17,7 +17,6 @@ This workflow opens the openphish.com index page  and extract all URLs and brand
 |:-----|:------|
 | October 15, 2022 | - Initial release |
 
-_See the [Important Notes](/sxo-05-security-workflows/notes) page for more information about updating workflows_
 
 ---
 
