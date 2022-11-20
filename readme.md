@@ -14,7 +14,7 @@ Here are the steps for starting your SecureX tenant with a minimum of useful ser
 * Step 3 : Customize your dashboards
 * Step 3 : Activate Orchestration. Click on the **orchestration** table and the click on the **start orchestration** button that is displayed in the middle of the screen.  Orchestration becomes available a few hours after.
 * Step 4 : In Orchestration : Create a SecureX_Token. It will be the most effecient way to use SecureX native Target ( [See instructions](https://ciscosecurity.github.io/sxo-05-security-workflows/account-keys/securex-token) )
-* Step 5 : Create an Alert / Info Webex Team Room . Webex Team is naturally a very good uqserr interface for SecureX ([ See Instructions ](https://github.com/pcardotatgit/Create_a_Webex_Team_Bot))
+* Step 5 : Create an Alert / Info Webex Team Room . Webex Team is naturally a very good user interface for SecureX ([ See Instructions ](https://github.com/pcardotatgit/Create_a_Webex_Team_Bot))
 * Step 6a : Customize the **Webex Teams - Post Message to Room** atomic workflow
 * Step 6b : Or learn about how to create from scratch a **send message to webex team** workflow ( [ See Instructions ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/1-Create_a_Webex_Team_Bot_Target))
 * Step 7 : Import useful/relevant SecureX Workflows from the workflow lists

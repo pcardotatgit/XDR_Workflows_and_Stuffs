@@ -31,7 +31,7 @@ But you will find into each of them a lot of very good programming technics
 |[ISE & Meraki Rapid Threat Containment workflows](https://github.com/tekgourou/SecureX-Worklfows-RTC-ISE-Meraki)| ISE, Meraki||
 |[Secure Meter XD ](https://github.com/tekgourou/sxo-secure-meter-xd)|Threat Hunting Workflow||
 |[Microsoft Graph Security Events (including MCAS) to Cisco SecureX create Casebook](https://github.com/tekgourou/SecureX-Workflow-Microsoft_Graph_Alert_to_Casebook)|Microsoft Graph , Azure AD, SecureX Casebook||
-|[ Extract image from email](https://github.com/tekgourou/sxo-atomics/tree/main/extractImageFromEmail__definition_workflow_01O0VVGVQO55J612xLJQlOkIOitXf0baNBk)|Email||
+|[ Extract image from email](https://github.com/tekgourou/sxo-atomics/tree/main/extractImageFromEmail__definition_workflow_01O0VVGVQO55J612xLJQlOkIOitXf0baNBk)|Email|YES|
 |[ SSH_to_ASA_and_do_show_interfaces ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Workflows/asa_or_cisco_switch_show_interfaces)|Cisco IOS devices, ASA, Cisco Switches|NO|
 |[ Add_an_observable_into_private_intell_judgment ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Atomics/Add_an_observable_into_private_intell_judgment)|SecureX Private Intelligence|YES|
 |[ CTR_Generate_Access_Token ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Atomics/CTR_Generate_Access_Token)|SecureX CTIA||
@@ -62,8 +62,8 @@ But you will find into each of them a lot of very good programming technics
 |[ Threat Response - Get Sighting ](https://github.com/tekgourou/sxo-atomics/tree/main/threatResponseGetSighting__definition_workflow_01YG667GMICH047KanJSoExm5DQwUmqUpWJ)|SecureX Threat Response|YES|
 |[ Threat Response - Search Incident ](https://github.com/tekgourou/sxo-atomics/tree/main/threatResponseSearchIncident__definition_workflow_01YG4NMASZDBS5bdSCLBsjFbS5vGo1jU8Lr)|SecureX Threat Response|YES|
 |[ Threat Response - Search Relationship](https://github.com/tekgourou/sxo-atomics/tree/main/threatResponseSearchRelationship__definition_workflow_01YG5DUMDEP4N5xqaNJoFAgKAWfolLgnBwo)|SecureX Threat Response||
-|[ Meraki - MX - add IP / FQDN to blocklist ](https://github.com/tekgourou/sxo-workflows/tree/main/merakiMxAddIpFqdnToBlocklist__definition_workflow_0216RCBVZIDX92w9rJmH7xGByQa9Mtf6VDJ)|Meraki MX Firewalls ||
-|[ Setup - IP / FQDN Block list - ObjectGroup and FW rules ](https://github.com/tekgourou/sxo-workflows/tree/main/merakiSetupIpFqdnBlockList__definition_workflow_0215Y79WXC49C1zDLyAnfufeztvCfZjH9hx)|Meraki MX Firewalls ||
+|[ Meraki - MX - add IP / FQDN to blocklist ](https://github.com/tekgourou/sxo-workflows/tree/main/merakiMxAddIpFqdnToBlocklist__definition_workflow_0216RCBVZIDX92w9rJmH7xGByQa9Mtf6VDJ)|Meraki MX Firewalls |NO|
+|[ Setup - IP / FQDN Block list - ObjectGroup and FW rules ](https://github.com/tekgourou/sxo-workflows/tree/main/merakiSetupIpFqdnBlockList__definition_workflow_0215Y79WXC49C1zDLyAnfufeztvCfZjH9hx)|Meraki MX Firewalls |NO|
 |[ Meraki - Delete Policy Object ](https://github.com/tekgourou/sxo-atomics/tree/main/merakiDeletePolicyObject__definition_workflow_0213EWGNVLB9R0Pc5h3KbB1F0ROTohoUQBs)|Meraki MX Firewalls |YES|
 |[ Meraki - Create Policy Objects Group: ](https://github.com/tekgourou/sxo-atomics/tree/main/merakiCreatePolicyObjectsGroup__definition_workflow_0213DTOMAURCY4j9cDMmyoOMFHPCJO1lF3Y)|Meraki MX Firewalls |YES|
 |[ Meraki - Delete Policy Object ](https://github.com/tekgourou/sxo-atomics/tree/main/merakiDeletePolicyObject__definition_workflow_0213EWGNVLB9R0Pc5h3KbB1F0ROTohoUQBs)|Meraki MX Firewalls |YES|
