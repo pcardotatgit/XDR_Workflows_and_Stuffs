@@ -61,7 +61,7 @@ But you will find into each of them a lot of very good programming technics
 |[ Threat Response - Get Incident ](https://github.com/tekgourou/sxo-atomics/tree/main/threatResponeGetIncident__definition_workflow_01YHMD63YOR5L6BunBsaNgGSj5Rb94bd9GQ)|SecureX Threat Response|YES|
 |[ Threat Response - Get Sighting ](https://github.com/tekgourou/sxo-atomics/tree/main/threatResponseGetSighting__definition_workflow_01YG667GMICH047KanJSoExm5DQwUmqUpWJ)|SecureX Threat Response|YES|
 |[ Threat Response - Search Incident ](https://github.com/tekgourou/sxo-atomics/tree/main/threatResponseSearchIncident__definition_workflow_01YG4NMASZDBS5bdSCLBsjFbS5vGo1jU8Lr)|SecureX Threat Response|YES|
-|[ Threat Response - Search Relationship](https://github.com/tekgourou/sxo-atomics/tree/main/threatResponseSearchRelationship__definition_workflow_01YG5DUMDEP4N5xqaNJoFAgKAWfolLgnBwo)|SecureX Threat Response||
+|[ Threat Response - Search Relationship](https://github.com/tekgourou/sxo-atomics/tree/main/threatResponseSearchRelationship__definition_workflow_01YG5DUMDEP4N5xqaNJoFAgKAWfolLgnBwo)|SecureX Threat Response|YES|
 |[ Meraki - MX - add IP / FQDN to blocklist ](https://github.com/tekgourou/sxo-workflows/tree/main/merakiMxAddIpFqdnToBlocklist__definition_workflow_0216RCBVZIDX92w9rJmH7xGByQa9Mtf6VDJ)|Meraki MX Firewalls |NO|
 |[ Setup - IP / FQDN Block list - ObjectGroup and FW rules ](https://github.com/tekgourou/sxo-workflows/tree/main/merakiSetupIpFqdnBlockList__definition_workflow_0215Y79WXC49C1zDLyAnfufeztvCfZjH9hx)|Meraki MX Firewalls |NO|
 |[ Meraki - Delete Policy Object ](https://github.com/tekgourou/sxo-atomics/tree/main/merakiDeletePolicyObject__definition_workflow_0213EWGNVLB9R0Pc5h3KbB1F0ROTohoUQBs)|Meraki MX Firewalls |YES|
