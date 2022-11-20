@@ -2,6 +2,25 @@
 
 This repository intends to gather some SecureX tutorials that help on Workflow and Integration Modules creation.
 
+## Start Your SecureX tenant - some "mandatory steps"
+
+Here are the steps for starting your SecureX tenant with a minimum of useful services :
+
+* Step 1 : Create your SecureX Account [sign up to SecureX](https://security.cisco.com/).
+
+
+* Step 2 : Integrate your Cisco Security Solution (Umbrella or Secure Endpoint or another one)
+* Step 3 : Activate Useful/relevant free integrations [Adding 10 Free Threat Intelligence Sources to SecureX in Under 3 Minutes!](https://www.youtube.com/watch?v=7nCRMHo4_9Q&list=PLmuBTVjNfV0dlZ_DYgNiZ7SBlWVB0ae33&index=6)
+* Step 3 : Customize your dashboards
+* Step 3 : Activate Orchestration. Click on the **orchestration** table and the click on the **start orchestration** button that is displayed in the middle of the screen.  Orchestration becomes available a few hours after.
+* Step 4 : In Orchestration : Create a SecureX_Token. It will be the most effecient way to use SecureX native Target ( [See instructions](https://ciscosecurity.github.io/sxo-05-security-workflows/account-keys/securex-token) )
+* Step 5 : Create an Alert / Info Webex Team Room . Webex Team is naturally a very good uqserr interface for SecureX ([ See Instructions ](https://github.com/pcardotatgit/Create_a_Webex_Team_Bot))
+* Step 6a : Customize the **Webex Teams - Post Message to Room** atomic workflow
+* Step 6b : Or learn about how to create from scratch a **send message to webex team** workflow ( [ See Instructions ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/1-Create_a_Webex_Team_Bot_Target))
+* Step 7 : Import useful/relevant SecureX Workflows from the workflow lists
+
+At this point You are ready to use SecureX services and Create New Service which doesn't exist.
+
 ## Targets
 
 In this section you will find some information about how to create SecureX Targets.
@@ -44,7 +63,7 @@ That means that in a lot of cases I show some stuff that are maybe not the best 
 
 ## Securex Workflow List from Cisco and others
 
-* [SecureX Workflows List](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/99-SecureX_Workflow_list)
+* [SecureX Workflows List](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/99-SecureX_Workflow_list) ( updated Nov 18 2022 )
 
 ## My Workflows in this github repo
 

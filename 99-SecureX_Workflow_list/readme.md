@@ -1,14 +1,13 @@
-# Cool SecureX Workflows
+# SecureX Workflows
 
 I share with you here some very cool SecureX workflow made by a lot of SecureX Afficionados.
-
 
 ### Disclaimer
 None of these workflows had been validated by Cisco !  They are All Proof Of concepts !   they all must be reviewed before going to production !!!
 
 But you will find into each of them a lot of very good programming technics
 
-|Title|solutions|Cisco validated|
+|Title|solutions|Atomic|
 |-|-|-|
 | [Duo SecureX Orchestration workflows](https://github.com/Gyuri1/duo-sxo) | DUO | NO |
 | [SecureX_Orbital_Concurrent_Users](https://github.com/Gyuri1/SecureX_Orbital_Concurrent_Users) | Orbital, Secure EndPoint | NO |
@@ -16,22 +15,28 @@ But you will find into each of them a lot of very good programming technics
 |[SecureX Orchestration Workflow to Retrieve and Parse Meraki MX Security Events](https://github.com/chrivand/meraki-mx-security-events-workflow)| Meraki FW, SecureX Incidents| |
 |[Automated SecOps workflow with Policy Enforcement Verification](https://github.com/chrivand/sxo_secops_workflow)|SecureX Threat Response,ThousandEyes,Umbrella Management,Duo Admin,Webex Teams||
 |[SecureX orchestration workflows: Cisco Secure Endpoint (AMP4E) and Cisco Umbrella MSSP customer events to SecureX incident and ServiceNow incident](https://github.com/chrivand/amp-umb-mssp-sxo)|Cisco Secure Endpoint (AMP4E),Cisco Umbrella MSSP, SecureX incident,ServiceNow incident||
-|[Kenna - SecureX Incident Enrichment Automation](https://github.com/oxsannikova/kenna-secx-incident-enrich)|Kenna, Secure Endpoint, SecureX incident and casebook|Yes|
-| [sxo-acsc-advisory-workflow](https://github.com/oxsannikova/sxo-workflows)|Australian Cyber Security Centre Threat Intelligence,Webex Team,SecureX Incident and casebook|Yes|
+|[Kenna - SecureX Incident Enrichment Automation](https://github.com/oxsannikova/kenna-secx-incident-enrich)|Kenna, Secure Endpoint, SecureX incident and casebook|NO|
+| [sxo-acsc-advisory-workflow](https://github.com/oxsannikova/sxo-workflows)|Australian Cyber Security Centre Threat Intelligence,Webex Team,SecureX Incident and casebook|NO|
 |[ios-xe-packet-capture](https://github.com/oxsannikova/ios-xe-packet-capture-sxo-workflow)|IOS XE,Webex Team||
 |[Cisco Security Advisory (Critical Impact) to SecureX Casebook and Webex](https://github.com/chrivand/PSIRT-to-SecureX-Casebook)| Cisco PSIRT openVuln ,SecureX casebook, Webex Team||
 |[Trigger an Automated Threat Hunt in SecureX from your CI/CD pipeline using a GitHub Webhook](https://github.com/chrivand/github-kenna-securex-workflow)|Kenna VI+,SecureX Threat Response,ServiceNow,Webex Team||
 |[Cisco ThousandEyes response workflow for SecureX](https://github.com/chrivand/thousand-eyes-securex-response)|SecureX Threat Response, ThousandEyes, Webex Team||
 |[RSS Feed Blog Parser to Cisco SecureX Threat Response Casebook](https://github.com/chrivand/talos_blog_to_casebook)|ThousandEyes,SecureX casebook||
 |[Twitter Search to Cisco SecureX Threat Response Casebook](https://github.com/chrivand/twitter_search_threatresponse)|Twitter, SecureX casbook||
-|[Cisco SecureX orchestrator workflows to take action on OpenC2 command and controls](https://github.com/chrivand/securex_openc2cisco)|SecureX Threat Response,Webex Team, Remote Connector, FirePOWER,Umbrella,Secure EndPoint,Hashicorp Vault|No|
-|[Duo SecureX Orchestration workflows](https://github.com/chrivand/SecureX-Workflows-Duo-Casebook-Sigthings)|DUO Admin, SecureX Casebook|No|
+|[Cisco SecureX orchestrator workflows to take action on OpenC2 command and controls](https://github.com/chrivand/securex_openc2cisco)|SecureX Threat Response,Webex Team, Remote Connector, FirePOWER,Umbrella,Secure EndPoint,Hashicorp Vault|NO|
+|[Duo SecureX Orchestration workflows](https://github.com/chrivand/SecureX-Workflows-Duo-Casebook-Sigthings)|DUO Admin, SecureX Casebook|NO|
 |[SecureX orchestration workflow: AMP4E (Cisco Secure Endpoint) MSSP customer events to SecureX incident and ServiceNow incident](https://github.com/chrivand/amp-mssp-events-to-snow)|AMP4E (Cisco Secure Endpoint) MSSP,SecureX incident,ServiceNow||
 |[secureX-swc-detailed-alert-wf](https://github.com/chrivand/secureX-swc-detailed-alert-wf)|Stealthwatch Cloud,SecureX Incident,Webex Team||
 |[swc_amp_securex_orchestration](https://github.com/chrivand/swc_amp_securex_orchestration)| Secure Endpoint, Email Monitoring, StealthWatch Cloud,Webex Team||
 |[ISE & Meraki Rapid Threat Containment workflows](https://github.com/tekgourou/SecureX-Worklfows-RTC-ISE-Meraki)| ISE, Meraki||
 |[Secure Meter XD ](https://github.com/tekgourou/sxo-secure-meter-xd)|Threat Hunting Workflow||
 |[Microsoft Graph Security Events (including MCAS) to Cisco SecureX create Casebook](https://github.com/tekgourou/SecureX-Workflow-Microsoft_Graph_Alert_to_Casebook)|Microsoft Graph , Azure AD, SecureX Casebook||
+|[ Extract image from email](https://github.com/tekgourou/sxo-atomics/tree/main/extractImageFromEmail__definition_workflow_01O0VVGVQO55J612xLJQlOkIOitXf0baNBk)|Email||
+|[ SSH_to_ASA_and_do_show_interfaces ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Workflows/asa_or_cisco_switch_show_interfaces)|Cisco IOS devices, ASA, Cisco Switches|NO|
+|[ Add_an_observable_into_private_intell_judgment ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Atomics/Add_an_observable_into_private_intell_judgment)|SecureX Private Intelligence|YES|
+|[ CTR_Generate_Access_Token ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Atomics/CTR_Generate_Access_Token)|SecureX CTIA||
+|[ Get_an_Observable_disposition_from_secureX ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Atomics/Get_an_Observable_disposition_from_secureX)|SecureX Threat Response|YES|
+|[ openphish_get_urls_in_index_page ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Atomics/openphish_get_urls_in_index_page)|OpenPhish|YES|
 |[SecureX Orchestration Workflow - Umbrella Brand Watch](https://github.com/tekgourou/SecureX-Umbrella-Brandwatch)|Umbrella, Webex Team||
 |[Cisco SecureX Orchestration Workflows](https://github.com/chrivand/sxo-workflows)|Miscelaneous worklfows||
 |[Cisco SecureX Orchestration Atomics workflows](https://github.com/tekgourou/sxo-atomics)|Lot of workflows for AZURE AD, PAN, KENNA, DUO , ISE||
@@ -41,10 +46,33 @@ But you will find into each of them a lot of very good programming technics
 |[cx-ao-shared-workflows](https://github.com/cisco-cx-workflows/cx-ao-shared-workflows)|Action Orchestration Workflows||
 |[Which host is targeted by this sha256](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/8-detect_and_alert_workflow_lab)|Secure Endpoint, Webex Team, SecureX Threat Response||
 |[MISP SecureX Orchestration Workflows](https://github.com/CiscoDevNet/MISP-SecureX-Orchestration-Workflows)|MISP,SecureX Threat Response, Webex Team||
-|[Kenna - Add Compromise TAG to Asset](https://github.com/tekgourou/sxo-workflows/tree/main/kennaAddCompromiseTagToAsset__definition_workflow_01YAVEJRBRIMK03XhV2kP4BgpGep4vKJ2Gj)|Kenna||
-|[Kenna - Remove Compromise TAG from Asset](https://github.com/tekgourou/sxo-workflows/tree/main/kennaRemoveCompromiseTagFromAsset__definition_workflow_01YDEBGB63HPY0JUud2yxbCgbq3EzsPn5jS)|Kenna||
 |[Threat Response - Delete all sightings for an observable](https://github.com/tekgourou/sxo-workflows/tree/main/threatReponseDeleteAllSightingsForAObservable__definition_workflow_01OLBBX9YU11J0zVE7tr27QFo98kQHeeZaB)|SecureX Threat Response||
 |[Create Public Feeds for Firewalls](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/12-create_securex_blocking_lists_for_firewalls)|SecureX Private Intell Feeds, Cisco Secure Firewalls||
+|[ Cisco Kenna - Enrich SecureX Incident](https://github.com/tekgourou/sxo-workflows/tree/main/ciscoKennaEnrichSecurexIncident__definition_workflow_01YG4AA5X15TH6eYYnRB15DoRxHrJ2WRdii)|SecureX Incidents, Kenna||
+|[ Cisco Secure Endpoint - Enrich SecureX Incident](https://github.com/tekgourou/sxo-workflows/tree/main/secureEndpointEnrichSecurexIncident__definition_workflow_01YIP34CI51IN1QCRsBCAVelwUkA6laljcd)|Secure Endpoint, SecureX Incidents ||
+|[Kenna - Add Compromise TAG to Asset](https://github.com/tekgourou/sxo-workflows/tree/main/kennaAddCompromiseTagToAsset__definition_workflow_01YAVEJRBRIMK03XhV2kP4BgpGep4vKJ2Gj)|Kenna||
+|[Kenna - Remove Compromise TAG from Asset](https://github.com/tekgourou/sxo-workflows/tree/main/kennaRemoveCompromiseTagFromAsset__definition_workflow_01YDEBGB63HPY0JUud2yxbCgbq3EzsPn5jS)|Kenna||
+|[ Kenna - List Connectors ](https://github.com/tekgourou/sxo-atomics/tree/main/kennaListConnectors__definition_workflow_01Y40Y0X4JS1B5zSzRBvT3rjHWyg1VxsS8m)|Kenna |YES|
+|[ Kenna - List Tags ](https://github.com/tekgourou/sxo-atomics/tree/main/kennaListTags__definition_workflow_01Y4VKVQEXSHX2h8tEnGeijfcm3iSgsnupZ)|Kenna |YES|
+|[ Kenna - Show Asset Vulnerabilities ](https://github.com/tekgourou/sxo-atomics/tree/main/kennaShowAssetVulnerabilities__definition_workflow_01Y40HW3H1A8K0LZBNKYMIqmmJ1q0xYFhRS)|Kenna |YES|
+|[ Kenna - Tag an Asset ](https://github.com/tekgourou/sxo-atomics/tree/main/kennaTagAsset__definition_workflow_01Y4VNIRBIRGD44fI0GjzLgBjG83rp8s4hL)|Kenna |YES|
+|[ Kenna - UnTag a Asset ](https://github.com/tekgourou/sxo-atomics/tree/main/kennaUnTagAsset__definition_workflow_01Y4VW4DP60ML75j0l5gNxbOfVpXOGBjRwy)|Kenna |YES|
+|[ Kenna.VI+ Get malware hash from CVE ](https://github.com/tekgourou/sxo-atomics/tree/main/kennaViGetMalwareHashFromCve__definition_workflow_01Y0UHPAZI6VO2Kp7KJijiBfGDNN6yvZJye)|Kenna |YES|
+|[ Threat Response - Get Incident ](https://github.com/tekgourou/sxo-atomics/tree/main/threatResponeGetIncident__definition_workflow_01YHMD63YOR5L6BunBsaNgGSj5Rb94bd9GQ)|SecureX Threat Response|YES|
+|[ Threat Response - Get Sighting ](https://github.com/tekgourou/sxo-atomics/tree/main/threatResponseGetSighting__definition_workflow_01YG667GMICH047KanJSoExm5DQwUmqUpWJ)|SecureX Threat Response|YES|
+|[ Threat Response - Search Incident ](https://github.com/tekgourou/sxo-atomics/tree/main/threatResponseSearchIncident__definition_workflow_01YG4NMASZDBS5bdSCLBsjFbS5vGo1jU8Lr)|SecureX Threat Response|YES|
+|[ Threat Response - Search Relationship](https://github.com/tekgourou/sxo-atomics/tree/main/threatResponseSearchRelationship__definition_workflow_01YG5DUMDEP4N5xqaNJoFAgKAWfolLgnBwo)|SecureX Threat Response||
+|[ Meraki - MX - add IP / FQDN to blocklist ](https://github.com/tekgourou/sxo-workflows/tree/main/merakiMxAddIpFqdnToBlocklist__definition_workflow_0216RCBVZIDX92w9rJmH7xGByQa9Mtf6VDJ)|Meraki MX Firewalls ||
+|[ Setup - IP / FQDN Block list - ObjectGroup and FW rules ](https://github.com/tekgourou/sxo-workflows/tree/main/merakiSetupIpFqdnBlockList__definition_workflow_0215Y79WXC49C1zDLyAnfufeztvCfZjH9hx)|Meraki MX Firewalls ||
+|[ Meraki - Delete Policy Object ](https://github.com/tekgourou/sxo-atomics/tree/main/merakiDeletePolicyObject__definition_workflow_0213EWGNVLB9R0Pc5h3KbB1F0ROTohoUQBs)|Meraki MX Firewalls |YES|
+|[ Meraki - Create Policy Objects Group: ](https://github.com/tekgourou/sxo-atomics/tree/main/merakiCreatePolicyObjectsGroup__definition_workflow_0213DTOMAURCY4j9cDMmyoOMFHPCJO1lF3Y)|Meraki MX Firewalls |YES|
+|[ Meraki - Delete Policy Object ](https://github.com/tekgourou/sxo-atomics/tree/main/merakiDeletePolicyObject__definition_workflow_0213EWGNVLB9R0Pc5h3KbB1F0ROTohoUQBs)|Meraki MX Firewalls |YES|
+|[ Meraki - Get Policy Objects Groups list ](https://github.com/tekgourou/sxo-atomics/tree/main/merakiGetPolicyObjectsGroupsList__definition_workflow_0213DMXBOGY3U3MMWtdzwyZz4E1FLrNcOxv)|Meraki MX Firewalls |YES|
+|[ Meraki - Get Policy Objects list ](https://github.com/tekgourou/sxo-atomics/tree/main/merakiGetPolicyObjectsList__definition_workflow_0213E4D6J7J5W31t05JB2i7BDfjbgG7ZzMI)|Meraki MX Firewalls |YES|
+|[ Meraki - Get Syslog Servers for a NetworkID ](https://github.com/tekgourou/sxo-atomics/tree/main/merakiGetSyslogServerForANetworkId__definition_workflow_0216L9I10K6005pchG3m2p13smJknPmWIw2)|Meraki MX Firewalls |YES|
+|[ Meraki - Update Policy Objects Group ](https://github.com/tekgourou/sxo-atomics/tree/main/merakiUpdatePolicyObjectsGroup__definition_workflow_0214UBR3H85JG020gCFNP7cUyGVPCnPVr11)|Meraki MX Firewalls |YES|
+
+
 
 ## Cisco Validated Workflows
 
@@ -53,7 +81,6 @@ Have a look to the Cisco SecureX Validated Workflows.
 -[Cisco Validated Workflows](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/)
 
 -[Cisco SecureX orchestration](https://github.com/CiscoSecurity/sxo-05-security-workflows)
-
 
 
 |Title|solutions|Cisco validated|
