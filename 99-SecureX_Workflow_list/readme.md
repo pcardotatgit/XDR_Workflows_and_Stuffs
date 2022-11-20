@@ -34,7 +34,7 @@ But you will find into each of them a lot of very good programming technics
 |[ Extract image from email](https://github.com/tekgourou/sxo-atomics/tree/main/extractImageFromEmail__definition_workflow_01O0VVGVQO55J612xLJQlOkIOitXf0baNBk)|Email|YES|
 |[ SSH_to_ASA_and_do_show_interfaces ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Workflows/asa_or_cisco_switch_show_interfaces)|Cisco IOS devices, ASA, Cisco Switches|NO|
 |[ Add_an_observable_into_private_intell_judgment ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Atomics/Add_an_observable_into_private_intell_judgment)|SecureX Private Intelligence|YES|
-|[ CTR_Generate_Access_Token ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Atomics/CTR_Generate_Access_Token)|SecureX CTIA||
+|[ CTR_Generate_Access_Token ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Atomics/CTR_Generate_Access_Token)|SecureX CTIA|YES|
 |[ Get_an_Observable_disposition_from_secureX ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Atomics/Get_an_Observable_disposition_from_secureX)|SecureX Threat Response|YES|
 |[ openphish_get_urls_in_index_page ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Atomics/openphish_get_urls_in_index_page)|OpenPhish|YES|
 |[SecureX Orchestration Workflow - Umbrella Brand Watch](https://github.com/tekgourou/SecureX-Umbrella-Brandwatch)|Umbrella, Webex Team||
