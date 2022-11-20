@@ -1,11 +1,3 @@
-# SecureX Workflows and Tutos
+# SecureX Workflows
 
-This repository is about SecureX Workflows.
-
-- Tips
-- Tutos
-- Workflows
-- Relay Modules
-
-
-
+This repository contains some of my workflows.
