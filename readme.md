@@ -97,7 +97,11 @@ For integrating an IT solution within SecureX you need to develop what we call a
 
 This component can be developed in any programming language that is able to expose APIs to secureX and that is able to interact with 3rd party solution.
 
-Python an javascript are the most obvious languages to use, but if you prefer PHP, Ruby, Go.... it's up to you.
+This component must be hosted into a platform that is reachable by SecureX on the INTERNET in one hand and by the 3rd party solution in the other hand. 
+
+This component can e deployed into physical servers into a DMZ or into any public cloud.
+
+Python and javascript are the most obvious languages to use, but if you prefer PHP, Ruby, Go.... it's up to you.
 
 If you are new to this topic and you want to go to it, here are some reccomendations.
 
