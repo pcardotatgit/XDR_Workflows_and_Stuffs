@@ -8,18 +8,30 @@ Here are the steps for starting your SecureX tenant with a minimum of useful ser
 
 * Step 1 : Create your SecureX Account [sign up to SecureX](https://security.cisco.com/).
 
-
-* Step 2 : Integrate your Cisco Security Solution (Umbrella or Secure Endpoint or another one)
+* Step 2 : Integrate your Cisco Security Solution (Umbrella or Secure Endpoint or another one). Several videos are available on Youtube. And We published online SecureX Trainings at [Learnsecurex](https://learnsecurex.cisco.com/ ) which show that.
 * Step 3 : Activate Useful/relevant free integrations [Adding 10 Free Threat Intelligence Sources to SecureX in Under 3 Minutes!](https://www.youtube.com/watch?v=7nCRMHo4_9Q&list=PLmuBTVjNfV0dlZ_DYgNiZ7SBlWVB0ae33&index=6)
-* Step 3 : Customize your dashboards
-* Step 3 : Activate Orchestration. Click on the **orchestration** table and the click on the **start orchestration** button that is displayed in the middle of the screen.  Orchestration becomes available a few hours after.
-* Step 4 : In Orchestration : Create a SecureX_Token. It will be the most effecient way to use SecureX native Target ( [See instructions](https://ciscosecurity.github.io/sxo-05-security-workflows/account-keys/securex-token) )
-* Step 5 : Create an Alert / Info Webex Team Room . Webex Team is naturally a very good user interface for SecureX ([ See Instructions ](https://github.com/pcardotatgit/Create_a_Webex_Team_Bot))
-* Step 6a : Customize the **Webex Teams - Post Message to Room** atomic workflow
-* Step 6b : Or learn about how to create from scratch a **send message to webex team** workflow ( [ See Instructions ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/1-Create_a_Webex_Team_Bot_Target))
-* Step 7 : Import useful/relevant SecureX Workflows from the workflow lists
+* Step 4 : Customize your dashboards
+* Step 5 : Activate Orchestration. Click on the **orchestration** table and the click on the **start orchestration** button that is displayed in the middle of the screen.  Orchestration becomes available a few hours after.
+* Step 6 : In Orchestration : Create a SecureX_Token. It will be the most effecient way to use SecureX native Target ( [See instructions](https://ciscosecurity.github.io/sxo-05-security-workflows/account-keys/securex-token) )
+* Step 7 : Create an Alert / Info Webex Team Room . Webex Team is naturally a very good user interface for SecureX ([ See Instructions ](https://github.com/pcardotatgit/Create_a_Webex_Team_Bot))
+* Step 8a : Customize the **Webex Teams - Post Message to Room** atomic workflow
+* Step 8b : Or learn about how to create from scratch a **send message to webex team** workflow ( [ See Instructions ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/1-Create_a_Webex_Team_Bot_Target))
+* Step 9 : Import useful/relevant SecureX Workflows from the workflow lists
 
 At this point You are ready to use SecureX services and Create New Service which doesn't exist.
+
+## SecureX Token
+
+SecureX exposes a lot of APIs for a lot of purposes. From this point of vue SecureX can become a powerful solution to integrate within a SOC. 
+
+SecureX exposes a few "system targets" : CTR_Target, CTIA_Target, or Private_CTIA_Target. Which require authentication.
+
+The SecureX make authentication to these system target very easy. 
+
+Creating a SecureX Token must be one of the installation mandatory steps.
+
+[SecureX Token instructions are here](https://ciscosecurity.github.io/sxo-05-security-workflows/account-keys/securex-token)
+
 
 ## Targets
 
@@ -42,14 +54,13 @@ In this section you will find some tutorials dedicated to triggers which can Sta
 * [Trigger your workflows from the pivot menu](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/5-Trigger_your_workflow_from_the_ribbon)
 * [Trigger your workflows from Webhooks](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/10-trigger_your_workflow_with_webhooks)
 
-
 ## Miscelaneous 
 
 In this section some usefull tutorials.
 
 * [JSON Parsing ( secureX and python )](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/9-JSON_Parsing_within_SecureX)
 
-## Use Cases
+## Use Cases for learning SecureX Orchestration
 
 In this section you will find some use cases documented step by step. The goal is not workflows themselves but the goal is to show how to create them.
 
@@ -75,3 +86,26 @@ I wrote the tool below because needed to quickly check and clean my workflows an
 
 * [SecureX JSON workflow parser](https://github.com/pcardotatgit/SecureX_Workflow_JSON_Tree_viewer)
 * [SecureX Workflow Analyser](https://ciscosecurity.github.io/sxo-05-security-workflows/analyzer)
+
+## 3rd Party Integration Development
+
+This specific topic is the most passioning SecureX topic. But this is the more complex topic for Security Automation Designers.
+
+This topic shows the power of the SecureX Platform.
+
+For integrating an IT solution within SecureX you need to develop what we call a Relay Module. A Relay Module is a basically a REST Web Server that will receive REST call from SecureX and that will translate and relay these calls to the 3rd party solution.  This Relay Module will have to receive replies from the 3rd party solution and will have to translate them into valid SecureX JSON answers.
+
+This component can be developed in any programming language that is able to expose APIs to secureX and that is able to interact with 3rd party solution.
+
+Python an javascript are the most obvious languages to use, but if you prefer PHP, Ruby, Go.... it's up to you.
+
+If you are new to this topic and you want to go to it, here are some reccomendations.
+
+* 1 - You must be confortable with python
+* 2 - You must know about python flask
+* 3 - Optionnal but reccommended you have to be familiar with AWS serverless, or azure 
+
+Here is a basic example of 3rd party integration :
+
+[Relay Module for tiles lab](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/6-relay_modules_for_tiles)
+
