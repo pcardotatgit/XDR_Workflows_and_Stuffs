@@ -1,7 +1,7 @@
 import requests
 
 url ="COPY HERE THE WHOLE SECUREX WEBHOOK URL"
-headers = {'Content-Type': 'application/json charset-utf-8', 'Accept': 'application/json'}
+headers = {'Content-Type': 'application/json', 'Accept': 'application/json'}
 
 body_message={'message':'Hello Message sent in the body'}
 
