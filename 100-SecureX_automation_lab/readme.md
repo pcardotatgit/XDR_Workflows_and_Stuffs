@@ -150,23 +150,29 @@ Then go to the SecureX Orchestration page => all workflows and search for workfl
 
 If they exist don't delete them. Then Import the two workflow  **CiscoSecurity_Workflows** github and and overwrite existing workflows if needed.
 
-**Next Step** Go to the following instructions and once done come back here and move forward with next steps : [ Instructions for creating SecureX Feeds ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/12-create_securex_blocking_lists_for_firewalls)
+**Next Step** Go to the following instructions and once done come back here and move forward with next steps : 
+
+[ Instructions for creating SecureX Feeds ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/12-create_securex_blocking_lists_for_firewalls)
 
 **Have you done previous step ?**
 
 If the anwser is yes, then let's go the last step of this lab.
 
-We are going to include the **0015B-SecureFirewall-BlockObservable** workflow into the **Receive observables from a rest client** one.
+We are going to include the **0015B-SecureFirewall-BlockObservable** workflow into the **Receive observables from a rest client** one. Thanks to this, when we will click on an observable in the Webex Teal alert message, then we will add it to the SecureX blocking list.
 
 Go to the SecureX workflow editor and open the **Receive observables from a rest client** workflow.
 
 When you used it before, you probably have noticed the parallel block in the middle named **Replace this by an Update Judgment activity**.
 
-This activity is by default skipped. It is not run.
+This activity is by default skipped. It is not runt.
 
-Replace this activity by the **0015B-SecureFirewall-BlockObservable** activity. You will be able to find it on the activity left panel ( search for : **0015B-SecureFirewall-BlockObservable**). Drag and drop it into the canvas in replacment of the **parallel block**.
+Replace this activity by the **0015B-SecureFirewall-BlockObservable** activity. 
 
-Click on it and then go to it's properties right panel. 
+You will be able to find it on the activity left panel ( search for : **0015B-SecureFirewall-BlockObservable**). 
+
+Drag and drop it into the canvas in replacement of the whole **parallel block**.
+
+Then click on it to select it and then go to it's properties right panel. 
 
 - Set the **observable_type** to **ip**
 - Set the **observable_value** to the 
@@ -177,13 +183,22 @@ Click on it and then go to it's properties right panel.
 
 ## You are ready for the final test !!
 
-Go to Alert Webex Team Room and click on one of the IP addresses.
+Come back to the Alert Webex Team Room and click on one of the IP addresses.
 
 ![](assets/img/1.png)
 
-You are supposed to receive messages from SecureX which tell you that the observable was received and added to the feed
+You are supposed to receive messages from SecureX which tell you that the observable was received and added to the feed.
+
+Then the IP address must appear now  into the public SecureX feed. 
+
+Come back to the feed and refresh it.
 
 ![](assets/img/10.png)
 
 # CONGRATULATION !!! you completed the full demo !!!
 
+## What to do Next ?
+
+If you don't want to stop here, you can go the the Firewall part and make the feed automatically translated into Firewall Blocking rules.
+
+This will be particularly simple to do with FirePOWER and Security Intelligence ( Or Threat Intelligence Director ). You can use Secure Firewall DCLOUD Demos for this.
