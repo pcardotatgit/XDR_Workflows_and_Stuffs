@@ -60,7 +60,7 @@ In this lab you need the following components :
 3. Install the Lab Simulator into you laptop . [see Instructions]
 4. Open the **config.py** script located into the simulator root directory. Update the **ctr_client_id** and **ctr_client_password** variables with  CTR client ID and Client Password you got in step 2. 
 5. Depending on your region uncomment the **host=xxx** and **host_for_token=xxx** variables. **Notice** DCLOUD demos are located in the US.
-6. Create a SecureX Token named **CTR_SecureX_Token** [ See Instructions here ](https://ciscosecurity.github.io/sxo-05-security-workflows/account-keys/securex-token). Or you can use the one you already created into your SecureX Tenant.
+6. Create a SecureX Token named **CTR_SecureX_Token** [ See Instructions here ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/10-trigger_your_workflow_with_webhooks). Or you can use the one you already created into your SecureX Tenant.
 7. Start the simulator and open your browser to **http://localhost:4000**
 8. Check that communication between the Lab Simulator and your SecureX tenant is Ok. Click on the **check SecureX** link on the top left of the displayed web page. 
 
@@ -70,11 +70,11 @@ In this lab you need the following components :
 
 9. At this point you can run the half of the full demo ( Detection and Alert )
 
-First log into you SecureX tenant and open the incident manager into the SecureX Ribbon. Have a look to the existing incidents.
+First log into you SecureX tenant and open the **incident manager** into the **SecureX Ribbon**. Have a look to the existing incidents.
 
 ![](assets/img/5.png)
 
-Infection scenario :
+Attack the Victim machine.
 
 Open your browser to  **http://localhost:4000** and click on the hacker icon.  This opens an hacker console that is supposed to be used to send some shell commands to the victim. And type **hackthis** into the console.
 
@@ -95,15 +95,16 @@ At this point you can roll out a full investigation process by going to events, 
 
 ### Demo Part 2 - Send Alerts into a Webex Team Room and add Malicious observables into SecureX blocking feeds
 
-1. Create a dedicated webex Team Bot for this lab. Copy and save it's authentication token. If you don't already have a Webex Bot go this [ Create a Webex Team Bot Instructions ](https://github.com/pcardotatgit/Create_a_Webex_Team_Bot) and stop at : **OK YOU ARE GOOD TO GO !!**
+1. Create a dedicated webex Team Bot for this lab. Copy and save it's authentication token. If you don't already have a Webex Bot go this [ Create a Webex Team Bot Instructions ](https://github.com/pcardotatgit/Create_a_Webex_Team_Bot) and stop at : **OK YOU ARE GOOD TO GO !!** text in the documentation.
 2. Edit the **config.py** script and update the **webex_bot_token** variable value
 3. Create an Alert Webex Team Room and check that you can send messages into it from SecureX workflows. Copy it's Room ID
 4. Edit the **config.py** script and update the **webex_room_id** variable value
 5. Create a SecureX target for Webex [ see instructions ]
 6. Go to Orchestration and import the **Receive observables from a rest client.json** workflow.
-7. Check / Customize the Webex Target used by this workflow.
-8. In SecureX Orchestration go to the admin panel and then select Create a webhook **Events & Webhook** then create an event named **PVT_Demo_Webhook** and create within it a webhook named **Webhook_trigger**. Once done copy it's **webhook url**
+7. Normaly this import operation automatically creates a new webhook. Check this.
+8. If the webhook is not created. In SecureX Orchestration go to the admin panel and then select Create a webhook **Events & Webhook** then create an event named **PVT_Demo_Webhook** and create within it a webhook named **Webhook_trigger**. Once done copy it's **webhook url**
 9. In the SecureX Workflow editor, edit the **Receive observables from a rest client** workflow and assign to it the webhook you created above. Go to the trigger section of the workflow properties panel on the right
+8. BUT : If the webhook is created as expected, copy it's **webhook_url**.
 10. Then Edit the **config.py** file and update the **SecureX_Webhook_url** variable
 11. Ready for some tests.  Test this setup with the **test_webhook.py** file. When you run this script you are supposed to see a message into your alert webex team room.
 ![](assets/img/2.png)
@@ -121,10 +122,68 @@ The expected result is a formatted alert message into the alert webex team room
 
 ### CONGRATULATION !! you are ready for the last part of this lab : Add ip address into SecureX blocking feeds
 
-You have probably noticed that IP addresses observables in the webex team alert message are clickables.  The purpose of this is to allow security operators to add malicious observables into SecureX blocking Feeds. And once any observable is into such SecureX Feeds, it can be automatically consumed by firewalls and converted into a blocking security rule.
+You have probably noticed that IP addresses observables in the webex team alert message are clickables.  
 
-This is the goal of this last part of the lab.
+The purpose of this is to allow security operators to add malicious observables into SecureX blocking Feeds. And once any observable is into SecureX Feeds, it can be automatically blocked by a company firewalls.
 
-- Step 1 - Create SecureX Feeds
-- Step 2 - import the workflow that add an observable into SecureX Feeds.
+This is the goal of this last part of the lab. To do so we need :
+
+- To Create SecureX Feeds
+- TO Create SecureX Workflows that will add observables into SecureX feeds.
+
+Actually these Workflows already exists into the list of Cisco Validated Workflows.
+
+These workflows are :
+
+- 0015A-SecureFirewall-BlockObservable-Setup
+- 0015B-SecureFirewall-BlockObservable
+
+The next step is to import these two workflows into your SecureX tenant. 
+
+Before doing these imports and If you use the DCLOUD lab, then  do some clean up.
+
+Go to **Threat Response** => **Feeds** and check that **SecureX_Firewall_Private_xxx** feeds. If they exist delete all of them. 
+
+Then you have to do the same with indicators. Delete all **Secure_Firewall_SecureX_xxx** indicators.
+
+Then go to the SecureX Orchestration page => all workflows and search for workflows **0015A-SecureFirewall-BlockObservable-Setup** and **0015B-SecureFirewall-BlockObservable**.   
+
+If they exist don't delete them. Then Import the two workflow  **CiscoSecurity_Workflows** github and and overwrite existing workflows if needed.
+
+**Next Step** Go to the following instructions and once done come back here and move forward with next steps : [ Instructions for creating SecureX Feeds ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/12-create_securex_blocking_lists_for_firewalls)
+
+**Have you done previous step ?**
+
+If the anwser is yes, then let's go the last step of this lab.
+
+We are going to include the **0015B-SecureFirewall-BlockObservable** workflow into the **Receive observables from a rest client** one.
+
+Go to the SecureX workflow editor and open the **Receive observables from a rest client** workflow.
+
+When you used it before, you probably have noticed the parallel block in the middle named **Replace this by an Update Judgment activity**.
+
+This activity is by default skipped. It is not run.
+
+Replace this activity by the **0015B-SecureFirewall-BlockObservable** activity. You will be able to find it on the activity left panel ( search for : **0015B-SecureFirewall-BlockObservable**). Drag and drop it into the canvas in replacment of the **parallel block**.
+
+Click on it and then go to it's properties right panel. 
+
+- Set the **observable_type** to **ip**
+- Set the **observable_value** to the 
+
+![](assets/img/8.png)
+
+![](assets/img/9.png)
+
+## You are ready for the final test !!
+
+Go to Alert Webex Team Room and click on one of the IP addresses.
+
+![](assets/img/1.png)
+
+You are supposed to receive messages from SecureX which tell you that the observable was received and added to the feed
+
+![](assets/img/10.png)
+
+# CONGRATULATION !!! you completed the full demo !!!
 
