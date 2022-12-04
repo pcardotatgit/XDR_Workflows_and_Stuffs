@@ -60,14 +60,15 @@ In this lab you need the following components :
 3. Install the Lab Simulator into you laptop . [see Instructions]
 4. Open the **config.py** script located into the simulator root directory. Update the **ctr_client_id** and **ctr_client_password** variables with  CTR client ID and Client Password you got in step 2. 
 5. Depending on your region uncomment the **host=xxx** and **host_for_token=xxx** variables. **Notice** DCLOUD demos are located in the US.
-6. Start the simulator and open your browser to **http://localhost:4000**
-7. Check that communication between the Lab Simulator and your SecureX tenant is Ok. Click on the **check SecureX** link on the top left of the displayed web page. 
+6. Create a SecureX Token named **CTR_SecureX_Token** [ See Instructions here ](https://ciscosecurity.github.io/sxo-05-security-workflows/account-keys/securex-token). Or you can use the one you already created into your SecureX Tenant.
+7. Start the simulator and open your browser to **http://localhost:4000**
+8. Check that communication between the Lab Simulator and your SecureX tenant is Ok. Click on the **check SecureX** link on the top left of the displayed web page. 
 
     The expected result is the following :
 
     ![](assets/img/3.png)
 
-8. At this point you can run the half of the full demo ( Detection and Alert )
+9. At this point you can run the half of the full demo ( Detection and Alert )
 
 First log into you SecureX tenant and open the incident manager into the SecureX Ribbon. Have a look to the existing incidents.
 
@@ -83,39 +84,42 @@ After a few second youn will see the attack process running into the victim mach
 
 ![](assets/img/6.png)
 
-Now come back to the SecureX Ribbon. Then you shoud see a new incident that was created.
+Now come back to the SecureX Ribbon. Then you can see now a new incident that was created by Secure Endpoint.
 
 ![](assets/img/7.png)
 
+
 At this point you can roll out a full investigation process by going to events, or observables. And the open the relation graph undrestand the attack.
 
-### Demo Part 2 - Send Alert into Webex Team Room and add Malicious observables into SecureX blocking feeds
+**NEXT STEP : Demo Part 2** 
 
-1. Create a dedicated webex Team Bot for this lab. Copy and save it's authentication token
+### Demo Part 2 - Send Alerts into a Webex Team Room and add Malicious observables into SecureX blocking feeds
+
+1. Create a dedicated webex Team Bot for this lab. Copy and save it's authentication token. If you don't already have a Webex Bot go this [ Create a Webex Team Bot Instructions ](https://github.com/pcardotatgit/Create_a_Webex_Team_Bot) and stop at : **OK YOU ARE GOOD TO GO !!**
 2. Edit the **config.py** script and update the **webex_bot_token** variable value
 3. Create an Alert Webex Team Room and check that you can send messages into it from SecureX workflows. Copy it's Room ID
 4. Edit the **config.py** script and update the **webex_room_id** variable value
 5. Create a SecureX target for Webex [ see instructions ]
-6. Go to Orchestration and import the **Receive observables from a rest client**
-7. Customize the Target of this workflow
-8. In SecureX Orchestration go to the admin panel and then select Create a webhook **Events & Webhook** then create an event  named **PVT_Demo_Webhook** and create within it a webhook named **Webhook_trigger** copy it's **webhook url**
-9. Edit the **Receive observables from a rest client** workflow and assign to it the webhook you created above in the trigger section of the workflow properties panel on the right
-8. edit the **config.py** file and update the **SecureX_Webhook_url** variable
-9. Test this setup with the **z_test_webhook.py** file. When you run this script you are supposed to see a message into your webex team room.
+6. Go to Orchestration and import the **Receive observables from a rest client.json** workflow.
+7. Check / Customize the Webex Target used by this workflow.
+8. In SecureX Orchestration go to the admin panel and then select Create a webhook **Events & Webhook** then create an event named **PVT_Demo_Webhook** and create within it a webhook named **Webhook_trigger**. Once done copy it's **webhook url**
+9. In the SecureX Workflow editor, edit the **Receive observables from a rest client** workflow and assign to it the webhook you created above. Go to the trigger section of the workflow properties panel on the right
+10. Then Edit the **config.py** file and update the **SecureX_Webhook_url** variable
+11. Ready for some tests.  Test this setup with the **test_webhook.py** file. When you run this script you are supposed to see a message into your alert webex team room.
 ![](assets/img/2.png)
 
-10. If you received the success message you are goo to move forward. Of not check here [troubleshooting instructions]
-11. Go to Orchestration and import the **Check Incidents every 5 minutes**
+10. If you received the success message, Congratulation ! you are goo to move forward. if not check here [troubleshooting instructions]
+11. Go to Orchestration and import the **Check Incidents every 5 minutes.json** workflow.
 12. Check the SecureX **Private_CTIA_Target** . This one must use a host fqdn that match to your region ( ex : **private.intel.eu.amp.cisco.com** ) and this target must use the **SecureX_Token** you created at the begining of this lab.
 13. Run the **Check Incidents every 5 minutes** workflow. You will be asked to enter the **webex_bot_token** and the **webex_room_id**.
 
-For the purpose of this lab we dont store the **webex_bot_token** and **webex_room_id** variables into global SecureX Variables. We voluntary let the workflow asking you these value is required inputs.  For production you will have to modify this part a create static variables into your secureX tenant.
+    For the purpose of this lab we dont store the **webex_bot_token** and **webex_room_id** variables into global SecureX Variables. We voluntary let the workflow asking you these value is required inputs.  For production you will have to modify this part a create static variables into your secureX tenant.
 
 The expected result is a formatted alert message into the alert webex team room 
 
 ![](assets/img/1.png)
 
-**CONGRATULATION !! you are ready for the last part of this lab**
+### CONGRATULATION !! you are ready for the last part of this lab : Add ip address into SecureX blocking feeds
 
 You have probably noticed that IP addresses observables in the webex team alert message are clickables.  The purpose of this is to allow security operators to add malicious observables into SecureX blocking Feeds. And once any observable is into such SecureX Feeds, it can be automatically consumed by firewalls and converted into a blocking security rule.
 
