@@ -49,7 +49,11 @@ From the CiscoSecurity_Workflow Git repository import the 2 following workflows 
 
 Select their last git versions
 
-And without any customization then run the first one ( 0015A-SecureFirewall-BlockObservable-Setup ).
+### Let's create indicators and feeds first
+
+And without any customization then run the first one ( **0015A-SecureFirewall-BlockObservable-Setup** ).
+
+**NOTICE**  : You might face to authentication error for **Web service** activities. If this happens then open the **0015A-SecureFirewall-BlockObservable-Setup**. Then locate every **Web Service Activities** and in order to get rid of any authentication issues, in their properties panel, in the  **Credential Section=> Account Keys** replace the **Use target's default account keys** choice by the **Override account keys Account Key Id** choice. And Select the **SecureX_Token** you must have created before. 
 
 It must succeed and then you can check the result in Threat Response Intelligence > Feeds. Your feeds must be created
 
@@ -57,7 +61,11 @@ It must succeed and then you can check the result in Threat Response Intelligenc
 
 You are ready !!!
 
-Now add an observable into the feeds... for doing this, run the second workflow ( 0015B-SecureFirewall-BlockObservable )
+### Let's add an observable to a feed
+
+Now let's add an observable into the feeds... 
+
+For doing this, just run the second workflow ( **0015B-SecureFirewall-BlockObservable** )
 
 Enter an observable_value ( any url : www.anyurl.com for example ) and a matching type ( url ) and then submit.
 
@@ -65,11 +73,17 @@ After a few seconds this workflow succeed and then you can check that the URL yo
 
 Now go your private judgments. And check that the url you entered is on the top of the list. 
 
+Threat Response Create Relationship
+
 ![](./assets/img-6.png)
 
 **Notice:** If you delete it, then it will disapear from the feed.
 
-And you may notice the the disposition is : **Unkown** and the source is : **securex-orchestration**
+**NOTICE**  : You might face to authentication error for **Web service** activities. If this happens then open the **0015A-SecureFirewall-BlockObservable-Setup**. Then locate every **Web Service Activities** and in order to get rid of any authentication issues, in their properties panel, in the  **Credential Section=> Account Keys** replace the **Use target's default account keys** choice by the **Override account keys Account Key Id** choice. And Select the **SecureX_Token** you must have created before.   And for this one you have to check the **Private_CTIA_Target** and set it's account keys to use the **Secure_Token** you created.
+
+## BONUS LAB ( Optionnal but intersting to do )
+
+You may notice the the disposition is : **Unkown** and the source is : **securex-orchestration**
 
 Let's modify this in order to be able to send specific dispositions and sources.
 
