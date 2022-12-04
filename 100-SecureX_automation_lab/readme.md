@@ -14,7 +14,7 @@ Meaning that an hacker connected to web page of this vulnerable web server, that
 
 Even if the web server is equiped by an Endpoint Protection solution, this RCE vulnerability can't be detected by it as it is due to unsecured coding of the web page which allow this attack.
 
-![](/assets/img/lab_network.png)
+![](assets/img/0.png)
 
 So We start with the situation where hacker have a potential remote administration acces to a victim web server.
 
