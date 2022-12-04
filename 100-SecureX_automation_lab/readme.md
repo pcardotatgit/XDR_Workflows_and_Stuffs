@@ -57,7 +57,7 @@ In this lab you need the following components :
 
 1. Check your SecureX tenant. If you don't have a SecureX tenant you can use DCLOUD **Cisco SecureX Orchestration v1 - Instant Demo** 
 2. Create Threat Response API client with all scopes. Copy Threat Response **client ID** and **Client Password** and save them somewhere.
-3. Install the Lab Simulator into you laptop . [see Instructions]
+3. Install the Lab Simulator into you laptop . [see Instructions here](https://github.com/pcardotatgit/lab_simulator-001)
 4. Open the **config.py** script located into the simulator root directory. Update the **ctr_client_id** and **ctr_client_password** variables with  CTR client ID and Client Password you got in step 2. 
 5. Depending on your region uncomment the **host=xxx** and **host_for_token=xxx** variables. **Notice** DCLOUD demos are located in the US.
 6. Create a SecureX Token named **CTR_SecureX_Token** [ See Instructions here ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/10-trigger_your_workflow_with_webhooks). Or you can use the one you already created into your SecureX Tenant.
