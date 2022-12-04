@@ -1,6 +1,6 @@
 # Introduction
 
-The goal of this lab is to share with participants every details about how to build an automated threat detection and mitigation scenario.
+The goal of this lab is to share with participants every details about how to build an automated threat detection and mitigation SecureX Demo.
 
 This scenario is a complete **SecureX XDR demonstration**
 
@@ -16,18 +16,18 @@ Even if the web server is equiped by an Endpoint Protection solution, this RCE v
 
 ![](assets/img/0.png)
 
-So We start with the situation where hacker have a potential remote administration acces to a victim web server.
+So We start with the situation where an hacker have a potential remote administration acces to a victim machine.
 
-In this lab, the web server is a windows machine that run apache web server and very vulnerable php scripts and which exposes the log4j vulnerability. But the web server is protected by Secure Endpoint.
+This victim machine is a web server is a windows machine that run apache web server and very vulnerable php scripts and which exposes the log4j vulnerability. But the web server is protected by Secure Endpoint.
 
-- Step 1 : the hacker send a log4j Attack into a web server formular. This attack make the Web server to download from a malicious location a piece of code that will be executed by it's windows operating system. This code is a powershell code that runs into memory a "mimikatz" attack.
-- Step 2 : Secure Endpoint will detect this attack attempt and will block it. At the same time, Secure Endpoint will create a SecureX Incident.
-- Step 3 : Within SecureX a workflow runs every 5 minutes and reads SecureX incidents. For every new incidents since last 5 minutes, the worklow will analyses their details and will extract from them  targets and malicious observable information. 
-- Step 4 : for every severe incidents, the workflow send to Security Operators alert Webex team room, a documented alert that warn them about this new threat, with the list of targets and malicious observable that try to pawn them.
-- Step 5 : Thanks to clickable links into the webex team Alert message, the security operator can trigger SecureX workflows which add malicious observables into SecureX blocking feeds.
-- Step 6 - Final step, once malicious observable are in the blocking feeds, they are automatically deployed a few minutes later as new blocking rules into all company firewalls.
+- Step 1 : the hacker send a log4j Attack into a web server formular. This attack makes the Web server to download  a malicious piece of code that will be executed as shell commands by the windows operating system. This code is a powershell code that runs into memory a version of a "mimikatz" attack. This is actuallly a fileless attack.
+- Step 2 : Secure Endpoint will detect this attack and will block it. At the same time, Secure Endpoint will create a SecureX Incident.
+- Step 3 : Within SecureX a workflow which runs every 5 minutes reads SecureX incidents. For every new incidents since last 5 minutes, the worklow will analyses their details and will extract from them  targets and malicious observable information. 
+- Step 4 : For every incidents with high severity, the workflow will send a documented alert to a an alert Webex team room. The goal is to alert the security operator about this new threat. And call them to instantly react.
+- Step 5 : Thanks to clickable links into the webex team Alert message, the security operators will be able to trigger SecureX workflows which will add malicious observables into SecureX blocking feeds.
+- Step 6 - Final step will be to deploy the blocking feeds into all company firewalls. This process is an completly automated process for Cisco Secure Firewall.  Once malicious observables exist into the SecureX blocking feeds, they are automatically deployed a few minutes later as new blocking rules into Cisco Secure Firewalls thank to the **Security Intelligence** or the **Threat Intelligence Director** FirePOWER feature.
 
-## What will you learn in this lab
+## What will you learn in this lab ?
 
 In this lab you will learn 
 
@@ -35,7 +35,7 @@ In this lab you will learn
 - How to create feeds
 - How to create judgments for observables and how to add them into SecureX Feeds
 - How to Read Incident and Sigthings
-- How to parse them into SecureX workflow
+- How to parse ncident and Sigthings into SecureX workflow
 - How to send markdown formatted message to webex team room and how to use Webex Team as a User Interface for SecureX
 - How to trigger a webhook and how to send data to a workflow from a script
  
@@ -51,23 +51,43 @@ In this lab you need the following components :
 - A Webex Team Room that will be used a an Alert Webex Room
 - A Webex Team bot that will be used to send alert into the Webex Team Room
 
-## Preparation Steps
+## Installation
 
 ### Demo Part 1 - Threat Detection & Create Incident 
 
 1. Check your SecureX tenant. If you don't have a SecureX tenant you can use DCLOUD **Cisco SecureX Orchestration v1 - Instant Demo** 
-2. Create Threat Response API client with all scopes. Copy **client ID** and **Client Password** and save them somewhere.
+2. Create Threat Response API client with all scopes. Copy Threat Response **client ID** and **Client Password** and save them somewhere.
 3. Install the Lab Simulator into you laptop . [see Instructions]
-4. Open the **config.py** script located into the simlator root directory. Update the **ctr_client_id** and **ctr_client_password** variables with  CTR client ID and Client Password you got in step 2. 
+4. Open the **config.py** script located into the simulator root directory. Update the **ctr_client_id** and **ctr_client_password** variables with  CTR client ID and Client Password you got in step 2. 
 5. Depending on your region uncomment the **host=xxx** and **host_for_token=xxx** variables. **Notice** DCLOUD demos are located in the US.
-5. Start the simulator and open your browser to **http://localhost:4000**
-5. Check between the Lab Simulator and your SecureX tenant. Click on the **check SecureX** link. 
+6. Start the simulator and open your browser to **http://localhost:4000**
+7. Check that communication between the Lab Simulator and your SecureX tenant is Ok. Click on the **check SecureX** link on the top left of the displayed web page. 
+
+    The expected result is the following :
+
+    ![](assets/img/3.png)
+
 8. At this point you can run the half of the full demo ( Detection and Alert )
+
+First log into you SecureX tenant and open the incident manager into the SecureX Ribbon. Have a look to the existing incidents.
+
+![](assets/img/5.png)
 
 Infection scenario :
 
-Open your browser to  **http://localhost:4000** and click on the hacker.  This opens an hacker console that is supposed to be used to send some shell commands to the victim.
+Open your browser to  **http://localhost:4000** and click on the hacker icon.  This opens an hacker console that is supposed to be used to send some shell commands to the victim. And type **hackthis** into the console.
 
+![](assets/img/4.png)
+
+After a few second youn will see the attack process running into the victim machine.
+
+![](assets/img/6.png)
+
+Now come back to the SecureX Ribbon. Then you shoud see a new incident that was created.
+
+![](assets/img/7.png)
+
+At this point you can roll out a full investigation process by going to events, or observables. And the open the relation graph undrestand the attack.
 
 ### Demo Part 2 - Send Alert into Webex Team Room and add Malicious observables into SecureX blocking feeds
 
