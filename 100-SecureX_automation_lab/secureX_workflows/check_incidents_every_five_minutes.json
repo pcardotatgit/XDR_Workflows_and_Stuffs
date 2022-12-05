@@ -1,0 +1,1132 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_021OBKTEW437I0zj3soIFDAYVPyTCk6CpJd",
+    "name": "Check SecureX Incident every 5 minutes",
+    "title": "Check SecureX Incident every 5 minutes",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "local",
+          "name": "temp",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_021TU484SSZZH2J0s3RhDjC26TVQFCbgogo",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "local",
+          "name": "SecureX Environment URL",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_021OBSYSVX9A61mUZn3VaOCvLoxFLsIUyRc",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "WEBEX_ROOM_ID",
+          "type": "datatype.string",
+          "is_required": true,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_021W36FYHK70N58LLMhx7YQEMfS2AMEqP2I",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "local",
+          "name": "message_for_webex_team",
+          "type": "datatype.string",
+          "description": "message to be send to webex team room",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_021UGEMCVC7RJ67ISdpzpQWoOdX5Hlweo8S",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "local",
+          "name": "target_list",
+          "type": "datatype.string",
+          "description": "List of all unique targets from all sightings",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_021TTGP02BTR970FZU7wHLl6lLdB0grmF4P",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "local",
+          "name": "output_result",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_021OC9ZRK4C1K5Xq02GfpDZEHaatRGEKwAi",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "local",
+          "name": "observables_list",
+          "type": "datatype.string",
+          "description": "List of unique Observables from all Sightings",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_021TTG2U7QCI55EmMLYhtsYwnc5XAuPZaXR",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.integer",
+        "properties": {
+          "value": 0,
+          "scope": "local",
+          "name": "index",
+          "type": "datatype.integer",
+          "description": "index variable to get access to incident title. This avoid to send a REST call to SecureX for this",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_021UIHZVHTROC1lOPfJnHJmoOEdKZbmToaW",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "local",
+          "name": "temp_to_delete",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_021QV2940OZ906p2SlTMalhMrlGQZfoTRiJ",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "WEBEX_BOT_TOKEN",
+          "type": "datatype.string",
+          "is_required": true,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_021W365WOSDGX1FwSSFLOWMzYUAZSZOledd",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "description": "Read SecureX Incident every 5 minutes and built an alert message to be send into an Alert Webex Team Room",
+      "display_name": "Check SecureX Incident every 5 minutes",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "no_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_021W245RBRO731EImyAEGXlV30eYHX7hlRA",
+        "name": "Execute Python Script",
+        "title": "GET current date",
+        "type": "python3.script",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "description": "In order to keep only today incidents",
+          "display_name": "GET current date",
+          "script": "from datetime import datetime \n\ntime = datetime.now().isoformat().split('.')[0]+'Z'\ntime = time.split('T')[0]",
+          "script_queries": [
+            {
+              "script_query": "time",
+              "script_query_name": "TODAY_DATE",
+              "script_query_type": "string"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_021OBOXG3ZZ386SNZYR3TCwXDOGbarQ6bd0",
+        "name": "Condition Block",
+        "title": "Set the environment URL depending on your region",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "description": "In which reagio is your tenant ?",
+          "display_name": "Set the environment URL depending on your region",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_021OBOXGG6PEH1tMJBTkJilIlUl1hwGMS3z",
+            "name": "Condition Branch",
+            "title": "PROD-NAM",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$env.variable_01A6C871LSO9A26D0zcBjJoAKgRglrC10aG.env.variable_01A6C871LSO9A26D0zcBjJoAKgRglrC10aG$",
+                "operator": "eqi",
+                "right_operand": "prod-nam"
+              },
+              "continue_on_failure": false,
+              "description": "Your tenant is in the US",
+              "display_name": "PROD-NAM",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_021OBQMROZL8S3vmNhCG2K6YTBlqAIe3fKG",
+                "name": "Set Variables",
+                "title": "Set Variables SecureX Environment to US URL ",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Set Variables SecureX Environment to US URL ",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_021OBKTEW437I0zj3soIFDAYVPyTCk6CpJd.local.variable_workflow_021OBSYSVX9A61mUZn3VaOCvLoxFLsIUyRc$",
+                      "variable_value_new": "private.intel.amp.cisco.com"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_021OBYJJ73VAP1z0dkqrB5DmVCZvQEQXtPQ",
+            "name": "Condition Branch",
+            "title": "PROD-EU",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$env.variable_01A6C871LSO9A26D0zcBjJoAKgRglrC10aG.env.variable_01A6C871LSO9A26D0zcBjJoAKgRglrC10aG$",
+                "operator": "eqi",
+                "right_operand": "prod-eu"
+              },
+              "continue_on_failure": false,
+              "description": "Your tenant is in Europe",
+              "display_name": "PROD-EU",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_021OBYJJ74FGN24uZqVyxjsNUQComC5NYHM",
+                "name": "Set Variables",
+                "title": "Set Variables SecureX Environment to EU URL ",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Set Variables SecureX Environment to EU URL ",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_021OBKTEW437I0zj3soIFDAYVPyTCk6CpJd.local.variable_workflow_021OBSYSVX9A61mUZn3VaOCvLoxFLsIUyRc$",
+                      "variable_value_new": "private.intel.eu.amp.cisco.com"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_021OBZ5PSBZMD2HilpHuOMfOp7Pv8p1JpZp",
+            "name": "Condition Branch",
+            "title": "PROD-APJC",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$env.variable_01A6C871LSO9A26D0zcBjJoAKgRglrC10aG.env.variable_01A6C871LSO9A26D0zcBjJoAKgRglrC10aG$",
+                "operator": "eqi",
+                "right_operand": "prod-apjc"
+              },
+              "continue_on_failure": false,
+              "description": "Your tenant is in Asia Pacific",
+              "display_name": "PROD-APJC",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_021OBZ5PSCJ8P1eT3SiGG2VVM5VJcg9pmTz",
+                "name": "Set Variables",
+                "title": "Set Variables SecureX Environment to APJC URL ",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Set Variables SecureX Environment to APJC URL ",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_021OBKTEW437I0zj3soIFDAYVPyTCk6CpJd.local.variable_workflow_021OBSYSVX9A61mUZn3VaOCvLoxFLsIUyRc$",
+                      "variable_value_new": "private.intel.apjc.amp.cisco.com"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_021OC0IEFIR771qSrz77laxeyqmAdWBQGaK",
+        "name": "HTTP Request",
+        "title": "GET SecureX Incidents",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "accept": "application/json",
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "allow_headers_redirect": false,
+          "content_type": "application/json",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "description": "Get SecureX High and Critical Incidents ",
+          "display_name": "GET SecureX Incidents",
+          "method": "GET",
+          "relative_url": "/incident/search",
+          "runtime_user": {
+            "override_target_runtime_user": true,
+            "runtime_user_id": "definition_runtime_user_01WY3D8QEJOOL4uwZR6xEAD85BeyafJCjpH"
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01M6A27IAHQC5465jhc60l0ObP82GEVzP2Z"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_021OMZM5694R85dhf5Ks1A88GeH4xzVoJFS",
+        "name": "JSONPath Query",
+        "title": "Extract Incidents IDs and date and time and title",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "description": "Extract all Incident IDs and date and time and title of these incidents and put them into a list ",
+          "display_name": "Extract Incidents IDs and date and time and title",
+          "input_json": "$activity.definition_activity_021OC0IEFIR771qSrz77laxeyqmAdWBQGaK.output.response_body$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$[*].id",
+              "jsonpath_query_name": "incident_id",
+              "jsonpath_query_type": "string",
+              "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+            },
+            {
+              "jsonpath_query": "$[*].timestamp",
+              "jsonpath_query_name": "incident_date_time",
+              "jsonpath_query_type": "string",
+              "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+            },
+            {
+              "jsonpath_query": "$[*].title",
+              "jsonpath_query_name": "INCIDENT_TITLE",
+              "jsonpath_query_type": "string",
+              "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_021QTT8E68SRE0sDzMh6aOxBZm1ujMiqDHC",
+        "name": "Execute Python Script",
+        "title": "create python incident list",
+        "type": "python3.script",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "description": "Create a csv like data which contains incidents and their date and time",
+          "display_name": "create python incident list",
+          "script": "import sys\nincident_text=sys.argv[1]\ndatetime_text=sys.argv[2]\ncurrent_incident_list=sys.argv[3]\nnew_incident_list=''\nincident_text=incident_text.replace(\"[\",\"\")\nincident_text=incident_text.replace(\"]\",\"\")\nincident_text=incident_text.replace('\"','')\ndatetime_text=datetime_text.replace(\"[\",\"\")\ndatetime_text=datetime_text.replace(\"]\",\"\")\ndatetime_text=datetime_text.replace('\"','')\nincident_list=incident_text.split(\",\")\ndatetime_list=datetime_text.split(\",\")\nfinal_list='incident,datetime\\n'\ni=0\nfor item in incident_list:\n    final_list=final_list+item+','+datetime_list[i]+'\\n'\n    i+=1\n    if item not in current_incident_list:\n        new_incident_list=new_incident_list+item+'\\n'\nprint(final_list)",
+          "script_arguments": [
+            "$activity.definition_activity_021OMZM5694R85dhf5Ks1A88GeH4xzVoJFS.output.jsonpath_queries.incident_id$",
+            "$activity.definition_activity_021OMZM5694R85dhf5Ks1A88GeH4xzVoJFS.output.jsonpath_queries.incident_date_time$",
+            "$global.variable_021QTILESIWGV1e4QS1uOIGdVcaHXKkSPE6.global.variable_021QTILESIWGV1e4QS1uOIGdVcaHXKkSPE6$"
+          ],
+          "script_queries": [
+            {
+              "script_query": "final_list",
+              "script_query_name": "INCIDENT_LIST",
+              "script_query_type": "string"
+            },
+            {
+              "script_query": "new_incident_list",
+              "script_query_name": "NEW_INCIDENT_LIST",
+              "script_query_type": "string"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_021QUY5W6P1DZ4r0SPPrVU3OwbHRvoy48ag",
+        "name": "Read Table from Text",
+        "title": "Put new incidents into a secureX Table",
+        "type": "core.read_table_from_text",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "delimiters": [
+            {
+              "delimiter": "\\n"
+            }
+          ],
+          "description": "Put new incidents into a secureX Table in order to go to all of them into the for each loop",
+          "display_name": "Put new incidents into a secureX Table",
+          "input_text": "$activity.definition_activity_021QTT8E68SRE0sDzMh6aOxBZm1ujMiqDHC.output.script_queries.NEW_INCIDENT_LIST$",
+          "persist_output": true,
+          "populate_columns": false,
+          "skip_execution": false,
+          "table_columns": [
+            {
+              "column_name": "id",
+              "column_type": "string"
+            }
+          ]
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_021QV14Z6IEHQ6tawQ4WkMM4xUxLSan8flX",
+        "name": "For Each",
+        "title": "For Each incidents search for relations",
+        "type": "logic.for_each",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "description": "For Each incident ",
+          "display_name": "For Each incidents search for relations",
+          "skip_execution": false,
+          "source_array": "$activity.definition_activity_021QUY5W6P1DZ4r0SPPrVU3OwbHRvoy48ag.output.read_table_from_text$"
+        },
+        "object_type": "definition_activity",
+        "actions": [
+          {
+            "unique_name": "definition_activity_021UIFOIWH23F55A7GvOj5Hcvq58eo9cuy7",
+            "name": "Execute Python Script",
+            "title": "Retreive Incident Title",
+            "type": "python3.script",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": false,
+              "description": "Retreive Incident Title",
+              "display_name": "Retreive Incident Title",
+              "script": "import sys\nimport json\nindex=int(sys.argv[1])\ntitle_text=sys.argv[2]\ntitle_text=title_text.replace('[\"','')\ntitle_text=title_text.replace('\"]','')\ntitle_text=title_text.replace('\"','')\ntitle_list=title_text.split(',')\ntitle=title_list[index]\nindex+=1",
+              "script_arguments": [
+                "$workflow.definition_workflow_021OBKTEW437I0zj3soIFDAYVPyTCk6CpJd.local.variable_workflow_021UIHZVHTROC1lOPfJnHJmoOEdKZbmToaW$",
+                "$activity.definition_activity_021OMZM5694R85dhf5Ks1A88GeH4xzVoJFS.output.jsonpath_queries.INCIDENT_TITLE$"
+              ],
+              "script_queries": [
+                {
+                  "script_query": "title",
+                  "script_query_name": "INCIDENT_TITLE",
+                  "script_query_type": "string"
+                },
+                {
+                  "script_query": "index",
+                  "script_query_name": "NEW_index",
+                  "script_query_type": "integer"
+                }
+              ],
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_021W1WM38OCZP1N82Ix7LV4EYWTXjkSAy5N",
+            "name": "Execute Python Script",
+            "title": "Retreive Incident Date time",
+            "type": "python3.script",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": false,
+              "description": "Retreive Incident Date",
+              "display_name": "Retreive Incident Date time",
+              "script": "import sys\nimport json\nindex=int(sys.argv[1])\ndatetime_text=sys.argv[2]\ndatetime_text=datetime_text.replace('[\"','')\ndatetime_text=datetime_text.replace('\"]','')\ndatetime_text=datetime_text.replace('\"','')\ndatetime_list=datetime_text.split(',')\ndatetime=datetime_list[index].split('T')[0]",
+              "script_arguments": [
+                "$workflow.definition_workflow_021OBKTEW437I0zj3soIFDAYVPyTCk6CpJd.local.variable_workflow_021UIHZVHTROC1lOPfJnHJmoOEdKZbmToaW$",
+                "$activity.definition_activity_021OMZM5694R85dhf5Ks1A88GeH4xzVoJFS.output.jsonpath_queries.incident_date_time$"
+              ],
+              "script_queries": [
+                {
+                  "script_query": "datetime",
+                  "script_query_name": "INCIDENT_DATE",
+                  "script_query_type": "string"
+                }
+              ],
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_021UILMWA2HKD7CBC4Q0h8npsBf1Il02BFI",
+            "name": "Set Variables",
+            "title": "Update index variable",
+            "type": "core.set_multiple_variables",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "description": "Update index variable ",
+              "display_name": "Update index variable",
+              "skip_execution": false,
+              "variables_to_update": [
+                {
+                  "variable_to_update": "$workflow.definition_workflow_021OBKTEW437I0zj3soIFDAYVPyTCk6CpJd.local.variable_workflow_021UIHZVHTROC1lOPfJnHJmoOEdKZbmToaW$",
+                  "variable_value_new": "$activity.definition_activity_021UIFOIWH23F55A7GvOj5Hcvq58eo9cuy7.output.script_queries.NEW_index$"
+                }
+              ]
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_021W26YPPMWYK4snG2vEmCAAlAIS5tzlf9W",
+            "name": "Condition Block",
+            "title": "Condition Block",
+            "type": "logic.if_else",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Condition Block",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "blocks": [
+              {
+                "unique_name": "definition_activity_021W26YQ5O0GG07gwBbwKBW2ncG3oPW7MFZ",
+                "name": "Condition Branch",
+                "title": "Is incident date today ? : YES",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$activity.definition_activity_021W1WM38OCZP1N82Ix7LV4EYWTXjkSAy5N.output.script_queries.INCIDENT_DATE$",
+                    "operator": "eq",
+                    "right_operand": "$activity.definition_activity_021W245RBRO731EImyAEGXlV30eYHX7hlRA.output.script_queries.TODAY_DATE$"
+                  },
+                  "continue_on_failure": false,
+                  "description": "Is incident date today ? : YES",
+                  "display_name": "Is incident date today ? : YES",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_021UHP06D5ZES0ymmmM3rOpEeAyXyxveCl0",
+                    "name": "Parallel Block",
+                    "title": "Parallel Block",
+                    "type": "logic.parallel",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Parallel Block",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "blocks": [
+                      {
+                        "unique_name": "definition_activity_021UHP06JP6D23sKa1cuUM4HfQQeNAnm1Sz",
+                        "name": "Parallel Branch",
+                        "title": "Parallel Branch",
+                        "type": "logic.parallel_block",
+                        "base_type": "activity",
+                        "properties": {
+                          "display_name": "Parallel Branch"
+                        },
+                        "object_type": "definition_activity",
+                        "actions": [
+                          {
+                            "unique_name": "definition_activity_021UHP72MW8CU53xZqfYQc6027GPxytN900",
+                            "name": "Set Variables",
+                            "title": "reset observable_list",
+                            "type": "core.set_multiple_variables",
+                            "base_type": "activity",
+                            "properties": {
+                              "continue_on_failure": false,
+                              "display_name": "reset observable_list",
+                              "skip_execution": false,
+                              "variables_to_update": [
+                                {
+                                  "variable_to_update": "$workflow.definition_workflow_021OBKTEW437I0zj3soIFDAYVPyTCk6CpJd.local.variable_workflow_021TTG2U7QCI55EmMLYhtsYwnc5XAuPZaXR$",
+                                  "variable_value_new": ""
+                                }
+                              ]
+                            },
+                            "object_type": "definition_activity"
+                          }
+                        ]
+                      },
+                      {
+                        "unique_name": "definition_activity_021UHP06R1X2V39ZrM2vm1Opg9djhBQ87jU",
+                        "name": "Parallel Branch",
+                        "title": "Parallel Branch",
+                        "type": "logic.parallel_block",
+                        "base_type": "activity",
+                        "properties": {
+                          "display_name": "Parallel Branch"
+                        },
+                        "object_type": "definition_activity",
+                        "actions": [
+                          {
+                            "unique_name": "definition_activity_021UHPMM1YG542SUlBRmXYNuu0zbqrVRdJ3",
+                            "name": "Set Variables",
+                            "title": "reset targets_list",
+                            "type": "core.set_multiple_variables",
+                            "base_type": "activity",
+                            "properties": {
+                              "continue_on_failure": false,
+                              "display_name": "reset targets_list",
+                              "skip_execution": false,
+                              "variables_to_update": [
+                                {
+                                  "variable_to_update": "$workflow.definition_workflow_021OBKTEW437I0zj3soIFDAYVPyTCk6CpJd.local.variable_workflow_021TTGP02BTR970FZU7wHLl6lLdB0grmF4P$",
+                                  "variable_value_new": ""
+                                }
+                              ]
+                            },
+                            "object_type": "definition_activity"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "unique_name": "definition_activity_021QX4STQ3P6V2Jjw2Eqi6ZCYqYnzLR96wj",
+                    "name": "HTTP Request",
+                    "title": "GET relationships details",
+                    "type": "web-service.http_request",
+                    "base_type": "activity",
+                    "properties": {
+                      "accept": "application/json",
+                      "action_timeout": 180,
+                      "allow_auto_redirect": true,
+                      "allow_headers_redirect": false,
+                      "content_type": "application/json",
+                      "continue_on_error_status_code": false,
+                      "continue_on_failure": false,
+                      "description": "Get SecureX  relationship for target_ref = incident ID",
+                      "display_name": "GET relationships details",
+                      "method": "GET",
+                      "relative_url": "/relationship/search?target_ref=$activity.definition_activity_021QV14Z6IEHQ6tawQ4WkMM4xUxLSan8flX.input.source_array[@].id$",
+                      "runtime_user": {
+                        "override_target_runtime_user": true,
+                        "runtime_user_id": "definition_runtime_user_01WY3D8QEJOOL4uwZR6xEAD85BeyafJCjpH"
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": true,
+                        "target_id": "definition_target_01M6A27IAHQC5465jhc60l0ObP82GEVzP2Z"
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_021TQBMBUAAO72jlTOtCGWXOLrtnS1PnOQU",
+                    "name": "JSONPath Query",
+                    "title": "Extract source_ref",
+                    "type": "corejava.jsonpathquery",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": false,
+                      "description": "Extract source_ref ID ( sightings ID )",
+                      "display_name": "Extract source_ref",
+                      "input_json": "$activity.definition_activity_021QX4STQ3P6V2Jjw2Eqi6ZCYqYnzLR96wj.output.response_body$",
+                      "jsonpath_queries": [
+                        {
+                          "jsonpath_query": "$[*].source_ref",
+                          "jsonpath_query_name": "SOURCE_REF",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_021TQITIFZGCE2Upt2jBXhbdRlc6JWlx8TL",
+                    "name": "Execute Python Script",
+                    "title": "Create Sighting ID List",
+                    "type": "python3.script",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": false,
+                      "description": "Create a csv like data which contains relationships and their details",
+                      "display_name": "Create Sighting ID List",
+                      "script": "import sys\nimport json\nsigthing_text=sys.argv[1]\nsigthing_text=sigthing_text.replace('[\"','')\nsigthing_text=sigthing_text.replace('\"]','')\nsigthing_text=sigthing_text.replace('\"','')\nsigthing_text=sigthing_text.replace(',','\\n')\n",
+                      "script_arguments": [
+                        "$activity.definition_activity_021TQBMBUAAO72jlTOtCGWXOLrtnS1PnOQU.output.jsonpath_queries.SOURCE_REF$"
+                      ],
+                      "script_queries": [
+                        {
+                          "script_query": "sigthing_text",
+                          "script_query_name": "SIGHTING_IDs",
+                          "script_query_type": "string"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_021TQVM2FTE0A3UUsa87kYTL3NiToFsedlR",
+                    "name": "Read Table from Text",
+                    "title": "Put sighting IDs into a secureX table",
+                    "type": "core.read_table_from_text",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "delimiters": [
+                        {
+                          "delimiter": "\\n"
+                        }
+                      ],
+                      "description": "Put sighting IDs into a secureX table in order to goto all of them in the next step",
+                      "display_name": "Put sighting IDs into a secureX table",
+                      "input_text": "$activity.definition_activity_021TQITIFZGCE2Upt2jBXhbdRlc6JWlx8TL.output.script_queries.SIGHTING_IDs$",
+                      "persist_output": true,
+                      "populate_columns": false,
+                      "skip_execution": false,
+                      "table_columns": [
+                        {
+                          "column_name": "id",
+                          "column_type": "string"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_021TR05HY8JLU7NXyL9XuKitDk5OquV2wVt",
+                    "name": "For Each",
+                    "title": "For Each sighting ",
+                    "type": "logic.for_each",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "description": "For Each sighting  get details ( targets, observables )",
+                      "display_name": "For Each sighting ",
+                      "skip_execution": false,
+                      "source_array": "$activity.definition_activity_021TQVM2FTE0A3UUsa87kYTL3NiToFsedlR.output.read_table_from_text$"
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_021TR15B6KCKQ2C25v9h65wJMPqtbFFS7dT",
+                        "name": "HTTP Request",
+                        "title": "GET Sighting Details",
+                        "type": "web-service.http_request",
+                        "base_type": "activity",
+                        "properties": {
+                          "accept": "application/json",
+                          "action_timeout": 180,
+                          "allow_auto_redirect": true,
+                          "allow_headers_redirect": false,
+                          "content_type": "application/json",
+                          "continue_on_error_status_code": false,
+                          "continue_on_failure": false,
+                          "description": "Get SecureX  relationship for target_ref = incident ID",
+                          "display_name": "GET Sighting Details",
+                          "method": "GET",
+                          "relative_url": "/sighting/search?id=$activity.definition_activity_021TR05HY8JLU7NXyL9XuKitDk5OquV2wVt.input.source_array[@].id$",
+                          "runtime_user": {
+                            "override_target_runtime_user": true,
+                            "runtime_user_id": "definition_runtime_user_01WY3D8QEJOOL4uwZR6xEAD85BeyafJCjpH"
+                          },
+                          "skip_execution": false,
+                          "target": {
+                            "override_workflow_target": true,
+                            "target_id": "definition_target_01M6A27IAHQC5465jhc60l0ObP82GEVzP2Z"
+                          }
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_021TV59HKRV0J2eNBTAEeIL3m6hzseCkl1Y",
+                        "name": "Parallel Block",
+                        "title": "Parallel Block",
+                        "type": "logic.parallel",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "Parallel Block",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "blocks": [
+                          {
+                            "unique_name": "definition_activity_021TV59HUSDLW0VCYcseL0lNv0EaS355FMF",
+                            "name": "Parallel Branch",
+                            "title": "Observables branch",
+                            "type": "logic.parallel_block",
+                            "base_type": "activity",
+                            "properties": {
+                              "continue_on_failure": false,
+                              "display_name": "Observables branch",
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity",
+                            "actions": [
+                              {
+                                "unique_name": "definition_activity_021TTHH6HEBF10oOSN3upDwrf8ZxjpzDiiK",
+                                "name": "JSONPath Query",
+                                "title": "Extract Observables",
+                                "type": "corejava.jsonpathquery",
+                                "base_type": "activity",
+                                "properties": {
+                                  "action_timeout": 180,
+                                  "continue_on_failure": false,
+                                  "description": "Extract all observables and their types from sighting",
+                                  "display_name": "Extract Observables",
+                                  "input_json": "$activity.definition_activity_021TR15B6KCKQ2C25v9h65wJMPqtbFFS7dT.output.response_body$",
+                                  "jsonpath_queries": [
+                                    {
+                                      "jsonpath_query": "$[*].observables",
+                                      "jsonpath_query_name": "OBSERVABLES",
+                                      "jsonpath_query_type": "string"
+                                    }
+                                  ],
+                                  "skip_execution": false
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_021TUEVOK1H547I5Xpj0Lmimq5FuXXv61sE",
+                                "name": "Execute Python Script",
+                                "title": "add obsevables to observable_list",
+                                "type": "python3.script",
+                                "base_type": "activity",
+                                "properties": {
+                                  "action_timeout": 180,
+                                  "continue_on_failure": false,
+                                  "description": "add obsevables to observable_list",
+                                  "display_name": "add obsevables to observable_list",
+                                  "script": "import sys\nimport json\nobservable_json=json.loads(sys.argv[1])\nprint(observable_json)\nobservable_list=sys.argv[2]\nfor item in observable_json:\n    if item['value'] not in observable_list:\n        observable_list=observable_list+item['value']+';'+item['type']+'\\n'",
+                                  "script_arguments": [
+                                    "$activity.definition_activity_021TTHH6HEBF10oOSN3upDwrf8ZxjpzDiiK.output.jsonpath_queries.OBSERVABLES$",
+                                    "$workflow.definition_workflow_021OBKTEW437I0zj3soIFDAYVPyTCk6CpJd.local.variable_workflow_021TTG2U7QCI55EmMLYhtsYwnc5XAuPZaXR$"
+                                  ],
+                                  "script_queries": [
+                                    {
+                                      "script_query": "observable_list",
+                                      "script_query_name": "NEW_OBSERVABLE_LIST",
+                                      "script_query_type": "string"
+                                    }
+                                  ],
+                                  "skip_execution": false
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_021TUR1Q2GRR25Qx7yH06z3YViiceFLJM1W",
+                                "name": "Set Variables",
+                                "title": "Update observable_list",
+                                "type": "core.set_multiple_variables",
+                                "base_type": "activity",
+                                "properties": {
+                                  "continue_on_failure": false,
+                                  "description": "Update observable_list with new content we got in previous step",
+                                  "display_name": "Update observable_list",
+                                  "skip_execution": false,
+                                  "variables_to_update": [
+                                    {
+                                      "variable_to_update": "$workflow.definition_workflow_021OBKTEW437I0zj3soIFDAYVPyTCk6CpJd.local.variable_workflow_021TTG2U7QCI55EmMLYhtsYwnc5XAuPZaXR$",
+                                      "variable_value_new": "$activity.definition_activity_021TUEVOK1H547I5Xpj0Lmimq5FuXXv61sE.output.script_queries.NEW_OBSERVABLE_LIST$"
+                                    }
+                                  ]
+                                },
+                                "object_type": "definition_activity"
+                              }
+                            ]
+                          },
+                          {
+                            "unique_name": "definition_activity_021TV59I18HHZ51H2NXOLpk08FCFEaMndhn",
+                            "name": "Parallel Branch",
+                            "title": "Targets Branch",
+                            "type": "logic.parallel_block",
+                            "base_type": "activity",
+                            "properties": {
+                              "continue_on_failure": false,
+                              "display_name": "Targets Branch",
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity",
+                            "actions": [
+                              {
+                                "unique_name": "definition_activity_021TV6B9M7VQ16SBRquUBdtArotvp3vux5x",
+                                "name": "JSONPath Query",
+                                "title": "Extract Targets",
+                                "type": "corejava.jsonpathquery",
+                                "base_type": "activity",
+                                "properties": {
+                                  "action_timeout": 180,
+                                  "continue_on_failure": false,
+                                  "description": "Extract all targets and their types from sighting",
+                                  "display_name": "Extract Targets",
+                                  "input_json": "$activity.definition_activity_021TR15B6KCKQ2C25v9h65wJMPqtbFFS7dT.output.response_body$",
+                                  "jsonpath_queries": [
+                                    {
+                                      "jsonpath_query": "$[*].targets",
+                                      "jsonpath_query_name": "TARGETS",
+                                      "jsonpath_query_type": "string",
+                                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                                    }
+                                  ],
+                                  "skip_execution": false
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_021TVA5VCHG9V3FYxjBK9fckPibtIhwgFIS",
+                                "name": "Execute Python Script",
+                                "title": "add targets to target_list",
+                                "type": "python3.script",
+                                "base_type": "activity",
+                                "properties": {
+                                  "action_timeout": 180,
+                                  "continue_on_failure": false,
+                                  "description": "add targets to target_list",
+                                  "display_name": "add targets to target_list",
+                                  "script": "import sys\nimport json\ntarget_json=json.loads(sys.argv[1])\ntarget_list=sys.argv[2]\nfor item in target_json:\n    observables=item['observables']\n    for observable in observables:\n        if observable['value'] not in target_list:\n            target_list=target_list+observable['value']+';'+observable['type']+'\\n'",
+                                  "script_arguments": [
+                                    "$activity.definition_activity_021TV6B9M7VQ16SBRquUBdtArotvp3vux5x.output.jsonpath_queries.TARGETS$",
+                                    "$workflow.definition_workflow_021OBKTEW437I0zj3soIFDAYVPyTCk6CpJd.local.variable_workflow_021TTGP02BTR970FZU7wHLl6lLdB0grmF4P$"
+                                  ],
+                                  "script_queries": [
+                                    {
+                                      "script_query": "target_list",
+                                      "script_query_name": "NEW_TARGET_LIST",
+                                      "script_query_type": "string"
+                                    }
+                                  ],
+                                  "skip_execution": false
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_021UGBVPSH97M1GCfoNhIFY3Mrr4WVJZct7",
+                                "name": "Set Variables",
+                                "title": "Update target_list",
+                                "type": "core.set_multiple_variables",
+                                "base_type": "activity",
+                                "properties": {
+                                  "continue_on_failure": false,
+                                  "description": "Update observable_list with new content we got in previous step",
+                                  "display_name": "Update target_list",
+                                  "skip_execution": false,
+                                  "variables_to_update": [
+                                    {
+                                      "variable_to_update": "$workflow.definition_workflow_021OBKTEW437I0zj3soIFDAYVPyTCk6CpJd.local.variable_workflow_021TTGP02BTR970FZU7wHLl6lLdB0grmF4P$",
+                                      "variable_value_new": "$activity.definition_activity_021TVA5VCHG9V3FYxjBK9fckPibtIhwgFIS.output.script_queries.NEW_TARGET_LIST$"
+                                    }
+                                  ]
+                                },
+                                "object_type": "definition_activity"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "unique_name": "definition_activity_021UGGT3SKNVB1BYYvBZcqanGbPHEr1IeNO",
+                    "name": "Execute Python Script",
+                    "title": "prepare message for webex team",
+                    "type": "python3.script",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": false,
+                      "description": "prepare message for webex team",
+                      "display_name": "prepare message for webex team",
+                      "script": "import sys\nobservable_text=sys.argv[1]\ntarget_text=sys.argv[2]\nincident_title=sys.argv[3]\nobservable_list=observable_text.split('\\n')\ntarget_list=target_text.split('\\n')\nmessage_out='''\n# EndPoint Infection Alert !\n---\n### An Endpoint Infection had been detected into your company. Immediate action is required !. \n---\n'''\nmessage_out=message_out+'### Incident : '+incident_title+'\\n---\\n'\nmessage_out=message_out+'### Targets :\\n'\nfor item in target_list:\n    obsv=item.split(';')[0]\n    if ';ip' in item:        \n        message_out=message_out+'- ['+obsv+' ( block IP into firewalls )](http://localhost:4000/block?ip='+obsv+')\\n'\n    else:\n        if item !='':\n            obsv=item.replace(';',' ( ')+' ) '\n            message_out='- '+message_out+'- '+obsv+'\\n'\nmessage_out=message_out+'### Suspicious / Malicious Observables :\\n'\nfor item in observable_list:\n    obsv=item.split(';')[0]\n    if ';ip' in item:        \n        message_out=message_out+'- ['+obsv+' ( block IP into firewalls )](http://localhost:4000/block?ip='+obsv+')\\n'\n    else:\n        if item !='':\n            obsv=item.replace(';',' ( ')+' ) '\n            message_out='- '+message_out+'- '+obsv+'\\n'\n",
+                      "script_arguments": [
+                        "$workflow.definition_workflow_021OBKTEW437I0zj3soIFDAYVPyTCk6CpJd.local.variable_workflow_021TTG2U7QCI55EmMLYhtsYwnc5XAuPZaXR$",
+                        "$workflow.definition_workflow_021OBKTEW437I0zj3soIFDAYVPyTCk6CpJd.local.variable_workflow_021TTGP02BTR970FZU7wHLl6lLdB0grmF4P$",
+                        "$activity.definition_activity_021UIFOIWH23F55A7GvOj5Hcvq58eo9cuy7.output.script_queries.INCIDENT_TITLE$"
+                      ],
+                      "script_queries": [
+                        {
+                          "script_query": "message_out",
+                          "script_query_name": "MESSAGE",
+                          "script_query_type": "string"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_021UGM3SA7NFS4MsJ4p6xv7sQs0MZQnQvk7",
+                    "name": "Webex - Post Message to Room",
+                    "title": "Webex - Post Message to Room",
+                    "type": "workflow.atomic_workflow",
+                    "base_type": "subworkflow",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Webex - Post Message to Room",
+                      "input": {
+                        "variable_workflow_01PP78DJH1TI76BYfsu9g0Tqj2S6cUxjtu5": "$workflow.definition_workflow_021OBKTEW437I0zj3soIFDAYVPyTCk6CpJd.input.variable_workflow_021W36FYHK70N58LLMhx7YQEMfS2AMEqP2I$",
+                        "variable_workflow_01PP78DJH1XNQ7gNQ5iZdperRHqrppzARXC": "$workflow.definition_workflow_021OBKTEW437I0zj3soIFDAYVPyTCk6CpJd.input.variable_workflow_021W365WOSDGX1FwSSFLOWMzYUAZSZOledd$",
+                        "variable_workflow_01PP78DJH1YWL3allalGQbg1VkgKwh9GvCi": "$activity.definition_activity_021UGGT3SKNVB1BYYvBZcqanGbPHEr1IeNO.output.script_queries.MESSAGE$",
+                        "variable_workflow_01PP78DJH22BB3Ej3I8tJ4OCQur0unYGjj9": "",
+                        "variable_workflow_01SVERQNMKN8N6vqX2djMtAfshphGydGsH8": ""
+                      },
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": true,
+                        "target_id": "definition_target_01GWHP4FUJJDK7Gm74O4nPWmSBBDmh9hdRi",
+                        "target_type": "web-service.endpoint"
+                      },
+                      "workflow_id": "definition_workflow_01PP78DJMXS415nTjonujf03ROkr6t2PNyw",
+                      "workflow_name": "Webex - Post Message to Room"
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "targets": {
+    "definition_target_01GWHP4FUJJDK7Gm74O4nPWmSBBDmh9hdRi": {
+      "unique_name": "definition_target_01GWHP4FUJJDK7Gm74O4nPWmSBBDmh9hdRi",
+      "name": "Webex Teams",
+      "title": "Webex Teams",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "description": "Webex Teams",
+        "disable_certificate_validation": false,
+        "display_name": "Webex Teams",
+        "host": "webexapis.com",
+        "no_runtime_user": true,
+        "port": 443,
+        "protocol": "https"
+      }
+    },
+    "definition_target_01M6A27IAHQC5465jhc60l0ObP82GEVzP2Z": {
+      "unique_name": "definition_target_01M6A27IAHQC5465jhc60l0ObP82GEVzP2Z",
+      "name": "PAT_CTIA_Private_Intelligence",
+      "title": "PAT_CTIA_Private_Intelligence",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "disable_certificate_validation": false,
+        "display_name": "PAT_CTIA_Private_Intelligence",
+        "host": "private.intel.eu.amp.cisco.com",
+        "ignore_proxy": false,
+        "no_runtime_user": true,
+        "path": "/ctia",
+        "protocol": "https"
+      }
+    }
+  },
+  "runtime_users": {
+    "definition_runtime_user_01WY3D8QEJOOL4uwZR6xEAD85BeyafJCjpH": {
+      "unique_name": "definition_runtime_user_01WY3D8QEJOOL4uwZR6xEAD85BeyafJCjpH",
+      "name": "CTR_SecureX_Token",
+      "title": "CTR_SecureX_Token",
+      "type": "runtime_user.oauth_integration",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "description": "New SecureX Threat Response Authentication Token",
+        "display_name": "CTR_SecureX_Token"
+      }
+    }
+  },
+  "variables": {
+    "variable_021QTILESIWGV1e4QS1uOIGdVcaHXKkSPE6": {
+      "unique_name": "variable_021QTILESIWGV1e4QS1uOIGdVcaHXKkSPE6",
+      "properties": {
+        "value": "",
+        "scope": "global",
+        "name": "incidents_list",
+        "type": "datatype.string",
+        "description": "List of incidents and date and time for each of them",
+        "is_required": false,
+        "is_invisible": false
+      },
+      "object_type": "variable"
+    }
+  },
+  "atomic_workflows": [
+    "definition_workflow_01PP78DJMXS415nTjonujf03ROkr6t2PNyw"
+  ],
+  "dependent_workflows": [
+    "definition_workflow_01PP78DJMXS415nTjonujf03ROkr6t2PNyw"
+  ]
+}

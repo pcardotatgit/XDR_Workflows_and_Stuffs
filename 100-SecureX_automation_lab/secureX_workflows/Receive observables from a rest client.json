@@ -1,0 +1,443 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_021VFL3PTV7YP1j3kJZpcMuWw4SDj6KxuCH",
+    "name": "Receive observables from a rest client",
+    "title": "Receive observables from a rest client",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "local",
+          "name": "Observable_list_local",
+          "type": "datatype.string",
+          "description": "List of observables received from rest client",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_021VFL3Q7WQDO6LWDdOAXNn7CBNTPYmOGRL",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "local",
+          "name": "WEBEX_ROOM_ID",
+          "type": "datatype.string",
+          "description": "ID of the webex room to interact with",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_021VFW1KB21Q81PzyhaUjyeZ68mioMyfq7R",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "local",
+          "name": "TEMP",
+          "type": "datatype.string",
+          "description": "Just for debuging",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_021VFYR13ZRBA61OrqICbpZZzsqc9V8HVrb",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.secure_string",
+        "properties": {
+          "value": "",
+          "scope": "local",
+          "name": "WEBEX_BOT_TOKEN",
+          "type": "datatype.secure_string",
+          "description": "API token of your Webex BOT",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_021VFTM8AHVV20sWlhMksA7rzDPfWLvO1tm",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "description": "This workflow is intend to be triggered by a webhook and is supposed to receive observable list from a security solution. The goal is to store this list into a global variable which can be used to fill feeds.\nThe workflow is supposed to receive as well a Webex BOT token, and a Webex Team Room. This will allo SecureX to send Alert Messages into an alert webex team room",
+      "display_name": "Receive observables from a rest client",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "no_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_021VFL3T3LE7X6WvB82egoiPfBUz5FZ4WZF",
+        "name": "Execute Python Script",
+        "title": "Extract list of observables from webhook request",
+        "type": "python3.script",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "description": "Extract list of observables from webhook request and create an output list",
+          "display_name": "Extract list of observables from webhook request",
+          "script": "import sys\nimport json\n\ninput_text=sys.argv[1]\ninput_list=input_text.split('&')\nroomId=input_list[1].split('=')[1]\nwebex_bot_token=input_list[2].split('=')[1]\nobservables_text=input_list[0].split('=')[1]\noutput_result=observables_text",
+          "script_arguments": [
+            "$trigger.triggerevent_021VFL3SFZCS33DAu2E4SklGvLtt25YtMU6.output.request_body$"
+          ],
+          "script_queries": [
+            {
+              "script_query": "output_result",
+              "script_query_name": "RESULTING_LIST",
+              "script_query_type": "string"
+            },
+            {
+              "script_query": "webex_bot_token",
+              "script_query_name": "TOKEN",
+              "script_query_type": "string"
+            },
+            {
+              "script_query": "roomId",
+              "script_query_name": "ROOM_ID",
+              "script_query_type": "string"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_021W09KJDKT6K73VbCE0r9LCoRGtIGKF1Xb",
+        "name": "Parallel Block",
+        "title": "Parallel Block",
+        "type": "logic.parallel",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Parallel Block",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_021W09KJJ94WS0LTfvb3GFS9ryNswchrvh6",
+            "name": "Parallel Branch",
+            "title": "Get list of observables",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Get list of observables",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_021VFL3U5LYHP1qaO5gvLUrX2kmtxqVL4Bc",
+                "name": "Set Variables",
+                "title": "Get list of observables",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "description": "get list of observables from wehook request sent by rest client",
+                  "display_name": "Get list of observables",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_021VFL3PTV7YP1j3kJZpcMuWw4SDj6KxuCH.local.variable_workflow_021VFL3Q7WQDO6LWDdOAXNn7CBNTPYmOGRL$",
+                      "variable_value_new": "$activity.definition_activity_021VFL3T3LE7X6WvB82egoiPfBUz5FZ4WZF.output.script_queries.RESULTING_LIST$"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_021W09KJQ263O65uUsT1DvTc853uHGlhFOj",
+            "name": "Parallel Branch",
+            "title": "BOT TOKEN",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "description": "get bot token from wehook request",
+              "display_name": "BOT TOKEN",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_021W09XJMALJH5SwQDSyhbQjLhKp3KrVXXz",
+                "name": "Set Variables",
+                "title": "webex bot token",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "description": "get webex bot token from webhook requests sent by rest client",
+                  "display_name": "webex bot token",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_021VFL3PTV7YP1j3kJZpcMuWw4SDj6KxuCH.local.variable_workflow_021VFTM8AHVV20sWlhMksA7rzDPfWLvO1tm$",
+                      "variable_value_new": "$activity.definition_activity_021VFL3T3LE7X6WvB82egoiPfBUz5FZ4WZF.output.script_queries.TOKEN$"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_021W0DCD3MUAY2kvUC6zvWp0HrQsUDgQxYy",
+            "name": "Parallel Branch",
+            "title": "ALERT WEBEX TEAM ROOM ID",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "description": "get alert webex team room ID from wehook request sent by REST client",
+              "display_name": "ALERT WEBEX TEAM ROOM ID",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_021W0DCD3NGJ52RVHDxChhgVdDYI6yfUFyy",
+                "name": "Set Variables",
+                "title": "alert webex room ID",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "description": "get alert webex room ID from webhook requests sent by rest client",
+                  "display_name": "alert webex room ID",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_021VFL3PTV7YP1j3kJZpcMuWw4SDj6KxuCH.local.variable_workflow_021VFW1KB21Q81PzyhaUjyeZ68mioMyfq7R$",
+                      "variable_value_new": "$activity.definition_activity_021VFL3T3LE7X6WvB82egoiPfBUz5FZ4WZF.output.script_queries.ROOM_ID$"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_021VFL3VSYO8C53uKvJkcheK0c8ChXrI14G",
+        "name": "Webex - Post Message to Room",
+        "title": "Webex - Post Message to Room",
+        "type": "workflow.atomic_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "continue_on_failure": false,
+          "description": "Just to inform admin that the workflow was triggered. Second check interaction with SecureX and the alert Webex Teal Room",
+          "display_name": "Webex - Post Message to Room",
+          "input": {
+            "variable_workflow_01PP78DJH1TI76BYfsu9g0Tqj2S6cUxjtu5": "$workflow.definition_workflow_021VFL3PTV7YP1j3kJZpcMuWw4SDj6KxuCH.local.variable_workflow_021VFW1KB21Q81PzyhaUjyeZ68mioMyfq7R$",
+            "variable_workflow_01PP78DJH1XNQ7gNQ5iZdperRHqrppzARXC": "$workflow.definition_workflow_021VFL3PTV7YP1j3kJZpcMuWw4SDj6KxuCH.local.variable_workflow_021VFTM8AHVV20sWlhMksA7rzDPfWLvO1tm$",
+            "variable_workflow_01PP78DJH1YWL3allalGQbg1VkgKwh9GvCi": "",
+            "variable_workflow_01PP78DJH22BB3Ej3I8tJ4OCQur0unYGjj9": "SecureX Message : $activity.definition_activity_021VFL3T3LE7X6WvB82egoiPfBUz5FZ4WZF.output.script_queries.RESULTING_LIST$ Received",
+            "variable_workflow_01SVERQNMKN8N6vqX2djMtAfshphGydGsH8": ""
+          },
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01GWHP4FUJJDK7Gm74O4nPWmSBBDmh9hdRi",
+            "target_type": "web-service.endpoint"
+          },
+          "workflow_id": "definition_workflow_01PP78DJMXS415nTjonujf03ROkr6t2PNyw",
+          "workflow_name": "Webex - Post Message to Room"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_021W0FXDK7X380JwlmQEUmXofkWEo7YSy2N",
+        "name": "Completed",
+        "title": "Completed ( to delete )",
+        "type": "logic.completed",
+        "base_type": "activity",
+        "properties": {
+          "completion_type": "succeeded",
+          "continue_on_failure": false,
+          "display_name": "Completed ( to delete )",
+          "skip_execution": true
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_021VFXWG68QHQ1BgYrbhgp8uRabwpCN7ZK8",
+        "name": "Parallel Block",
+        "title": "Replace this by an Update Judgment activity",
+        "type": "logic.parallel",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "description": "Replace this by an Update Judgment acticity",
+          "display_name": "Replace this by an Update Judgment activity",
+          "skip_execution": true
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_021VFXWGDI9VA6O9vnomx9ScGgg1ak4cbyv",
+            "name": "Parallel Branch",
+            "title": "DELETE THIS",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "DELETE THIS",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_021VFYW63C9Z113PxJxVLF7I05NMfGnU9sy",
+                "name": "Set Variables",
+                "title": "TO BE REPLACE BY UPDATE JUDGMENTS",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "TO BE REPLACE BY UPDATE JUDGMENTS",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_021VFL3PTV7YP1j3kJZpcMuWw4SDj6KxuCH.local.variable_workflow_021VFYR13ZRBA61OrqICbpZZzsqc9V8HVrb$",
+                      "variable_value_new": "TO BE DELETED"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_021VFL40AE1IS5L8weR5PAfcDkImLbsNOO8",
+        "name": "Webex - Post Message to Room",
+        "title": "Webex - Post Message to Room",
+        "type": "workflow.atomic_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "continue_on_failure": false,
+          "description": "Confirm to admin that end of this workflow",
+          "display_name": "Webex - Post Message to Room",
+          "input": {
+            "variable_workflow_01PP78DJH1TI76BYfsu9g0Tqj2S6cUxjtu5": "$workflow.definition_workflow_021VFL3PTV7YP1j3kJZpcMuWw4SDj6KxuCH.local.variable_workflow_021VFW1KB21Q81PzyhaUjyeZ68mioMyfq7R$",
+            "variable_workflow_01PP78DJH1XNQ7gNQ5iZdperRHqrppzARXC": "$workflow.definition_workflow_021VFL3PTV7YP1j3kJZpcMuWw4SDj6KxuCH.local.variable_workflow_021VFTM8AHVV20sWlhMksA7rzDPfWLvO1tm$",
+            "variable_workflow_01PP78DJH1YWL3allalGQbg1VkgKwh9GvCi": "",
+            "variable_workflow_01PP78DJH22BB3Ej3I8tJ4OCQur0unYGjj9": "SecureX Message : $activity.definition_activity_021VFL3T3LE7X6WvB82egoiPfBUz5FZ4WZF.output.script_queries.RESULTING_LIST$ ( Succesfuly Added to IP blocking list ) End of this workflow",
+            "variable_workflow_01SVERQNMKN8N6vqX2djMtAfshphGydGsH8": ""
+          },
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01GWHP4FUJJDK7Gm74O4nPWmSBBDmh9hdRi",
+            "target_type": "web-service.endpoint"
+          },
+          "workflow_id": "definition_workflow_01PP78DJMXS415nTjonujf03ROkr6t2PNyw",
+          "workflow_name": "Webex - Post Message to Room"
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "triggers": {
+    "triggerevent_021VFL3SFZCS33DAu2E4SklGvLtt25YtMU6": {
+      "workflow_id": "definition_workflow_021VFL3PTV7YP1j3kJZpcMuWw4SDj6KxuCH",
+      "name": "Webhook_trigger",
+      "title": "",
+      "lowercase_name": "event.webhook_trigger",
+      "type": "event",
+      "base_type": "trigger",
+      "ref_id": "event_webhook_021SL7KBCNH7F1M8ZW7N8MAcRA3OE6GyZwz",
+      "version": "1.0.0",
+      "disabled": false,
+      "unique_name": "triggerevent_021VFL3SFZCS33DAu2E4SklGvLtt25YtMU6",
+      "object_type": "triggerevent"
+    }
+  },
+  "events": {
+    "event_webhook_021SL7KBCNH7F1M8ZW7N8MAcRA3OE6GyZwz": {
+      "name": "PVT_Demo_Webhook",
+      "title": "PVT_Demo_Webhook",
+      "type": "webhook.event",
+      "base_type": "event",
+      "object_type": "event_webhook",
+      "target_id": "",
+      "webhook_id": "webhook_021SL76CBV3O75MP6p7oaBSmxR6WcA01SFN",
+      "version": "1.0.0",
+      "properties": {
+        "title": "PVT_Demo_Webhook",
+        "webhook_id": "webhook_021SL76CBV3O75MP6p7oaBSmxR6WcA01SFN"
+      },
+      "unique_name": "event_webhook_021SL7KBCNH7F1M8ZW7N8MAcRA3OE6GyZwz"
+    }
+  },
+  "targets": {
+    "definition_target_01GWHP4FUJJDK7Gm74O4nPWmSBBDmh9hdRi": {
+      "unique_name": "definition_target_01GWHP4FUJJDK7Gm74O4nPWmSBBDmh9hdRi",
+      "name": "Webex Teams",
+      "title": "Webex Teams",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "description": "Webex Teams",
+        "disable_certificate_validation": false,
+        "display_name": "Webex Teams",
+        "host": "webexapis.com",
+        "no_runtime_user": true,
+        "port": 443,
+        "protocol": "https"
+      }
+    }
+  },
+  "atomic_workflows": [
+    "definition_workflow_01PP78DJMXS415nTjonujf03ROkr6t2PNyw"
+  ],
+  "webhooks": {
+    "webhook_021SL76CBV3O75MP6p7oaBSmxR6WcA01SFN": {
+      "name": "PVT_Demo_Webhook",
+      "title": "PVT_Demo_Webhook",
+      "type": "generic.webhook",
+      "base_type": "webhook",
+      "object_type": "webhook",
+      "version": "1.0.0",
+      "properties": {
+        "display_name": "PVT_Demo_Webhook",
+        "request_content_type": "application/json"
+      },
+      "unique_name": "webhook_021SL76CBV3O75MP6p7oaBSmxR6WcA01SFN"
+    }
+  },
+  "dependent_workflows": [
+    "definition_workflow_01PP78DJMXS415nTjonujf03ROkr6t2PNyw"
+  ]
+}
