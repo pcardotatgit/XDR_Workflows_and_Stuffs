@@ -38,7 +38,7 @@ In this lab you will learn
 - How to create Incidents and Sightings into SecureX
 - How to create feeds
 - How to create judgments for observables and how to add them into SecureX Feeds
-- How to Read Incidents and Sigthings
+- How to read Incidents and Sigthings
 - How to parse Incidents and Sigthings into SecureX workflow
 - How to send markdown formatted message to webex team room and how to use Webex Team as a User Interface for SecureX
 - How to trigger a webhook and how to send data to a workflow from a script
