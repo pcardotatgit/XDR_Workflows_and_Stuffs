@@ -112,7 +112,7 @@ At this point you can roll out a full investigation by going to events, or obser
     - In SecureX Orchestration go to the admin panel and then select Create a webhook **Events & Webhook** then create an event named **PVT_Demo_Webhook** and create within it a webhook named **Webhook_trigger**. Once done copy it's **webhook url**
     
     - In the SecureX Workflow editor, edit the **Receive observables from a rest client** workflow and assign to it the webhook you created above. Go to the trigger section of the workflow properties panel on the right
-9. BUT : If the webhook is created as expected, copy it's **webhook_url**.
+9. BUT : If the webhook is created as expected, copy its **webhook_url**.
 10. Then Edit the **config.py** file and update the **SecureX_Webhook_url** variable.
 11. Ready for some tests.  Test your setup with the **test_webhook.py** file. You just have to run it. And when you run this script, then you are supposed to see a message arriving into your alert webex team room.
 ![](assets/img/2.png)

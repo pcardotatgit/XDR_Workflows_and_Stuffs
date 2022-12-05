@@ -11,19 +11,6 @@
         "properties": {
           "value": "",
           "scope": "local",
-          "name": "temp",
-          "type": "datatype.string",
-          "is_required": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_021TU484SSZZH2J0s3RhDjC26TVQFCbgogo",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "local",
           "name": "SecureX Environment URL",
           "type": "datatype.string",
           "is_required": false,
@@ -37,26 +24,12 @@
         "properties": {
           "value": "",
           "scope": "input",
-          "name": "WEBEX_ROOM_ID",
+          "name": "WEBEX_BOT_TOKEN",
           "type": "datatype.string",
           "is_required": true,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_021W36FYHK70N58LLMhx7YQEMfS2AMEqP2I",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "local",
-          "name": "message_for_webex_team",
-          "type": "datatype.string",
-          "description": "message to be send to webex team room",
-          "is_required": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_021UGEMCVC7RJ67ISdpzpQWoOdX5Hlweo8S",
+        "unique_name": "variable_workflow_021W365WOSDGX1FwSSFLOWMzYUAZSZOledd",
         "object_type": "variable_workflow"
       },
       {
@@ -84,6 +57,61 @@
           "is_invisible": false
         },
         "unique_name": "variable_workflow_021OC9ZRK4C1K5Xq02GfpDZEHaatRGEKwAi",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.boolean",
+        "properties": {
+          "value": true,
+          "scope": "local",
+          "name": "ok_select_this_incident",
+          "type": "datatype.boolean",
+          "description": "boolean variable used into condition block. to decide if we enter into it or not",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_021X93NWZLJ7G274D7T5KFSiBHQjHnJMn6i",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "local",
+          "name": "message_for_webex_team",
+          "type": "datatype.string",
+          "description": "message to be send to webex team room",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_021UGEMCVC7RJ67ISdpzpQWoOdX5Hlweo8S",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "WEBEX_ROOM_ID",
+          "type": "datatype.string",
+          "is_required": true,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_021W36FYHK70N58LLMhx7YQEMfS2AMEqP2I",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "PVT Endpoint Infection demo",
+          "scope": "local",
+          "name": "filter_incident_title",
+          "type": "datatype.string",
+          "description": "Filter on incident title in order to avoid to read too many incidents. This filter is relevant only for lab. \n\nFilter management must be removed for production",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_021X8QY90LNIF2cYeJ6xv7SGZWhy86LVIEi",
         "object_type": "variable_workflow"
       },
       {
@@ -119,25 +147,25 @@
         "properties": {
           "value": "",
           "scope": "local",
-          "name": "temp_to_delete",
+          "name": "temp",
           "type": "datatype.string",
           "is_required": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_021QV2940OZ906p2SlTMalhMrlGQZfoTRiJ",
+        "unique_name": "variable_workflow_021TU484SSZZH2J0s3RhDjC26TVQFCbgogo",
         "object_type": "variable_workflow"
       },
       {
         "schema_id": "datatype.string",
         "properties": {
           "value": "",
-          "scope": "input",
-          "name": "WEBEX_BOT_TOKEN",
+          "scope": "local",
+          "name": "temp_to_delete",
           "type": "datatype.string",
-          "is_required": true,
+          "is_required": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_021W365WOSDGX1FwSSFLOWMzYUAZSZOledd",
+        "unique_name": "variable_workflow_021QV2940OZ906p2SlTMalhMrlGQZfoTRiJ",
         "object_type": "variable_workflow"
       }
     ],
@@ -333,7 +361,7 @@
           "description": "Get SecureX High and Critical Incidents ",
           "display_name": "GET SecureX Incidents",
           "method": "GET",
-          "relative_url": "/incident/search",
+          "relative_url": "/ctia/incident/search",
           "runtime_user": {
             "override_target_runtime_user": true,
             "runtime_user_id": "definition_runtime_user_01WY3D8QEJOOL4uwZR6xEAD85BeyafJCjpH"
@@ -341,7 +369,7 @@
           "skip_execution": false,
           "target": {
             "override_workflow_target": true,
-            "target_id": "definition_target_01M6A27IAHQC5465jhc60l0ObP82GEVzP2Z"
+            "target_id": "definition_target_01GWHP41AZGIS2hh5cgCBbF9FyETRKxNCwj"
           }
         },
         "object_type": "definition_activity"
@@ -538,14 +566,111 @@
             "object_type": "definition_activity"
           },
           {
-            "unique_name": "definition_activity_021W26YPPMWYK4snG2vEmCAAlAIS5tzlf9W",
+            "unique_name": "definition_activity_021X9424OFPGT78Wrjsy1qGCLB9PQ3d89jM",
             "name": "Condition Block",
-            "title": "Condition Block",
+            "title": "Do some checks to select this incident or not",
             "type": "logic.if_else",
             "base_type": "activity",
             "properties": {
               "continue_on_failure": false,
-              "display_name": "Condition Block",
+              "description": "Let's do some check here in order to select the incident or not ( incident name, incident date, last 5 mins , etc...\nAdd here any relevant check ",
+              "display_name": "Do some checks to select this incident or not",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "blocks": [
+              {
+                "unique_name": "definition_activity_021X9424X9FZN2Fi5nqhnpCrcUE2BkUj1yu",
+                "name": "Condition Branch",
+                "title": "Incident title check",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$workflow.definition_workflow_021OBKTEW437I0zj3soIFDAYVPyTCk6CpJd.local.variable_workflow_021X8QY90LNIF2cYeJ6xv7SGZWhy86LVIEi$",
+                    "operator": "eq",
+                    "right_operand": "$activity.definition_activity_021UIFOIWH23F55A7GvOj5Hcvq58eo9cuy7.output.script_queries.INCIDENT_TITLE$"
+                  },
+                  "continue_on_failure": false,
+                  "description": "Is incident title ",
+                  "display_name": "Incident title check",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_021X95AKYMYWM40Etd606E657xvpOU2z8bd",
+                    "name": "Set Variables",
+                    "title": "Set ok_select_this_incident variable to True",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Set ok_select_this_incident variable to True",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_021OBKTEW437I0zj3soIFDAYVPyTCk6CpJd.local.variable_workflow_021X93NWZLJ7G274D7T5KFSiBHQjHnJMn6i$",
+                          "variable_value_new": true
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_021X9DN49YQ5S6oZwQuLXcfsTxSrAofkZcQ",
+                "name": "Condition Branch",
+                "title": "Else",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$workflow.definition_workflow_021OBKTEW437I0zj3soIFDAYVPyTCk6CpJd.local.variable_workflow_021X8QY90LNIF2cYeJ6xv7SGZWhy86LVIEi$",
+                    "operator": "ne",
+                    "right_operand": "$activity.definition_activity_021UIFOIWH23F55A7GvOj5Hcvq58eo9cuy7.output.script_queries.INCIDENT_TITLE$"
+                  },
+                  "continue_on_failure": false,
+                  "description": "Is incident title ",
+                  "display_name": "Else",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_021X9DN49ZB124awgJUwm8vIHZmODc2vWp7",
+                    "name": "Set Variables",
+                    "title": "Set  ok_select_this_incident variable to False",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Set  ok_select_this_incident variable to False",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_021OBKTEW437I0zj3soIFDAYVPyTCk6CpJd.local.variable_workflow_021X93NWZLJ7G274D7T5KFSiBHQjHnJMn6i$",
+                          "variable_value_new": false
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_021W26YPPMWYK4snG2vEmCAAlAIS5tzlf9W",
+            "name": "Condition Block",
+            "title": "Condition Block - Do we select this incident ?",
+            "type": "logic.if_else",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "description": "Based on condition block above, let's select this incident or not.",
+              "display_name": "Condition Block - Do we select this incident ?",
               "skip_execution": false
             },
             "object_type": "definition_activity",
@@ -553,18 +678,17 @@
               {
                 "unique_name": "definition_activity_021W26YQ5O0GG07gwBbwKBW2ncG3oPW7MFZ",
                 "name": "Condition Branch",
-                "title": "Is incident date today ? : YES",
+                "title": "Is ok_select_this_incident equal to true ?",
                 "type": "logic.condition_block",
                 "base_type": "activity",
                 "properties": {
                   "condition": {
-                    "left_operand": "$activity.definition_activity_021W1WM38OCZP1N82Ix7LV4EYWTXjkSAy5N.output.script_queries.INCIDENT_DATE$",
+                    "left_operand": "$workflow.definition_workflow_021OBKTEW437I0zj3soIFDAYVPyTCk6CpJd.local.variable_workflow_021X93NWZLJ7G274D7T5KFSiBHQjHnJMn6i$",
                     "operator": "eq",
-                    "right_operand": "$activity.definition_activity_021W245RBRO731EImyAEGXlV30eYHX7hlRA.output.script_queries.TODAY_DATE$"
+                    "right_operand": true
                   },
                   "continue_on_failure": false,
-                  "description": "Is incident date today ? : YES",
-                  "display_name": "Is incident date today ? : YES",
+                  "display_name": "Is ok_select_this_incident equal to true ?",
                   "skip_execution": false
                 },
                 "object_type": "definition_activity",
@@ -665,7 +789,7 @@
                       "description": "Get SecureX  relationship for target_ref = incident ID",
                       "display_name": "GET relationships details",
                       "method": "GET",
-                      "relative_url": "/relationship/search?target_ref=$activity.definition_activity_021QV14Z6IEHQ6tawQ4WkMM4xUxLSan8flX.input.source_array[@].id$",
+                      "relative_url": "/ctia/relationship/search?target_ref=$activity.definition_activity_021QV14Z6IEHQ6tawQ4WkMM4xUxLSan8flX.input.source_array[@].id$",
                       "runtime_user": {
                         "override_target_runtime_user": true,
                         "runtime_user_id": "definition_runtime_user_01WY3D8QEJOOL4uwZR6xEAD85BeyafJCjpH"
@@ -673,7 +797,7 @@
                       "skip_execution": false,
                       "target": {
                         "override_workflow_target": true,
-                        "target_id": "definition_target_01M6A27IAHQC5465jhc60l0ObP82GEVzP2Z"
+                        "target_id": "definition_target_01GWHP41AZGIS2hh5cgCBbF9FyETRKxNCwj"
                       }
                     },
                     "object_type": "definition_activity"
@@ -788,7 +912,7 @@
                           "description": "Get SecureX  relationship for target_ref = incident ID",
                           "display_name": "GET Sighting Details",
                           "method": "GET",
-                          "relative_url": "/sighting/search?id=$activity.definition_activity_021TR05HY8JLU7NXyL9XuKitDk5OquV2wVt.input.source_array[@].id$",
+                          "relative_url": "/ctia/sighting/search?id=$activity.definition_activity_021TR05HY8JLU7NXyL9XuKitDk5OquV2wVt.input.source_array[@].id$",
                           "runtime_user": {
                             "override_target_runtime_user": true,
                             "runtime_user_id": "definition_runtime_user_01WY3D8QEJOOL4uwZR6xEAD85BeyafJCjpH"
@@ -796,7 +920,7 @@
                           "skip_execution": false,
                           "target": {
                             "override_workflow_target": true,
-                            "target_id": "definition_target_01M6A27IAHQC5465jhc60l0ObP82GEVzP2Z"
+                            "target_id": "definition_target_01GWHP41AZGIS2hh5cgCBbF9FyETRKxNCwj"
                           }
                         },
                         "object_type": "definition_activity"
@@ -1059,6 +1183,23 @@
     ]
   },
   "targets": {
+    "definition_target_01GWHP41AZGIS2hh5cgCBbF9FyETRKxNCwj": {
+      "unique_name": "definition_target_01GWHP41AZGIS2hh5cgCBbF9FyETRKxNCwj",
+      "name": "Private_CTIA_Target",
+      "title": "Private_CTIA_Target",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "default_runtime_user_id": "definition_runtime_user_01WY3D8QEJOOL4uwZR6xEAD85BeyafJCjpH",
+        "description": "Private_CTIA_Target",
+        "disable_certificate_validation": false,
+        "display_name": "Private_CTIA_Target",
+        "host": "private.intel.eu.amp.cisco.com",
+        "no_runtime_user": false,
+        "protocol": "https"
+      }
+    },
     "definition_target_01GWHP4FUJJDK7Gm74O4nPWmSBBDmh9hdRi": {
       "unique_name": "definition_target_01GWHP4FUJJDK7Gm74O4nPWmSBBDmh9hdRi",
       "name": "Webex Teams",
@@ -1073,23 +1214,6 @@
         "host": "webexapis.com",
         "no_runtime_user": true,
         "port": 443,
-        "protocol": "https"
-      }
-    },
-    "definition_target_01M6A27IAHQC5465jhc60l0ObP82GEVzP2Z": {
-      "unique_name": "definition_target_01M6A27IAHQC5465jhc60l0ObP82GEVzP2Z",
-      "name": "PAT_CTIA_Private_Intelligence",
-      "title": "PAT_CTIA_Private_Intelligence",
-      "type": "web-service.endpoint",
-      "base_type": "target",
-      "object_type": "definition_target",
-      "properties": {
-        "disable_certificate_validation": false,
-        "display_name": "PAT_CTIA_Private_Intelligence",
-        "host": "private.intel.eu.amp.cisco.com",
-        "ignore_proxy": false,
-        "no_runtime_user": true,
-        "path": "/ctia",
         "protocol": "https"
       }
     }
