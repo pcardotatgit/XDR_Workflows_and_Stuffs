@@ -63,7 +63,7 @@ In this lab you need the following components :
 3. Install the Lab Simulator into your laptop . [see Instructions here](https://github.com/pcardotatgit/lab_simulator-001)
 4. Open the **config.py** script located into the simulator root directory. Update the **ctr_client_id** and **ctr_client_password** variables with  CTR client ID and Client Password you got in step 2. 
 5. In the **config.py** script, depending on your region, uncomment the related **host=xxx** and **host_for_token=xxx** variables. **Notice** DCLOUD demos are located in the US.
-6. Create a SecureX Token named **CTR_SecureX_Token** [ See Instructions here ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/10-trigger_your_workflow_with_webhooks). Or you can use the one you already created into your SecureX Tenant.
+6. Create a SecureX Token named **CTR_SecureX_Token** [ See Instructions here ](https://ciscosecurity.github.io/sxo-05-security-workflows/account-keys/securex-token). Or you can use the one you already created into your SecureX Tenant.
 7. Start the simulator and open your browser to **http://localhost:4000**
 8. Check that communication between the Lab Simulator and your SecureX tenant is Ok. Click on the **check SecureX** link on the top left of the displayed web page. 
 
