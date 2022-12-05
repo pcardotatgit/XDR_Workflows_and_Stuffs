@@ -4,7 +4,7 @@ The goal of this lab is to share with participants every details about how to bu
 
 This scenario is a complete **SecureX XDR demonstration**
 
-## Automated threat detection and mitigation scenario
+## Automated Threat Detection and Mitigation scenario
 
 This automated threat hunting scenario is the following :
 
