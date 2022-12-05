@@ -1,6 +1,6 @@
 # Trigger your SecureX Workflows thanks to webhooks
 
-Webhooks are very common an handy. SecureX Workflows can be easily triggered by webhooks. And we can pass data to the workflow thru the webhook.
+Webhooks are very common and handy. SecureX Workflows can be easily triggered by webhooks. And we can pass data to the workflow thru the webhook.
 
 Webhook trigger configuration is very well explained at this location :
 

@@ -27,7 +27,7 @@ This victim machine is a web server is a windows machine that run apache web ser
 - **Step 3** : Within SecureX a workflow which runs every 5 minutes reads SecureX incidents. For every new incidents since last poll, the worklow will analyses their details and will extract from them targets and malicious observable information. 
 - **Step 4** : For every incidents with high severity, the workflow will send a formatted alert to a an alert Webex team room. The goal is to alert the security operators about this new threat. And call them to instantly react.
 - **Step 5** : Thanks to clickable links into the webex team Alert message, the security operators will be able to trigger SecureX workflows which will add malicious observables into SecureX blocking feeds.
-- **Step 6** - Final step will be to deploy the blocking feeds into all company firewalls. This process is a completly automated process for Cisco Secure Firewall.  Once malicious observables exist into the SecureX blocking feeds, then they are automatically deployed a few minutes later as blocking rules into Cisco Secure Firewalls.  **Security Intelligence** or the **Threat Intelligence Director** FirePOWER features automatically manage this.
+- **Step 6** - Final step will be to deploy the blocking feeds into all company firewalls. This process is a completely automated process for Cisco Secure Firewall.  Once malicious observables exist into the SecureX blocking feeds, then they are automatically deployed a few minutes later as blocking rules into Cisco Secure Firewalls.  **Security Intelligence** or the **Threat Intelligence Director** FirePOWER features automatically manage this.
 
 So here the scenario this demonstration aims to showcase.
 
@@ -118,7 +118,7 @@ At this point you can roll out a full investigation by going to events, or obser
 ![](assets/img/2.png)
 
 12. If you received the success message, Congratulation ! you are goo to move forward. if not check here [troubleshooting instructions]
-13. Go to Orchestration and import the **Check Incidents every 5 minutes.json** workflow.You will have to go over to some errors during the import. Don't stop the operation, but move forward ... you will fiw the errors later. [ see instructions ]()
+13. Go to Orchestration and import the **Check Incidents every 5 minutes.json** workflow.Ignore any errors received during import. Don't stop the operation, but move forward ... you will fiw the errors later. [ see instructions ]()
 14. Check the SecureX **Private_CTIA_Target** . This one must use a host fqdn that match to your region ( ex : **private.intel.eu.amp.cisco.com** ) and this target must use the **SecureX_Token** you created at the begining of this lab.
 15. Run the **Check Incidents every 5 minutes** workflow. You will be asked to enter the **webex_bot_token** and the **webex_room_id**.
 
