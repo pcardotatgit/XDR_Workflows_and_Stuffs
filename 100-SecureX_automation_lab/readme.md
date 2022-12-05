@@ -106,7 +106,7 @@ At this point you can roll out a full investigation by going to events, or obser
 3. Create an Alert Webex Team Room and check that you can send messages into it from SecureX workflows. Copy it's Room ID
 4. Edit the **config.py** script and update the **webex_room_id** variable value.
 5. We are going to use the existing system **Webex Team** target in SecureX Tenant.
-6. Go to Orchestration and import the **Receive observables from a rest client.json** workflow. You will have to go over to some errors during the import. Don't stop the operation, but move forward ... you will fiw the errors later. [ see instructions ]() 
+6. Go to Orchestration and import the **Receive observables from a rest client.json** workflow.  
 7. Normaly this import operation automatically creates a new webhook ( **PVT_Demo_Webhook** ). Check this.
 8. If the webhook is not created. Skip this part if the webhook had been correctly created.
     - In SecureX Orchestration go to the admin panel and then select Create a webhook **Events & Webhook** then create an event named **PVT_Demo_Webhook** and create within it a webhook named **Webhook_trigger**. Once done copy it's **webhook url**
@@ -118,7 +118,7 @@ At this point you can roll out a full investigation by going to events, or obser
 ![](assets/img/2.png)
 
 12. If you received the success message, Congratulation ! you are goo to move forward. if not check here [troubleshooting instructions]
-13. Go to Orchestration and import the **Check Incidents every 5 minutes.json** workflow.
+13. Go to Orchestration and import the **Check Incidents every 5 minutes.json** workflow.You will have to go over to some errors during the import. Don't stop the operation, but move forward ... you will fiw the errors later. [ see instructions ]()
 14. Check the SecureX **Private_CTIA_Target** . This one must use a host fqdn that match to your region ( ex : **private.intel.eu.amp.cisco.com** ) and this target must use the **SecureX_Token** you created at the begining of this lab.
 15. Run the **Check Incidents every 5 minutes** workflow. You will be asked to enter the **webex_bot_token** and the **webex_room_id**.
 
