@@ -97,6 +97,8 @@ Now come back to the SecureX Ribbon. Then you can see now a new incident that wa
 
 At this point you can roll out a full investigation by going to events, or observables. And the open the relation graph, understand the attack and take some actions.
 
+If you want to dig into how to every details about how  Incidents and Sightings are created, then go [TODO add a link to the documentation]
+
 **NEXT STEP : Demo Part 2** 
 
 ### Demo Part 2 - Send Alerts into a Webex Team Room and add Malicious observables into SecureX blocking feeds
@@ -122,7 +124,7 @@ At this point you can roll out a full investigation by going to events, or obser
 14. Check the SecureX **Private_CTIA_Target** . This one must use a host fqdn that match to your region ( ex : **private.intel.eu.amp.cisco.com** ) and this target must use the **SecureX_Token** you created at the begining of this lab.
 15. Run the **Check Incidents every 5 minutes** workflow. You will be asked to enter the **webex_bot_token** and the **webex_room_id**.
 
-    For the purpose of this lab we dont store the **webex_bot_token** and **webex_room_id** variables into global SecureX Variables. We voluntary let the workflow asking you these value is required inputs.  For production you will have to modify this part a create static variables into your secureX tenant.
+    For the purpose of this lab we dont store the **webex_bot_token** and **webex_room_id** variables into global SecureX Variables. We voluntary let the workflow asking you these values as required inputs.  For production you will have to modify this part a create static variables into your secureX tenant.
 
 The expected result is the following formatted message into the alert webex team room.
 
@@ -222,3 +224,5 @@ Come back to the feed and refresh it.
 If you don't want to stop here, you can go the the Firewall part and make the feed automatically translated into Firewall Blocking rules.
 
 This will be particularly simple to do with FirePOWER and Security Intelligence ( Or Threat Intelligence Director ). You can use Secure Firewall DCLOUD Demos for this.
+
+Or you can replace or add into the last workflow an new activity that creates Dynamic objects into FMC.

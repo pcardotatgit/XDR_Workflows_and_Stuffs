@@ -361,7 +361,7 @@
           "description": "Get SecureX High and Critical Incidents ",
           "display_name": "GET SecureX Incidents",
           "method": "GET",
-          "relative_url": "/ctia/incident/search",
+          "relative_url": "/ctia/incident/search?limit=1000&offset=0&sort_by=timestamp&sort_order=desc",
           "runtime_user": {
             "override_target_runtime_user": true,
             "runtime_user_id": "definition_runtime_user_01WY3D8QEJOOL4uwZR6xEAD85BeyafJCjpH"
