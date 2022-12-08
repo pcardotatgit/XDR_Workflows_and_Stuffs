@@ -8,9 +8,9 @@ You will find in this repository some python scripts given as examples of intera
 - Bundles ( Incidents and attach Sightings to them )
 - verdicts 
 
-The [**create_incidents_from_appache_logs_use_case**](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/100-SecureX_automation_lab) subfolder  contains an example of use case.
+The **create_incidents_from_appache_logs_use_case** subfolder  contains an example of use case.
 
-The **Automated Threat Detection and Mitigation scenario** repository contain a full SecureX demo which is based on CTIM interaction for creating Incidents and Sightings and read them as well.
+The [**Automated Threat Detection and Mitigation scenario**](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/100-SecureX_automation_labrepository contain a full SecureX demo which is based on CTIM interaction for creating Incidents and Sightings and read them as well.
 
 ## Instructions
 
@@ -67,9 +67,9 @@ We create a "bundle" JSON payload which contains one incident and all its detail
 
 ![](./assets/img/1.png)
 
-Then we add into the JSON payload relationships that link every sightings to the incidents thanks to a "member of relationship" 
+Then we add into the JSON payload relationships that link every sightings to the incident thanks to a "member of" relationship 
 
-Into every Single sighting we include all targets, and all observables. And we create as well relationships within the sightings between all these objects.
+Into every single sighting we include all involved targets and observable. And we create as well relationships within the sightings between all these objects.
 
 And that's it.
 
@@ -77,7 +77,7 @@ Have a look to the [**SecureX Threat Response CTIM Bundle Builder** page ](https
 
 ### How to read an Incident and parse all sightings it contains ?
 
-When we create the Incident and all sightings it contains then IDs will be automatically created and these IDs will be used within the relationships. known as **target_ref** for incident ID and **source_ref** for Sighting IDs.
+When we create the Incident and all sightings it contains, IDs will be automatically generated and these IDs will be used within the relationships. known as **target_ref** for incident ID and **source_ref** for Sighting IDs.
 
 ![](./assets/img/2.png)
 
