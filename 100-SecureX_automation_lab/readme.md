@@ -129,7 +129,9 @@ The expected result is the following formatted message into the alert webex team
 
 ![](assets/img/1.png)
 
-### CONGRATULATION !! you are ready for the last part of this lab : 
+### CONGRATULATION !! you are ready for the last part of this lab.
+
+Webex Team is a great integration that give to SecureX very efficients user interfaces. Learn more abour markdown formatting and webex team cards here [ TODO add link to the documentation ]
 
 ## Demo Part 3 - Add ip address into SecureX blocking feeds.
 
