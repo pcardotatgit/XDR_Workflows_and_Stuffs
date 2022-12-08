@@ -206,7 +206,7 @@ Then click on it to select it and then go to it's properties right panel.
 
 Come back to the Alert Webex Team Room and click on one of the IP addresses.
 
-![](assets/img/1.png)
+![](assets/img/11.png)
 
 You are supposed to receive Webex Team messages from SecureX which confirm you that the observable was received and added to the feed.
 
