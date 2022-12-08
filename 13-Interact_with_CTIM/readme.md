@@ -10,7 +10,7 @@ You will find in this repository some python scripts given as examples of intera
 
 The **create_incidents_from_appache_logs_use_case** subfolder  contains an example of use case.
 
-The [**Automated Threat Detection and Mitigation scenario**](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/100-SecureX_automation_labrepository contain a full SecureX demo which is based on CTIM interaction for creating Incidents and Sightings and read them as well.
+The [**Automated Threat Detection and Mitigation scenario**](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/100-SecureX_automation_lab) repository contain a full SecureX demo which is based on CTIM interaction for creating Incidents and Sightings and read them as well.
 
 ## Instructions
 
