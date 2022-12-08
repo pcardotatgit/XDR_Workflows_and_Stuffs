@@ -97,6 +97,16 @@ For every relevant observable types in **judgment** we must link it to a corresp
 
 Thanks to these chains of relationships, when a new observable is added into **judgment** , then it automatically appears into the corresponding **feed**.
 
+**Pre requisits**  
+
+The condition to be able to use these SecureX feed Services is that **feeds** , **indicators** and **relationships** must have been created first. Nothing is created when a SecureX tenant starts.
+
+This is the role of the following workflow :
+
+- 0015A-SecureFirewall-BlockObservable-Setup
+
+You must import it and run it. 3 minutes are needed for this.
+
 ### Just to remind you some terminology :
 
 A **judgement** is the disposition of an observable given by one source of threat intelligence. Judgment are not permanents they have lifetime duration.
