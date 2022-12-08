@@ -16,7 +16,7 @@ The [**Automated Threat Detection and Mitigation scenario**](https://github.com/
 
 Before using the python scripts you must first create a SecureX API client and you must store its **client_id** and **client_password** either into the **./keys/ctr_api_keys.txt** file located into the **/keys** subfolder. This files will be used by every scripts in everysubl folders or into the **config.py** scripts of every subfolders.
 
-Depending on your regions, You have to uncomment the host fqdn for asking a token and the host fqdn. You have to do this either into the **config.py** scripts or into the **./keys/ctr_api_keys.txt** file.
+Depending on your regions, You have to uncomment the host fqdn. You have to do this either into the **config.py** scripts or into the **./keys/ctr_api_keys.txt** file.
 
 ## How can we create Incidents and Sightings within SecureX ?
 ### Introduction 
