@@ -1,6 +1,6 @@
 # Dealing with SecureX CTIM
 
-You will find in this repository some python scripts given as examples of interaction with CTIM components  :
+In this repository You will find  some python scripts given as examples of interaction with CTIM components  :
 
 - Judgments ( for enrichment with private data or for automated Allow / Blocking Feeds creation )
 - Sightings ( Ingest single events from 3rd Party Security Solutions into SecureX Sightings )
