@@ -173,7 +173,7 @@ If they exist don't delete them. Then Import the two workflow  **CiscoSecurity_W
 
 **Next Step** Go to the following instructions and once done come back here and move forward with next steps : 
 
-[ Here Instructions for creating SecureX Feeds ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/12-create_securex_blocking_lists_for_firewalls)
+[ Here the Instructions for creating SecureX Feeds ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/12-create_securex_blocking_lists_for_firewalls)
 
 **Have you done previous step ?**
 
