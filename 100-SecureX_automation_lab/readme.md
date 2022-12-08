@@ -54,9 +54,7 @@ In this lab you need the following components :
 - A Webex Team Room that will be used a an Alert Webex Room
 - A Webex Team bot that will be used to send alert into the Webex Team Room
 
-## Installation
-
-### Demo Part 1 - Threat Detection & Create Incident 
+## Demo Part 1 - Threat Detection & Create Incident 
 
 1. Check your SecureX tenant. If you don't have a SecureX tenant you can use DCLOUD **Cisco SecureX Orchestration v1 - Instant Demo** [Cisco DCLOUD labs](https://dcloud.cisco.com/) [See Instructions here]()
 2. Create Threat Response API client with all scopes. Copy Threat Response **client ID** and **Client Password** and save them somewhere.
@@ -101,7 +99,7 @@ If you want to dig into how to every details about how  Incidents and Sightings 
 
 **NEXT STEP : Demo Part 2** 
 
-### Demo Part 2 - Send Alerts into a Webex Team Room and add Malicious observables into SecureX blocking feeds
+## Demo Part 2 - Send Alerts into a Webex Team Room and add Malicious observables into SecureX blocking feeds
 
 1. Create a dedicated webex Team Bot for this lab. Copy and save it's authentication token. If you don't already have a Webex Bot go this [ Create a Webex Team Bot Instructions ](https://github.com/pcardotatgit/Create_a_Webex_Team_Bot) and stop at : **OK YOU ARE GOOD TO GO !!** mention in the documentation.
 2. Edit the **config.py** script and update the **webex_bot_token** variable value.
@@ -131,8 +129,9 @@ The expected result is the following formatted message into the alert webex team
 
 ![](assets/img/1.png)
 
-### CONGRATULATION !! you are ready for the last part of this lab : Add ip address into SecureX blocking feeds.
+### CONGRATULATION !! you are ready for the last part of this lab : 
 
+## Demo Part 3 - Add ip address into SecureX blocking feeds.
 
 You have probably noticed that IP addresses observables are listed in the webex team alert message. And they are clickables.  
 
