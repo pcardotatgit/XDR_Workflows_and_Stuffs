@@ -95,7 +95,7 @@ Now come back to the SecureX Ribbon. Then you can see now a new incident that wa
 
 At this point you can roll out a full investigation by going to events, or observables. And the open the relation graph, understand the attack and take some actions.
 
-If you want to dig into how to every details about how  Incidents and Sightings are created, then go [TODO add a link to the documentation]
+If you want to dig into how to every details about how  Incidents and Sightings are created, then go [Dealing with SecureX CTIM](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/13-Interact_with_CTIM) documentation.
 
 **NEXT STEP : Demo Part 2** 
 
