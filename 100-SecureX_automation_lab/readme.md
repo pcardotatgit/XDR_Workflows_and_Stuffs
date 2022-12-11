@@ -62,8 +62,8 @@ In this lab you need the following components :
 4. Open the **config.py** script located into the simulator root directory. Update the **ctr_client_id** and **ctr_client_password** variables with  CTR client ID and Client Password you got in step 2. **( Notice : you can use the GUI in the lab simulator for doing this )** 
 5. In the **config.py** script, depending on your region, uncomment the related **host=xxx** and **host_for_token=xxx** variables. **Notice** DCLOUD demos are located in the US. **( Notice :  you can use the GUI in the lab simulator for doing this )**
 6. Create a SecureX Token named **CTR_SecureX_Token** [ See Instructions here ](https://ciscosecurity.github.io/sxo-05-security-workflows/account-keys/securex-token). Or you can use the one you already created into your SecureX Tenant. In a few words, for creating it, open the **Orchestration** table then on the left panel go to **Account Keys** . Click on the **New Account Key** button and create a new account key named **CTR_SecureX_Token** with the **SecureX_Token** Account key type.  OR check that a SecureX token already exist and use this one in the next steps.
-7. Start the simulator and open your browser to **http://localhost:4000**
-8. Check that communication between the Lab Simulator and your SecureX tenant is Ok. Click on the **check SecureX** link on the top left of the displayed web page. 
+7. Start the simulator if not done. Your browser should automatically start on **http://localhost:4000**
+8. Check that communication between the Lab Simulator and your SecureX tenant is Ok. On the lab portal web page Click on the **Config and Checks** button on the top left and then on  **check SecureX**. 
 
     The expected result is the following :
 
@@ -97,24 +97,26 @@ At this point you can roll out a full investigation by going to events, or obser
 
 If you want to dig into how to every details about how  Incidents and Sightings are created, then go [Dealing with SecureX CTIM](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/13-Interact_with_CTIM) documentation.
 
+If you participate to a CTF. Find the answers to questions !.
+
 **NEXT STEP : Demo Part 2** 
 
 ## Demo Part 2 - Send Alerts into a Webex Team Room and add Malicious observables into SecureX blocking feeds
 
-1. Create a dedicated webex Team Bot for this lab. Copy and save it's authentication token. If you don't already have a Webex Bot go this [ Create a Webex Team Bot Instructions ](https://github.com/pcardotatgit/Create_a_Webex_Team_Bot) and stop at : **OK YOU ARE GOOD TO GO !!** mention in the documentation.
-2. Edit the **config.py** script and update the **webex_bot_token** variable value.
-3. Create an Alert Webex Team Room and check that you can send messages into it from SecureX workflows. Copy it's Room ID
-4. Edit the **config.py** script and update the **webex_room_id** variable value.
-5. We are going to use the existing system **Webex Team** target in SecureX Tenant.
-6. Go to Orchestration and import the **Receive observables from a rest client.json** workflow.  
+1. Create a webex Team Bot. Copy and save  the bot authentication token. If you don't already have a Webex Bot go this [ Create a Webex Team Bot Instructions ](https://github.com/pcardotatgit/Create_a_Webex_Team_Bot) and stop at : **OK YOU ARE GOOD TO GO !!** mention in the documentation.
+2. Edit the **config.py** script and update the **webex_bot_token** variable value.**( Notice :  you can use the GUI in the lab simulator for doing this )**
+3. Create an Alert Webex Team Room and check that you can send messages into it from SecureX workflows. Copy it's Room ID. [ Instructions ](https://github.com/pcardotatgit/Create_a_Webex_Team_Bot)
+4. Edit the **config.py** script and update the **webex_room_id** variable value. **( Notice :  you can use the GUI in the lab simulator for doing this )**
+5. We are going to use the existing system **Webex Team** target in SecureX Tenant. Then we dont need to create it.
+6. Go to the Orchestration table and import the **Receive observables from a rest client.json** workflow available into the resources you downloaded into your working directory.  
 7. Normaly this import operation automatically creates a new webhook ( **PVT_Demo_Webhook** ). Check this.
 8. If the webhook is not created. Skip this part if the webhook had been correctly created.
     - In SecureX Orchestration go to the admin panel and then select Create a webhook **Events & Webhook** then create an event named **PVT_Demo_Webhook** and create within it a webhook named **Webhook_trigger**. Once done copy it's **webhook url**
     
     - In the SecureX Workflow editor, edit the **Receive observables from a rest client** workflow and assign to it the webhook you created above. Go to the trigger section of the workflow properties panel on the right
 9. BUT : If the webhook is created as expected, copy its **webhook_url**.
-10. Then Edit the **config.py** file and update the **SecureX_Webhook_url** variable.
-11. Ready for some tests.  Test your setup with the **u2_test_webhook.py** file. You just have to run it. And when you run this script, then you are supposed to see a message arriving into your alert webex team room.
+10. Then Edit the **config.py** file and update the **SecureX_Webhook_url** variable.**( Notice :  you can use the GUI in the lab simulator for doing this )**
+11. Ready for some tests.  Test your setup with the **u2_test_webhook.py** file. You just have to run it from a terminal console openned into the **./code** folder ( venv activated ). And when you run this script, then you are supposed to see a message arriving into your alert webex team room.
 ![](assets/img/2.png)
 
 12. If you received the success message, Congratulation ! you are goo to move forward. if not check here [troubleshooting instructions]
