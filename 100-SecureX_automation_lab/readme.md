@@ -131,7 +131,7 @@ The expected result is the following formatted message into the alert webex team
 
 ![](assets/img/1.png)
 
-**TROUBLESHOOTING** : The workflow might fail due to the fact it was nnot able to retreive incidents we created. This specifically happens when you use the DCLOUD.  If this happens, to be able to move forward run the **u3_send_alert_to_webex_room.py** script from a terminal console. This wil simulate what the workflow is supposed to do.
+**TROUBLESHOOTING** : The workflow might fail due to the fact it was not able to retreive incidents we created. This specifically happens when you use the DCLOUD.  If this happens, to be able to move forward run the **u3_send_alert_to_webex_room.py** script from a terminal console. This wil simulate what the workflow is supposed to do. ( This misbehavior will be fixed later )
 
 ### CONGRATULATION !! you are ready for the last part of this lab.
 
@@ -169,7 +169,7 @@ Before doing these imports and specifically if you use the DCLOUD lab, the next 
 
 Go to **Threat Response** => **Feeds** and check that **SecureX_Firewall_Private_xxx** feeds. If they exist delete all of them. 
 
-Then you have to do the same with indicators. Delete all **Secure_Firewall_SecureX_xxx** indicators.
+Then you have to do the same with indicators. Go to **Indicators** go to **Source:Private** and Delete all **Secure_Firewall_SecureX_xxx** indicators.
 
 Then go to the SecureX Orchestration page **=> all workflows** landing page and search for the following workflows :v**0015A-SecureFirewall-BlockObservable-Setup** and **0015B-SecureFirewall-BlockObservable**.   
 
