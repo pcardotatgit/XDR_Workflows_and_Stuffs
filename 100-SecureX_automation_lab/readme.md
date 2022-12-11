@@ -108,13 +108,13 @@ If you participate to a CTF. Find the answers to questions !.
 3. Create an Alert Webex Team Room and check that you can send messages into it from SecureX workflows. Copy it's Room ID. [ Instructions ](https://github.com/pcardotatgit/Create_a_Webex_Team_Bot)
 4. Edit the **config.py** script and update the **webex_room_id** variable value. **( Notice :  you can use the GUI in the lab simulator for doing this )**
 5. We are going to use the existing system **Webex Team** target in SecureX Tenant. Then we dont need to create it.
-6. Go to the Orchestration table and import the **Receive observables from a rest client.json** workflow available into the resources you downloaded into your working directory.  
+6. Go to the Orchestration table and import the **Receive observables from a rest client.json** workflow available into the resources you downloaded into your working directory (**/secureX_workflows** folder).  
 7. Normaly this import operation automatically creates a new webhook ( **PVT_Demo_Webhook** ). Check this.
 8. If the webhook is not created. Skip this part if the webhook had been correctly created.
     - In SecureX Orchestration go to the admin panel and then select Create a webhook **Events & Webhook** then create an event named **PVT_Demo_Webhook** and create within it a webhook named **Webhook_trigger**. Once done copy it's **webhook url**
     
     - In the SecureX Workflow editor, edit the **Receive observables from a rest client** workflow and assign to it the webhook you created above. Go to the trigger section of the workflow properties panel on the right
-9. BUT : If the webhook is created as expected, copy its **webhook_url**.
+9. BUT : If the webhook is created as expected, copy its **webhook_url**. Go the **Events & Webhooks** select the **Webhooks** table and display the **PVT_Demo_Webhook** Details.
 10. Then Edit the **config.py** file and update the **SecureX_Webhook_url** variable.**( Notice :  you can use the GUI in the lab simulator for doing this )**
 11. Ready for some tests.  Test your setup with the **u2_test_webhook.py** file. You just have to run it from a terminal console openned into the **./code** folder ( venv activated ). And when you run this script, then you are supposed to see a message arriving into your alert webex team room.
 ![](assets/img/2.png)
