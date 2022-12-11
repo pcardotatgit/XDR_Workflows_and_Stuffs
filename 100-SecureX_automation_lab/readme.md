@@ -236,3 +236,17 @@ If you don't want to stop here, you can go the the Firewall part and make the fe
 This will be particularly simple to do with FirePOWER and Security Intelligence ( Or Threat Intelligence Director ). You can use Secure Firewall DCLOUD Demos for this.
 
 Or you can replace or add into the last workflow an new activity that creates Dynamic objects into FMC.
+
+## Utils
+
+You may have seen the the **code** folder contains some additionnal python scripts.
+
+They are utils scripts for doing maintenance and cleaning operation.
+
+You can run these script into a terminal console opened into the **code** folder with venv activated.
+
+Here are the details of these scripts :
+
+- w0_utils_generate_and_save_token.py :asks for a token and save it into ctr_token.txt
+- utils.py  : delete all incidents, sightings and judgments we created into the SecureX tenant.
+- 
