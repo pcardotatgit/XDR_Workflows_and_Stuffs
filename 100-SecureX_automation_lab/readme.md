@@ -131,6 +131,8 @@ The expected result is the following formatted message into the alert webex team
 
 ![](assets/img/1.png)
 
+**TROUBLESHOOTING** : The workflow might fail due to the fact it was nnot able to retreive incidents we created. This specifically happens when you use the DCLOUD.  If this happens, to be able to move forward run the **u3_send_alert_to_webex_room.py** script from a terminal console. This wil simulate what the workflow is supposed to do.
+
 ### CONGRATULATION !! you are ready for the last part of this lab.
 
 Webex Team is a great integration that give to SecureX very efficients user interfaces. Learn more abour markdown formatting and webex team cards here [ TODO add link to the documentation ]
