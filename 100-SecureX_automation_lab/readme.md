@@ -171,7 +171,7 @@ Go to **Threat Response** => **Feeds** and check that **SecureX_Firewall_Private
 
 Then you have to do the same with indicators. Go to **Indicators** go to **Source:Private** and Delete all **Secure_Firewall_SecureX_xxx** indicators.
 
-Then go to the SecureX Orchestration page **=> all workflows** landing page and search for the following workflows :v**0015A-SecureFirewall-BlockObservable-Setup** and **0015B-SecureFirewall-BlockObservable**.   
+Then go to the SecureX Orchestration page **=> all workflows** landing page and search for the following workflows :  **0015A-SecureFirewall-BlockObservable-Setup** and **0015B-SecureFirewall-BlockObservable**.   
 
 If they exist don't delete them. Then Import the two workflow  **CiscoSecurity_Workflows** github and and overwrite existing workflows if needed.
 
@@ -202,7 +202,7 @@ Drag and drop it into the canvas in replacement of the whole **parallel block**.
 Then click on it to select it and then go to it's properties right panel. 
 
 - Set the **observable_type** to **ip**
-- Set the **observable_value** to the 
+- Set the **observable_value** to the **workflow => local => Observable_List** variable.
 
 ![](assets/img/8.png)
 
@@ -210,7 +210,7 @@ Then click on it to select it and then go to it's properties right panel.
 
 ## You are ready for the final test !!
 
-Come back to the Alert Webex Team Room and click on one of the IP addresses.
+Come back to the Alert Webex Team Room and click on the Malicious IP address ( or anyother IP address ).
 
 ![](assets/img/11.png)
 
@@ -225,6 +225,11 @@ Come back to the feed and refresh it.
 # CONGRATULATION !!! you completed the full demo !!!
 
 ## What to do Next ?
+
+Modify the **Check Incidents every 5 minutes.json** workflow to :
+
+- Use BOT Token ID and Webex Team RoomID stored into the SecureX tenant.
+- Schedule the workflow every 5 minutes.
 
 If you don't want to stop here, you can go the the Firewall part and make the feed automatically translated into Firewall Blocking rules.
 
