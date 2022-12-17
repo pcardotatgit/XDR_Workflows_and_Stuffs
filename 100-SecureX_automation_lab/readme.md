@@ -185,11 +185,11 @@ If they exist don't delete them. Then Import the two workflows  **CiscoSecurity_
 
 If the anwser is yes, then let's go the last step of this lab.
 
-**Use the 0015B-SecureFirewall-BlockObservable workflow**
+**This last part is about using the 0015B-SecureFirewall-BlockObservable workflow in another workflow**
 
-We are going to include the **0015B-SecureFirewall-BlockObservable** workflow into the **Receive observables from a rest client** one. Thanks to this, when we will click on an observable in the Webex Teal alert message, then we will add it to the SecureX blocking list.
+We are going to include the **0015B-SecureFirewall-BlockObservable** workflow into the **Receive observables from a rest client** one. Thanks to this, when we will click on an observable in the Webex Team alert message, then we will add it to the SecureX blocking list.
 
-Go to the SecureX workflow editor and open the **Receive observables from a rest client** workflow.
+In **SecureX Orchestration** Go to the SecureX workflow editor and editthe **Receive observables from a rest client** workflow.
 
 When you used it before, you probably have noticed the parallel block in the middle named **Replace this by an Update Judgment activity**.
 
@@ -209,6 +209,8 @@ Then click on it to select it and then go to it's properties right panel.
 ![](assets/img/8.png)
 
 ![](assets/img/9.png)
+
+The IP address you clicked on in the Webex Team Message should now appear in the feed.
 
 ## You are ready for the final test !!
 
