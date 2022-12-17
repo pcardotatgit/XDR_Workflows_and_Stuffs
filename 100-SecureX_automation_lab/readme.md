@@ -108,11 +108,11 @@ If you participate to a CTF. Find the answers to questions !.
 ## Demo Part 2 - Send Alerts into a Webex Team Room 
 
 1. Create a webex Team Bot. Copy and save  the bot authentication token. If you don't already have a Webex Bot go this [ Create a Webex Team Bot Instructions ](https://github.com/pcardotatgit/Create_a_Webex_Team_Bot) and stop at : **OK YOU ARE GOOD TO GO !!** mention in the documentation.
-2. Edit the **config.py** script and update the **webex_bot_token** variable value.**( Notice :  you can use the GUI in the lab simulator for doing this )**
+2. Edit the **config.py** script and update the **webex_bot_token** variable value.**( Notice :  you can use the GUI in the lab simulator for doing this, and restart flask )**
 3. Create an Alert Webex Team Room ([ Instructions Here ])(https://github.com/pcardotatgit/Create_a_Webex_Team_Bot)and check that you can send messages into it from SecureX workflows. You can run the **u1_test_webex_room.py** script in the **code** folder to test your Webex Team Setup. Run it and you are supposed to receive a message into the Webex Team Room. If everything is Okay then Copy the webex team Room ID. 
 4. Edit the **config.py** script and update the **webex_room_id** variable value. **( Notice :  you can use the GUI in the lab simulator for doing this, and restart flask )**
-5. We are going to use the existing system **Webex Team** target in SecureX Tenant. Then we dont need to create it.
-6. Go to the Orchestration table and import the **Receive observables from a rest client.json** workflow available into the resources you downloaded into your working directory (**/secureX_workflows** folder).  
+5. We are going to use the existing system **Webex Team** target in SecureX Tenant. Then we dont need to create a specific target for webex.
+6. Next step is to Go to the **Orchestration table** and import the **Receive observables from a rest client.json** workflow available into the resources you downloaded into your working directory (**/secureX_workflows** folder).  
 7. Normaly this import operation automatically creates a new webhook ( **PVT_Demo_Webhook** ). Check this.
 8. If the webhook is not created. Skip this part if the webhook had been correctly created.
     - In SecureX Orchestration go to the admin panel and then select Create a webhook **Events & Webhook** then create an event named **PVT_Demo_Webhook** and create within it a webhook named **Webhook_trigger**. Once done copy it's **webhook url**
