@@ -108,66 +108,64 @@ If you participate to a CTF. Find the answers to questions !.
 ## Demo Part 2 - Send Alerts into a Webex Team Room 
 
 1. Create a webex Team Bot. Copy and save  the bot authentication token. If you don't already have a Webex Bot go this [ Create a Webex Team Bot Instructions ](https://github.com/pcardotatgit/Create_a_Webex_Team_Bot) and stop at : **OK YOU ARE GOOD TO GO !!** mention in the documentation.
-2. Edit the **config.py** script and update the **webex_bot_token** variable value.**( Notice :  you can use the GUI in the lab simulator for doing this, and restart flask )**
+2. Edit the **config.py** script and update the **webex_bot_token** variable value.**( Or :  you can use the GUI in the lab simulator for doing this, and restart flask )**
 3. Create an Alert Webex Team Room ([ Instructions Here ])(https://github.com/pcardotatgit/Create_a_Webex_Team_Bot)and check that you can send messages into it from SecureX workflows. You can run the **u1_test_webex_room.py** script in the **code** folder to test your Webex Team Setup. Run it and you are supposed to receive a message into the Webex Team Room. If everything is Okay then Copy the webex team Room ID. 
-4. Edit the **config.py** script and update the **webex_room_id** variable value. **( Notice :  you can use the GUI in the lab simulator for doing this, and restart flask )**
+4. Edit the **config.py** script and update the **webex_room_id** variable value. **( Or :  you can use the GUI in the lab simulator for doing this, and restart flask )**
 5. We are going to use the existing system **Webex Team** target in SecureX Tenant. Then we dont need to create a specific target for webex.
-6. Next step is to Go to the **Orchestration table** and import the **Receive observables from a rest client.json** workflow available into the resources you downloaded into your working directory (**/secureX_workflows** folder).  
-7. Normaly this import operation automatically creates a new webhook ( **PVT_Demo_Webhook** ). Check this.
-8. If the webhook is not created. Skip this part if the webhook had been correctly created.
-    - In SecureX Orchestration go to the admin panel and then select Create a webhook **Events & Webhook** then create an event named **PVT_Demo_Webhook** and create within it a webhook named **Webhook_trigger**. Once done copy it's **webhook url**
+6. Next step is to Go to the **Orchestration table** and import the **Receive observables from a rest client.json** workflow available into the resources you downloaded into your working directory (**/secureX_workflows** folder).  From the Orchestration main page, click on the **Import Workflow** link on the top right. Browse your disk, select the workflow and import it.
+7. Normaly this import operation automatically creates a new webhook ( **PVT_Demo_Webhook** ). Check that the webhook exists.
+8. If the webhook is not created. 
+    - In SecureX Orchestration go to the admin panel on the left,then select Create a webhook **Events & Webhook** at the bottom, then create an event named **PVT_Demo_Webhook** and create within it a webhook named **Webhook_trigger**. Once done copy it's **webhook url**
     
     - In the SecureX Workflow editor, edit the **Receive observables from a rest client** workflow and assign to it the webhook you created above. Go to the trigger section of the workflow properties panel on the right
-9. BUT : If the webhook is created as expected, copy its **webhook_url**. Go the **Events & Webhooks** select the **Webhooks** table and display the **PVT_Demo_Webhook** Details.
-10. Then Edit the **config.py** file and update the **SecureX_Webhook_url** variable.**( Notice :  you can use the GUI in the lab simulator for doing this, and restart flask )**
-11. Ready for some tests.  Test your setup with the **u2_test_webhook.py** file. You just have to run it from a terminal console openned into the **./code** folder ( venv activated ). And when you run this script, then you are supposed to see a message arriving into your alert webex team room.
+9. BUT : If the webhook is created as expected, copy its **webhook_url**. For this you have to go to **Events & Webhooks**, and then select the **Webhooks** table and display the **PVT_Demo_Webhook** Details. The webhook url is at the bottom of the popup window.
+10. Then Edit the **config.py** file and update the **SecureX_Webhook_url** variable.**( Or :  you can use the GUI in the lab simulator for doing this, and restart flask )**
+11. Ready for some tests.  Test your setup with the **u2_test_webhook.py** file. You just have to run it from a terminal console openned into the **./code** folder ( venv activated ). And when you run this script, then you are supposed to see a message arriving into your alert webex team room. This script send a webhook to the SecureX workflow and the workflow is supposed to send a message to the Webex Team room.
 ![](assets/img/2.png)
 
-12. If you received the success message, Congratulation ! you are goo to move forward. if not check here [troubleshooting instructions]
-13. Go to Orchestration and import the **Check Incidents every 5 minutes.json** workflow.Ignore any errors received during import. Don't stop the operation, but move forward ... you will fiw the errors later. [ see instructions ]()
+12. If you received the success message, Congratulation ! you are good to move forward. if You didn't receive the message, then In **SecureX Orchestration** edit the **Receive observables from a rest client** workflow and click on the **View Runs** button on the top right. You will be able to see the last run, check that the workflow was triggered and see which workflow activity failed.
+13. If the previous workflow worked, then import the second workflow. For this, go to Orchestration and import the **Check Incidents every 5 minutes.json** workflow. Ignore any errors received during import. Don't stop the operation, but move forward ... you will fix the errors later. [ see instructions ]()
 14. Check the SecureX **Private_CTIA_Target** . This one must use a host fqdn that match to your region ( ex : **private.intel.eu.amp.cisco.com** ) and this target must use the **SecureX_Token** you created at the begining of this lab.
 15. Run the **Check Incidents every 5 minutes** workflow. You will be asked to enter the **webex_bot_token** and the **webex_room_id**.
 
-    For the purpose of this lab we dont store the **webex_bot_token** and **webex_room_id** variables into global SecureX Variables. We voluntary let the workflow asking you these values as required inputs.  For production you will have to modify this part a create static variables into your secureX tenant.
+    For the purpose of this lab we don't store the **webex_bot_token** and **webex_room_id** variables into global SecureX Variables. We voluntarily let the workflow asking you these values as required inputs.  For production you will have to modify this part and create instead static variables into your secureX tenant.
 
-The expected result is the following formatted message into the alert webex team room.
+The expected result is the following an Alert formatted message into your alert webex team room.
 
 
 ![](assets/img/1.png)
 
-**TROUBLESHOOTING** : The workflow might fail due to the fact it was not able to retreive incidents we created. This specifically happens when you use the DCLOUD.  If this happens, to be able to move forward run the **u3_send_alert_to_webex_room.py** script from a terminal console. This wil simulate what the workflow is supposed to do. ( This misbehavior will be fixed later )
+**TROUBLESHOOTING** : The workflow might fail due to the fact it was not able to retreive incidents we created. This specifically happens when you use the DCLOUD.  If this happens, to be able to move forward run the **u3_send_alert_to_webex_room.py** script from a terminal console. This will simulate what the workflow is supposed to do. 
 
 ### CONGRATULATION !! you are ready for the last part of this lab.
 
-Webex Team is a great integration that give to SecureX very efficients user interfaces. Learn more abour markdown formatting and webex team cards here [ TODO add link to the documentation ]
+Webex Team is a great integration in SecureX, that gives to SecureX very efficient user interfaces. Learn more abour markdown formatting and webex team cards here [ TODO add link to the documentation ]
 
 ## Demo Part 3 - Add Malicious ip addresses into SecureX blocking feeds.
 
-You have probably noticed that IP addresses observables are listed in the webex team alert message. And they are clickables.  
+You have probably noticed that some IP addresses are listed in the webex team alert message. And they are all clickables.  
 
-The purpose of this is to allow security operators to add malicious observables into SecureX blocking Feeds. 
+The purpose of this is to allow security operators to add these malicious IP addresses into SecureX blocking Feeds. 
 
 And once an observable is into SecureX Feeds, then it can be automatically blocked by a company firewalls.
 
-This is the goal of this last part of the lab. 
-
-To do so we need :
+At this point we need :
 
 - To Create SecureX Feeds
 - To Create SecureX Workflows that will add observables into SecureX feeds.
 
-We need workflows for doing that.
+And we are going to use workflows for doing that.
 
 Actually these Workflows already exists into the list of Cisco Validated Workflows.
 
 These workflows are :
 
-- 0015A-SecureFirewall-BlockObservable-Setup
-- 0015B-SecureFirewall-BlockObservable
+- **0015A-SecureFirewall-BlockObservable-Setup**
+- **0015B-SecureFirewall-BlockObservable**
 
 The next step is to import these two workflows into your SecureX tenant. 
 
-**Notice** If you work on your own SecureX tenant, you already created your SecureX feeds you already use the **0015B-SecureFirewall-BlockObservable** workflow... then skip this part above a go directly to the **Use the 0015B-SecureFirewall-BlockObservable* workflow** step bellow.
+**Notice** If you work on your own SecureX tenant, and you already created your SecureX feeds, and you already use the **0015B-SecureFirewall-BlockObservable** workflow... then skip this part above a go directly to the **Use the 0015B-SecureFirewall-BlockObservable* workflow** step bellow.
 
 Before doing these imports and specifically if you use the DCLOUD lab, the next step is to do some clean up.
 
@@ -177,7 +175,7 @@ Then you have to do the same with indicators. Go to **Indicators** go to **Sourc
 
 Then go to the SecureX Orchestration page **=> all workflows** landing page and search for the following workflows :  **0015A-SecureFirewall-BlockObservable-Setup** and **0015B-SecureFirewall-BlockObservable**.   
 
-If they exist don't delete them. Then Import the two workflow  **CiscoSecurity_Workflows** github and and overwrite existing workflows if needed.
+If they exist don't delete them. Then Import the two workflows  **CiscoSecurity_Workflows** github and and overwrite existing workflows if needed.
 
 **Next Step** Go to the following instructions and once done come back here and move forward with next steps : 
 
