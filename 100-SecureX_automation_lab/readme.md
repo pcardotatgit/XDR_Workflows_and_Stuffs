@@ -210,7 +210,6 @@ Then click on it to select it and then go to it's properties right panel.
 
 ![](assets/img/9.png)
 
-The IP address you clicked on in the Webex Team Message should now appear in the feed.
 
 ## You are ready for the final test !!
 
@@ -225,6 +224,8 @@ Then the IP address must appear now into the public SecureX feed.
 Come back to the feed and refresh it.
 
 ![](assets/img/10.png)
+
+The IP address you clicked on in the Webex Team Message should now appear in the feed.
 
 # CONGRATULATION !!! you completed the full demo !!!
 
