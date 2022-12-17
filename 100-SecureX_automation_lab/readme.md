@@ -139,7 +139,7 @@ The expected result is the following an Alert formatted message into your alert 
 
 ### CONGRATULATION !! you are ready for the last part of this lab.
 
-Webex Team is a great integration in SecureX, that gives to SecureX very efficient user interfaces. Learn more about markdown formatting and webex team cards here : [ How we manage Webex Alert Messages ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/blob/master/100-SecureX_automation_lab/webex_team_alert_message.md)
+Webex Team is a great integration in SecureX, that gives to SecureX very efficient user interfaces. Learn more about markdown formatting and webex team cards here : [ How do we manage Webex Alert Messages ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/blob/master/100-SecureX_automation_lab/webex_team_alert_message.md)
 
 ## Demo Part 3 - Add Malicious ip addresses into SecureX blocking feeds.
 
