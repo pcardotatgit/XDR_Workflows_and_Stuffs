@@ -59,17 +59,20 @@ In this lab you need the following components :
 1. Check your SecureX tenant. If you don't have a SecureX tenant you can use DCLOUD **Cisco SecureX Orchestration v1 - Instant Demo** [Cisco DCLOUD labs](https://dcloud.cisco.com/) -- [See Instructions here](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/blob/master/100-SecureX_automation_lab/dcloud_lab.md)
 2. Once logged into your SecureX tenant, create a Threat Response API client with all scopes. For this, go the **Administration** then Select **API Clients** in the left panel and click on the **Generate API Client** button. Click on the **Select All** link in the **Scopes** Section and click on the **Add New Client** button.  Copy Threat Response **client ID** and **Client Password** and save them somewhere.
 3. Install the Lab Simulator into your laptop . [see Instructions here](https://github.com/pcardotatgit/lab_simulator-001). And **Start the lab Simulator**. The lab Portal web page should open.
-4. Open the **config.py** script located into the simulator root directory. Update the **ctr_client_id** and **ctr_client_password** variables with  CTR client ID and Client Password you got in step 2.Save your changes. **( Notice : you can use the GUI in the lab simulator for doing this )** 
-5. In the **config.py** script, depending on your region, uncomment the related **host=xxx** and **host_for_token=xxx** variables. **Notice** DCLOUD demos are located in the US. Save your changes.**( Notice :  you can use the GUI in the lab simulator for doing this )**
-5. If you used the simulator GUI to edit the **config.py** file, you will have to stop and restart the simulator in order to make changes to be taken into account.
-6. Now go to the your SecureX tenant GUI, and go to Orchestration. Then Create a SecureX Token named **CTR_SecureX_Token** [ See Instructions here ](https://ciscosecurity.github.io/sxo-05-security-workflows/account-keys/securex-token). Or you can use the one you may have already created into your SecureX Tenant. In a few words, for creating it, open the **Orchestration** table then on the left panel go to **Account Keys** . Click on the **New Account Key** button and create a new account key named **CTR_SecureX_Token** with the **SecureX_Token** Account key type.  OR check that a SecureX token already exist and use this one in the next steps.
+4. Open the **config.py** script located into the simulator root directory. Update the **ctr_client_id** and **ctr_client_password** variables with  CTR client ID and Client Password you got in step 2. Save your changes. **( Notice : you can use the GUI in the lab simulator for doing this )** 
+5. In the **config.py** script, depending on your region, uncomment the related **host=xxx** and **host_for_token=xxx** variables. **Notice** DCLOUD demos are located in the US.  Save your changes.**( Notice :  you can use the GUI in the lab simulator for doing this )**
+5.**Important Notice ! :** If you used the simulator Web GUI to edit the **config.py** file, then you will have to stop and restart the simulator in order to make changes to be taken into account.
+6. Now go to the your SecureX tenant Web GUI, and go to Orchestration. Then Create a SecureX Token named **CTR_SecureX_Token** [ See Instructions here ](https://ciscosecurity.github.io/sxo-05-security-workflows/account-keys/securex-token). Or you can use the one you may have already created into your SecureX Tenant. In a few words, for creating it, open the **Orchestration** table then on the left panel go to **Account Keys** . Click on the **New Account Key** button and create a new account key named **CTR_SecureX_Token** with the **SecureX_Token** Account key type.  OR check that a SecureX token already exist and use this one in the next steps.
 7. Start the simulator if not done. Your browser should automatically start on **http://localhost:4000**
-8. Check that communication between the Lab Simulator and your SecureX tenant is Ok. On the lab portal web page Click on the **Config and Checks** button on the top left and then on  **check SecureX**. 
+8. Check that communication between the Lab Simulator and your SecureX tenant is Ok. For doing this, on the lab portal web page click on the **Config and Checks** button on the top left and then on  **check SecureX**. 
 
     The expected result is the following :
 
     ![](assets/img/3.png)
 
+    In case of failure, check your configuration file ( host, host_for_token, ctr_client_ID, ctr_client_password )
+
+    FYI : this part is managed by the **@app.route('/check')** route in the **app.py** script. It asks for a toke to SecureX and reads Incidents.
 
 9. At this point you are ready to run the half of the full demo ( the Detection and Alert part )
 
@@ -102,12 +105,12 @@ If you participate to a CTF. Find the answers to questions !.
 
 **NEXT STEP : Demo Part 2** 
 
-## Demo Part 2 - Send Alerts into a Webex Team Room and add Malicious observables into SecureX blocking feeds
+## Demo Part 2 - Send Alerts into a Webex Team Room 
 
 1. Create a webex Team Bot. Copy and save  the bot authentication token. If you don't already have a Webex Bot go this [ Create a Webex Team Bot Instructions ](https://github.com/pcardotatgit/Create_a_Webex_Team_Bot) and stop at : **OK YOU ARE GOOD TO GO !!** mention in the documentation.
 2. Edit the **config.py** script and update the **webex_bot_token** variable value.**( Notice :  you can use the GUI in the lab simulator for doing this )**
-3. Create an Alert Webex Team Room and check that you can send messages into it from SecureX workflows. Copy it's Room ID. [ Instructions ](https://github.com/pcardotatgit/Create_a_Webex_Team_Bot)
-4. Edit the **config.py** script and update the **webex_room_id** variable value. **( Notice :  you can use the GUI in the lab simulator for doing this )**
+3. Create an Alert Webex Team Room ([ Instructions Here ])(https://github.com/pcardotatgit/Create_a_Webex_Team_Bot)and check that you can send messages into it from SecureX workflows. You can run the **u1_test_webex_room.py** script in the **code** folder to test your Webex Team Setup. Run it and you are supposed to receive a message into the Webex Team Room. If everything is Okay then Copy the webex team Room ID. 
+4. Edit the **config.py** script and update the **webex_room_id** variable value. **( Notice :  you can use the GUI in the lab simulator for doing this, and restart flask )**
 5. We are going to use the existing system **Webex Team** target in SecureX Tenant. Then we dont need to create it.
 6. Go to the Orchestration table and import the **Receive observables from a rest client.json** workflow available into the resources you downloaded into your working directory (**/secureX_workflows** folder).  
 7. Normaly this import operation automatically creates a new webhook ( **PVT_Demo_Webhook** ). Check this.
@@ -116,7 +119,7 @@ If you participate to a CTF. Find the answers to questions !.
     
     - In the SecureX Workflow editor, edit the **Receive observables from a rest client** workflow and assign to it the webhook you created above. Go to the trigger section of the workflow properties panel on the right
 9. BUT : If the webhook is created as expected, copy its **webhook_url**. Go the **Events & Webhooks** select the **Webhooks** table and display the **PVT_Demo_Webhook** Details.
-10. Then Edit the **config.py** file and update the **SecureX_Webhook_url** variable.**( Notice :  you can use the GUI in the lab simulator for doing this )**
+10. Then Edit the **config.py** file and update the **SecureX_Webhook_url** variable.**( Notice :  you can use the GUI in the lab simulator for doing this, and restart flask )**
 11. Ready for some tests.  Test your setup with the **u2_test_webhook.py** file. You just have to run it from a terminal console openned into the **./code** folder ( venv activated ). And when you run this script, then you are supposed to see a message arriving into your alert webex team room.
 ![](assets/img/2.png)
 
@@ -138,7 +141,7 @@ The expected result is the following formatted message into the alert webex team
 
 Webex Team is a great integration that give to SecureX very efficients user interfaces. Learn more abour markdown formatting and webex team cards here [ TODO add link to the documentation ]
 
-## Demo Part 3 - Add ip address into SecureX blocking feeds.
+## Demo Part 3 - Add Malicious ip addresses into SecureX blocking feeds.
 
 You have probably noticed that IP addresses observables are listed in the webex team alert message. And they are clickables.  
 
