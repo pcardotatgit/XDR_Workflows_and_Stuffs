@@ -109,7 +109,7 @@ If you participate to a CTF. Find the answers to questions !.
 
 1. Create a webex Team Bot. Copy and save  the bot authentication token. If you don't already have a Webex Bot go this [ Create a Webex Team Bot Instructions ](https://github.com/pcardotatgit/Create_a_Webex_Team_Bot) and stop at : **OK YOU ARE GOOD TO GO !!** mention in the documentation.
 2. Edit the **config.py** script and update the **webex_bot_token** variable value.**( Or :  you can use the GUI in the lab simulator for doing this, and restart flask )**
-3. Create an Alert Webex Team Room ([ Instructions Here ])(https://github.com/pcardotatgit/Create_a_Webex_Team_Bot)and check that you can send messages into it from SecureX workflows. You can run the **u1_test_webex_room.py** script in the **code** folder to test your Webex Team Setup. Run it and you are supposed to receive a message into the Webex Team Room. If everything is Okay then Copy the webex team Room ID. 
+3. Create an Alert Webex Team Room ([ Instructions Here ](https://github.com/pcardotatgit/Create_a_Webex_Team_Bot) ) and check that you can send messages into it from SecureX workflows. You can run the **u1_test_webex_room.py** script in the **code** folder to test your Webex Team Setup. Run it and you are supposed to receive a message into the Webex Team Room. If everything is Okay then Copy the webex team Room ID. 
 4. Edit the **config.py** script and update the **webex_room_id** variable value. **( Or :  you can use the GUI in the lab simulator for doing this, and restart flask )**
 5. We are going to use the existing system **Webex Team** target in SecureX Tenant. Then we dont need to create a specific target for webex.
 6. Next step is to Go to the **Orchestration table** and import the **Receive observables from a rest client.json** workflow available into the resources you downloaded into your working directory (**/secureX_workflows** folder).  From the Orchestration main page, click on the **Import Workflow** link on the top right. Browse your disk, select the workflow and import it.
@@ -124,7 +124,7 @@ If you participate to a CTF. Find the answers to questions !.
 ![](assets/img/2.png)
 
 12. If you received the success message, Congratulation ! you are good to move forward. if You didn't receive the message, then In **SecureX Orchestration** edit the **Receive observables from a rest client** workflow and click on the **View Runs** button on the top right. You will be able to see the last run, check that the workflow was triggered and see which workflow activity failed.
-13. If the previous workflow worked, then import the second workflow. For this, go to Orchestration and import the **Check Incidents every 5 minutes.json** workflow. Ignore any errors received during import. Don't stop the operation, but move forward ... you will fix the errors later. [ see instructions ]()
+13. If the previous workflow worked, then import the second workflow. For this, go to Orchestration and import the **Check Incidents every 5 minutes.json** workflow. Ignore any errors received during import. Don't stop the operation, but move forward ... you will fix the errors later. 
 14. Check the SecureX **Private_CTIA_Target** . This one must use a host fqdn that match to your region ( ex : **private.intel.eu.amp.cisco.com** ) and this target must use the **SecureX_Token** you created at the begining of this lab.
 15. Run the **Check Incidents every 5 minutes** workflow. You will be asked to enter the **webex_bot_token** and the **webex_room_id**.
 
@@ -139,7 +139,7 @@ The expected result is the following an Alert formatted message into your alert 
 
 ### CONGRATULATION !! you are ready for the last part of this lab.
 
-Webex Team is a great integration in SecureX, that gives to SecureX very efficient user interfaces. Learn more abour markdown formatting and webex team cards here [ TODO add link to the documentation ]
+Webex Team is a great integration in SecureX, that gives to SecureX very efficient user interfaces. Learn more about markdown formatting and webex team cards here : [ How we manage Webex Alert Messages ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/blob/master/100-SecureX_automation_lab/webex_team_alert_message.md)
 
 ## Demo Part 3 - Add Malicious ip addresses into SecureX blocking feeds.
 
