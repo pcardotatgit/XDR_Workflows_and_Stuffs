@@ -264,3 +264,8 @@ Here are the details of these scripts :
 - y2_utils_sightings_get_filter_by_something.py : List all sightings we created in the lab.
 - y3_utils_sightings_-delete_sightings.py : delete all sigthings we got with the above script
 - y4_utils_sightings_-create.py : create a sighting
+
+# Want to dig into the details of this workflow ?
+
+In this section let's discribe all the details of the how the full use case work.
+
