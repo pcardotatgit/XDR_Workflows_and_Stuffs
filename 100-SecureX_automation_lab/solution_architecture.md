@@ -27,7 +27,7 @@ In one hand, the application exposes API endpoints for managing :
 
 ![](assets/img/16.png)
 
-## Check for new incendent and send an alert
+## Check for new incidents and send an alert to Webex Team
 
 ![](assets/img/17.png)
 
