@@ -27,6 +27,10 @@ In one hand, the application exposes API endpoints for managing :
 
 ![](assets/img/16.png)
 
+In the other hand the Flask application run several functions wich are triggered by REST call received on exposed API Endpoints.  These function are mostly about interaction with SecureX and Webex.
+
+For code clarity, these functions are not all embeded into the **app.py** main script but are into dedicated scripts outside the **app.py** scripts but linked with it thanks to **import** statements.
+
 ## Check for new incidents and send an alert to Webex Team
 
 ![](assets/img/17.png)
