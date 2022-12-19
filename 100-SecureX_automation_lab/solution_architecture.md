@@ -73,7 +73,9 @@ When Incident and Sighthings were created within SecureX, IDs were assigned to t
 Specifically within **relationships**. 
 
 So for retreiving all **Sightings** that are attached to an incident, we have to retreive all relation ships.
+
 ![](assets/img/18.png)
+
 Then for every Sightings, we can extracts **observables** and **targets** from them and create an alert message to be sent to the Webex Team Alert room.
 
 This is exactly what the **Check Incidents every 5 minutes.json** SecureX workflow does.
