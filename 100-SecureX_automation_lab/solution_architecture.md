@@ -31,7 +31,7 @@ In the other hand the Flask application run several functions which are triggere
 
 For code clarity, these functions are not all embeded into the **app.py** main script, but they are located into dedicated python scripts outside the **app.py** scripts but linked with it thanks to **import** statements.
 
-## Check for new incidents
+## Checking for new incidents
 
 ![](assets/img/17.png)
 
@@ -86,6 +86,8 @@ The alert message sent into a dedicated Webex Team Room is a very effecient way 
 
 The goal with this is to allow the Security Operator to instantly block the bad guys. Just by clicking on a link into the alert message from their smart phone.
 
+![](assets/img/11.png)
+
 In this solution, the Flask application act as a bot logic for Webex. The reason for that is that for sending data ( IP to block ) to the SecureX workflow we want to trigger thanks to a webhook, we must send a POST call. 
 
 And unfortunately url links we can include Webex messages are GET call and not POST calls.
@@ -110,7 +112,11 @@ All the rest happens within the SecureX workflow. The Malicious IP address is ex
 
 The Webex Team Room is just here to confirm to the requester that his operation was executed. The last Webex Message only appears when the malicious ip addresse was succesfuly added to the SecureX Blocking Feed.
 
-The malicious ip address is automatically added to the appriopriate feed by the **0015B-SecureFirewall-BlockObservable** SecureX Workflow.
+## Adding malicious IP address to SecureX blocking feed.
+
+The malicious ip address is automatically added to the appriopriate feed by the **0015B-SecureFirewall-BlockObservable** SecureX Workflow, which is included into the **Receive observables from a rest client** workflow.
+
+![](assets/img/8.png)
 
 And that's it !
 
