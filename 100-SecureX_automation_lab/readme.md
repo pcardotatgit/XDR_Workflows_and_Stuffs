@@ -265,7 +265,7 @@ Here are the details of these scripts :
 - y3_utils_sightings_-delete_sightings.py : delete all sigthings we got with the above script
 - y4_utils_sightings_-create.py : create a sighting
 
-# Want to dig into the details of this workflow ?
+# Want to dig into the details of this Security Use Case ?
 
 In this section let's discribe all the details of the how the full use case work.
 
