@@ -94,7 +94,7 @@ This specific topic is the most passioning SecureX topic. But this is the more c
 
 This topic shows the power of the SecureX Platform.
 
-For integrating an IT solution within SecureX you need to develop what we call a Relay Module. A Relay Module is a basically a REST Web Server that will receive REST call from SecureX and that will translate and relay these calls to the 3rd party solution.  This Relay Module will have to receive replies from the 3rd party solution and will have to translate them into valid SecureX JSON answers.
+For integrating an IT solution within SecureX you need to develop what we call a Relay Module. A Relay Module is basically a REST Web Server that will receive REST call from SecureX and that will translate and relay these calls to the 3rd party solution.  This Relay Module will have to receive replies from the 3rd party solution and will have to translate them into valid SecureX JSON answers.
 
 This component can be developed in any programming language that is able to expose APIs to secureX and that is able to interact with 3rd party solution.
 
