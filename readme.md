@@ -64,7 +64,7 @@ In this section some usefull tutorials.
 
 In this section you will find some use cases documented step by step. The goal is not workflows themselves but the goal is to show how to create them.
 
-That means that in a lot of cases I show some stuff that are maybe not the best practices but that are interesting specific aspects to see and know about.
+That means that in a lot of cases I show some stuff that are maybe not the best practices but which are specific aspects interesting to see and know about.
 
 * [ Send a webex alert if temperature in Paris is less than 25° ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/9-JSON_Parsing_within_SecureX)
 * [ Secure End Point detect and alert - which host are infected by this malware ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/8-detect_and_alert_workflow_lab)
