@@ -60,7 +60,7 @@ In this section some usefull tutorials.
 
 * [JSON Parsing ( secureX and python )](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/9-JSON_Parsing_within_SecureX)
 
-## Use Cases for learning SecureX Orchestration
+## Use Cases for learning about SecureX Orchestration
 
 In this section you will find some use cases documented step by step. The goal is not workflows themselves but the goal is to show how to create them.
 
