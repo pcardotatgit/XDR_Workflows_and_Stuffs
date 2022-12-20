@@ -6,7 +6,7 @@ The goal is to share with readers all the details of the development of the work
 
 The targeted audience is "beginners". So if you just discoverd SecureX Orchestration and you want to understand all the basics needed for creating a realistic automation workflow, then this tutorial is for you !.
 
-## First Step, Let's setupthe goal ?
+## First Step, Let's setup the goal ?
 
 Imagine that one day in the morning you wake up and suddenly you need this !
 
