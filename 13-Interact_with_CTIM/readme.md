@@ -27,7 +27,7 @@ Before going to the details about how we can create incidents and sightings with
 
 SecureX Threat Hunting and incident management rely on an internal data structure which is there as a very fast and efficient backend for supporting Threat Hunting activities.
 
-This datastructure has several services that allhave APIs. That means that we can have access to these services from outside of SecureX either for reading datas, or for storing data.
+This datastructure has several services that all have APIs. That means that we can have access to these services from outside of SecureX either for reading datas, or for storing data.
 
 Managing Incidents within SedcureX is exactly that. All components of the SecureX Incident manager has an API and we use several of these APIs for creating Incidents.
 
