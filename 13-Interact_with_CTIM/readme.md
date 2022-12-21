@@ -35,7 +35,7 @@ To learn more about Cisco Threat Intell Model don't hesitate to go to the follow
 
 Once Having understanding the CTIM data structure, you are ready to move forward.
 
-### Creating Incident and Sightings.
+### Creating Incidents and Sightings.
 
 In order to make documented incidents appearing into the SecureX Incident Manager ( as we can see in day to day SecureX Threat Hunting activities. Incidents that give us details about the threat, list of events, timeline , observables and referenced links ), then we just have to create an Incident and we have to attach to it one or several Sightings.
 
