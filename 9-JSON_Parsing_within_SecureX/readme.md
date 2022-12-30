@@ -1,4 +1,4 @@
-# How to parse JSON within SecureX
+# How to parse JSON within SecureX ( Send a webex alert if temperature in Paris is less than 25° )
 
 The goal of this article is to share with the audience all the methods we can use within SecureX to acheive JSON parsing.
 
