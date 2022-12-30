@@ -4,18 +4,18 @@ This repository intends to gather some SecureX tutorials that help on Workflow a
 
 ## Start Your SecureX tenant - some "mandatory steps"
 
-Here are the steps for starting your SecureX tenant with a minimum of useful services :
+Here are the minimum steps to go thru in order to start your SecureX tenant. And be ready to use SecureX Advanced Services :
 
 * Step 1 : Create your SecureX Account [sign up to SecureX](https://security.cisco.com/).
 
-* Step 2 : Integrate your Cisco Security Solution (Umbrella or Secure Endpoint or another one). Several videos are available on Youtube. And We published online SecureX Trainings at [Learnsecurex](https://learnsecurex.cisco.com/ ) which show that.
-* Step 3 : Activate Useful/relevant free integrations [Adding 10 Free Threat Intelligence Sources to SecureX in Under 3 Minutes!](https://www.youtube.com/watch?v=7nCRMHo4_9Q&list=PLmuBTVjNfV0dlZ_DYgNiZ7SBlWVB0ae33&index=6)
-* Step 4 : Customize your dashboards
-* Step 5 : Activate Orchestration. Click on the **orchestration** table and the click on the **start orchestration** button that is displayed in the middle of the screen.  Orchestration becomes available a few hours after.
-* Step 6 : In Orchestration : Create a SecureX_Token. It will be the most effecient way to use SecureX native Target ( [See instructions](https://ciscosecurity.github.io/sxo-05-security-workflows/account-keys/securex-token) ). **Notice** : not anymore needed since December 8 2022 thanks to the new **SecureX APIs** target which manages it's own token.
-* Step 7 : Create an Alert / Info Webex Team Room . Webex Team is naturally a very good user interface for SecureX ([ See Instructions ](https://github.com/pcardotatgit/Create_a_Webex_Team_Bot))
-* Step 8a : Customize the **Webex Teams - Post Message to Room** atomic workflow
-* Step 8b : Or learn about how to create from scratch a **send message to webex team** workflow ( [ See Instructions ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/1-Create_a_Webex_Team_Bot_Target))
+* Step 2 : Integrate your Cisco Security Solution (Umbrella or Secure Endpoint or any other one). Several videos are available on Youtube. And We published online SecureX Trainings at [Learnsecurex](https://learnsecurex.cisco.com/ ) which show that.
+* Step 3 : Activate Useful/relevant free integrations. Have a look to [Adding 10 Free Threat Intelligence Sources to SecureX in Under 3 Minutes!](https://www.youtube.com/watch?v=7nCRMHo4_9Q&list=PLmuBTVjNfV0dlZ_DYgNiZ7SBlWVB0ae33&index=6). These integrations increase SecureX Enrichment accuracy.
+* Step 4 : Customize your dashboards. Select, gather tiles that are relelvant for you.
+* Step 5 : Activate **Orchestration** Services. Click on the **orchestration** table and the click on the **start orchestration** button that is displayed in the middle of the screen.  Orchestration becomes available a few hours after.
+* Step 6 : In Orchestration : Create a **SecureX_Token**. It will be the most effecient way to use SecureX native Target ( [See instructions](https://ciscosecurity.github.io/sxo-05-security-workflows/account-keys/securex-token) ). **Notice** : not anymore needed since December 8 2022 thanks to the new **SecureX APIs** target which manages it's own token. 
+* Step 7 : Create an Alert / Info Webex Team Room . Webex Team is naturally a very good user interface for SecureX. And create a webex team bot as well which is the only way to create a permanent Webec Token. ([ See Instructions here ](https://github.com/pcardotatgit/Create_a_Webex_Team_Bot))
+* Step 8a : Then you can Customize the **Webex Teams - Post Message to Room** atomic workflow wich is "ready" to send Alert Messages to yout Webex Alert Room.
+* Step 8b : OR for pedagogical reasons, then learn about how to create from scratch a **send message to webex team** workflow ( [ See Instructions ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/1-Create_a_Webex_Team_Bot_Target))
 * Step 9 : Import useful/relevant SecureX Workflows from the workflow lists
 
 At this point You are ready to use SecureX services and Create New Service which doesn't exist.
@@ -28,7 +28,9 @@ SecureX exposes a few "system targets" : CTR_Target, CTIA_Target, or Private_CTI
 
 The SecureX make authentication to these system target very easy. 
 
-Creating a SecureX Token must be one of the installation mandatory steps.
+Creating a SecureX Token is one of the installation mandatory steps.
+
+**December 8 2022 - Secure Token Update** : A new SecureX native Target named **SecureX APIs** had been released. This one can be use in place of legacy "system targets" : CTR_Target, CTIA_Target, or Private_CTIA_Target. One of the main benefits of this new target it that is manages the Authenthication token, we don't have to take care of it..
 
 [SecureX Token instructions are here](https://ciscosecurity.github.io/sxo-05-security-workflows/account-keys/securex-token)
 
