@@ -68,6 +68,8 @@ In this section you will find some use cases documented step by step. The goal i
 
 That means that in a lot of cases I show some stuff that are maybe not the best practices but which are specific aspects interesting to see and know about.
 
+* [ Create a webex team bot ](https://github.com/pcardotatgit/Create_a_Webex_Team_Bot)
+* [ Create the SecureX Webex Team Target and Send messages to an alert Webex Team Room ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/1-Create_a_Webex_Team_Bot_Target)
 * [ Send a webex alert if temperature in Paris is less than 25° ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/9-JSON_Parsing_within_SecureX)
 * [ Secure End Point detect and alert - which host are infected by this malware ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/8-detect_and_alert_workflow_lab)
 * [Dashboard and tiles for current temperature in Paris](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/6-relay_modules_for_tiles)
