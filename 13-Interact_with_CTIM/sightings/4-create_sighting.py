@@ -8,6 +8,9 @@ from datetime import datetime, timedelta
 import time
 from crayons import *
 import sys
+import config as conf
+
+host = host.conf
 
 payload_model = {
   "valid_time": {
@@ -84,7 +87,7 @@ def create_sighting(access_token,payload):
     '''
         static payload : payload_example
     '''
-    url = 'https://private.intel.eu.amp.cisco.com/ctia/sighting'
+    url = f'{host}/ctia/sighting'
     headers = {'Authorization':'Bearer {}'.format(access_token), 'Content-Type':'application/json', 'Accept':'application/json'}
     payload = json.dumps(payload_example)
     response = requests.post(url, headers=headers, data=payload)
@@ -123,7 +126,7 @@ def create_sighting_dynamic_payload(access_token):
     print(red(judgment_json,bold=True))
     print()
     #sys.exit()
-    url = 'https://private.intel.eu.amp.cisco.com/ctia/sighting'
+    url = f'{host}/ctia/sighting'
     headers = {'Authorization':'Bearer {}'.format(access_token), 'Content-Type':'application/json', 'Accept':'application/json'}
     payload = json.dumps(payload_example)
     response = requests.post(url, headers=headers, data=judgment_json)

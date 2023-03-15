@@ -8,6 +8,9 @@ from datetime import datetime, timedelta
 import time
 from crayons import *
 import sys
+import config as conf
+
+host=conf.host
 
 payload_model = {
   "valid_time": {
@@ -84,7 +87,7 @@ def create_judgments(access_token,payload):
     '''
         static payload : payload_example
     '''
-    url = 'https://private.intel.eu.amp.cisco.com/ctia/judgement'
+    url = f'{host}/ctia/judgement'
     headers = {'Authorization':'Bearer {}'.format(access_token), 'Content-Type':'application/json', 'Accept':'application/json'}
     payload = json.dumps(payload_example)
     response = requests.post(url, headers=headers, data=payload)
@@ -109,6 +112,7 @@ def create_judgments_dynamic_payload(access_token):
     "value": "60.60.60.60",
     "type": "ip"
     }
+    # here under an example of Judgment JSON data to send to SecureX
     judgment_json["source"] = "Patrick_Sensor"
     disposition='malicious'
     judgment_json["disposition"] = DISPOSITIONS[disposition][0]
@@ -118,15 +122,17 @@ def create_judgments_dynamic_payload(access_token):
     judgment_json["severity"] ="Medium"
     judgment_json["tlp"] ="green"
     judgment_json["timestamp"] =start_time
-    judgment_json["confidence"] ="Medium"   
+    judgment_json["confidence"] ="Medium" 
+    judgment_json["priority"] =90     
     print()
-    print(red(judgment_json,bold=True))
+    print(cyan(judgment_json,bold=True))
     print()
     #sys.exit()
-    url = 'https://private.intel.eu.amp.cisco.com/ctia/judgement'
+    url = f'{host}/ctia/judgement'
     headers = {'Authorization':'Bearer {}'.format(access_token), 'Content-Type':'application/json', 'Accept':'application/json'}
-    payload = json.dumps(payload_example)
-    response = requests.post(url, headers=headers, data=judgment_json)
+    payload = json.dumps(judgment_json) # use the judgment_json created on the fly above
+    #payload = json.dumps(payload_example) # use the payload_example JSON example
+    response = requests.post(url, headers=headers, data=payload)
     print()
     print (yellow(response,bold=True))  
     print()

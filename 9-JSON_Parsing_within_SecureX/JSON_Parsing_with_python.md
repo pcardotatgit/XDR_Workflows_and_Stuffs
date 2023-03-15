@@ -1,6 +1,6 @@
 # JSON Parsing with python
 
-Python has strong JSON parsing capabiities. JSON data are  strings, and JSON data structures are python dictionnaries.
+Python has strong JSON parsing capabilities. JSON data are  strings, and JSON data structures are python dictionnaries.
 
 Thanks to this it is very easy to pass from JSON to Dictionnary an vice versa within python.
 

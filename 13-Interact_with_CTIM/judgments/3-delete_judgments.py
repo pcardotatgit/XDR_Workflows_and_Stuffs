@@ -7,7 +7,6 @@ import requests
 import json
 from crayons import cyan,green,red,yellow
 
-#access_token = 'eyJhbGciO....bPito5n5Q' # Truncated example
 def delete_judgments(access_token):
     headers = {'Authorization':'Bearer {}'.format(access_token), 'Content-Type':'application/json', 'Accept':'application/json'}
     line_content = []

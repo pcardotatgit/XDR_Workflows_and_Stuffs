@@ -4,14 +4,19 @@
 import requests
 import json
 from crayons import *
+import config as conf
 
-host = "https://private.intel.eu.amp.cisco.com"
+host = conf.host
 item_list=[]
 
-def get(host,access_token,url,offset,limit):    
+def get(host,access_token,url_path,offset,limit):    
     headers = {'Authorization':'Bearer {}'.format(access_token), 'Content-Type':'application/json', 'Accept':'application/json'}
-    url = f"{host}{url}?limit={limit}&offset={offset}"
+    url = f"{host}{url_path}?limit={limit}&offset={offset}"
+    print('url:',url)
     response = requests.get(url, headers=headers)
+    print()
+    print(cyan(response,bold=True))
+    print()
     return response
 
 def get_judgments(access_token):
@@ -26,6 +31,8 @@ def get_judgments(access_token):
     while go:      
         index=0
         response = get(host,access_token,url,offset,limit)
+        print('call sent and response is :',response.text)
+        print()
         payload = json.dumps(response.json(),indent=4,sort_keys=True, separators=(',', ': '))
         print(response.json())    
         items=response.json()

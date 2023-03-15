@@ -6,12 +6,14 @@
 import requests
 import json
 from crayons import *
+import config as conf
 
-host = "https://private.intel.eu.amp.cisco.com"
+#host = "https://private.intel.eu.amp.cisco.com"
+host=conf.host
 item_list=[]
 
 source_to_select="source.example.org"  # exact source name to filter
-source_to_select="Patrick"
+source_to_select="Patrick_Example"
 
 def get(host,access_token,url,offset,limit):    
     headers = {'Authorization':'Bearer {}'.format(access_token), 'Content-Type':'application/json', 'Accept':'application/json'}

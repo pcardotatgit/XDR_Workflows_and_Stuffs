@@ -7,8 +7,9 @@ from crayons import *
 from datetime import datetime, timedelta
 import time
 import sys
+import config as conf
 
-host = "https://private.intel.eu.amp.cisco.com"
+host=conf.host
 item_list=[]
 
 discover_method=["Agent Disclosure","Antivirus","Audit","Customer","External - Fraud Detection","Financial Audit","HIPS","IT Audit","Incident Response","Internal - Fraud Detection","Law Enforcement"]

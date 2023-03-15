@@ -4,8 +4,9 @@
 import requests
 import json
 from crayons import *
+import config as conf
 
-host = "https://private.intel.eu.amp.cisco.com"
+host=conf.host
 item_list=[]
 
 def get(host,access_token,url,offset,limit):    

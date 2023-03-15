@@ -1,6 +1,9 @@
 # Introduction
 
-This article explains you how to create a SecureX Webex Team Target
+This article explains you how to create a SecureX Webex Team Target form scratch.
+
+SecureX already has Webex Team activities for interacting with Webex. But just for understanding how they were created we are going to create a new one from scratch.
+
 
 For SecureX, Webex Team appears just like an HTTPS target. That means that you can quickly create it as a new target.
 
