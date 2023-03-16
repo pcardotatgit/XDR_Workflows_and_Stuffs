@@ -64,4 +64,4 @@ if __name__=='__main__':
         fa.write(token[1])
         fa.close()
     else:
-        print(red("Error check your client-ID, Client-password and host,bold=True))
+        print(red("Error check your client-ID, Client-password and host",bold=True))
