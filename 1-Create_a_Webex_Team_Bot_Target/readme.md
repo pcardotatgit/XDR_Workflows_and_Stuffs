@@ -64,7 +64,11 @@ And we have to configure it the following way.
 
 In **CUSTOM HEADER** add a variable that you must mandatory call **Authorization** and give to it the following value :
 
-**Bearer <webex_token>**
+**Bearer <webex_token>**  
+
+( Important : there is a space between **Bearer** and the **webex_token** value )
+
+Pictures of what you are supposed to see :
 
 
 ![](img/webex_team_target-2.png)

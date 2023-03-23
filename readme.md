@@ -22,18 +22,25 @@ At this point You are ready to use SecureX services and Create New Service which
 
 ## SecureX Token
 
+**Since December 2022 SecureX Token is not anymore needed**. But still, it can be used. So I document it in this tutorial just for keeping knowledge and history of it.
+
 SecureX exposes a lot of APIs for a lot of purposes. From this point of vue SecureX can become a powerful solution to integrate within a SOC. 
 
-SecureX exposes a few "system targets" : CTR_Target, CTIA_Target, or Private_CTIA_Target. Which require authentication.
+This means that SecureX exposes a few "system targets" like CTR_Target, CTIA_Target, or Private_CTIA_Target. Which all require authentication when we interact with them. Then for all of these "SecureX Targets", we are supposed to ask for authentication tokens, we have to manage Token expiration and renewal.
 
-The SecureX make authentication to these system target very easy. 
+These token management operations are absolutely mandatory and heavy in terms of extra activities within SecureX Workflows.
 
-Creating a SecureX Token is one of the installation mandatory steps.
+The **SecureX Token** makes authentication to these SecureX system targets very easy. 
 
-**December 8 2022 - Secure Token Update** : A new SecureX native Target named **SecureX APIs** had been released. This one can be use in place of legacy "system targets" : CTR_Target, CTIA_Target, or Private_CTIA_Target. One of the main benefits of this new target it that is manages the Authenthication token, we don't have to take care of it..
+When we use these targets, we just have to use the **SecureX Token** as the account key for all of them. And that's it !. Then Token Generation and renewal is automatically managed.
+
+Creating a SecureX Token was one of the installation mandatory steps until December 2022.
 
 [SecureX Token instructions are here](https://ciscosecurity.github.io/sxo-05-security-workflows/account-keys/securex-token)
 
+**December 8 2022 - Secure Token Update** : A new SecureX native Target named **SecureX APIs** had been released. This one can be use in place of legacy "system targets" : CTR_Target, CTIA_Target, or Private_CTIA_Target. One of the main benefits of this new target it that is manages the Authenthication token, we don't have to take care of it..
+
+The benefits of this is then, We don't have to take care anymore of the authentication token for **SecureX targets**. We just have to use the targets into our workflows.
 
 ## Targets
 
