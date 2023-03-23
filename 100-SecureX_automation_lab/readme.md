@@ -1,4 +1,5 @@
-# Introduction
+# Detect, Alert and Block Threat Use Case
+## Introduction
 
 The goal of this lab is to share with participants every details about how to build an automated threat detection and mitigation SecureX Demo.
 

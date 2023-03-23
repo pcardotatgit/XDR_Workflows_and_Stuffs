@@ -1,4 +1,4 @@
-# Detect, Alert and Block Threat use case
+# Investigate and Alert use case
 ## Introduction
 
 This article is a step by step tutorial that describes the creation of a SecureX automation Workflow.
