@@ -2,7 +2,7 @@
 
 This repository intends to gather some SecureX tutorials that help on Workflow and Integration Modules creation.
 
-## Start Your SecureX tenant - some "mandatory steps"
+## Start Your SecureX tenant - some "recommended or mandatory steps"
 
 Here are the minimum steps to go thru in order to start your SecureX tenant. And be ready to use SecureX Advanced Services :
 
@@ -10,7 +10,7 @@ Here are the minimum steps to go thru in order to start your SecureX tenant. And
 
 * Step 2 : Integrate your Cisco Security Solution (Umbrella or Secure Endpoint or any other one). Several videos are available on Youtube. And We published online SecureX Trainings at [Learnsecurex](https://learnsecurex.cisco.com/ ) which show that.
 * Step 3 : Activate Useful/relevant free integrations. Have a look to [Adding 10 Free Threat Intelligence Sources to SecureX in Under 3 Minutes!](https://www.youtube.com/watch?v=7nCRMHo4_9Q&list=PLmuBTVjNfV0dlZ_DYgNiZ7SBlWVB0ae33&index=6). These integrations increase SecureX Enrichment accuracy.
-* Step 4 : Customize your dashboards. Select, gather tiles that are relevant for you.
+* Step 4 : Create and Customize your dashboards. Select tiles that are relevant for you. Gather them into one single vue that help you to go fast in the understanding of the situatuion.
 * Step 5 : Activate **Orchestration** Services. Click on the **orchestration** table and the click on the **start orchestration** button that is displayed in the middle of the screen.  Orchestration becomes available a few hours after.
 * Step 6 : In Orchestration : Create a **SecureX_Token**. It will be the most effecient way to use SecureX native Target ( [See instructions](https://ciscosecurity.github.io/sxo-05-security-workflows/account-keys/securex-token) ). **Notice** : not anymore needed since December 8 2022 thanks to the new **SecureX APIs** target which manages it's own token. 
 * Step 7 : Create an Alert / Info Webex Team Room . Webex Team is naturally a very good user interface for SecureX. And create a webex team bot as well which is the only way to create a permanent Webec Token. ([ See Instructions here ](https://github.com/pcardotatgit/Create_a_Webex_Team_Bot))
