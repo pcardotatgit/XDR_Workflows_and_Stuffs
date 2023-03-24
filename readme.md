@@ -123,5 +123,9 @@ If you are new to this topic and you want to go to it, here are some reccomendat
 
 Here is a basic example of 3rd party integration :
 
-[Relay Module for tiles lab](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/6-relay_modules_for_tiles)
+- [Relay Module for tiles lab](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/6-relay_modules_for_tiles)
 
+We created some dedicated DEVNET learning labs :
+
+- [SecureX Integrations](https://developer.cisco.com/learning/modules/security-securex-integrations/)
+- [SecureX Serverless Relay Modules](https://developer.cisco.com/learning/modules/securex-serverless-relay-modules/)
