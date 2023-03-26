@@ -52,7 +52,7 @@ Target Group: `Default TargetGroup`
 
 | Target Name | Type | Details | Account Keys | Notes |
 |:------------|:-----|:--------|:-------------|:------|
-| CTR_For_Access_Token | HTTP Endpoint | _Protocol:_ `HTTPS`<br />_Host:_ `visibility.eu.amp.cisco.com`<br />_Path:_ `/iroh` | PAT_CTR_Credentials | |
+| CTR_For_Access_Token | HTTP Endpoint | _Protocol:_ `HTTPS`<br />_Host:_ `visibility.amp.cisco.com`<br />`visibility.eu.amp.cisco.com`<br />`visibility.apjc.amp.cisco.com`<br />_Path:_ `/iroh` | PAT_CTR_Credentials | |
 
 ---
 
