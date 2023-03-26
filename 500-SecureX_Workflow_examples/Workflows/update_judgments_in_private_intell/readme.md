@@ -95,7 +95,7 @@ Target Group: `Default TargetGroup`
 
 | Target Name | Type | Details | Account Keys | Notes |
 |:------------|:-----|:--------|:-------------|:------|
-| My_CTIA_Private_Intelligence | HTTP Endpoint | _Protocol:_ `HTTPS`<br />host : `private.intel.eu.amp.cisco.com`<br>`private.intel.amp.cisco.com`<br>`private.intel.apjc.amp.cisco.com`<br>_Path:_ `/ctia` | NAME OF ACCOUNT KEY (if applicable) | |
+| My_CTIA_Private_Intelligence | HTTP Endpoint | _Protocol:_ `HTTPS`<br />host : `private.intel.eu.amp.cisco.com`<br>`private.intel.amp.cisco.com`<br>`private.intel.apjc.amp.cisco.com`<br>_Path:_ `/ctia` | SecureX Token | |
 
 ## Account Keys
 
