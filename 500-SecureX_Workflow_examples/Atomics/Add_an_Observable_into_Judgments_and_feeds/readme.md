@@ -1,13 +1,3 @@
----
-layout: page
-title: Add_an_Observable_into_Judgments_and_feeds
-permalink: /workflows/PRODUCT-NAME/0xxx-WORKFLOW-NAME
-redirect_from:
-  - /workflows/0xxx
-parent: PRODUCT NAME
-grand_parent: Workflows
----
-
 # Add_an_Observable_into_Judgments_and_feeds workflow
 
 This workflow adds an observable into one of the SecureX Private Intelligence feeds, created by the [Create Text Public Feeds for firewalls](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/12-create_securex_blocking_lists_for_firewalls) workflow.
