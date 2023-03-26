@@ -1,0 +1,1075 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01YCMA7EKI5CJ6Ikws6bUvwF1gqOpwiMR1B",
+    "name": "Update Judgement List",
+    "title": "Update Judgement List",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "local",
+          "name": "downloaded observable list",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01YCMA7EUF2HQ60vI9UuCiIvm0qUP74eXqy",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "local",
+          "name": "id_to_delete",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01YCMA7EUCP6M72kYGDextNJ5aEVjCDHBX2",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "local",
+          "name": "judgement_observables_list",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01YCMA7EUDHEP4UQTu21aBP1CNXFI9oM7gu",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "threatintell.web.org",
+          "scope": "input",
+          "name": "source",
+          "type": "datatype.string",
+          "description": "feed source to display in Judgements",
+          "is_required": true,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01YTGC8D3P8UD2IUxexIEB6Y4A2YJLi50pB",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.boolean",
+        "properties": {
+          "value": true,
+          "scope": "local",
+          "name": "DELETE_YES",
+          "type": "datatype.boolean",
+          "description": "In case we dont want to delete existing entry",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01YCMA7EUGCU220Am5I84ODiF6fX5cmnajT",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "ip",
+          "scope": "input",
+          "name": "observable_type",
+          "type": "datatype.string",
+          "description": "observable type",
+          "is_required": true,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01YQ00IXOHLU67YqRJ6deZAH20n1zz3UTBl",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "local",
+          "name": "webex_message",
+          "type": "datatype.string",
+          "description": "Output Webex Message to send to the administrator",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01YCMA7EUEODE7XBMkIAN0cZiyMJ9ZwmLlL",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "local",
+          "name": "id_list",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01YCMA7EUFGLQ250o5I9BjpzlyvybXt3QqQ",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "local",
+          "name": "http_reponse",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01YCMA7EUEB596quyujDOp2cFYln6iNZMgd",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "set the value of this to : -no-    if you prefer to read one of the global generic observable list ( ip, url, domain, sha256 ).\nOR\nPut here the observable list you want to add into provate judgment  ( one observable per line )",
+          "scope": "input",
+          "name": "Local observable list ",
+          "type": "datatype.string",
+          "is_required": true,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01YTEPI7EXPH05Kp0HqLkyvfFu3LcaUmct1",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "description": "This workflow updates your Judgments list for a specific source into your SecureX private Intelligence.\nThe purpose of this is to be able to deploy this list into INTERNET firewalls or any other solutions that could need such feeds.\n\n",
+      "display_name": "Update Judgement List",
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01YTEQHATOBYH24WHTrHCxFYqQAObQxVPoD",
+        "name": "Execute Python Script",
+        "title": "Chek if local observable list is empty or not",
+        "type": "python3.script",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "description": "If the [ Local observable list ] variable is empty. If yes then we will read the generic list global variables",
+          "display_name": "Chek if local observable list is empty or not",
+          "script": "import sys\nvar=sys.argv[1].strip()\nempty=0\nif len(var)>6:\n    empty=0\nelse:\n    empty=1\noutlist=''\nobservable_list=var.split('\\n')\nfor item in observable_list:\n    outlist=outlist+item+'\\n'",
+          "script_arguments": [
+            "$workflow.definition_workflow_01YCMA7EKI5CJ6Ikws6bUvwF1gqOpwiMR1B.input.variable_workflow_01YTEPI7EXPH05Kp0HqLkyvfFu3LcaUmct1$"
+          ],
+          "script_queries": [
+            {
+              "script_query": "empty",
+              "script_query_name": "EMPTY",
+              "script_query_type": "integer"
+            },
+            {
+              "script_query": "outlist",
+              "script_query_name": "CLEAN_LIST",
+              "script_query_type": "string"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01YTESU7QBOFW332iqiXGZFw05ibQ9tIJ0I",
+        "name": "Condition Block",
+        "title": "Is local observable list empty ?",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "description": "Is local observable list empty ?",
+          "display_name": "Is local observable list empty ?",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_01YTESU7W19FK1FCatuQhwPrTmu5BLeExuy",
+            "name": "Condition Branch",
+            "title": "YES",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$activity.definition_activity_01YTEQHATOBYH24WHTrHCxFYqQAObQxVPoD.output.script_queries.EMPTY$",
+                "operator": "eq",
+                "right_operand": 1
+              },
+              "continue_on_failure": false,
+              "description": "Then read the GLOBAL generic list variable that matches to the observable type",
+              "display_name": "YES",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01YPZYLOEA2W62sX2NrHoUgn42giLS8KOgr",
+                "name": "Condition Block",
+                "title": "What is the observable type ?",
+                "type": "logic.if_else",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "description": "What is the observable type we input ?",
+                  "display_name": "What is the observable type ?",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_01YPZYLOKYHPX4BBmJVAYbehzrrAkqc0oN8",
+                    "name": "Condition Branch",
+                    "title": "Observable is IPv4",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$workflow.definition_workflow_01YCMA7EKI5CJ6Ikws6bUvwF1gqOpwiMR1B.input.variable_workflow_01YQ00IXOHLU67YqRJ6deZAH20n1zz3UTBl$",
+                        "operator": "eq",
+                        "right_operand": "ip"
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "Observable is IPv4",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_01YCMA7ILSLMA3iX9gF1pHgBkG0eEyeUu9b",
+                        "name": "Set Variables",
+                        "title": "Read generic list of urls",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "description": "Store the latest original list into a local temp variable",
+                          "display_name": "Read generic list of urls",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_01YCMA7EKI5CJ6Ikws6bUvwF1gqOpwiMR1B.local.variable_workflow_01YCMA7EUF2HQ60vI9UuCiIvm0qUP74eXqy$",
+                              "variable_value_new": "$global.variable_01YPZIF7JDZGY5UFKg9QD8uwS7L8PN1aYDw.global.variable_01YPZIF7JDZGY5UFKg9QD8uwS7L8PN1aYDw$"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  },
+                  {
+                    "unique_name": "definition_activity_01YPZYLOS6OGT48JkM5tdJZUZGzPk0JXoWx",
+                    "name": "Condition Branch",
+                    "title": "Observable is IPv6",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$workflow.definition_workflow_01YCMA7EKI5CJ6Ikws6bUvwF1gqOpwiMR1B.input.variable_workflow_01YQ00IXOHLU67YqRJ6deZAH20n1zz3UTBl$",
+                        "operator": "eq",
+                        "right_operand": "ipv6"
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "Observable is IPv6",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_01YQ0BCVKMP2J6QX9sJzZ7nNiRM9f1shS0j",
+                        "name": "Set Variables",
+                        "title": "Read generic list of ipv6 addresses",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "description": "Store the latest original list into a local temp variable",
+                          "display_name": "Read generic list of ipv6 addresses",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_01YCMA7EKI5CJ6Ikws6bUvwF1gqOpwiMR1B.local.variable_workflow_01YCMA7EUF2HQ60vI9UuCiIvm0qUP74eXqy$",
+                              "variable_value_new": "$global.variable_01YQ07YBM8TT26T3WCZat7arXAkyciweNap.global.variable_01YQ07YBM8TT26T3WCZat7arXAkyciweNap$"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  },
+                  {
+                    "unique_name": "definition_activity_01YQ03JAAB6F27gUTzb3IfDqHc1DMrYS51z",
+                    "name": "Condition Branch",
+                    "title": "Observable is Domain",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$workflow.definition_workflow_01YCMA7EKI5CJ6Ikws6bUvwF1gqOpwiMR1B.input.variable_workflow_01YQ00IXOHLU67YqRJ6deZAH20n1zz3UTBl$",
+                        "operator": "eq",
+                        "right_operand": "domain"
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "Observable is Domain",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_01YQ3PHCJU34G7ZNU7b6gPclWNyYFw1RU91",
+                        "name": "Set Variables",
+                        "title": "Read generic list of domains",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "description": "Store the latest original list into a local temp variable",
+                          "display_name": "Read generic list of domains",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_01YCMA7EKI5CJ6Ikws6bUvwF1gqOpwiMR1B.local.variable_workflow_01YCMA7EUF2HQ60vI9UuCiIvm0qUP74eXqy$",
+                              "variable_value_new": "$global.variable_01YQ09P1LHLUL4RgjV1Su3HP3GBcsWuR4uq.global.variable_01YQ09P1LHLUL4RgjV1Su3HP3GBcsWuR4uq$"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  },
+                  {
+                    "unique_name": "definition_activity_01YQ041PUE0FC2mc5yK7wgCMcirGI90zSdK",
+                    "name": "Condition Branch",
+                    "title": "Observable is url",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$workflow.definition_workflow_01YCMA7EKI5CJ6Ikws6bUvwF1gqOpwiMR1B.input.variable_workflow_01YQ00IXOHLU67YqRJ6deZAH20n1zz3UTBl$",
+                        "operator": "eq",
+                        "right_operand": "url"
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "Observable is url",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_01YQ3Q4Q519UP7G7lCAbGvV2Rwq5m2uNHHy",
+                        "name": "Set Variables",
+                        "title": "Read generic list of domains",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "description": "Store the latest original list into a local temp variable",
+                          "display_name": "Read generic list of domains",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_01YCMA7EKI5CJ6Ikws6bUvwF1gqOpwiMR1B.local.variable_workflow_01YCMA7EUF2HQ60vI9UuCiIvm0qUP74eXqy$",
+                              "variable_value_new": "$global.variable_01YQ0A770Q77D5rC4B94iDbKxg5FQpTmolD.global.variable_01YQ0A770Q77D5rC4B94iDbKxg5FQpTmolD$"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  },
+                  {
+                    "unique_name": "definition_activity_01YQ04PO7DDJT6zf5aTchJONxctXdU9NZg3",
+                    "name": "Condition Branch",
+                    "title": "Observable is sha256",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$workflow.definition_workflow_01YCMA7EKI5CJ6Ikws6bUvwF1gqOpwiMR1B.input.variable_workflow_01YQ00IXOHLU67YqRJ6deZAH20n1zz3UTBl$",
+                        "operator": "eq",
+                        "right_operand": "sha256"
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "Observable is sha256",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_01YQ3QURQ3BZR2qrHR15yUfx4ypcuFpArsU",
+                        "name": "Set Variables",
+                        "title": "Read generic list of sha256",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "description": "Store the latest original list into a local temp variable",
+                          "display_name": "Read generic list of sha256",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_01YCMA7EKI5CJ6Ikws6bUvwF1gqOpwiMR1B.local.variable_workflow_01YCMA7EUF2HQ60vI9UuCiIvm0qUP74eXqy$",
+                              "variable_value_new": "$global.variable_01YQ0AXF31R875dXUJ2J1y3nd2P2dYGE3n2.global.variable_01YQ0AXF31R875dXUJ2J1y3nd2P2dYGE3n2$"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01YTEUNY9AVWI7KlC00jkYvw9YHsqlNRnFz",
+            "name": "Condition Branch",
+            "title": "NO",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$activity.definition_activity_01YTEQHATOBYH24WHTrHCxFYqQAObQxVPoD.output.script_queries.EMPTY$",
+                "operator": "eq",
+                "right_operand": 0
+              },
+              "continue_on_failure": false,
+              "description": "Then Assign the input list to the [ downloaded observable list ] local variable",
+              "display_name": "NO",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01YTEVNUML2UJ1UboO2lmVKxvXCaCRmBkb3",
+                "name": "Set Variables",
+                "title": "Assign input list to [ downloaded observable list ]",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "description": "Store the latest original list into a local temp variable",
+                  "display_name": "Assign input list to [ downloaded observable list ]",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_01YCMA7EKI5CJ6Ikws6bUvwF1gqOpwiMR1B.local.variable_workflow_01YCMA7EUF2HQ60vI9UuCiIvm0qUP74eXqy$",
+                      "variable_value_new": "$activity.definition_activity_01YTEQHATOBYH24WHTrHCxFYqQAObQxVPoD.output.script_queries.CLEAN_LIST$"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_01YCMA7JSYYIM66hQmaOn6grUFWiJBK6f59",
+        "name": "GET ALL JUDGMENTS IN PRIVATE INTELL FILTERED BY SOURCE",
+        "title": "GET ALL JUDGMENTS IN PRIVATE INTELL FILTERED BY SOURCE",
+        "type": "workflow.sub_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "continue_on_failure": false,
+          "description": "Get the whole \"check.torproject.org\" source Jugdement list - we need all object IDs",
+          "display_name": "GET ALL JUDGMENTS IN PRIVATE INTELL FILTERED BY SOURCE",
+          "input": {
+            "variable_workflow_01O1OUXCIKAC00bpqp0SOt8vJSCd0owqBjf": "$workflow.definition_workflow_01YCMA7EKI5CJ6Ikws6bUvwF1gqOpwiMR1B.input.variable_workflow_01YTGC8D3P8UD2IUxexIEB6Y4A2YJLi50pB$"
+          },
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "no_target": true
+          },
+          "workflow_id": "definition_workflow_01O018X1L2N072FQ5XNCElafAdDk1bBESjh",
+          "workflow_name": "GET ALL JUDGMENTS IN PRIVATE INTELL FILTERED BY SOURCE TO DELETE"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01YCMA7KLWBJ059zDWbpemqyKUQq1fytrp0",
+        "name": "Execute Python Script",
+        "title": "Extract all IPs from SecureX Private judgment list",
+        "type": "python3.script",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "description": "Parse the JSON result and Extract only  all IPs from judgement list",
+          "display_name": "Extract all IPs from SecureX Private judgment list",
+          "script": "import sys\nimport json\n\nall_deployed_ip_text=sys.argv[1]\nblocked_ip_list=\"\"\nitems=all_deployed_ip_text.split('\\n')\nfor item in items:\n        ip=item.split('$')[0]\n        if ip:\n            blocked_ip_list+=ip+'\\n'\n",
+          "script_arguments": [
+            "$activity.definition_activity_01YCMA7JSYYIM66hQmaOn6grUFWiJBK6f59.output.variable_workflow_01O1PSLN4OTJK42x29AUMJTvYALXrOl83qw$"
+          ],
+          "script_queries": [
+            {
+              "script_query": "blocked_ip_list",
+              "script_query_name": "IP_CURRENTLY_DEPLOYED",
+              "script_query_type": "string"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01YCMA7L9JYBF0nEvNFV954eAxY5V5tTcB2",
+        "name": "Set Variables",
+        "title": "Set  Var : observalbes currently in Judgements",
+        "type": "core.set_multiple_variables",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "description": "Set the observabes list stored in private intell Judgements ( observables currently deployed into the firewalls )",
+          "display_name": "Set  Var : observalbes currently in Judgements",
+          "skip_execution": false,
+          "variables_to_update": [
+            {
+              "variable_to_update": "$workflow.definition_workflow_01YCMA7EKI5CJ6Ikws6bUvwF1gqOpwiMR1B.local.variable_workflow_01YCMA7EUDHEP4UQTu21aBP1CNXFI9oM7gu$",
+              "variable_value_new": "$activity.definition_activity_01YCMA7JSYYIM66hQmaOn6grUFWiJBK6f59.output.variable_workflow_01O1PSLN4OTJK42x29AUMJTvYALXrOl83qw$"
+            }
+          ]
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01YCMA7LXZ6A81e9JAtaok8PE2W46may21N",
+        "name": "Execute Python Script",
+        "title": "Extract new IPs adresses and IP addresses to remove",
+        "type": "python3.script",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "description": "Compare IP addresses currently in judgement ( IP addresses deployed into FireWalls ) and the last IP address List downloaded from the source Threat Intell. Extract New ip adresses to add in firewalls and IP addresses to remove from the blocking list. Two separate lists are created then. Regarding the IP Addresses to remove, we created a list of their Judgment IDs",
+          "display_name": "Extract new IPs adresses and IP addresses to remove",
+          "script": "import sys\nimport json\n\nall_ip_original_text=sys.argv[1]\nblocked_ip_text=sys.argv[2]\njudgement_text=sys.argv[3]\nip_original_list=[]\nips_to_add=\"\"\nips_to_remove=\"\"\nIDs_to_remove=\"\"\nips_to_remove_length=0\nip_original_list_length=0\nips_to_add_length=0\nip_original_list=all_ip_original_text.split('\\n')\nblocked_ip_list=blocked_ip_text.split('\\n')\njudgment_list=judgement_text.split('\\n')\nitem_text=\"\"\nfor item2 in blocked_ip_list:    \n    if item2 not in ip_original_list:       \n        ips_to_remove+=item2+'\\n'\n        for a in judgment_list:\n            if item2 in a:\n                zList=a.split('/')\n                id=zList[5]\n                #IDs_to_remove+='https://private.intel.eu.amp.cisco.com/ctia/judgement/'\n                IDs_to_remove+=id+'\\n'\n                ips_to_remove_length+=1\nfor item in ip_original_list:\n    ip_original_list_length+=1\n    if item not in blocked_ip_list:\n        ips_to_add_length+=1\n        ips_to_add+=item+'\\n'\n#ips_to_remove_length=str(ips_to_remove_length)\nip_original_list_length=str(ip_original_list_length)\nips_to_add_length=str(ips_to_add_length)\n\n",
+          "script_arguments": [
+            "$workflow.definition_workflow_01YCMA7EKI5CJ6Ikws6bUvwF1gqOpwiMR1B.local.variable_workflow_01YCMA7EUF2HQ60vI9UuCiIvm0qUP74eXqy$",
+            "$activity.definition_activity_01YCMA7KLWBJ059zDWbpemqyKUQq1fytrp0.output.script_queries.IP_CURRENTLY_DEPLOYED$",
+            "$activity.definition_activity_01YCMA7JSYYIM66hQmaOn6grUFWiJBK6f59.output.variable_workflow_01O1PSLN4OTJK42x29AUMJTvYALXrOl83qw$"
+          ],
+          "script_queries": [
+            {
+              "script_query": "ips_to_add",
+              "script_query_name": "IPs_TO_ADD_TO_FIREWALLs",
+              "script_query_type": "string"
+            },
+            {
+              "script_query": "ips_to_remove",
+              "script_query_name": "IPs_TO_REMOVE_FROM_FIREWALLs",
+              "script_query_type": "string"
+            },
+            {
+              "script_query": "ips_to_remove_length",
+              "script_query_name": "IPS_TO_REMOVE_LENGTH",
+              "script_query_type": "integer"
+            },
+            {
+              "script_query": "ip_original_list_length",
+              "script_query_name": "IP_ORIGINAL_LIST_LENGTH",
+              "script_query_type": "string"
+            },
+            {
+              "script_query": "ips_to_add_length",
+              "script_query_name": "IPS_TO_ADD_LENGTH",
+              "script_query_type": "integer"
+            },
+            {
+              "script_query": "item_text",
+              "script_query_name": "DEBUG",
+              "script_query_type": "string"
+            },
+            {
+              "script_query": "IDs_to_remove",
+              "script_query_name": "IDs",
+              "script_query_type": "string"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01YCMA7MM5YXU3AKeUfDLLqI1QMqRhDvCcR",
+        "name": "Condition Block",
+        "title": "Is IP addresses to remove list empty ?",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "description": "Check if the IP addresses list to remove is empty or not ?\n\nIf this list is empty we will have an error later",
+          "display_name": "Is IP addresses to remove list empty ?",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_01YCMA7N6S5ZU7lsg3zxZT0TjzOa3HZ21NZ",
+            "name": "Condition Branch",
+            "title": "No Not empty",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$activity.definition_activity_01YCMA7LXZ6A81e9JAtaok8PE2W46may21N.output.script_queries.IPS_TO_REMOVE_LENGTH$",
+                "operator": "ne",
+                "right_operand": "0"
+              },
+              "continue_on_failure": false,
+              "description": "Then we must use Judgment ID off all of them in order to delete them one by one from Judgment",
+              "display_name": "No Not empty",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01YCMA7NZS8JQ7E4QzHHvIGrZWwxDPCWeiw",
+                "name": "Read Table from Text",
+                "title": "STEP 1 - Create an ID Table from [ Text ID to REMOVE ]",
+                "type": "core.read_table_from_text",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "delimiters": [
+                    {
+                      "delimiter": "\\n"
+                    }
+                  ],
+                  "display_name": "STEP 1 - Create an ID Table from [ Text ID to REMOVE ]",
+                  "input_text": "$activity.definition_activity_01YCMA7LXZ6A81e9JAtaok8PE2W46may21N.output.script_queries.IDs$",
+                  "persist_output": false,
+                  "populate_columns": false,
+                  "skip_execution": false,
+                  "table_columns": [
+                    {
+                      "column_name": "id",
+                      "column_type": "string"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01YCMA7OT4KZF0L4AFvNqj64GjGDg0g2dp7",
+                "name": "For Each",
+                "title": "For Each ID to delete",
+                "type": "logic.for_each",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "For Each ID to delete",
+                  "skip_execution": false,
+                  "source_array": "$activity.definition_activity_01YCMA7NZS8JQ7E4QzHHvIGrZWwxDPCWeiw.output.read_table_from_text$"
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01YCMA7R6YJ792zSqTXlEjwvvZEW7WfjDTb",
+                    "name": "HTTP Request",
+                    "title": "HTTP Request - Remove IP addresses from SecureX judgments",
+                    "type": "web-service.http_request",
+                    "base_type": "activity",
+                    "properties": {
+                      "accept": "application/json",
+                      "action_timeout": 180,
+                      "allow_auto_redirect": true,
+                      "allow_headers_redirect": false,
+                      "content_type": "application/json",
+                      "continue_on_error_status_code": false,
+                      "continue_on_failure": false,
+                      "display_name": "HTTP Request - Remove IP addresses from SecureX judgments",
+                      "method": "DELETE",
+                      "relative_url": "/ctia/judgement/$activity.definition_activity_01YCMA7OT4KZF0L4AFvNqj64GjGDg0g2dp7.input.source_array[@].id$",
+                      "runtime_user": {
+                        "override_target_runtime_user": true,
+                        "runtime_user_id": "definition_runtime_user_01WY3D8QEJOOL4uwZR6xEAD85BeyafJCjpH"
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": true,
+                        "target_id": "definition_target_01M6A27IAHQC5465jhc60l0ObP82GEVzP2Z"
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_01YCMA7XSC0J74xCWKRp4g8gz81ZbYxFNjy",
+        "name": "Condition Block",
+        "title": "is IP to add list empty ?",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "description": "Check is the IP Addresses list to add in Private Judgment is empty ?. If yes we might have an error later",
+          "display_name": "is IP to add list empty ?",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_01YCMA7YD5XZY6ioOOcGizILQ8qsXq07IqC",
+            "name": "Condition Branch",
+            "title": "NO Not Empty",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$activity.definition_activity_01YCMA7LXZ6A81e9JAtaok8PE2W46may21N.output.script_queries.IPS_TO_ADD_LENGTH$",
+                "operator": "ne",
+                "right_operand": "0"
+              },
+              "continue_on_failure": false,
+              "display_name": "NO Not Empty",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01YCMA7Z50D043rPJtiN2KtGK4wductrXQN",
+                "name": "Read Table from Text",
+                "title": "STEP 2 - Create a Table from Text IPs to Add",
+                "type": "core.read_table_from_text",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "delimiters": [
+                    {
+                      "delimiter": "\\n"
+                    }
+                  ],
+                  "description": "IP addresses to Add into Firewalls",
+                  "display_name": "STEP 2 - Create a Table from Text IPs to Add",
+                  "input_text": "$activity.definition_activity_01YCMA7LXZ6A81e9JAtaok8PE2W46may21N.output.script_queries.IPs_TO_ADD_TO_FIREWALLs$",
+                  "persist_output": false,
+                  "populate_columns": false,
+                  "skip_execution": false,
+                  "table_columns": [
+                    {
+                      "column_name": "ip",
+                      "column_type": "string"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01YCMA7ZZB2OD6IRSkjyBd0HffPTxAbtI9M",
+                "name": "For Each",
+                "title": "For Each IP to add into firewalls",
+                "type": "logic.for_each",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "For Each IP to add into firewalls",
+                  "skip_execution": false,
+                  "source_array": "$activity.definition_activity_01YCMA7Z50D043rPJtiN2KtGK4wductrXQN.output.read_table_from_text$"
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01YPXGB8K34AW0gxbyDSrs7QWVNaXYaKttz",
+                    "name": "ADD IP Addresses into Private judgments",
+                    "title": "ADD IP Addresses into Private judgments",
+                    "type": "workflow.sub_workflow",
+                    "base_type": "subworkflow",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "ADD IP Addresses into Private judgments",
+                      "input": {
+                        "variable_workflow_01ML3BD7SISBS077kpX3Y8XYWmlJkq7gXjq": "ip",
+                        "variable_workflow_01ML3BIJEVG3N6sxdcUKX1lLBTf5i2pR4aL": "$activity.definition_activity_01YCMA7ZZB2OD6IRSkjyBd0HffPTxAbtI9M.input.source_array[@].ip$",
+                        "variable_workflow_01YPXEHLINZ3J6nT8qfOtLCM29wHJA9pS88": "$workflow.definition_workflow_01YCMA7EKI5CJ6Ikws6bUvwF1gqOpwiMR1B.input.variable_workflow_01YTGC8D3P8UD2IUxexIEB6Y4A2YJLi50pB$",
+                        "variable_workflow_01YQ4BWLKYEPX3X8GcM58RUc61svjOk1oaQ": "Malicious"
+                      },
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "execute_on_this_target_group": true,
+                        "target_group_id": "target_group_01EJ0TQWPQWBD0qiWqClJKj9FOzwiZRfOFH"
+                      },
+                      "workflow_id": "definition_workflow_01ML39FS25W1V5nR5onJGG8OBgXRuGG8y79",
+                      "workflow_name": "Add an Observable into Judgments and feeds"
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_01YCMA85IM3R31edo6BWYxAeM2DO7GlCh1H",
+        "name": "Set Variables",
+        "title": "Prepare Info message for Webex Team",
+        "type": "core.set_multiple_variables",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "description": "Prepare a webex team message to be sent in order to inform that the operation was done",
+          "display_name": "Prepare Info message for Webex Team",
+          "skip_execution": false,
+          "variables_to_update": [
+            {
+              "variable_to_update": "$workflow.definition_workflow_01YCMA7EKI5CJ6Ikws6bUvwF1gqOpwiMR1B.local.variable_workflow_01YCMA7EUEODE7XBMkIAN0cZiyMJ9ZwmLlL$",
+              "variable_value_new": "IP Blocking list updated by SecureX.  $activity.definition_activity_01YCMA7LXZ6A81e9JAtaok8PE2W46may21N.output.script_queries.IPS_TO_ADD_LENGTH$ new IP addresses were added and $activity.definition_activity_01YCMA7LXZ6A81e9JAtaok8PE2W46may21N.output.script_queries.IPS_TO_REMOVE_LENGTH$ were removed"
+            }
+          ]
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01YCMA86HAHOG41CZMrOLhTSWu6eXCGdJ6X",
+        "name": "Send an Information Message into ALERT  Webex Team Room",
+        "title": "Send an Information Message into ALERT  Webex Team Room",
+        "type": "workflow.atomic_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Send an Information Message into ALERT  Webex Team Room",
+          "input": {
+            "variable_workflow_01K0466V4CBIZ7UcP2RjrrnO4YMJlAWeaxC": "$workflow.definition_workflow_01YCMA7EKI5CJ6Ikws6bUvwF1gqOpwiMR1B.local.variable_workflow_01YCMA7EUEODE7XBMkIAN0cZiyMJ9ZwmLlL$"
+          },
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "execute_on_this_target": true,
+            "target_id": "definition_target_01K043W6E81E15CfQXx2yesb01H322aCxxz",
+            "target_type": "web-service.endpoint"
+          },
+          "workflow_id": "definition_workflow_01K044LM558BQ7n2tct1SVzMPgdZBvOhq8o",
+          "workflow_name": "Webex_Team_Send_Alert_to_SECUREX_ALERTS"
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_01GYI0EWM10QP7ZSB9DVXFANrdSCUVd6nDi"
+    ]
+  },
+  "categories": {
+    "category_01GYI0EWM10QP7ZSB9DVXFANrdSCUVd6nDi": {
+      "unique_name": "category_01GYI0EWM10QP7ZSB9DVXFANrdSCUVd6nDi",
+      "name": "pcardot",
+      "title": "pcardot",
+      "type": "basic.category",
+      "base_type": "category",
+      "category_type": "custom",
+      "object_type": "category"
+    }
+  },
+  "triggers": {
+    "triggerschedule_01YCMA7HAFY9709ep4i4X0FcniBgfuaP1Lv": {
+      "workflow_id": "definition_workflow_01YCMA7EKI5CJ6Ikws6bUvwF1gqOpwiMR1B",
+      "name": "Trigger",
+      "title": "",
+      "lowercase_name": "schedule.trigger",
+      "type": "schedule",
+      "base_type": "trigger",
+      "ref_id": "schedule_01M7WDX96H07A1UHUDsXjtp1rxwglyx3812",
+      "version": "1.0.0",
+      "disabled": true,
+      "unique_name": "triggerschedule_01YCMA7HAFY9709ep4i4X0FcniBgfuaP1Lv",
+      "object_type": "triggerschedule"
+    }
+  },
+  "schedules": {
+    "schedule_01M7WDX96H07A1UHUDsXjtp1rxwglyx3812": {
+      "unique_name": "schedule_01M7WDX96H07A1UHUDsXjtp1rxwglyx3812",
+      "name": "Every_Hours_of_The_Day",
+      "type": "basic.schedule",
+      "base_type": "schedule",
+      "properties": {
+        "calendar": "calendar_recurring_1BMfMWvgiDhSjBQ7hTSyvz3NyVZ",
+        "timezone": "Europe/Brussels",
+        "starttime": "01:00",
+        "interval_hours": 1,
+        "interval_minutes": 0,
+        "number_of_times": 23,
+        "display_name": "Every_Hours_of_The_Day",
+        "description": ""
+      },
+      "version": "1.0.0",
+      "object_type": "schedule"
+    }
+  },
+  "targets": {
+    "definition_target_01K043W6E81E15CfQXx2yesb01H322aCxxz": {
+      "unique_name": "definition_target_01K043W6E81E15CfQXx2yesb01H322aCxxz",
+      "name": "My_Webex_SecureX_Alert_Bot",
+      "title": "My_Webex_SecureX_Alert_Bot",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "description": "Webex Team Bot where SecureX send Alerts",
+        "disable_certificate_validation": false,
+        "display_name": "My_Webex_SecureX_Alert_Bot",
+        "host": "api.ciscospark.com",
+        "ignore_proxy": false,
+        "no_runtime_user": true,
+        "protocol": "https"
+      }
+    },
+    "definition_target_01M6A27IAHQC5465jhc60l0ObP82GEVzP2Z": {
+      "unique_name": "definition_target_01M6A27IAHQC5465jhc60l0ObP82GEVzP2Z",
+      "name": "My_CTIA_Private_Intelligence",
+      "title": "My_CTIA_Private_Intelligence",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "disable_certificate_validation": false,
+        "display_name": "My_CTIA_Private_Intelligence",
+        "host": "private.intel.eu.amp.cisco.com",
+        "ignore_proxy": false,
+        "no_runtime_user": true,
+        "path": "/ctia",
+        "protocol": "https"
+      }
+    }
+  },
+  "runtime_users": {
+    "definition_runtime_user_01WY3D8QEJOOL4uwZR6xEAD85BeyafJCjpH": {
+      "unique_name": "definition_runtime_user_01WY3D8QEJOOL4uwZR6xEAD85BeyafJCjpH",
+      "name": "SecureX_Token",
+      "title": "SecureX_Token",
+      "type": "runtime_user.oauth_integration",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "description": "New SecureX Threat Response Authentication Token",
+        "display_name": "SecureX_Token"
+      }
+    }
+  },
+  "target_groups": {
+    "target_group_01EJ0TQWPQWBD0qiWqClJKj9FOzwiZRfOFH": {
+      "unique_name": "target_group_01EJ0TQWPQWBD0qiWqClJKj9FOzwiZRfOFH",
+      "name": "Default TargetGroup",
+      "title": "Default TargetGroup",
+      "type": "generic.target_group",
+      "base_type": "target_group",
+      "version": "1.0.0",
+      "targets": [
+        {
+          "data_target_type": "web-service.endpoint",
+          "view_target_type": "web-service.endpoint",
+          "include_all_targets": true
+        },
+        {
+          "data_target_type": "email.smtp_endpoint",
+          "view_target_type": "email.smtp_endpoint",
+          "include_all_targets": true
+        }
+      ],
+      "object_type": "target_group"
+    }
+  },
+  "variables": {
+    "variable_01YPZIF7JDZGY5UFKg9QD8uwS7L8PN1aYDw": {
+      "unique_name": "variable_01YPZIF7JDZGY5UFKg9QD8uwS7L8PN1aYDw",
+      "properties": {
+        "value": "",
+        "scope": "global",
+        "name": "generic list of ip addresses",
+        "type": "datatype.string",
+        "description": "Store a list of IPv4 addresses from public or private IP Blocking List.  One ip address per line",
+        "is_required": false,
+        "is_invisible": false
+      },
+      "object_type": "variable"
+    },
+    "variable_01YQ07YBM8TT26T3WCZat7arXAkyciweNap": {
+      "unique_name": "variable_01YQ07YBM8TT26T3WCZat7arXAkyciweNap",
+      "properties": {
+        "scope": "global",
+        "name": "generic list of ipv6 addresses",
+        "type": "datatype.string",
+        "description": "Store a list of IPv6 addresses.  One ip address per line",
+        "is_required": false,
+        "is_invisible": false
+      },
+      "object_type": "variable"
+    },
+    "variable_01YQ09P1LHLUL4RgjV1Su3HP3GBcsWuR4uq": {
+      "unique_name": "variable_01YQ09P1LHLUL4RgjV1Su3HP3GBcsWuR4uq",
+      "properties": {
+        "value": "",
+        "scope": "global",
+        "name": "generic list of domains",
+        "type": "datatype.string",
+        "description": "Store a list of domains.  One domain per line",
+        "is_required": false,
+        "is_invisible": false
+      },
+      "object_type": "variable"
+    },
+    "variable_01YQ0A770Q77D5rC4B94iDbKxg5FQpTmolD": {
+      "unique_name": "variable_01YQ0A770Q77D5rC4B94iDbKxg5FQpTmolD",
+      "properties": {
+        "value": "",
+        "scope": "global",
+        "name": "generic list of urls",
+        "type": "datatype.string",
+        "description": "Store a list of urls.  One url per line",
+        "is_required": false,
+        "is_invisible": false
+      },
+      "object_type": "variable"
+    },
+    "variable_01YQ0AXF31R875dXUJ2J1y3nd2P2dYGE3n2": {
+      "unique_name": "variable_01YQ0AXF31R875dXUJ2J1y3nd2P2dYGE3n2",
+      "properties": {
+        "value": "",
+        "scope": "global",
+        "name": "generic list of sha256",
+        "type": "datatype.string",
+        "description": "Store a list of sha256.  One sha256 per line",
+        "is_required": false,
+        "is_invisible": false
+      },
+      "object_type": "variable"
+    }
+  },
+  "atomic_workflows": [
+    "definition_workflow_01K044LM558BQ7n2tct1SVzMPgdZBvOhq8o"
+  ]
+}

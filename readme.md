@@ -81,10 +81,12 @@ That means that in a lot of cases I show some stuff that are maybe not the best 
 * [ Secure End Point detect and alert - which host are infected by this malware ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/8-detect_and_alert_workflow_lab)
 * [Dashboard and tiles for current temperature in Paris](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/6-relay_modules_for_tiles)
 * Manage SecureX Blocking Lists ( SecureX Feeds )
-    * Step 1 - [Create Public Feeds in SecureX for Cisco Secure Firewalls ( SI, CTID, Network Objects, Dynamic Objects )](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/12-create_securex_blocking_lists_for_firewalls)
-    * Step 2 - [Manage SecureX Authentication token requests](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Atomics/CTR_Generate_Access_Token)
-    * Step 3 - [GET ALL JUDGMENTS IN PRIVATE INTELL FILTERED BY SOURCE](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Workflows/get_all_judgments_in_private_intell_filtered_by_source)
-    * Step 4 - [Add_an_Observable_into_Judgments_and_feeds](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Atomics/Add_an_Observable_into_Judgments_and_feeds)
+    * Step 1 - [Create Public Feeds in SecureX for Cisco Secure Firewalls ( SI, CTID, Network Objects, Dynamic Objects )](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/12-create_securex_blocking_lists_for_firewalls) workflow
+    * Step 2 - [Manage SecureX Authentication token requests](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Atomics/CTR_Generate_Access_Token) workflow
+    * Step 3 - [Get all judgments in private intell filtered by source](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Workflows/get_all_judgments_in_private_intell_filtered_by_source) workflow
+    * Step 4 - [Add_an_Observable_into_Judgments_and_feeds](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Atomics/Add_an_Observable_into_Judgments_and_feeds) workflow
+    * Step 5 - [update judgments in private intell]() workflow
+    * Step 6 - [ TOR entry / exit IP address Blocking List]() final workflow
 * [Query SecureX for dispositions of observables in security logs](https://github.com/pcardotatgit/check_observable_dispositions_in_CTR_from_an_observable_list)
 * [ Detect Threat and send an alert into webex Team, then from webex alert add bad IPs into SecureX Firewall Blocking feeds ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/100-SecureX_automation_lab)
 
