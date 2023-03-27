@@ -1,0 +1,173 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01YSNNZ4QT9ZD0o7QVNSQHhPfCq42XvHb52",
+    "name": "TOR BLOCKING LIST TO FEEDS",
+    "title": "TOR BLOCKING LIST TO FEEDS",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "description": "This workflow read the TOR IP blocaking list at the following location https://check.torproject.org/torbulkexitlist every hour. And update the Private Intell Judgment and then Update a public SecureX Feed which becomes availabale for Firewalls",
+      "display_name": "TOR BLOCKING LIST TO FEEDS",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "target_type": "web-service.endpoint",
+        "target_id": "definition_target_01YSNYCZ2EE7P1Kmdf1jxu3kbM4AoluyXGJ",
+        "execute_on_workflow_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01YSNOFVENRE64T3t7ACdK9skgtLPZec7yc",
+        "name": "HTTP Request",
+        "title": "Get TOR IP Address List",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "allow_headers_redirect": false,
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "description": "Connect to https://check.torproject.org/torbulkexitlist  and download the IP address List",
+          "display_name": "Get TOR IP Address List",
+          "method": "GET",
+          "relative_url": "/torbulkexitlist",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01YSO4DD4CS436DfQS1ZF0pu5FEp7LJTtaD",
+        "name": "Set Variables",
+        "title": "Set Global_generic_list_of_ip_addresses Variables",
+        "type": "core.set_multiple_variables",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "description": "Save the downloaded TOR list of IP addresses to the SecureX  Global_generic_list_of_ip_addresses Variables",
+          "display_name": "Set Global_generic_list_of_ip_addresses Variables",
+          "skip_execution": false,
+          "variables_to_update": [
+            {
+              "variable_to_update": "$global.variable_01YPZIF7JDZGY5UFKg9QD8uwS7L8PN1aYDw.global.variable_01YPZIF7JDZGY5UFKg9QD8uwS7L8PN1aYDw$",
+              "variable_value_new": "$activity.definition_activity_01YSNOFVENRE64T3t7ACdK9skgtLPZec7yc.output.response_body$"
+            }
+          ]
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01YSO9L3AGUIR1BezTM2YQv6T59TakR1W9t",
+        "name": "Update Judgement List",
+        "title": "Update Judgement List",
+        "type": "workflow.sub_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "continue_on_failure": false,
+          "description": "Synchronize the SecureX Private Intell Judgments with this last TOR IP addresses download",
+          "display_name": "Update Judgement List",
+          "input": {
+            "variable_workflow_01YQ00IXOHLU67YqRJ6deZAH20n1zz3UTBl": "ip",
+            "variable_workflow_01YTEPI7EXPH05Kp0HqLkyvfFu3LcaUmct1": "-no-",
+            "variable_workflow_01YTGC8D3P8UD2IUxexIEB6Y4A2YJLi50pB": "check.torproject.org"
+          },
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "no_target": true
+          },
+          "workflow_id": "definition_workflow_01YCMA7EKI5CJ6Ikws6bUvwF1gqOpwiMR1B",
+          "workflow_name": "Update Judgement List"
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "triggers": {
+    "triggerschedule_020LBMX08TSRW2ckYjcB9w21SEipNXLt3Aa": {
+      "workflow_id": "definition_workflow_01YSNNZ4QT9ZD0o7QVNSQHhPfCq42XvHb52",
+      "name": "tor_schedule",
+      "title": "",
+      "lowercase_name": "schedule.tor_schedule",
+      "type": "schedule",
+      "base_type": "trigger",
+      "ref_id": "schedule_01M7WDX96H07A1UHUDsXjtp1rxwglyx3812",
+      "version": "",
+      "disabled": true,
+      "unique_name": "triggerschedule_020LBMX08TSRW2ckYjcB9w21SEipNXLt3Aa",
+      "object_type": "triggerschedule"
+    }
+  },
+  "schedules": {
+    "schedule_01M7WDX96H07A1UHUDsXjtp1rxwglyx3812": {
+      "unique_name": "schedule_01M7WDX96H07A1UHUDsXjtp1rxwglyx3812",
+      "name": "Every_Hours_of_The_Day",
+      "type": "basic.schedule",
+      "base_type": "schedule",
+      "properties": {
+        "calendar": "calendar_recurring_1BMfMWvgiDhSjBQ7hTSyvz3NyVZ",
+        "timezone": "Europe/Brussels",
+        "starttime": "01:00",
+        "interval_hours": 1,
+        "interval_minutes": 0,
+        "number_of_times": 23,
+        "display_name": "Every_Hours_of_The_Day",
+        "description": ""
+      },
+      "version": "1.0.0",
+      "object_type": "schedule"
+    }
+  },
+  "targets": {
+    "definition_target_01YSNYCZ2EE7P1Kmdf1jxu3kbM4AoluyXGJ": {
+      "unique_name": "definition_target_01YSNYCZ2EE7P1Kmdf1jxu3kbM4AoluyXGJ",
+      "name": "TOR",
+      "title": "TOR",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "disable_certificate_validation": false,
+        "display_name": "TOR",
+        "host": "check.torproject.org",
+        "ignore_proxy": false,
+        "no_runtime_user": true,
+        "protocol": "https"
+      }
+    }
+  },
+  "variables": {
+    "variable_01YPZIF7JDZGY5UFKg9QD8uwS7L8PN1aYDw": {
+      "unique_name": "variable_01YPZIF7JDZGY5UFKg9QD8uwS7L8PN1aYDw",
+      "properties": {
+        "value": "",
+        "scope": "global",
+        "name": "generic list of ip addresses",
+        "type": "datatype.string",
+        "description": "Store a list of IPv4 addresses from TOR IP Blocking List.  One ip address per line",
+        "is_required": false,
+        "is_invisible": false
+      },
+      "object_type": "variable"
+    }
+  }
+}
