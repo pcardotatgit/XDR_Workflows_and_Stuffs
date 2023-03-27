@@ -85,9 +85,9 @@ That means that in a lot of cases I show some stuff that are maybe not the best 
     * 2 - [Manage SecureX Authentication token requests](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Atomics/CTR_Generate_Access_Token) workflow
     * 3 - [Get all judgments in private intell filtered by source](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Workflows/get_all_judgments_in_private_intell_filtered_by_source) workflow
     * 4 - [Add_an_Observable_into_Judgments_and_feeds](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Atomics/Add_an_Observable_into_Judgments_and_feeds) workflow
-    * 5 - [update judgments in private intell]() workflow
-    * 6 - [ Create a SecureX IP blocking list from TOR entry / exit IP address Blocking List]() : the final workflow
-        * 6b - [ The full python version of the above workflow](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/13-Interact_with_CTIM/judgments)
+    * 5 - [Uupdate judgments in private intell](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Workflows/update_judgments_in_private_intell) workflow
+    * 6 - [ Create a SecureX IP blocking list from TOR entry / exit IP address Blocking List](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Workflows/TOP_IP_blocking_list_to_SecureX_feeds) : the final workflow
+        * 6b - [ The full python version of the all above workflows](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/13-Interact_with_CTIM/judgments)
 * [Query SecureX for dispositions of observables in security logs](https://github.com/pcardotatgit/check_observable_dispositions_in_CTR_from_an_observable_list)
 * [ Detect Threat and send an alert into webex Team, then from webex alert add bad IPs into SecureX Firewall Blocking feeds ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/100-SecureX_automation_lab)
 
