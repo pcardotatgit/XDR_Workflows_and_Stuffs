@@ -115,7 +115,7 @@ SecureX APIs allow anyone to interact with SecureX Threat Hunting services. This
 - To learn more about **Cisco Threat Intell Model** secrets you can to go to the following [ DEVNET Learning Lab ](https://developer.cisco.com/learning/modules/security-securex-threat-response/), which will help you to understand the details of how the CTIM APÏs can be used into your Threat Hunting Activities.
 - And you will naturally want to intensively use CTIM APIs. Then the [ CTIM API documentation here ](https://github.com/threatgrid/ctim/blob/master/doc/tutorials/modeling-threat-intel-ctim.md) will be very usefull for you.
 
-The [ Detect Threat and send an alert into webex Team, then from webex alert add bad IPs into SecureX Firewall Blocking feeds ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/100-SecureX_automation_lab) lab gives an example of direct interaction with CTIM for creating Sigthings and Incidents within Securex;
+The [ Detect Threat and send an alert into webex Team, then from webex alert add bad IPs into SecureX Firewall Blocking feeds ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/100-SecureX_automation_lab) lab gives an example of direct interaction with CTIM for creating Sigthings and Incidents within SecureX.
 
 ## 3rd Party Integration Development
 
