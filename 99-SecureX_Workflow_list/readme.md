@@ -3,9 +3,9 @@
 I share with you here some very cool SecureX workflow made by a lot of SecureX Afficionados.
 
 ### Disclaimer
-None of these workflows had been validated by Cisco !  They are All Proof Of concepts !   they all must be reviewed before going to production !!!
+None of the workflows in the first section had been validated by Cisco !  They are All at this point Proof Of concepts !   they all must be reviewed before going to production !!!
 
-But you will find into each of them a lot of very good programming technics
+They are all operationnal and you will find into each of them a lot of very good programming technics.
 
 |Title|solutions|Atomic|
 |-|-|-|
@@ -13,39 +13,40 @@ But you will find into each of them a lot of very good programming technics
 | [SecureX_Orbital_Concurrent_Users](https://github.com/Gyuri1/SecureX_Orbital_Concurrent_Users) | Orbital, Secure EndPoint | NO |
 | [Cisco SecureX Incident Correlator](https://github.com/chrivand/securex_incident_correlator)| SecureX Incidents | |
 |[SecureX Orchestration Workflow to Retrieve and Parse Meraki MX Security Events](https://github.com/chrivand/meraki-mx-security-events-workflow)| Meraki FW, SecureX Incidents| |
-|[Automated SecOps workflow with Policy Enforcement Verification](https://github.com/chrivand/sxo_secops_workflow)|SecureX Threat Response,ThousandEyes,Umbrella Management,Duo Admin,Webex Teams||
+|[Automated SecOps workflow with Policy Enforcement Verification](https://github.com/chrivand/sxo_secops_workflow)|SecureX Threat Response,ThousandEyes,Umbrella Management,Duo Admin,Webexs||
 |[SecureX orchestration workflows: Cisco Secure Endpoint (AMP4E) and Cisco Umbrella MSSP customer events to SecureX incident and ServiceNow incident](https://github.com/chrivand/amp-umb-mssp-sxo)|Cisco Secure Endpoint (AMP4E),Cisco Umbrella MSSP, SecureX incident,ServiceNow incident||
 |[Kenna - SecureX Incident Enrichment Automation](https://github.com/oxsannikova/kenna-secx-incident-enrich)|Kenna, Secure Endpoint, SecureX incident and casebook|NO|
-| [sxo-acsc-advisory-workflow](https://github.com/oxsannikova/sxo-workflows)|Australian Cyber Security Centre Threat Intelligence,Webex Team,SecureX Incident and casebook|NO|
-|[ios-xe-packet-capture](https://github.com/oxsannikova/ios-xe-packet-capture-sxo-workflow)|IOS XE,Webex Team||
-|[Cisco Security Advisory (Critical Impact) to SecureX Casebook and Webex](https://github.com/chrivand/PSIRT-to-SecureX-Casebook)| Cisco PSIRT openVuln ,SecureX casebook, Webex Team||
-|[Trigger an Automated Threat Hunt in SecureX from your CI/CD pipeline using a GitHub Webhook](https://github.com/chrivand/github-kenna-securex-workflow)|Kenna VI+,SecureX Threat Response,ServiceNow,Webex Team||
-|[Cisco ThousandEyes response workflow for SecureX](https://github.com/chrivand/thousand-eyes-securex-response)|SecureX Threat Response, ThousandEyes, Webex Team||
+| [sxo-acsc-advisory-workflow](https://github.com/oxsannikova/sxo-workflows)|Australian Cyber Security Centre Threat Intelligence,Webex,SecureX Incident and casebook|NO|
+|[ios-xe-packet-capture](https://github.com/oxsannikova/ios-xe-packet-capture-sxo-workflow)|IOS XE,Webex||
+|[Cisco Security Advisory (Critical Impact) to SecureX Casebook and Webex](https://github.com/chrivand/PSIRT-to-SecureX-Casebook)| Cisco PSIRT openVuln ,SecureX casebook, Webex||
+|[Trigger an Automated Threat Hunt in SecureX from your CI/CD pipeline using a GitHub Webhook](https://github.com/chrivand/github-kenna-securex-workflow)|Kenna VI+,SecureX Threat Response,ServiceNow,Webex||
+|[Cisco ThousandEyes response workflow for SecureX](https://github.com/chrivand/thousand-eyes-securex-response)|SecureX Threat Response, ThousandEyes, Webex||
 |[RSS Feed Blog Parser to Cisco SecureX Threat Response Casebook](https://github.com/chrivand/talos_blog_to_casebook)|ThousandEyes,SecureX casebook||
 |[Twitter Search to Cisco SecureX Threat Response Casebook](https://github.com/chrivand/twitter_search_threatresponse)|Twitter, SecureX casbook||
-|[Cisco SecureX orchestrator workflows to take action on OpenC2 command and controls](https://github.com/chrivand/securex_openc2cisco)|SecureX Threat Response,Webex Team, Remote Connector, FirePOWER,Umbrella,Secure EndPoint,Hashicorp Vault|NO|
+|[Cisco SecureX orchestrator workflows to take action on OpenC2 command and controls](https://github.com/chrivand/securex_openc2cisco)|SecureX Threat Response,Webex, Remote Connector, FirePOWER,Umbrella,Secure EndPoint,Hashicorp Vault|NO|
 |[Duo SecureX Orchestration workflows](https://github.com/chrivand/SecureX-Workflows-Duo-Casebook-Sigthings)|DUO Admin, SecureX Casebook|NO|
 |[SecureX orchestration workflow: AMP4E (Cisco Secure Endpoint) MSSP customer events to SecureX incident and ServiceNow incident](https://github.com/chrivand/amp-mssp-events-to-snow)|AMP4E (Cisco Secure Endpoint) MSSP,SecureX incident,ServiceNow||
-|[secureX-swc-detailed-alert-wf](https://github.com/chrivand/secureX-swc-detailed-alert-wf)|Stealthwatch Cloud,SecureX Incident,Webex Team||
-|[swc_amp_securex_orchestration](https://github.com/chrivand/swc_amp_securex_orchestration)| Secure Endpoint, Email Monitoring, StealthWatch Cloud,Webex Team||
+|[secureX-swc-detailed-alert-wf](https://github.com/chrivand/secureX-swc-detailed-alert-wf)|Stealthwatch Cloud,SecureX Incident,Webex||
+|[swc_amp_securex_orchestration](https://github.com/chrivand/swc_amp_securex_orchestration)| Secure Endpoint, Email Monitoring, StealthWatch Cloud,Webex||
 |[ISE & Meraki Rapid Threat Containment workflows](https://github.com/tekgourou/SecureX-Worklfows-RTC-ISE-Meraki)| ISE, Meraki||
 |[Secure Meter XD ](https://github.com/tekgourou/sxo-secure-meter-xd)|Threat Hunting Workflow||
 |[Microsoft Graph Security Events (including MCAS) to Cisco SecureX create Casebook](https://github.com/tekgourou/SecureX-Workflow-Microsoft_Graph_Alert_to_Casebook)|Microsoft Graph , Azure AD, SecureX Casebook||
 |[ Extract image from email](https://github.com/tekgourou/sxo-atomics/tree/main/extractImageFromEmail__definition_workflow_01O0VVGVQO55J612xLJQlOkIOitXf0baNBk)|Email|YES|
 |[ SSH_to_ASA_and_do_show_interfaces ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Workflows/asa_or_cisco_switch_show_interfaces)|Cisco IOS devices, ASA, Cisco Switches|NO|
+|[ Add_an_Observable_into_Judgments_and_feeds ]( https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Atomics/Add_an_Observable_into_Judgments_and_feeds )| SecureX Private Intelligence |YES|
 |[ Add_an_observable_into_private_intell_judgment ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Atomics/Add_an_observable_into_private_intell_judgment)|SecureX Private Intelligence|YES|
 |[ CTR_Generate_Access_Token ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Atomics/CTR_Generate_Access_Token)|SecureX CTIA|YES|
 |[ Get_an_Observable_disposition_from_secureX ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Atomics/Get_an_Observable_disposition_from_secureX)|SecureX Threat Response|YES|
 |[ openphish_get_urls_in_index_page ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Atomics/openphish_get_urls_in_index_page)|OpenPhish|YES|
-|[SecureX Orchestration Workflow - Umbrella Brand Watch](https://github.com/tekgourou/SecureX-Umbrella-Brandwatch)|Umbrella, Webex Team||
+|[SecureX Orchestration Workflow - Umbrella Brand Watch](https://github.com/tekgourou/SecureX-Umbrella-Brandwatch)|Umbrella, Webex||
 |[Cisco SecureX Orchestration Workflows](https://github.com/chrivand/sxo-workflows)|Miscelaneous worklfows||
 |[Cisco SecureX Orchestration Atomics workflows](https://github.com/tekgourou/sxo-atomics)|Lot of workflows for AZURE AD, PAN, KENNA, DUO , ISE||
 |[Delete All SecureX Sightings](https://github.com/tekgourou/sxo-workflows/tree/main/threatReponseDeleteAllSightingsForAObservable__definition_workflow_01OLBBX9YU11J0zVE7tr27QFo98kQHeeZaB)|SecureX Incidents||
 |[Cisco SDWAN (vManage) integration with Cisco SecureX](https://github.com/tekgourou/sxo-workflows/tree/main/ciscoSdwanSecurityEvents__definition_workflow_01UTZ5EK3CSKR0gxHUSFAJPVtuW0Ht4lf2D)|vManage||
-|[Cisco Security Advisory (Critical Impact) to SecureX Casebook and Webex](https://github.com/tekgourou/sxo-workflows/tree/main/ciscoSecurityAdvisoryCriticalImpact__definition_workflow_01THBITJJ5Y5Z3KDeVU2ZxTVrpG3rGJAuYO)|Cisco PSIRT openVuln,Webex Team, SecureX casebook||
+|[Cisco Security Advisory (Critical Impact) to SecureX Casebook and Webex](https://github.com/tekgourou/sxo-workflows/tree/main/ciscoSecurityAdvisoryCriticalImpact__definition_workflow_01THBITJJ5Y5Z3KDeVU2ZxTVrpG3rGJAuYO)|Cisco PSIRT openVuln,Webex, SecureX casebook||
 |[cx-ao-shared-workflows](https://github.com/cisco-cx-workflows/cx-ao-shared-workflows)|Action Orchestration Workflows||
-|[Which host is targeted by this sha256](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/8-detect_and_alert_workflow_lab)|Secure Endpoint, Webex Team, SecureX Threat Response||
-|[MISP SecureX Orchestration Workflows](https://github.com/CiscoDevNet/MISP-SecureX-Orchestration-Workflows)|MISP,SecureX Threat Response, Webex Team||
+|[Which host is targeted by this sha256](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/8-detect_and_alert_workflow_lab)|Secure Endpoint, Webex, SecureX Threat Response||
+|[MISP SecureX Orchestration Workflows](https://github.com/CiscoDevNet/MISP-SecureX-Orchestration-Workflows)|MISP,SecureX Threat Response, Webex||
 |[Threat Response - Delete all sightings for an observable](https://github.com/tekgourou/sxo-workflows/tree/main/threatReponseDeleteAllSightingsForAObservable__definition_workflow_01OLBBX9YU11J0zVE7tr27QFo98kQHeeZaB)|SecureX Threat Response||
 |[Create Public Feeds for Firewalls](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/12-create_securex_blocking_lists_for_firewalls)|SecureX Private Intell Feeds, Cisco Secure Firewalls||
 |[ Cisco Kenna - Enrich SecureX Incident](https://github.com/tekgourou/sxo-workflows/tree/main/ciscoKennaEnrichSecurexIncident__definition_workflow_01YG4AA5X15TH6eYYnRB15DoRxHrJ2WRdii)|SecureX Incidents, Kenna||
@@ -70,6 +71,14 @@ But you will find into each of them a lot of very good programming technics
 |[ Meraki - Get Policy Objects list ](https://github.com/tekgourou/sxo-atomics/tree/main/merakiGetPolicyObjectsList__definition_workflow_0213E4D6J7J5W31t05JB2i7BDfjbgG7ZzMI)|Meraki MX Firewalls |YES|
 |[ Meraki - Get Syslog Servers for a NetworkID ](https://github.com/tekgourou/sxo-atomics/tree/main/merakiGetSyslogServerForANetworkId__definition_workflow_0216L9I10K6005pchG3m2p13smJknPmWIw2)|Meraki MX Firewalls |YES|
 |[ Meraki - Update Policy Objects Group ](https://github.com/tekgourou/sxo-atomics/tree/main/merakiUpdatePolicyObjectsGroup__definition_workflow_0214UBR3H85JG020gCFNP7cUyGVPCnPVr11)|Meraki MX Firewalls |YES|
+|[ Scan with NMAP Online ](https://github.com/tekgourou/sxo-workflows/tree/main/scanWithNmapOnline__definition_workflow_024NVMBY57YBI7DjUykrX7B6gWwuwGfEuDE)| NMAP |NO|
+|[ NMAP Online - scan definition](https://github.com/tekgourou/sxo-atomics/tree/main/nmapOnlineStartScan__definition_workflow_024Q7FGLPR9SH3IiYT0psCwdtE1wxXSR8BL)| NMAP |YES|
+|[ NMAP Online - scan results ](https://github.com/tekgourou/sxo-atomics/tree/main/nmapOnlineScanResult__definition_workflow_024Q9N41VWO6K2bpYoMdlr70PuiHwOgslEd)| NMAP |YES|
+|[ NMAP Online - scan status ](https://github.com/tekgourou/sxo-atomics/tree/main/nmapOnlineScanStatus__definition_workflow_024Q9DXL7GJ5B6cdevWRuEQPDV3SxKHdm6p)| NMAP |YES|
+|[ Email Extorsion OCR Image Investigation ](https://github.com/tekgourou/sxo-workflows/tree/main/secureEmailExtortionOcrImageInvestigation__definition_workflow_01O48TZL26KVM5V6kvn5GgnmcCtKmzMdbRD)| Cisco Secure Email,Microsoft OCR API service,SecureX Threat Response |NO|
+|[ SecureX Alerting through MS Teams ](https://github.com/jwiesmann10/SecureX)|MS Teams, SecureX Threat Response |NO|
+|[ QR Code Read from base64 goqr[.]me](https://github.com/tekgourou/sxo-atomics/tree/main/nmapOnlineStartScan__definition_workflow_024Q7FGLPR9SH3IiYT0psCwdtE1wxXSR8BL)|  |YES|
+|[ TOP_IP_blocking_list_to_SecureX_feeds ]( https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Workflows/TOP_IP_blocking_list_to_SecureX_feeds )| TOR entry / exit IP list, SecureX Private Intelligence |NO|
 
 
 
@@ -84,7 +93,7 @@ Have a look to the Cisco SecureX Validated Workflows.
 
 |Title|solutions|Cisco validated|
 |-|-|-|
-|[AWS VPN Capacity Expansion](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/asa/0008-aws-vpn-capacity)|ASA, AWS EC2, Webex Team|YES|
+|[AWS VPN Capacity Expansion](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/asa/0008-aws-vpn-capacity)|ASA, AWS EC2, Webex|YES|
 |[Microsoft Online Split Tunnel ](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/asa/0003-microsoft-split-tunnel)|ASA|YES|
 |[Microsoft Online Object Group Update ](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/defense-orchestrator/0004-microsoft-group-update)|CDO|YES|
 |[Add Endpoint to Identity Group ](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/ise/0029-add-static-identity)|ISE|YES|
@@ -100,7 +109,7 @@ Have a look to the Cisco SecureX Validated Workflows.
 |[Generate Casebook with Flow Links](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-cloud-analytics/0005-generate-casebook)|Stealthwatch cloud,SecureX casebook|YES|
 |[Handle AWS SSH Quarantine Approvals](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-cloud-analytics/0007-handle-aws-ssh-quarantine-approvals)|Stealthwatch cloud, AWS|YES|
 |[Isolate Endpoints from Alerts](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-cloud-analytics/0014-isolate-endpoints-from-alerts)|Stealthwatch cloud|YES|
-|[Quarantine AWS Instances from Alerts](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-cloud-analytics/0006-quarantine-aws-from-alert)|Stealthwatch cloud,Secure Endpoint, Webex Team|YES|
+|[Quarantine AWS Instances from Alerts](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-cloud-analytics/0006-quarantine-aws-from-alert)|Stealthwatch cloud,Secure Endpoint, Webex|YES|
 |[Alerts to SecureX Incidents](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-cloud-insights/0059-alerts-to-incidents)|SecureX Incident, Webhook|YES|
 |[Investigate Retrospective Alerts](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-email/0025-investigate-retrospective-alerts)|Email, Secure Endpoint, SecureX Threat Response|YES|
 |[Multiple Low or Medium Alerts to ServiceNow](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-endpoint/0048-multiple-low-medium-alerts)|Secure EndPoint, ServiceNow|YES|
@@ -110,28 +119,28 @@ Have a look to the Cisco SecureX Validated Workflows.
 |[Vulnerabilities to SecureX Incidents](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-endpoint/0022-vulnerabilities-to-incidents)|Secure EndPoint, SecureX Incident and casebook|YES|
 |[Vulnerabilities to ServiceNow Incidents](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-endpoint/0021-vulnerabilities-to-servicenow)|Secure EndPoint, SecureX Incident and casebook|YES|
 |[Block Observable](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-firewall/0015B-block-observable)|Firewalls, SecureX Threat Response Judgment|YES|
-|[Block Observable (Direct)](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-firewall/0065-block-observable-direct)|Firewalls FMC, SecureX Threat Response Judgment, Webex Team|YES|
+|[Block Observable (Direct)](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-firewall/0065-block-observable-direct)|Firewalls FMC, SecureX Threat Response Judgment, Webex|YES|
 |[Block Observable - Setup](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-firewall/0015A-block-observable-setup)|Firewalls,SecureX Indicator and Feeds|YES|
-|[Get Health Alerts](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-firewall/0064-get-health-alerts)|Firewalls,ServiceNow, Webex Team|YES|
+|[Get Health Alerts](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-firewall/0064-get-health-alerts)|Firewalls,ServiceNow, Webex|YES|
 |[Impact Red Remediation](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-firewall/0013-impact-red-remediation)|Firewalls,SecureX incident, SecureX Threat Response|YES|
 |[Incident Endpoint Enrichment](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-firewall/0024-incident-endpoint-enrichment)|Firewalls,SecureX Threat Response, SecureX casebook and sightings|YES|
 |[Microsoft Online Dynamic Object Update](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-firewall/0031-microsoft-online-object-update)|Firewalls,Microsoft endpoint list, FMC Dynamic Objects|YES|
-|[Get Expiring Rules](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-firewall/0066-get-expiring-rules)|FirePOWER, FMC, Webex Team||
+|[Get Expiring Rules](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-firewall/0066-get-expiring-rules)|FirePOWER, FMC, Webex||
 |[Endpoint IOCs from File Hash](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-malware-analytics/0057-endpoint-iocs-from-file-hash)|ThreatGrid Malware Analytic, Orbital|YES|
-|[Block External Threats With Umbrella](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-network-analytics/0033-block-external-threats-with-umbrella)|Secure Network Analytics,Umbrella, Webex Team|YES|
+|[Block External Threats With Umbrella](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-network-analytics/0033-block-external-threats-with-umbrella)|Secure Network Analytics,Umbrella, Webex|YES|
 |[Generate Casebook with Top Hosts and Peers](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-network-analytics/0034-generate-casebook-with-top-hosts-and-peers)|Secure Network Analytics,SecureX Casebook|YES|
-|[Isolate Endpoints and Block Hashes from Alarms](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-network-analytics/0032-isolate-endpoints-block-hashes-from-alarms)|Secure Network Analytics,Secure EndPoint, Webex Team|YES|
+|[Isolate Endpoints and Block Hashes from Alarms](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-network-analytics/0032-isolate-endpoints-block-hashes-from-alarms)|Secure Network Analytics,Secure EndPoint, Webex|YES|
 |[Cisco SecureX](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/securex/)|SecureX Incident|YES|
 |[Add to Destination List](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/umbrella/0017-add-to-destination-list)|Umbrella|YES|
 |[Excessive Requests to Incidents](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/umbrella/0023-excessive-requests-to-incident)|Umbrella, SecureX Incident|YES|
 |[Search DNS Activity by Category](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/umbrella/0037-search-dns-activity-by-category)|Umbrella, ServiceNow|YES|
 |[Top 10 Blocked Identities to ServiceNow](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/umbrella/0041-top-10-blocked-identities-to-servicenow)|Umbrella, ServiceNow|YES|
 |[Cohesity Helios Workflows](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/cohesity/)|Cohesity Helios|YES|
-|[Software Advisories to Webex](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/cisa/0054-software-advisories-to-webex)|CISA,Webex Team|YES|
+|[Software Advisories to Webex](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/cisa/0054-software-advisories-to-webex)|CISA,Webex|YES|
 |[Block User](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/duo/0060-block-user)|DUO,ServiceNow|YES|
 |[Configuration Audit](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/duo/0063-configuration-audit)|DUO,ServiceNow|YES|
 |[Investigate User](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/duo/0062-investigate-user)|DUO,ServiceNow|YES|
-|[Phishing Investigation](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/email/0010-phishing-investigation)|Email,SecureX Threat Response, casebook, Webex Team, SOC Email|YES|
+|[Phishing Investigation](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/email/0010-phishing-investigation)|Email,SecureX Threat Response, casebook, Webex, SOC Email|YES|
 |[Phishing Investigation - Statistics](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/email/0010B-phishing-investigation-statistics)|Email, SecureX API|YES|
 |[Block URL, IP, or Domain](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/fortigate/0051-block-url-ip-domain)|Fortinet, Fortigate|YES|
 |[Request Threat Containment](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/fortigate/0052-request-threat-containment)|Fortinet, Fortigate|YES|
@@ -139,7 +148,7 @@ Have a look to the Cisco SecureX Validated Workflows.
 |[Lock Mobile Device](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/jamf/0047-lock-mobile-device)|Jamf Pro|YES|
 |[Fixes to ServiceNow Incidents](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/kenna/0053-fixes-to-servicenow)|Kenna,ServiceNow|YES|
 |[Azure AD - Get Blocked Sign-Ins](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/ms-graph/0035-azure-get-blocked-signins)|Microsoft Graph, AZURE AD|YES|
-|[Azure AD - Get New Users](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/ms-graph/0036-azure-get-new-users)|Microsoft Graph, Webex Team|YES|
+|[Azure AD - Get New Users](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/ms-graph/0036-azure-get-new-users)|Microsoft Graph, Webex|YES|
 |[Host Isolation with Tier 2 Approval](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/default/D001-host-isolation-with-approval)|Secure EndPoint|YES|
 |[Move Computer to Triage Group](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/default/D004-move-computer-triage)|Secure EndPoint|YES|
 |[Submit URL to Secure Malware Analytics](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/default/D005-submit-url-malware-analytics)|Malware Analytics|YES|
@@ -150,7 +159,7 @@ Have a look to the Cisco SecureX Validated Workflows.
 |[Request Firewall NullRoute](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/umbrella/0018-request-firewall-nullroute)|ServiceNow|YES|
 |[Get New Blog Posts](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/talos/0001-get-new-blog-posts)|Talos Blog, SecureX casebook|YES|
 |[Single Blog Post to SecureX Casebook](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/talos/0002-single-post-casebook)|Talos Blog, SecureX Threat Response, Securex casebook|YES|
-|[SolarWinds Investigation](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/talos/0011-solarwinds-investigation)|Talos Blog, Orbital,  SecureX incident and casebook, Umbrella, Secure EndPoint,Webex Team,Slack|YES|
+|[SolarWinds Investigation](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/talos/0011-solarwinds-investigation)|Talos Blog, Orbital,  SecureX incident and casebook, Umbrella, Secure EndPoint,Webex,Slack|YES|
 |[IPS Alert Enrichment](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/tufin/0038-tufin-ips-alert-enrichment)|Tufin, Microsoft Teams, Microsoft Graph|YES|
 |[Request Server Decommission](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/tufin/0040-tufin-request-server-decommission)|Tufin, Microsoft Teams|YES|
 |[Request Threat Containment](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/tufin/0039-tufin-request-threat-containment)|Tufin, Microsoft Teams|YES|

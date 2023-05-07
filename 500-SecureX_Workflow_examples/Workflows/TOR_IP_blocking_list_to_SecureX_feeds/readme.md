@@ -1,4 +1,4 @@
-# TOR BLOCKING LIST TO FEEDS
+# TOR BLOCKING LIST TO IPV4 SECUREX FEEDS
 
 This workflow read every hour the TOR IP blocking list at the following location https://check.torproject.org/torbulkexitlist . And update the Private Intell Judgment and then Update a public SecureX Feed which becomes availabale for Firewalls.
 
