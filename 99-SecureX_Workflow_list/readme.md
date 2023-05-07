@@ -2,6 +2,8 @@
 
 I share with you here some very cool SecureX workflow made by a lot of SecureX Afficionados.
 
+( last update May 7 2023 )
+
 ### Disclaimer
 None of the workflows in the first section had been validated by Cisco !  They are All at this point Proof Of concepts !   they all must be reviewed before going to production !!!
 
@@ -78,8 +80,7 @@ They are all operationnal and you will find into each of them a lot of very good
 |[ Email Extorsion OCR Image Investigation ](https://github.com/tekgourou/sxo-workflows/tree/main/secureEmailExtortionOcrImageInvestigation__definition_workflow_01O48TZL26KVM5V6kvn5GgnmcCtKmzMdbRD)| Cisco Secure Email,Microsoft OCR API service,SecureX Threat Response |NO|
 |[ SecureX Alerting through MS Teams ](https://github.com/jwiesmann10/SecureX)|MS Teams, SecureX Threat Response |NO|
 |[ QR Code Read from base64 goqr[.]me](https://github.com/tekgourou/sxo-atomics/tree/main/nmapOnlineStartScan__definition_workflow_024Q7FGLPR9SH3IiYT0psCwdtE1wxXSR8BL)|  |YES|
-|[ TOP_IP_blocking_list_to_SecureX_feeds ]( https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Workflows/TOP_IP_blocking_list_to_SecureX_feeds )| TOR entry / exit IP list, SecureX Private Intelligence |NO|
-
+|[ TOR_IP_blocking_list_to_SecureX_feeds ]( https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Workflows/TOR_IP_blocking_list_to_SecureX_feeds )| TOR entry / exit IP list, SecureX Private Intelligence |NO|
 
 
 ## Cisco Validated Workflows
@@ -172,3 +173,6 @@ Have a look to the Cisco SecureX Validated Workflows.
 |[Block Observable (SSE)](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-firewall/0073-block-observable-sse)| Cisco Secure Firewall, Cisco Webex   |YES|
 |[Get Expiring Rules (SSE)](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-firewall/0074-get-expiring-rules-sse )|Cisco Secure Firewall, Cisco Webex |YES|
 |[Search PSIRT Advisories (SSE)](https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-firewall/0075-search-psirt-advisories-sse )| Cisco API Console, Cisco Secure Firewall, Cisco Webex, ServiceNow   |YES|
+|[ Get New Blog Posts ]( https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/google-tag/0076-get-new-blog-posts )| Cisco Threat Response, Cisco Webex, Google Threat Analysis Group  |NO|
+|[ Get Observables from Tweets ]( https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/twitter/0077-get-observables-from-tweets )| Cisco Threat Response, Cisco Webex, Twitter  |NO|
+|[ Update Host Group with Microsoft Online IPs ]( https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-network-analytics/0078-update-host-group-microsoft-online-ips )| Cisco Secure Network Analytics  |NO|

@@ -95,7 +95,7 @@ The recommendation here is to do all the exercices here under one after the othe
 
 ## Securex Workflow List from Cisco and others
 
-* [SecureX Workflows List](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/99-SecureX_Workflow_list) ( updated Nov 18 2022 )
+* [SecureX Workflows List](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/99-SecureX_Workflow_list) ( updated May 7 2023 )
 
 ## My Workflows in this github repo
 
