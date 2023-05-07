@@ -110,7 +110,7 @@ I wrote the tool below because I needed to quickly check some of my workflows, f
 
 ## Cisco Threat Intelligence Model ( CTIM )
 
-SecureX APIs allow anyone to interact with SecureX Threat Hunting services. This is what makes SecureX a very powerful solution to have into any SOC.
+SecureX APIs allow anyone to interact with SecureX Threat Hunting services. This is what makes SecureX a very powerful solution to have into any SOC. 
 
 - To learn more about **Cisco Threat Intell Model** secrets you can to go to the following [ DEVNET Learning Lab ](https://developer.cisco.com/learning/modules/security-securex-threat-response/), which will help you to understand the details of how the CTIM APÏs can be used into your Threat Hunting Activities.
 - And you will naturally want to intensively use CTIM APIs. Then the [ CTIM API documentation here ](https://github.com/threatgrid/ctim/blob/master/doc/tutorials/modeling-threat-intel-ctim.md) will be very usefull for you.
