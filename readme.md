@@ -103,10 +103,19 @@ The recommendation here is to do all the exercices here under one after the othe
 
 ## Check your workflows or do some reverse engineering on others workflows
 
-I wrote the tool below because needed to quickly check and clean my workflows and document them. Whatis better than a visualization tool for this ?
+I wrote the tool below because I needed to quickly check some of my workflows, for cleaning them and document them. What is better than a visualization tool for this ?
 
 * [SecureX JSON workflow parser](https://github.com/pcardotatgit/SecureX_Workflow_JSON_Tree_viewer)
 * [SecureX Workflow Analyser](https://ciscosecurity.github.io/sxo-05-security-workflows/analyzer)
+
+## Cisco Threat Intelligence Model ( CTIM )
+
+SecureX APIs allow anyone to interact with SecureX Threat Hunting services. This is what makes SecureX a very powerful solution to have into any SOC.
+
+- To learn more about **Cisco Threat Intell Model** secrets you can to go to the following [ DEVNET Learning Lab ](https://developer.cisco.com/learning/modules/security-securex-threat-response/), which will help you to understand the details of how the CTIM APÏs can be used into your Threat Hunting Activities.
+- And you will naturally want to intensively use CTIM APIs. Then the [ CTIM API documentation here ](https://github.com/threatgrid/ctim/blob/master/doc/tutorials/modeling-threat-intel-ctim.md) will be very usefull for you.
+
+The [ Detect Threat and send an alert into webex Team, then from webex alert add bad IPs into SecureX Firewall Blocking feeds ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/100-SecureX_automation_lab) lab gives an example of direct interaction with CTIM for creating Sigthings and Incidents within Securex;
 
 ## 3rd Party Integration Development
 
@@ -138,3 +147,7 @@ We created some dedicated DEVNET learning labs :
 
 - [SecureX Integrations](https://developer.cisco.com/learning/modules/security-securex-integrations/)
 - [SecureX Serverless Relay Modules](https://developer.cisco.com/learning/modules/securex-serverless-relay-modules/)
+
+We have more advanced content on this part ( workshop and code ) on this part. Dedicated to teams who will actively develop SecureX Integratations for production.
+
+- For those who know me, I will be happy to share this content with you. Ping me 

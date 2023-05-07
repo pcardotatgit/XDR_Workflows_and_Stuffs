@@ -1,6 +1,10 @@
-# Dealing with SecureX CTIM
+# Dealing with SecureX CTIM ( Cisco Threat Intelligence Model )
 
-In this repository You will find  some python scripts given as examples of interaction with CTIM components  :
+In this repository You will find  some python scripts given as examples of interaction with CTIM components.
+
+CTIM is one of the core of SecureX. This the Threat Hunting dedicated SecureX engine.
+
+The components described into this articles are the following here under. But CTIM contains more components not described here.
 
 - Judgments ( for enrichment from private data or for automated Allow / Blocking Feeds creation )
 - Sightings ( Ingest single events from 3rd Party Security Solutions into SecureX Sightings )
@@ -25,13 +29,13 @@ Before going to the details about how we can create **incidents** and **sighting
 
 ### Cisco Threat Intell Model
 
-SecureX Threat Hunting and incident management rely on an internal data structure which is there as a very fast and efficient backend for supporting Threat Hunting activities.
+SecureX Threat Hunting and Incident Management rely on an internal data structure which is there as a very fast and efficient backend for supporting Threat Hunting activities.
 
-This datastructure has several services that all have APIs. That means that we can have access to these services from outside of SecureX either for reading datas, or for storing data.
+This data structure has several services that all have APIs. That means that we can have access to these services from outside of SecureX either for reading datas, or for storing data.
 
 Managing **Incidents** within SecureX is exactly that. All components of the SecureX Incident manager has an API and we use several of these APIs for creating **Incidents**.
-
-To learn more about Cisco Threat Intell Model you can to go to the following [ DEVNET Learning Lab ](https://developer.cisco.com/learning/modules/securex-serverless-relay-modules/SecureX-2-CTIM/cisco-threat-intelligence-model-labs/)
+- To learn more about **Cisco Threat Intell** Model you can to go to the following [ DEVNET Learning Lab ](https://developer.cisco.com/learning/modules/security-securex-threat-response/), which will help you to understand the details of how the CTIM APÏs can be used into your Threat Hunting Activities.
+- And you will naturally want to intensively use CTIM API. Then the [ CTIM API documentation here ](https://github.com/threatgrid/ctim/blob/master/doc/tutorials/modeling-threat-intel-ctim.md) will be very usefull for you.
 
 Once Having understanding the CTIM data structure, you are ready to move forward.
 

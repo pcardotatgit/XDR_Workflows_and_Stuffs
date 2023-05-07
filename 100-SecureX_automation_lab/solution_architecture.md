@@ -1,4 +1,4 @@
-# Solution achitecture
+# Solution architecture
 
 ## Solution components
 
@@ -13,7 +13,7 @@ The key components of this solution are the following :
 
 ![](assets/img/15.png)
 
-## The Flask application
+## The Python Flask application
 
 The Flask application provides with the user interface. It exposes the portal web page from where to show the endpoint attack.
 
