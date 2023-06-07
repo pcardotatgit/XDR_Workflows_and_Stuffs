@@ -64,13 +64,13 @@ In this lab you need the following components :
 1. Check your Cisco XDR or SecureX tenant. If you don't have a SecureX tenant you can use the DCLOUD **Cisco SecureX Orchestration v1 - Instant Demo** [Cisco DCLOUD labs](https://dcloud.cisco.com/) -- [See Instructions here](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/blob/master/100-SecureX_automation_lab/dcloud_lab.md)
 2. Once logged into your Cisco XDR/SecureX tenant, create a Threat Response API client with all scopes. For this, go the **Administration** then Select **API Clients** in the left panel and click on the **Generate API Client** button. Click on the **Select All** link in the **Scopes** Section and click on the **Add New Client** button.  Copy Threat Response **client ID** and **Client Password** and save them somewhere.[ See instructions here](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/blob/master/100-SecureX_automation_lab/ctr_api_client.md)
 3. Install the Lab Simulator into your laptop . [see Instructions here](https://github.com/pcardotatgit/lab_simulator-001). And **Start the lab Simulator**. The lab Portal web page should open.
-4. From the lab Portal web page clik on the **Settings** button on the top left. Update the **ctr_client_id** and **ctr_client_password** variables with  CTR client ID and Client Password you got in step 2. Select Your Regions. At this point you can just save your changes. 
-4a.**Notice** DCLOUD demos are located in the US.  Save your changes.
+4. From the lab Portal web page click on the **Settings** button on the top left. Update the **ctr_client_id** and **ctr_client_password** variables with  CTR client ID and Client Password you got in step 2. Select Your Regions. At this point you can just save your changes. 
     ![](assets/img/21.png)
+4a.**Notice** DCLOUD instant demos are located in the US.  
 4b. This operation actually update a file name **config.py** located into the code root directory. You can edit it manually if you prefer.
-5.**Important Notice ! : you will have to stop and restart the simulator in order to make changes to be taken into account**.
+5.**Important Notice ! : Flask requires you to stop and restart the simulator in order to make changes to be taken into account**.
 6. Now go to the your SecureX/Cisco XDR tenant Web GUI, and go to Orchestration. Then Create a SecureX Token named **CTR_SecureX_Token** [ See Instructions here ](https://ciscosecurity.github.io/sxo-05-security-workflows/account-keys/securex-token). Or you can use the one you may have already created into your SecureX Tenant. In a few words, for creating it, open the **Orchestration** table then on the left panel go to **Account Keys** . Click on the **New Account Key** button and create a new account key named **CTR_SecureX_Token** with the **SecureX_Token** Account key type.  OR check that a SecureX token already exist and use this one in the next steps.
-7. Start the simulator if not done. Your browser should automatically start on **http://localhost:4000**
+7. Start the simulator if not done. Your browser should automatically open on **http://localhost:4000**. And the lab topology must appear.
 8. Check that communication between the Lab Simulator and your SecureX/Cisco XDR tenant is Ok. For doing this, click on the **Checks SecureX / Cisco XDR** button on the top left of the lab portal web page. 
 
     The expected result is the following :
@@ -79,11 +79,11 @@ In this lab you need the following components :
 
     In case of failure, check your configuration file ( host, host_for_token, ctr_client_ID, ctr_client_password )
 
-    FYI : this part is managed by the **@app.route('/check')** route in the **app.py** script. It asks for a token to SecureX/Cisco XDR and reads Incidents.
+    FYI : this part is managed by the **@app.route('/check')** route in the **app.py** script. It asks for a token to SecureX/Cisco XDR and reads Incidents. If it succeed to do so then the success message appears.
 
-9. At this point you are ready to run the half of the full demo ( the Detection and Alert part )
+9. **At this point you are ready to run the first part of the demo ( the Detection and Alert part )**
 
-First log into you SecureX / Cisco XDR tenant and open the **incident manager** into the **SecureX Ribbon**... Have a look to the existing incidents.
+First log into your SecureX / Cisco XDR tenant and open the **incident manager** into the **SecureX Ribbon**... Have a look to the existing incidents.
 
 You are supposed to have no incidents named **PVT Endpoint Infection Demo**.
 
