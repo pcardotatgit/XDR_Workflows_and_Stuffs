@@ -1,36 +1,40 @@
 # Detect, Alert and Block Threat Use Case
 ## Introduction
 
-The goal of this lab is to share with participants every details about how to build an automated threat detection and mitigation SecureX Demo.
+The goal of this lab is to share with participants every details about how to build an automated threat detection and mitigation Cisco XDR / SecureX Demo.
 
-This scenario is a complete **SecureX XDR demonstration**
+This scenario is a complete **Cisco XDR / SecureX demonstration**.
+
+This lab works on both XDR or SecureX tenants.
 
 ## Automated Threat Detection and Mitigation scenario
 
 This automated threat hunting scenario is the following :
 
-Imagine vulnerable a Web server that exposes the log4J vulnerability. This vulnerability open the door to RCE ( remote code execution ) attacks.  
+Imagine a Web server vulnerable to log4J attacks. This vulnerability opens the door to RCE ( remote code execution ) attacks.  
 
-Meaning that an hacker connected to web page of this vulnerable web server, that present a formular,  can use one of the edit field of the formular in order to trigger execution of shell code on server's operating system.
+Meaning that an hacker connected to a vulnerable formular exposed by this web server ( login page for example ), can use one of the edit fields of the formular, to trigger execution of shell code on server's operating system.
 
-Even if the web server is equiped by an Endpoint Protection solution, this RCE vulnerability can't be detected by it as it is due to unsecured coding of the web page which allow this attack.
+The log4j vulnerability, thru a very simple XSS attack on the web formular, can trigger the download on the victim web server, of a malicious script hosted somewhere on the INTERNET. And once the script is downloaded, the same patern can trigger the execution of the downloaded code into running memory.
+
+For more information on this Threat you can have a look to the following [Cisco Talos Blog Post](https://blog.talosintelligence.com/apache-log4j-rce-vulnerability/). You will find there example of partners that can trigger what is describe above.
 
 ![](assets/img/0.png)
 
-### Here is the scenario
+### Here is the scenario details
 
-We start with the situation where an hacker have a potential remote administration acces to a victim machine.
+The attacker is connected to a login page of the vulnerable web server.
 
-This victim machine is a web server is a windows machine that run apache web server and very vulnerable php scripts and which exposes the log4j vulnerability. But the web server is protected by Secure Endpoint.
+For this lab the victim machine is a web server which runs on windows protected by Secure Endpoint. A very vulnerable web server is installed into it which is origin of the vulnerability ( not the Operating System )
 
-- **Step 1** : the hacker send a XSS log4j Attack into a web server formular. This attack makes the Web server to download  a malicious piece of code that will be executed as shell commands by the windows operating system. This code is actually a powershell code that runs into memory a version of a "mimikatz" attack. This is actuallly a fileless attack.
-- **Step 2** : Secure Endpoint will detect this attack and will block it. At the same time, Secure Endpoint will create a SecureX Incident.
-- **Step 3** : Within SecureX a workflow which runs every 5 minutes reads SecureX incidents. For every new incidents since last poll, the worklow will analyses their details and will extract from them targets and malicious observable information. 
-- **Step 4** : For every incidents with high severity, the workflow will send a formatted alert to a an alert Webex team room. The goal is to alert the security operators about this new threat. And call them to instantly react.
-- **Step 5** : Thanks to clickable links into the webex team Alert message, the security operators will be able to trigger SecureX workflows which will add malicious observables into SecureX blocking feeds.
-- **Step 6** - Final step will be to deploy the blocking feeds into all company firewalls. This process is a completely automated process for Cisco Secure Firewall.  Once malicious observables exist into the SecureX blocking feeds, then they are automatically deployed a few minutes later as blocking rules into Cisco Secure Firewalls.  **Security Intelligence** or the **Threat Intelligence Director** FirePOWER features automatically manage this.
+- **Step 1** : the hacker send a XSS log4j Attack into a web server formular. This attack makes the Web server to download  a malicious piece of code that will be executed as shell commands by the Web Servers Operating System. This code is actually a powershell code that runs a version of a "mimikatz" attack into memory ( no copy on disk ). This is actually an fileless attack.
+- **Step 2** : Secure Endpoint is very efficient to detect this attack and block it. At the same time, Secure Endpoint creates into Cisco XDR / SecureX, an Incident.
+- **Step 3** : Within Cisco XDR / SecureX  a workflow which runs every 5 minutes checks for new incidents into Cisco XDR / SecureX incident manager. For every new incidents since last poll, the worklow will analyse their details and will extract targets and malicious observable information from them. 
+- **Step 4** : For every incident with high severity, the workflow will send a meaningful alert to an alert Webex room. The goal is to alert the security operators about this attack attempt. And call them to instantly react.
+- **Step 5** : Thanks to clickable links into the webex Alert message , the security operators will be able to trigger an automation workflow which will add malicious observables into Cisco XDR / SecureX blocking feeds.
+- **Step 6** - Final step will be to deploy the blocking feeds into all company firewalls. This process is a completely automated process in Cisco Secure Firewall.  Once malicious observables exist into the Cisco XDR / SecureX blocking feeds, then they are automatically deployed a few minutes later as blocking rules into Cisco Secure Firewalls.  **Security Intelligence** or the **Threat Intelligence Director** Secure Firewall features automatically manage this.
 
-So here the scenario this demonstration aims to showcase.
+So here is the scenario this demonstration aims to showcase.
 
 ## What will you learn in this lab ?
 
@@ -43,6 +47,8 @@ In this lab you will learn
 - How to parse Incidents and Sigthings into SecureX workflow
 - How to send markdown formatted message to webex team room and how to use Webex Team as a User Interface for SecureX
 - How to trigger a webhook and how to send data to a workflow from a script
+
+Not only that, you will learn as well how to use python flask in order to completly simulate devices involved in this demo. Then you will not need to install any machines. You will just have to use the simulator.
  
 ## Lab components
 
@@ -50,22 +56,23 @@ In this lab you need the following components :
 
 - A laptop with a python ( 3.7 + ) interperter installed into it
 - The Lab simulator
-- A SecureX tenant  ( You can use DCLOUD )
-- SecureX Threat Response API credentials
-- A Webex Team Room that will be used a an Alert Webex Room
-- A Webex Team bot that will be used to send alert into the Webex Team Room
+- A Cisco XDR or SecureX tenant  ( You can use DCLOUD )
+- Threat Response API client ID and Client Password generated into your XDR or SecureX tenant
+- A Webex Room that will be used a an Alert Webex Room
+- A Webex bot that will be used to send alert into the Webex Room
 
 ## Demo Part 1 - Threat Detection & Create Incident 
 
-1. Check your SecureX tenant. If you don't have a SecureX tenant you can use DCLOUD **Cisco SecureX Orchestration v1 - Instant Demo** [Cisco DCLOUD labs](https://dcloud.cisco.com/) -- [See Instructions here](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/blob/master/100-SecureX_automation_lab/dcloud_lab.md)
-2. Once logged into your SecureX tenant, create a Threat Response API client with all scopes. For this, go the **Administration** then Select **API Clients** in the left panel and click on the **Generate API Client** button. Click on the **Select All** link in the **Scopes** Section and click on the **Add New Client** button.  Copy Threat Response **client ID** and **Client Password** and save them somewhere.
+1. Check your Cisco XDR or SecureX tenant. If you don't have a SecureX tenant you can use DCLOUD **Cisco SecureX Orchestration v1 - Instant Demo** [Cisco DCLOUD labs](https://dcloud.cisco.com/) -- [See Instructions here](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/blob/master/100-SecureX_automation_lab/dcloud_lab.md)
+2. Once logged into your Cisco XDR/SecureX tenant, create a Threat Response API client with all scopes. For this, go the **Administration** then Select **API Clients** in the left panel and click on the **Generate API Client** button. Click on the **Select All** link in the **Scopes** Section and click on the **Add New Client** button.  Copy Threat Response **client ID** and **Client Password** and save them somewhere.
 3. Install the Lab Simulator into your laptop . [see Instructions here](https://github.com/pcardotatgit/lab_simulator-001). And **Start the lab Simulator**. The lab Portal web page should open.
-4. Open the **config.py** script located into the simulator root directory. Update the **ctr_client_id** and **ctr_client_password** variables with  CTR client ID and Client Password you got in step 2. Save your changes. **( Notice : you can use the GUI in the lab simulator for doing this )** 
-5. In the **config.py** script, depending on your region, uncomment the related **host=xxx** and **host_for_token=xxx** variables. **Notice** DCLOUD demos are located in the US.  Save your changes.**( Notice :  you can use the GUI in the lab simulator for doing this )**
-5.**Important Notice ! :** If you used the simulator Web GUI to edit the **config.py** file, then you will have to stop and restart the simulator in order to make changes to be taken into account.
-6. Now go to the your SecureX tenant Web GUI, and go to Orchestration. Then Create a SecureX Token named **CTR_SecureX_Token** [ See Instructions here ](https://ciscosecurity.github.io/sxo-05-security-workflows/account-keys/securex-token). Or you can use the one you may have already created into your SecureX Tenant. In a few words, for creating it, open the **Orchestration** table then on the left panel go to **Account Keys** . Click on the **New Account Key** button and create a new account key named **CTR_SecureX_Token** with the **SecureX_Token** Account key type.  OR check that a SecureX token already exist and use this one in the next steps.
+4. From the lab Portal web page clik on the **Settings** button on the top left. Update the **ctr_client_id** and **ctr_client_password** variables with  CTR client ID and Client Password you got in step 2. Select Your Regions. At this point you can just save your changes. 
+4a.**Notice** DCLOUD demos are located in the US.  Save your changes.
+4b. This operation actually update a file name **config.py** located into the code root directory. You can edit it manually if you prefer.
+5.**Important Notice ! : you will have to stop and restart the simulator in order to make changes to be taken into account**.
+6. Now go to the your SecureX/Cisco XDR tenant Web GUI, and go to Orchestration. Then Create a SecureX Token named **CTR_SecureX_Token** [ See Instructions here ](https://ciscosecurity.github.io/sxo-05-security-workflows/account-keys/securex-token). Or you can use the one you may have already created into your SecureX Tenant. In a few words, for creating it, open the **Orchestration** table then on the left panel go to **Account Keys** . Click on the **New Account Key** button and create a new account key named **CTR_SecureX_Token** with the **SecureX_Token** Account key type.  OR check that a SecureX token already exist and use this one in the next steps.
 7. Start the simulator if not done. Your browser should automatically start on **http://localhost:4000**
-8. Check that communication between the Lab Simulator and your SecureX tenant is Ok. For doing this, on the lab portal web page click on the **Config and Checks** button on the top left and then on  **check SecureX**. 
+8. Check that communication between the Lab Simulator and your SecureX/Cisco XDR tenant is Ok. For doing this, click on the **Checks SecureX / Cisco XDR** button on the top left of the lab portal web page. 
 
     The expected result is the following :
 
@@ -73,11 +80,11 @@ In this lab you need the following components :
 
     In case of failure, check your configuration file ( host, host_for_token, ctr_client_ID, ctr_client_password )
 
-    FYI : this part is managed by the **@app.route('/check')** route in the **app.py** script. It asks for a toke to SecureX and reads Incidents.
+    FYI : this part is managed by the **@app.route('/check')** route in the **app.py** script. It asks for a token to SecureX/Cisco XDR and reads Incidents.
 
 9. At this point you are ready to run the half of the full demo ( the Detection and Alert part )
 
-First log into you SecureX tenant and open the **incident manager** into the **SecureX Ribbon**... Have a look to the existing incidents.
+First log into you SecureX / Cisco XDR tenant and open the **incident manager** into the **SecureX Ribbon**... Have a look to the existing incidents.
 
 You are supposed to have no incidents named **PVT Endpoint Infection Demo**.
 

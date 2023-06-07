@@ -51,7 +51,7 @@ The full API URL Endpoint is :
 
 https[:]//prevision-meteo[.]ch/services/json/paris
 
-We might need to read weather details for other cities than paris. This is the reason why we don't put the city ( /paris ) in the path. We will put it in the **Relatbie URL** of the **HTTP Request** activity we are going to create in the next step.
+We might need to read weather details for other cities than paris. This is the reason why we don't put the city ( /paris ) in the path. We will put it in the **Relative URL** of the **HTTP Request** activity we are going to create in the next step.
 
 ![](./img/image-2.png)
 
