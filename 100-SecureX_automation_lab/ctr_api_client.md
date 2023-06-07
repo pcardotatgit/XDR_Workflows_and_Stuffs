@@ -15,7 +15,7 @@ Step 3 : Give a name to your API client, **Select All** scopes and click on the 
 
 ![](assets/img/b4.png)
 
-Step 4 - Copy and save somewhere the client-ID and client-Password. This is the only opportunity to see the client-password in clear text !
+Step 4 - Copy and save somewhere the **client-ID** and **client-Password**. This is the only opportunity to see the client-password in clear text !
 
 ![](assets/img/b5.png)
 
