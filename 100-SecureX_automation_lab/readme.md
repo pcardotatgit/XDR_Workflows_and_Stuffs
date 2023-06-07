@@ -93,7 +93,7 @@ Okay...  Now let's send an attack to the victim machine.
 
 Open your browser to  **http://localhost:4000** and click on the hacker icon.  This opens an hacker console that is supposed to be used to send some shell commands to the victim. And type **hackthis** into the console.
 
-![](assets/img/4.png)
+![](assets/img/4b.png)
 
 After a few seconds you will see the attack process running into the victim machine.
 
