@@ -89,7 +89,7 @@ You are supposed to have no incidents named **PVT Endpoint Infection Demo**.
 
 ![](assets/img/5.png)
 
-Okay...  now attack the Victim machine.
+Okay...  Now let's send an attack to the victim machine.
 
 Open your browser to  **http://localhost:4000** and click on the hacker icon.  This opens an hacker console that is supposed to be used to send some shell commands to the victim. And type **hackthis** into the console.
 
@@ -112,10 +112,10 @@ If you participate to a CTF. Find the answers to questions !.
 
 **NEXT STEP : Demo Part 2** 
 
-## Demo Part 2 - Send Alerts into a Webex Team Room 
+## Demo Part 2 - Send Alerts into a Webex Room 
 
-1. Create a webex Team Bot. Copy and save  the bot authentication token. If you don't already have a Webex Bot go this [ Create a Webex Team Bot Instructions ](https://github.com/pcardotatgit/Create_a_Webex_Team_Bot) and stop at : **OK YOU ARE GOOD TO GO !!** mention in the documentation.
-2. Edit the **config.py** script and update the **webex_bot_token** variable value.**( Or :  you can use the GUI in the lab simulator for doing this, and restart flask )**
+1. Create a webex Bot. Copy and save  the bot authentication token. If you don't already have a Webex Bot go this [ Create a Webex Bot Instructions ](https://github.com/pcardotatgit/Create_a_Webex_Team_Bot) and stop at the **OK YOU ARE GOOD TO GO !!** mention into this documentation.
+2. In the lab port web page go to **Settings** and update the **webex_bot_token** variable value.** Or :  you can Edit the **config.py** script. Don't forget to restart flask )**
 3. Create an Alert Webex Team Room ([ Instructions Here ](https://github.com/pcardotatgit/Create_a_Webex_Team_Bot) ) and check that you can send messages into it from SecureX workflows. You can run the **u1_test_webex_room.py** script in the **code** folder to test your Webex Team Setup. Run it and you are supposed to receive a message into the Webex Team Room. If everything is Okay then Copy the webex team Room ID. 
 4. Edit the **config.py** script and update the **webex_room_id** variable value. **( Or :  you can use the GUI in the lab simulator for doing this, and restart flask )**
 5. We are going to use the existing system **Webex Team** target in SecureX Tenant. Then we dont need to create a specific target for webex.
