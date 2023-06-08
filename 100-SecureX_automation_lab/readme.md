@@ -97,6 +97,8 @@ Open your browser to  **http://localhost:4000** and click on the hacker icon.  T
 
 After a few seconds you will see the attack process running into the victim machine.
 
+This actually a video that shows what happens into the victim machine. The reason of using a video is to ask to anyone to run real attacks with real hacking tools.  But the events in XDR / SecureX will be real !
+
 ![](assets/img/6.png)
 
 Now come back to the SecureX Ribbon. Then you can see now a new incident that was created by Secure Endpoint ( **PVT Endpoint Infection Demo** ).

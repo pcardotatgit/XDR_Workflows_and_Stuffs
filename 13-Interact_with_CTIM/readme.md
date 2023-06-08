@@ -2,15 +2,15 @@
 
 In this repository You will find  some python scripts given as examples of interaction with CTIM components.
 
-CTIM is one of the core of SecureX. This the Threat Hunting dedicated SecureX engine.
+CTIM is one of the core of XDR / SecureX. This the Threat Hunting dedicated engine.
 
-The components described into this articles are the following here under. But CTIM contains more components not described here.
+The components described into this article are the following here under. But CTIM contains more components not described here.
 
 - Judgments ( for enrichment from private data or for automated Allow / Blocking Feeds creation )
-- Sightings ( Ingest single events from 3rd Party Security Solutions into SecureX Sightings )
+- Sightings ( Ingest single events from 3rd Party Security Solutions into XDR/SecureX Sightings )
 - Incidents ( Create Incidents )
 - Bundles ( Incidents and attach Sightings to them )
-- Verdicts 
+- Verdicts ( for enrichment )
 
 The **create_incidents_from_appache_logs_use_case** subfolder  contains an example of use case.
 
@@ -18,80 +18,84 @@ The [**Automated Threat Detection and Mitigation scenario**](https://github.com/
 
 ## Instructions
 
-Before using the python scripts you must first create a SecureX API client within your SecureX tenant, and you must store its **client_id** and **client_password** either into the **./keys/ctr_api_keys.txt** file located into the **/keys** subfolder ( This global configuration file will be used by every scripts in every subfolders ), or into the **config.py** scripts of every subfolders that will be read first by the python scripts.
+Before using the python scripts you must first create a XDR / SecureX API client within your tenant, and you must store its **client_id** and **client_password** either into the **./keys/ctr_api_keys.txt** file located into the **/keys** subfolder ( This global configuration file will be used by every scripts in every subfolders ), or into the **config.py** scripts of every subfolders that will be read first by the python scripts.
 
-Depending on your regions, You have to uncomment the host fqdn. You have to do this either into the **config.py** scripts or into the **./keys/ctr_api_keys.txt** file.
+Depending on your region, You have to uncomment the host fqdn. You have to do this either into the **config.py** scripts or into the **./keys/ctr_api_keys.txt** file.
 
-## How can we create Incidents and Sightings within SecureX ?
+Instead of editing the .py config file, you can use the Lab Portal Web page bu clicking on the **Settings** button.
+
+## How can we create Incidents and Sightings within XDR / SecureX ?
 ### Introduction 
 
-Before going to the details about how we can create **incidents** and **sightings** within SecureX, you must start first on understanding the CTIM model ( Cisco Threat Intell Model )
+Before going to the details about how we can create **incidents** and **sightings** within XDR / SecureX, you must start first on understanding the CTIM model ( Cisco Threat Intell Model )
 
 ### Cisco Threat Intell Model
 
-SecureX Threat Hunting and Incident Management rely on an internal data structure which is there as a very fast and efficient backend for supporting Threat Hunting activities.
+XDR / SecureX Threat Hunting and Incident Management rely on an internal data structure which is there as a very fast and efficient backend for supporting Threat Hunting activities.
 
-This data structure has several services that all have APIs. That means that we can have access to these services from outside of SecureX either for reading datas, or for storing data.
+This data structure has several services which all have APIs. That means that we can have access to these services from outside of XDR / SecureX either for reading data, or for storing data.
 
-Managing **Incidents** within SecureX is exactly that. All components of the SecureX Incident manager has an API and we use several of these APIs for creating **Incidents**.
-- To learn more about **Cisco Threat Intell** Model you can to go to the following [ DEVNET Learning Lab ](https://developer.cisco.com/learning/modules/security-securex-threat-response/), which will help you to understand the details of how the CTIM APÏs can be used into your Threat Hunting Activities.
+Managing **Incidents** within XDR / SecureX is exactly that. All components of the Incident Manager has an API and we use several of these APIs for creating **Incidents**.
+- To learn more about **Cisco Threat Intell Model** you can to go to the following [ DEVNET Learning Lab ](https://developer.cisco.com/learning/modules/security-securex-threat-response/), which will help you to understand the details of how the CTIM APIs can be used into your Threat Hunting activities.
 - And you will naturally want to intensively use CTIM API. Then the [ CTIM API documentation here ](https://github.com/threatgrid/ctim/blob/master/doc/tutorials/modeling-threat-intel-ctim.md) will be very usefull for you.
 
 Once Having understanding the CTIM data structure, you are ready to move forward.
 
 ### Creating Incidents and Sightings.
 
-In order to make documented incidents appearing into the SecureX Incident Manager ( as we can see in day to day SecureX Threat Hunting activities. Incidents that give us details about the threat, list of events, timeline , observables and referenced links ), then we just have to create an **Incident** and we have to attach to it one or several **Sightings**.
+In order to create documented incidents into the XDR / SecureX Incident Manager, we just have to create an **Incident** and we have to attach to it one or several **Sightings**. 
 
-**Sightings** are representation of Security Alert generated by Security Products. They are not the original alerts but they are  translation of these alerts into SecureX Alert Schema. 
+Incidents will give us details about the threat, list of events, timeline , observables and referenced links. Every sorted and presented in a maner that accelerate Threat Hunting operations.
 
-That means that **Sightings** are created from original raw products alert. And **Sightings** are interpretation for these product alerts, which either sumarize the original alert or extend it.
+**Sightings** are representation of Security Alert generated by Security Products. They are not the original alerts but they are  translation of these alerts into XDR/SecureX Alert Schema. 
 
-A single **incident** is supposed to contain several **Sightings** which can have been created by several Security Solutions which detected events that are related to the same security threat. Gathering these interpreted alerts in one place into an **incident** helps the Security Team to react efficiently.
+That means that **Sightings** are created from original raw products alert. And **Sightings** are interpretation for these product alerts, which either sumarize the original alert or which extend it.
+
+A single **Incident** is supposed to contain several **Sightings** that can have been created by several Security Solutions which detected events that are related to the same security threat. Gathering these interpreted alerts in one place into an **incident** helps the Security Team to react efficiently.
 
 **Sightings** are supposed to contains at least **targets** and **observables** ( all suspicious objects which has a relation with **targets** ). 
 
-When SecureX receives **observables**, then several Threat Hunting operation are automatically triggered. Like enrichment and relation graph calculations.  And this is what permit Security Operators to go very fast into Investigation Operations.
+When SecureX receives **observables**, then several Threat Hunting operation are automatically triggered. For example, enrichment and relation graph calculations.  And this is what permit Security Operators to go very fast into Investigation Operations.
 
-All the threat Intelligence is automatically done by SecureX.
+All the threat Intelligence is automatically done by XDR / SecureX.
 
-That means that from the Security Operator side, we just have to create an Incident and all relevants sightings that will contains obervables and their relationships.
+That means that from the Security Operator side, he just have to create an Incident and all relevants sightings that will contains obervables. And create **relationships** beteween all these components.
 
-Attaching a **Sighting** to an **Incident** is as well a **relationship** within SecureX.  
+Attaching a **Sighting** to an **Incident** is as well a **Relationship** within XDR/SecureX.  
 
-**Relationship** is one of the key components of CTIM used at several levels.
+**Relationship** is one of the key components of CTIM. It is used at several levels.
 
-CTIM developpers thought about making life easy for programmers who want to create **incidents**. They created the **bundle** API.
+CTIM developpers thought about making life easy for programmers who want to create **Incidents**. They thought about creating the **bundle** API.
 
-This API allow programmers to create, thanks to one single API, multiple objects at once.
+This API allow programmers to create an Incident and multiple objects at once thanks to one single API.
 
-For doing this, programmers must create a JSON payload that will be sent to the SecureX bundle API. This JSON payload must contain all the objects we want to create.
+The **bundle API** expect a JSON payload to be sent be sent to the API. This JSON payload must contain all the objects we want to create for the Incident.
 
-**How do we use the bundle API ?**
+**How can we invoke the bundle API ?**
 
-We create a "bundle" JSON payload which contains one **incident** and all its details. And we create several **Sightings** into it .
+We create a "bundle" JSON payload which contains one **incident** and all its details. And then we create several **Sightings** into it .
 
 ![](./assets/img/1.png)
 
-Then we add into the JSON payload, relationships that link every sightings to the incident thanks to a **"member of"** relationship 
+Then we add into the JSON payload, relationships that link every sightings to the incident thanks to a **"member of"** relationship.
 
-Into every single sighting we include all involved targets and observables. And we create as well relationships within the sightings between all these objects.
+Into every single sighting, we include all involved targets and observables. And we create as well relationships between all these objects within the sightings.
 
 And that's it.
 
 Have a look to the [**SecureX Threat Response CTIM Bundle Builder** page ](https://github.com/CiscoSecurity/tr-05-ctim-bundle-builder) to learn about a python module that simplifies **bundle** creation.
 
-### How to read an Incident and parse all sightings it contains ?
+### How to read an Incident and parse all Sightings it contains ?
 
-When we create the **Incident** and all **Sightings** it contains, we assign IDs to these objects, and these IDs will be used within the **relationships**. known as **target_ref** for incident ID and **source_ref** for Sighting IDs.
+When we create the **Incident** and all **Sightings** it contains, we assign IDs to these objects, and these IDs will be used within the **relationships**. These IDs are known as **target_ref** for incident ID and **source_ref** for Sighting IDs.
 
 ![](./assets/img/2.png)
 
-For reading **sigthings** that belong to an **Incident** we must first retrieve its **target_ref** and filter **relationships** based on this information. And then we get the list of all **sightings** that belong to the incident. And finally for each **sighting** based on its **source_ref**, parse it and extract from it everything which is relevant for additionnal investigation.
+For reading **sigthings** that belong to an **Incident** we must first retrieve its **target_ref** and filter **relationships** based on this information. Thanks to this, we get the list of all **sightings** that belong to the **Incident**. And finally for each **Sighting**, based on its **source_ref** we parse it and extract from it everything which is relevant for additionnal investigation.
 
-## How to add observable into SecureX public feeds
+## How to add observable into XDR / SecureX public feeds thanks to CTIM ?
 
-For doing this, we have to deal with **Judgment**, **Indicators** and **feeds** APIs.
+For doing this, we have to deal with **Judgment**, **Indicators** and **Feeds** APIs.
 
 ![](./assets/img/3.png)
 
@@ -99,13 +103,13 @@ In order to assign an **observable** to a public feed, we must create a **judgme
 
 The type of the **observable** is important at this point because this is what will route the **observable** to the correct **feed**.
 
-For every relevant **observable** types in **judgment** we must link it to a corresponding **indicator** thanks to **relationships**. And this **indicator** must linked to a **feed**.
+For every relevant **observable** type in **judgment** we must link it to an **Indicator** thanks to another **Relationship**. And finally we have to link this **indicator** to a **feed**.
 
-Thanks to these chains of relationships, when a new observable is added into **judgments** , then it automatically appears into the corresponding **feed** base on its type.
+Thanks to these chains of relationships, new observable automatically appears into the matching **feed** ( base on its type ), when a  is added into **judgments**.
 
 **Pre requisits**  
 
-The condition to be able to use these SecureX feed Services is that **feeds** , **indicators** and **relationships** must have been created first. And None of these objects are created when a SecureX tenant is started.
+The condition to be able to use these XDR / SecureX feed Services is that **feeds** , **indicators** and **relationships** must have been created first. And None of these objects are created by default when an XDR /  SecureX tenant is started. We have to create them.
 
 Creating the feeds is the role of the following workflow :
 
