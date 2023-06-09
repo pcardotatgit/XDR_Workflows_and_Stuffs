@@ -281,7 +281,7 @@ Here are the details of these scripts :
 - **y4_utils_sightings_-create.py** : create a sighting
 - Want to see how to display and delete judgmets ?  open the **utils_delete_all.py** script
 
-# Want to dig into the details of this Security Use Case ?
+# Want to dig into this Security Use Case details ?
 
 In this section let's discribe all the details of the how the full use case work.
 
