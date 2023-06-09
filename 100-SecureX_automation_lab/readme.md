@@ -284,7 +284,7 @@ Here are the details of these scripts :
 
 # Want to dig into this Security Use Case details ?
 
-In this section let's discribe all the details of the how the full use case work.
+In this section let's describe all the details of the how the full use case work.
 
 [Click here to have access to the Solution architecture and code descriptions](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/blob/master/100-SecureX_automation_lab/solution_architecture.md)
 
