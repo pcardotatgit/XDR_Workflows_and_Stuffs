@@ -11,7 +11,7 @@ Both allow us to include clickable links into the messages displayed to people w
 
 Webex Team Cards are much more nice than markdown messages. They are more close to Web GUI than Markdown messages. But they require an operationnal bot logic attached to the webex bot in order to be fully functionnal.
 
-In our use case as we just want to trigger a workflow with a webhook. And we want to pass data ( ip address, Webex Bot Token, Room ID ). There is an impact on the way to handle the user click actions.
+In our use case as we just want to trigger a workflow thanks to a webhook, and pass some data ( ip address, Webex Bot Token, Room ID ) to it, then markdown are enough for this and it will be easier to set up. 
 
 In XDR/SecureX, workflow can handle only data that are passed thru a POST method in the webhook call, and not thru GET. 
 
