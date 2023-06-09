@@ -280,7 +280,7 @@ Here are the details of these scripts :
 - **y3_utils_sightings_-delete_sightings.py** : delete all sigthings we got with the above script
 - **y4_utils_sightings_-create.py** : create a sighting
 - Want to see how to display and delete judgmets ?  open the **utils_delete_all.py** script
-- Learn more about incidents, sightings, judgments, verdit and bundle APIs [Dealing with CTIM]( https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/13-Interact_with_CTIM )
+- Want to learn more about incidents, sightings, judgments, verdits and bundles APIs : [See Dealing with CTIM]( https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/13-Interact_with_CTIM )
 
 # Want to dig into this Security Use Case details ?
 
