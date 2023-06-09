@@ -267,18 +267,19 @@ You can run these script into a terminal console opened into the **code** folder
 
 Here are the details of these scripts :
 
-- w0_utils_generate_and_save_token.py :asks for a token and save it into ctr_token.txt
-- utils.py  : delete all incidents, sightings and judgments we created into the SecureX tenant.
-- u1_test_webex_room.py : for testing to send message to the alert webex team room.
-- u2_test_webhook.py : for testing that we can trigger the **Receive observables from a rest client** workflow , passed data to it.
-- u3_send_alert_to_webex_room.py : Send the alert message to the alert webex team room, in the case that the **Check Incidents every 5 minutes.json** doesn't work.
-- x1_utils_incidents_get_all.py . list all incidents. And save results into text files.
-- x2_utils_incidents_get_only_critical.py . List only critical incidents. And save details into text files.
-- x3_utils_incidents_delete.py : delete incidents we got with the above script.
-- y1_utils_sightings_get_all.py : list all sightings . And save results into text files.
-- y2_utils_sightings_get_filter_by_something.py : List all sightings we created in the lab.
-- y3_utils_sightings_-delete_sightings.py : delete all sigthings we got with the above script
-- y4_utils_sightings_-create.py : create a sighting
+- **w0_utils_generate_and_save_token.py** : asks for a token and save it into ctr_token.txt
+- **utils_delete_all.py.py**  : delete all incidents, sightings and judgments we created into the SecureX tenant.
+- **u1_test_webex_room.py** : for testing to send message to the alert webex team room.
+- **u2_test_webhook.py** : for testing that we can trigger the **Receive observables from a rest client** workflow , passed data to it.
+- **u3_send_alert_to_webex_room.py** : Send the alert message to the alert webex team room, in the case that the **Check Incidents every 5 minutes.json** doesn't work.
+- **x1_utils_incidents_get_all.py** . list all incidents. And save results into text files.
+- **x2_utils_incidents_get_only_critical.py** . List only critical incidents. And save details into text files.
+- **x3_utils_incidents_delete.py** : delete incidents we got with the above script.
+- **y1_utils_sightings_get_all.py** : list all sightings . And save results into text files.
+- **y2_utils_sightings_get_filter_by_something.py** : List all sightings we created in the lab.
+- **y3_utils_sightings_-delete_sightings.py** : delete all sigthings we got with the above script
+- **y4_utils_sightings_-create.py** : create a sighting
+- Want to see how to display and delete judgmets ?  open the **utils_delete_all.py** script
 
 # Want to dig into the details of this Security Use Case ?
 
