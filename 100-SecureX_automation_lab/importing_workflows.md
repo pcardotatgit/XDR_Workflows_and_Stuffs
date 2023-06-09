@@ -11,3 +11,5 @@ Then go to the following instructions ( [ See Instructions ](https://ciscosecuri
 
 Then you will be able to select Workflows available in the selected Github.
 
+![](assets/img/24.png)
+![](assets/img/25.png)
