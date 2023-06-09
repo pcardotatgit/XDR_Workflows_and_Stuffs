@@ -125,9 +125,10 @@ If you participate to a CTF. Find the answers to questions !.
 7. Normaly this import operation automatically creates a new webhook ( **PVT_Demo_Webhook** ). Check that the webhook exists.
 8. If the webhook is not created. 
     - In SecureX Orchestration go to the admin panel on the left,then select Create a webhook **Events & Webhook** at the bottom, then create an event named **PVT_Demo_Webhook** and create within it a webhook named **Webhook_trigger**. Once done copy it's **webhook url**
-    
-    - In the SecureX Workflow editor, edit the **Receive observables from a rest client** workflow and assign to it the webhook you created above. Go to the trigger section of the workflow properties panel on the right
-9. BUT : If the webhook is created as expected, copy its **webhook_url**. For this you have to go to **Events & Webhooks**, and then select the **Webhooks** table and display the **PVT_Demo_Webhook** Details. The webhook url is at the bottom of the popup window. ( [More information on Webhooks](https://ciscosecurity.github.io/sxo-05-security-workflows/webhooks) )
+    - ( [More information on Webhooks](https://ciscosecurity.github.io/sxo-05-security-workflows/webhooks) )   
+    - In the Workflow editor, edit the **Receive observables from a rest client** workflow and assign to it the webhook you created above. Go to the trigger section of the workflow properties panel on the right, then click on the **+ Add Trigger** link, select your Webhook trigger and save
+![](assets/img/26.png)    
+9. BUT : If the webhook is created as expected, copy its **webhook_url**. For this you have to go to **Events & Webhooks**, and then select the **Webhooks** table and display the **PVT_Demo_Webhook** Details. The webhook url is at the bottom of the popup window. 
 10. Then Update the Settings into the Lap Portal Web page. Update the **Webhook URL** field, save and restart the Flask Application !! (  Or edit the **config.py** file and update the **SecureX_Webhook_url** variable.**)
 11. You are now Ready for some tests.  You can test your setup with the **u2_test_webhook.py** file. You just have to run it from a terminal console openned into the **./code** folder ( venv activated ). And when you run this script, then you are supposed to see a message arriving into your alert webex team room. This script send a webhook to the SecureX workflow and the workflow is supposed to send a message to the Webex Team room.
 ![](assets/img/2.png)
