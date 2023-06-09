@@ -136,7 +136,7 @@ If you participate to a CTF. Find the answers to questions !.
 13. If the previous workflow worked, then import the second workflow. For this, go to Orchestration and import the **Check Incidents every 5 minutes.json** workflow. Ignore any errors received during import. Don't stop the operation, but move forward ... you will fix the errors later. 
 14. Check the SecureX **Private_CTIA_Target** . This one must use a host fqdn that match to your region ( ex : **private.intel.eu.amp.cisco.com** ) and this target must use the **SecureX_Token** you created at the begining of this lab.
 ![](assets/img/27.png)
-15. Run the **Check Incidents every 5 minutes** workflow. You will be asked to enter the **webex_bot_token** and the **webex_room_id**.
+15. Now Run the **Check Incidents every 5 minutes** workflow. You will be asked to enter the **webex_bot_token** and the **webex_room_id**.
 
     For the purpose of this lab we don't store the **webex_bot_token** and **webex_room_id** variables into global SecureX Variables. We voluntarily let the workflow asking you these values as required inputs.  For production you will have to modify this part and create instead static variables into your secureX tenant.
 
@@ -153,7 +153,9 @@ Webex Team is a great integration, that gives to XDR / SecureX a very efficient 
 
 ## Demo Part 3 - Add Malicious ip addresses into SecureX blocking feeds.
 
-You have probably noticed that some IP addresses are listed in the Webex Alert Message. And they are all clickables.  
+Here is  the last part of this lab !  Response actions  !
+
+You have probably noticed that some IP addresses are listed in the Webex Alert Message. And they all are clickables.  
 
 The purpose of this is to allow security operators to add these malicious IP addresses into blocking Feeds handled by XDR/SecureX. 
 
@@ -170,8 +172,8 @@ Actually these Workflows already exists into the list of Cisco Validated Workflo
 
 These workflows are :
 
-- **0015A-SecureFirewall-BlockObservable-Setup**
-- **0015B-SecureFirewall-BlockObservable**
+- **0015A-SecureFirewall-BlockObservable-Setup**  :  Creates XDR/SecureX Blocking Feeds
+- **0015B-SecureFirewall-BlockObservable**  : Adds an Observable to an XDR/SecureX Blocking Feeds
 
 The next step for us is to import these two workflows into your SecureX tenant. 
 
@@ -192,21 +194,21 @@ Then Import the two workflows  **CiscoSecurity_Workflows** mentionned above and 
 
 **Next Step** Go to the following instructions and once done come back here and move forward with next steps : 
 
-[ Here the Instructions for creating SecureX Feeds ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/12-create_securex_blocking_lists_for_firewalls)
+[ Here are the Instructions for creating SecureX Feeds ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/12-create_securex_blocking_lists_for_firewalls)
 
 **Have you done previous step ?**
 
 If the anwser is yes, then let's go the last step of this lab.
 
-**This last part is about using the 0015B-SecureFirewall-BlockObservable workflow in another workflow**
+**This last part is about using the 0015B-SecureFirewall-BlockObservable workflow in another parent workflow, as resource**
 
-We are going to include the **0015B-SecureFirewall-BlockObservable** workflow into the **Receive observables from a rest client** one. Thanks to this, when we will click on an observable in the Webex Team alert message, then we will add it to the SecureX blocking list.
+We are going to include the **0015B-SecureFirewall-BlockObservable** workflow into the **Receive observables from a rest client** one. Thanks to this, when we will click on an observable in the Webex Alert Message, then we will add it to the XDR/SecureX blocking list.
 
-In **SecureX Orchestration** Go to the SecureX workflow editor and editthe **Receive observables from a rest client** workflow.
+In **Orchestration** Go to the SecureX workflow editor and edit the **Receive observables from a rest client** workflow.
 
 When you used it before, you probably have noticed the parallel block in the middle named **Replace this by an Update Judgment activity**.
 
-This activity is by default skipped. It is not runt.
+This activity skipped is by default . It is not runt.
 
 Replace this activity by the **0015B-SecureFirewall-BlockObservable** activity. 
 
@@ -226,11 +228,11 @@ Then click on it to select it and then go to it's properties right panel.
 
 ## You are ready for the final test !!
 
-Come back to the Alert Webex Team Room and click on the Malicious IP address ( or anyother IP address ).
+Come back to the Alert Webex Team Room and then click on the Malicious IP address ( or anyother IP address ).
 
 ![](assets/img/11.png)
 
-You are supposed to receive Webex Team messages from SecureX which confirm you that the observable was received and added to the feed.
+You are supposed to receive Webex Team messages from XDR/SecureX which confirm you that the observable was received and succesfully added to the feed.
 
 Then the IP address must appear now into the public SecureX feed. 
 
@@ -238,7 +240,7 @@ Come back to the feed and refresh it.
 
 ![](assets/img/10.png)
 
-The IP address you clicked on in the Webex Team Message should now appear in the feed.
+The IP address you clicked on in the Webex Team Message should now appear in the feed. Firewalls will be able to consume this feed and block this IP address.
 
 # CONGRATULATION !!! you completed the full demo !!!
 
@@ -246,8 +248,8 @@ The IP address you clicked on in the Webex Team Message should now appear in the
 
 Modify the **Check Incidents every 5 minutes.json** workflow to :
 
-- Use BOT Token ID and Webex Team RoomID stored into the SecureX tenant.
-- Schedule the workflow every 5 minutes.
+- Use BOT Token ID and Webex Team RoomID you store as secret keys into XDR/SecureX tenant.
+- Schedule the workflow every 5 minutes ([See instructions](https://ciscosecurity.github.io/sxo-05-security-workflows/schedules/)).
 
 If you don't want to stop here, you can go the the Firewall part and make the feed automatically translated into Firewall Blocking rules.
 
