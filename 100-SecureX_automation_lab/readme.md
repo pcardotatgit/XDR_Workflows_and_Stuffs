@@ -152,18 +152,18 @@ Webex Team is a great integration, that gives to XDR / SecureX a very efficient 
 
 ## Demo Part 3 - Add Malicious ip addresses into SecureX blocking feeds.
 
-You have probably noticed that some IP addresses are listed in the webex team alert message. And they are all clickables.  
+You have probably noticed that some IP addresses are listed in the Webex Alert Message. And they are all clickables.  
 
-The purpose of this is to allow security operators to add these malicious IP addresses into SecureX blocking Feeds. 
+The purpose of this is to allow security operators to add these malicious IP addresses into blocking Feeds handled by XDR/SecureX. 
 
-And once an observable is into SecureX Feeds, then it can be automatically blocked by a company firewalls.
+And once an observable is into these Feeds, then it can be automatically blocked by a company firewalls.
 
 At this point we need :
 
-- To Create SecureX Feeds
-- To Create SecureX Workflows that will add observables into SecureX feeds.
+- To Create XDR/SecureX Feeds
+- And have a way to add IP addresses to block into XDR/SecureX Feeds.
 
-And we are going to use workflows for doing that.
+We are going to use workflows for acheiving both.
 
 Actually these Workflows already exists into the list of Cisco Validated Workflows.
 
@@ -172,9 +172,10 @@ These workflows are :
 - **0015A-SecureFirewall-BlockObservable-Setup**
 - **0015B-SecureFirewall-BlockObservable**
 
-The next step is to import these two workflows into your SecureX tenant. 
+The next step for us is to import these two workflows into your SecureX tenant. 
 
-**Notice** If you work on your own SecureX tenant, and you already created your SecureX feeds, and you already use the **0015B-SecureFirewall-BlockObservable** workflow... then skip this part above a go directly to the **Use the 0015B-SecureFirewall-BlockObservable* workflow** step bellow.
+**Notice** 
+- If you work on your own XDR/SecureX tenant, and you already created your blocking feeds ( you already use the **0015B-SecureFirewall-BlockObservable** workflow ) then skip this part above a go directly to the **Use the 0015B-SecureFirewall-BlockObservable* workflow** step bellow.
 
 Before doing these imports and specifically if you use the DCLOUD lab, the next step is to do some clean up.
 
@@ -182,9 +183,11 @@ Go to **Threat Response** => **Feeds** and check that **SecureX_Firewall_Private
 
 Then you have to do the same with indicators. Go to **Indicators** go to **Source:Private** and Delete all **Secure_Firewall_SecureX_xxx** indicators.
 
-Then go to the SecureX Orchestration page **=> all workflows** landing page and search for the following workflows :  **0015A-SecureFirewall-BlockObservable-Setup** and **0015B-SecureFirewall-BlockObservable**.   
+Then go to the SecureX Orchestration page **=> all workflows** landing page and search for the two following workflows :  **0015A-SecureFirewall-BlockObservable-Setup** and **0015B-SecureFirewall-BlockObservable**.   
 
-If they exist don't delete them. Then Import the two workflows  **CiscoSecurity_Workflows** github and and overwrite existing workflows if needed.
+If they exist you don't delete them. 
+
+Then Import the two workflows  **CiscoSecurity_Workflows** mentionned above and and overwrite existing workflows if needed. [ Instructions for importing workflows](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/blob/master/100-SecureX_automation_lab/importing_workflows.md)
 
 **Next Step** Go to the following instructions and once done come back here and move forward with next steps : 
 
