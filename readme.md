@@ -16,7 +16,8 @@ Here are the minimum steps to go thru in order to start your SecureX tenant. And
 * Step 7 : Create an Alert / Info Webex Team Room . Webex Team is naturally a very good user interface for SecureX. And create a webex team bot as well which is the only way to create a permanent Webec Token. ([ See Instructions here ](https://github.com/pcardotatgit/Create_a_Webex_Team_Bot))
 * Step 8a : Then you can Customize the **Webex Teams - Post Message to Room** atomic workflow wich is "ready" to send Alert Messages to yout Webex Alert Room.
 * Step 8b : OR for pedagogical reasons, then learn about how to create from scratch a **send message to webex team** workflow ( [ See Instructions ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/1-Create_a_Webex_Team_Bot_Target))
-* Step 9 : Import useful/relevant SecureX Workflows from the workflow lists
+* Step 9 : Create the Cisco Git Repositories for atomic workflows and workflows ( [ See Instructions ](https://ciscosecurity.github.io/sxo-05-security-workflows/configuration/))
+* Step 10 : Import useful/relevant SecureX Workflows from the workflow lists
 
 At this point You are ready to use SecureX services and Create New Service which doesn't exist.
 
