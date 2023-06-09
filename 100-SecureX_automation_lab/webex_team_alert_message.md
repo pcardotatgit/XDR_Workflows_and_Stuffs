@@ -7,17 +7,17 @@ Actually there are two ways for creating messages.
 - Markdown messages
 - Webex Team Cards
 
-Both allow us to include clickable links into the messages displayed to people who will read them.
+Both allow us to include clickable links into the messages displayed to people who will receive them.
 
-But Webex Team Cards are much more nice than markdown messages. They are more close to Web GUI than Markdown messages.
+Webex Team Cards are much more nice than markdown messages. They are more close to Web GUI than Markdown messages. But they require an operationnal bot logic attached to the webex bot in order to be fully functionnal.
 
-In our use case as we want to trigger a SecureX workflow with a webhook. And we want to pass data ( ip address, Webex Bot Token, Room ID ). There is an impact on the way to handle the user click actions.
+In our use case as we just want to trigger a workflow with a webhook. And we want to pass data ( ip address, Webex Bot Token, Room ID ). There is an impact on the way to handle the user click actions.
 
-Within SecureX, the workflow will handle only data that will be passed by a POST operation, and not a GET. 
+In XDR/SecureX, workflow can handle only data that are passed thru a POST method in the webhook call, and not thru GET. 
 
-A direct consequence of this is that we can't put the webhook_url + data in the URL into URL links into the Webex Message. Because Webex http call when click on links are only GET calls and not POST.
+A direct consequence of this is that in the Webex Alert Message regarding clickable URL links, we can't build them with a concatenation of webhook_url and data to pass to the workflow. Because http calls set from webex messages are URL links are only GET calls and not POST calls.
 
-For this reason we must use a bot logic underneath the Webex Team messages. A bot logic where to send the GET calls from the Alert. And ask to this bot logic to send to SecureX the Webhook + data thru POST calls.
+For this reason we must use a bot logic underneath the Webex Team messages. A bot logic to which we can send the GET calls from the the clickable links in the Webex Alert message. And then ask to this bot logic to send to XDR/SecureX the required POST call that contains the Webhook + data.
 
 This is a perfect job for the lab simulator which is a flask application which exposes APIs endpoint in one hand and send REST calls in the other hand. This is exactly what we do in this use case.
 
