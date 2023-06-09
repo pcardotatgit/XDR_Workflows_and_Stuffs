@@ -108,7 +108,7 @@ Now come back to the SecureX Ribbon. Then you can see now a new incident that wa
 
 At this point you can roll out a full investigation by going to events, or observables. And the open the relation graph, understand the attack and take some actions.
 
-If you want to dig into how to every details about how  Incidents and Sightings are created, then go [Dealing with SecureX CTIM](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/13-Interact_with_CTIM) documentation.
+If you want to dig into how to every details about how  Incidents and Sightings are created, then go [Dealing with CTIM](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/13-Interact_with_CTIM) documentation.
 
 If you participate to a CTF. Find the answers to questions !.
 
@@ -280,6 +280,7 @@ Here are the details of these scripts :
 - **y3_utils_sightings_-delete_sightings.py** : delete all sigthings we got with the above script
 - **y4_utils_sightings_-create.py** : create a sighting
 - Want to see how to display and delete judgmets ?  open the **utils_delete_all.py** script
+- Learn more about incidents, sightings, judgments, verdit and bundle APIs [Dealing with CTIM]( https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/13-Interact_with_CTIM )
 
 # Want to dig into this Security Use Case details ?
 
