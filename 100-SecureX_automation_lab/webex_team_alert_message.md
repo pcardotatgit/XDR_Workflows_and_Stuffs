@@ -15,11 +15,11 @@ In our use case as we just want to trigger a workflow thanks to a webhook, and p
 
 In XDR/SecureX, workflow can handle only data that are passed thru a POST method in the webhook call, and not thru GET. 
 
-A direct consequence of this is that in the Webex Alert Message regarding clickable URL links, we can't build them with a concatenation of webhook_url and data to pass to the workflow. Because http calls set from webex messages are URL links are only GET calls and not POST calls.
+A direct consequence of this is that in the Webex Alert Message, regarding clickable URL links, we can't build them with a concatenation of webhook_url and data to pass to the workflow. Because http calls sent from webex messages  are only GET calls and not POST calls.
 
-For this reason we must use a bot logic underneath the Webex Team messages. A bot logic to which we can send the GET calls from the the clickable links in the Webex Alert message. And then ask to this bot logic to send to XDR/SecureX the required POST call that contains the Webhook + data.
+For this reason we must use a bot logic underneath the Webex Team messages. A bot logic to which we can send the GET calls from the the clickable links in the Webex Alert message. And then ask to this bot logic to forward the calls to XDR/SecureX, as a POST call.
 
-This is a perfect job for the lab simulator which is a flask application which exposes APIs endpoint in one hand and send REST calls in the other hand. This is exactly what we do in this use case.
+This is a perfect job for the lab simulator which is a flask application. It can exposes APIs endpoints for receiving call from the Webex Message in one hand, and send POST calls to XDR/SecureX in the other hand. This is exactly what we need in our use case.
 
 ![](assets/img/12.png)
 
@@ -37,15 +37,13 @@ The only interactivity capability is an url link we can insert into the message 
 
 All this is enough to acheive our goal. We actually don't need more. Another big benefit of markdown is that the bot logic we need underneath can be very basic a very fast to write. Which is not the case for Webex Team Cards.
 
-This is because of this only reason that I decided to use it in this use case.
-
 It is very simple to create a Webex Team Markdown message.
 
 Open the **u3_send_alert_to_webex_room.py** script and have a look at it. 
 
 The alert is contained into the **message_out** string variable. This variable can be a mix of static string and dynamic string.
 
-This **message_out** variable is just assigned to the **markdown** key sent to Webex Team thru a POST to the appropriate /messages API endpoint.
+This **message_out** variable content has to be assigned to the **markdown key** that is sent to Webex Team POST API endpoint whic send the message.
 
 And that's it.  
 
@@ -57,11 +55,11 @@ Have a look to the Webex Post Message activities of the **Receive observables fr
 
 Webex Team Cards are much more nice than markdown message. They act exactly like Web Pages and actually behave the same.
 
-They offer the capability to create web formulars with complexe behaviors. With colorisation,images, Select boxes, check boxes and other nice components dedicated to interactivity with users.
+They offer the capability to create web formulars with complexe behaviors. With colorisation, images, select boxes, check boxes and other nice components dedicated to interactivity with users.
 
 ![](assets/img/14.png)
 
-Interactive Webex Team cards are very powerful, but they require "complex" bot logic needed to handle actions and selections user does.
+Interactive Webex Team cards are very powerful, but they require "complex" bot logic needed to handle actions and selections user does in the formular.
 
 Once again, our simulator is a perfect place to put this "complex" bot logic. And to keep the lab simple I decided to not handle this part.
 
