@@ -118,10 +118,10 @@ If you participate to a CTF. Find the answers to questions !.
 
 1. Create a webex Bot. Copy and save  the bot authentication token. If you don't already have a Webex Bot go this [ Create a Webex Bot Instructions ](https://github.com/pcardotatgit/Create_a_Webex_Team_Bot) and stop at the **OK YOU ARE GOOD TO GO !!** mention into this documentation.
 2. Create an Alert Webex Room ([ Instructions Here ](https://github.com/pcardotatgit/Create_a_Webex_Team_Bot) ) and check that you can send messages into it from XDR / SecureX workflows. The instructions shows you how to retreive this **webex Room ID**. Copy it and save it somewhere.
-3. Go to the lab portal web page and then go to **Settings**. Update the **webex_bot_token** and **Webex Room ID ** variables.Or :  you can Edit the **config.py** script. **Warning ! ! Don't forget to restart flask !**
+3. Go to the lab portal web page and then go to **Settings**. Update the **webex_bot_token** and **Webex Room ID** variables.Or :  you can Edit the **config.py** script. **Warning ! ! Don't forget to restart flask !**
 4.From the Lab Portal Web Page click on the **Check Alert Room** button, you are supposed to receive a message into the Alert Webex Room. Or You can run the **u1_test_webex_room.py** script in the **code** folder.
-5. We are going to use now the existing system **Webex Team** target in XDR/SecureX Tenant. Then we dont need to create a specific target for webex.
-6. Next step go to your XDR / SecureX console and go to **Orchestration**. Then import the **Receive observables from a rest client.json** workflow available into the resources you downloaded into your working directory (**/secureX_workflows** folder).  From the Orchestration main page, click on the **Import Workflow** link on the top right. Browse your disk, select the workflow and import it.
+5. We are going to use now the existing system **Webex Team** target in XDR/SecureX Tenant. Then we dont need to create any specific new target for interacting with webex.
+6. Next step, go to your XDR / SecureX web console and go to **Orchestration**. Then import the **Receive observables from a rest client.json** workflow available into the resources you downloaded into your working directory (**/secureX_workflows** folder).  From the Orchestration main page, click on the **Import Workflow** link on the top right. Browse your disk, select the workflow and import it.
 7. Normaly this import operation automatically creates a new webhook ( **PVT_Demo_Webhook** ). Check that the webhook exists.
 8. **If the webhook is not created**. 
     - In SecureX Orchestration go to the admin panel on the left,then select Create a webhook **Events & Webhook** at the bottom, then create an event named **PVT_Demo_Webhook** and create within it a webhook named **Webhook_trigger**. Once done copy it's **webhook url**
@@ -132,8 +132,8 @@ If you participate to a CTF. Find the answers to questions !.
 10. Then Update the Settings into the Lap Portal Web page. Update the **Webhook URL** field, save and restart the Flask Application !! (  Or edit the **config.py** file and update the **SecureX_Webhook_url** variable. )
 11. **You are now Ready for some tests**.  You can test your setup with the **u2_test_webhook.py** file. You just have to run it from a terminal console openned into the **./code** folder ( with venv activated of course). And when you run this script, then you are supposed to see a message arriving into your alert webex team room. This script send a webhook to the SecureX workflow and the workflow is supposed to send a message to the Webex Team room.
 ![](assets/img/2.png)
-12. If you received the success message, Congratulation ! you are ready to send Alert trigger workflows, and you can move forward. if You didn't receive the message, then In **SecureX Orchestration** edit the **Receive observables from a rest client** workflow and click on the **View Runs** button on the top right. You will be able to see the last run, check that the workflow was triggered and see which workflow activity failed.
-13. If the previous workflow worked, then import the second workflow. For this, go to Orchestration and import the **Check Incidents every 5 minutes.json** workflow. Ignore any errors received during import. Don't stop the operation, but move forward ... you will fix the errors later. 
+12. If you received the success message, Congratulation ! you are ready to trigger workflows, and you can move forward. if You didn't receive the message, then In **SecureX Orchestration** edit the **Receive observables from a rest client** workflow and click on the **View Runs** button on the top right. You will be able to see the last run, check that the workflow was triggered and see which workflow activity failed.
+13. If the previous workflow worked, then import the second workflow. For this, go to Orchestration and import the **Check Incidents every 5 minutes.json** workflow. Ignore any errors received during import. Don't stop the operation, but move forward ... you will fix the errors later. If you don't have created the SecureX_Token you will be asked to validate it's creation.
 14. Check the SecureX **Private_CTIA_Target** . This one must use a host fqdn that match to your region ( ex : **private.intel.eu.amp.cisco.com** ) and this target must use the **SecureX_Token** you created at the begining of this lab.
 ![](assets/img/27.png)
 15. Now Run the **Check Incidents every 5 minutes** workflow. You will be asked to enter the **webex_bot_token** and the **webex_room_id**.
@@ -194,7 +194,7 @@ Then Import the two workflows  **CiscoSecurity_Workflows** mentionned above and 
 
 **Next Step** Go to the following instructions and once done come back here and move forward with next steps : 
 
-[ Here are the Instructions for creating SecureX Feeds ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/12-create_securex_blocking_lists_for_firewalls)
+[ GO TO these Instructions for creating XDR/SecureX Feeds ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/12-create_securex_blocking_lists_for_firewalls)
 
 **Have you done previous step ?**
 
@@ -204,7 +204,7 @@ If the anwser is yes, then let's go the last step of this lab.
 
 We are going to include the **0015B-SecureFirewall-BlockObservable** workflow into the **Receive observables from a rest client** one. Thanks to this, when we will click on an observable in the Webex Alert Message, then we will add it to the XDR/SecureX blocking list.
 
-In **Orchestration** Go to the SecureX workflow editor and edit the **Receive observables from a rest client** workflow.
+**Next Step**  In **Orchestration** Go to the workflow editor and edit the **Receive observables from a rest client** workflow.
 
 When you used it before, you probably have noticed the parallel block in the middle named **Replace this by an Update Judgment activity**.
 
