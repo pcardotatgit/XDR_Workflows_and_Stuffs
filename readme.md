@@ -17,7 +17,7 @@ Here are the minimum steps to go thru in order to start your SecureX tenant. And
 * Step 8a : Then you can Customize the **Webex Teams - Post Message to Room** atomic workflow wich is "ready" to send Alert Messages to yout Webex Alert Room.
 * Step 8b : OR for pedagogical reasons, then learn about how to create from scratch a **send message to webex team** workflow ( [ See Instructions ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/1-Create_a_Webex_Team_Bot_Target))
 * Step 9 : Create the Cisco Git Repositories for atomic actions and workflows ( [ See Instructions ](https://ciscosecurity.github.io/sxo-05-security-workflows/configuration/))
-* Step 10 : Import useful/relevant XDR/SecureX Workflows from the workflow lists ( [See an Example](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/blob/master/100-SecureX_automation_lab/importing_workflows.md)
+* Step 10 : Import useful/relevant XDR/SecureX Workflows from the workflow lists ( [See an Example](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/blob/master/100-SecureX_automation_lab/importing_workflows.md)  )
 
 At this point You are ready to use SecureX services and Create New Service which doesn't exist.
 
