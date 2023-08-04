@@ -176,3 +176,4 @@ Have a look to the Cisco SecureX Validated Workflows.
 |[ Get New Blog Posts ]( https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/google-tag/0076-get-new-blog-posts )| Cisco Threat Response, Cisco Webex, Google Threat Analysis Group  |NO|
 |[ Get Observables from Tweets ]( https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/twitter/0077-get-observables-from-tweets )| Cisco Threat Response, Cisco Webex, Twitter  |NO|
 |[ Update Host Group with Microsoft Online IPs ]( https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/secure-network-analytics/0078-update-host-group-microsoft-online-ips )| Cisco Secure Network Analytics  |NO|
+|[ MISP Events to Cisco XDR Incident and Ticketing System ]( https://github.com/CiscoDevNet/MISP-SecureX-Orchestration-Workflows )| MSIP, SecureX/XDR feeds  |NO|
