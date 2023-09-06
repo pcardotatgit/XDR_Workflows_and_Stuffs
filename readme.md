@@ -13,8 +13,8 @@ Here are the minimum steps to go thru in order to start your SecureX tenant. And
 * Step 4 : Create and Customize your dashboards. Select tiles that are relevant for you. Gather them into one single vue that help you to go fast in the understanding of the situatuion.
 * Step 5 : Activate **Orchestration** Services. Click on the **orchestration** table and the click on the **start orchestration** button that is displayed in the middle of the screen.  Orchestration becomes available a few hours after.
 * Step 6 : In Orchestration : Create a **SecureX_Token**. It will be the most effecient way to use SecureX native Target ( [See instructions](https://ciscosecurity.github.io/sxo-05-security-workflows/account-keys/securex-token) ). **Notice** : not anymore needed since December 8 2022 thanks to the new **SecureX APIs** target which manages it's own token. 
-* Step 7 : Create an Alert / Info Webex Team Room . Webex Team is naturally a very good user interface for SecureX. And create a webex team bot as well which is the only way to create a permanent Webec Token. ([ See Instructions here ](https://github.com/pcardotatgit/Create_a_Webex_Team_Bot))
-* Step 8a : Then you can Customize the **Webex Teams - Post Message to Room** atomic workflow wich is "ready" to send Alert Messages to yout Webex Alert Room.
+* Step 7 : Create an Alert / Info Webex Room . Webex is naturally a very good user interface for SecureX. And create a Webex bot as well which is the only way to create a permanent Webec Token. ([ See Instructions here ](https://github.com/pcardotatgit/Create_a_Webex_Team_Bot))
+* Step 8a : Then you can Customize the **Webex Teams - Post Message to Room** atomic workflow which is "ready" to send Alert Messages to yout Webex Alert Room.
 * Step 8b : OR for pedagogical reasons, then learn about how to create from scratch a **send message to webex team** workflow ( [ See Instructions ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/1-Create_a_Webex_Team_Bot_Target))
 * Step 9 : Create the Cisco Git Repositories for atomic actions and workflows ( [ See Instructions ](https://ciscosecurity.github.io/sxo-05-security-workflows/configuration/))
 * Step 10 : Import useful/relevant XDR/SecureX Workflows from the workflow lists ( [See an Example](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/blob/master/100-SecureX_automation_lab/importing_workflows.md)  )
@@ -51,7 +51,7 @@ In this section you will find some information about how to create SecureX Targe
 
 These examples below cover differents Targets scenarios that will be common in production environments. And the goal is to show how we can create them step by step.
 
-* [Create step by step a Webex Team Bot Target - example of HTTP bearer token target ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/1-Create_a_Webex_Team_Bot_Target)
+* [Create step by step a Webex Bot Target - example of HTTP bearer token target ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/1-Create_a_Webex_Team_Bot_Target)
 * [Create step by step a Networking Device target - example of SSH target](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/2-Create_a_Networking_Device_Target)
 * [Create step by step a FTD Device target - example of Basic + Bearer token authentication (  Oauth )](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/3-Create_a_onbox_Managed_FTD_Target)
 * [Create step by step a Secure Endpoint Target - example of HTTP Basic authentication Target ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/4-Create_an_AMP_Target)
@@ -78,8 +78,8 @@ That means that in a lot of cases I show some stuff that are maybe not the best 
 
 The recommendation here is to do all the exercices here under one after the other in the proposed order.
 
-* 1 - [ Create a webex team bot ](https://github.com/pcardotatgit/Create_a_Webex_Team_Bot)
-* 2 - [ Create the SecureX Webex Team Target and Send messages to an alert Webex Team Room ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/1-Create_a_Webex_Team_Bot_Target)
+* 1 - [ Create a Webex bot ](https://github.com/pcardotatgit/Create_a_Webex_Team_Bot)
+* 2 - [ Create the SecureX Webex Target and Send messages to an alert Webex Room ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/1-Create_a_Webex_Team_Bot_Target)
 * 3 - [ Send a webex alert if temperature in Paris is less than 25° ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/9-JSON_Parsing_within_SecureX)
 * 4 - [ Secure End Point detect and alert - which host are infected by this malware ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/8-detect_and_alert_workflow_lab)
 * 5 - [Dashboard and tiles for current temperature in Paris](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/6-relay_modules_for_tiles)
@@ -92,7 +92,7 @@ The recommendation here is to do all the exercices here under one after the othe
     * 6f - [ Create a SecureX IP blocking list from TOR entry / exit IP address Blocking List](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Workflows/TOR_IP_blocking_list_to_SecureX_feeds) : the final workflow
     * 6g - [ The full python version of the all above workflows](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/13-Interact_with_CTIM/judgments)
 * 7 - [Query SecureX for dispositions of observables in security logs](https://github.com/pcardotatgit/check_observable_dispositions_in_CTR_from_an_observable_list)
-* 8 - [ Detect Threat and send an alert into webex Team, then from webex alert add bad IPs into SecureX Firewall Blocking feeds ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/100-SecureX_automation_lab)
+* 8 - [ Detect Threat and send an alert into Webex, then from webex alert add bad IPs into SecureX Firewall Blocking feeds ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/100-SecureX_automation_lab)
 
 ## Securex Workflow List from Cisco and others
 
@@ -116,7 +116,7 @@ SecureX APIs allow anyone to interact with SecureX Threat Hunting services. This
 - To learn more about **Cisco Threat Intell Model** secrets you can to go to the following [ DEVNET Learning Lab ](https://developer.cisco.com/learning/modules/security-securex-threat-response/), which will help you to understand the details of how the CTIM APÏs can be used into your Threat Hunting Activities.
 - And you will naturally want to intensively use CTIM APIs. Then the [ CTIM API documentation here ](https://github.com/threatgrid/ctim/blob/master/doc/tutorials/modeling-threat-intel-ctim.md) will be very usefull for you.
 
-The [ Detect Threat and send an alert into webex Team, then from webex alert add bad IPs into SecureX Firewall Blocking feeds ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/100-SecureX_automation_lab) lab gives an example of direct interaction with CTIM for creating Sigthings and Incidents within SecureX.
+The [ Detect Threat and send an alert into Webex, then from webex alert add bad IPs into SecureX Firewall Blocking feeds ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/100-SecureX_automation_lab) lab gives an example of direct interaction with CTIM for creating Sigthings and Incidents within SecureX.
 
 ## 3rd Party Integration Development
 
