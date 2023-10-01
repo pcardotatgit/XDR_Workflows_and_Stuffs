@@ -72,4 +72,4 @@ The Webex Team Card Designer is an online tool you can use to create your own We
 
 ## Learn more about Webex Team Cards
 
-Go to this link [ under construction ] if you want more information about how to work with Webex Team Cards.
+Go to this link [ buttons-and-cards ](https://developer.webex.com/docs/buttons-and-cards) if you want more information about how to work with Webex Team Cards.
