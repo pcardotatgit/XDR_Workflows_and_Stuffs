@@ -1,6 +1,5 @@
 ---
 title: XDR_ALERT_CARD_WITH_TARGETS_AND_OBSERVABLES_TO_WEBEX_ROOM
-purpose: Proof of concept of interaction with a network device
 integrated products: Webex
 ---
 
@@ -92,15 +91,3 @@ No output variables
 ## Integrated Products
 
 * Webex
-
-# Where to go Next
-
-Go to the next section 
-
-The all in one Use case 
-
-UNDER CONSTRUCTION
-
-Go back to the previous section 
-
-[webex_for_xdr_part-5_websocket](https://github.com/pcardotatgit/webex_for_xdr_part-5_websocket)
