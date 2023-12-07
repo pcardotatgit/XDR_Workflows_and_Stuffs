@@ -110,7 +110,7 @@ The recommendation here is to do all the exercices here under one after the othe
 I wrote the tool below because I needed to quickly check some of my workflows, for cleaning them and document them. What is better than a visualization tool for this ?
 
 * [XDR workflow JSON parser](https://github.com/pcardotatgit/SecureX_Workflow_JSON_Tree_viewer)
-* [SecureX Workflow Analyser](https://ciscosecurity.github.io/sxo-05-security-workflows/analyzer)
+* [Workflow Analyser](https://ciscosecurity.github.io/sxo-05-security-workflows/analyzer)
 
 ## Cisco Threat Intelligence Model ( CTIM )
 
