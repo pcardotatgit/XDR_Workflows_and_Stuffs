@@ -73,7 +73,7 @@ In this section some usefull tutorials.
 
 * [JSON Parsing ( Thru workflow and thru python )](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/9-JSON_Parsing_within_SecureX)
 
-## Use Cases for learning about SecureX Orchestration
+## Use Cases for learning about Orchestration
 
 In this section you will find some use cases documented step by step. The goal is not workflows themselves but the goal is to show how to create them.
 
@@ -82,24 +82,24 @@ That means that in a lot of cases I show some stuff that are maybe not the best 
 The recommendation here is to do all the exercices here under one after the other in the proposed order.
 
 * 1 - [ Create a Webex bot ](https://github.com/pcardotatgit/Create_a_Webex_Team_Bot)
-* 2 - [ Create the SecureX Webex Target and Send messages to an alert Webex Room ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/1-Create_a_Webex_Team_Bot_Target)
+* 2 - [ Create the Webex Target and Send messages to an alert Webex Room ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/1-Create_a_Webex_Team_Bot_Target)
 * 3 - [ Send a webex alert if temperature in Paris is less than 25° ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/9-JSON_Parsing_within_SecureX)
 * 4 - [ Secure End Point detect and alert - which host are infected by this malware ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/8-detect_and_alert_workflow_lab)
 * 5 - [Dashboard and tiles for current temperature in Paris](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/6-relay_modules_for_tiles)
 * 6 - Manage SecureX Blocking Lists ( SecureX Feeds )
-    * 6a - [Create Public Feeds in SecureX for Cisco Secure Firewalls ( SI, CTID, Network Objects, Dynamic Objects )](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/12-create_securex_blocking_lists_for_firewalls) workflow
-    * 6b - [Manage SecureX Authentication token requests](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Atomics/CTR_Generate_Access_Token) workflow
+    * 6a - [Create Public Feeds in XDR for Cisco Secure Firewalls ( SI, CTID, Network Objects, Dynamic Objects )](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/12-create_securex_blocking_lists_for_firewalls) workflow
+    * 6b - [Manage Threate Response Authentication token requests](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Atomics/CTR_Generate_Access_Token) workflow
     * 6c - [Get all judgments in private intell filtered by source](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Workflows/get_all_judgments_in_private_intell_filtered_by_source) workflow
     * 6d - [Add_an_Observable_into_Judgments_and_feeds](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Atomics/Add_an_Observable_into_Judgments_and_feeds) workflow
     * 6e - [Update judgments in private intell](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Workflows/update_judgments_in_private_intell) workflow
-    * 6f - [ Create a SecureX IP blocking list from TOR entry / exit IP address Blocking List](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Workflows/TOR_IP_blocking_list_to_SecureX_feeds) : the final workflow
+    * 6f - [ Create an XDR IP blocking list from TOR entry / exit IP address Blocking List](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Workflows/TOR_IP_blocking_list_to_SecureX_feeds) : the final workflow
     * 6g - [ The full python version of the all above workflows](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/13-Interact_with_CTIM/judgments)
-* 7 - [Query SecureX for dispositions of observables in security logs](https://github.com/pcardotatgit/check_observable_dispositions_in_CTR_from_an_observable_list)
-* 8 - [ Detect Threat and send an alert into Webex, then from webex alert add bad IPs into SecureX Firewall Blocking feeds ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/100-SecureX_automation_lab)
+* 7 - [Query XDR for dispositions of observables in security logs](https://github.com/pcardotatgit/check_observable_dispositions_in_CTR_from_an_observable_list)
+* 8 - [ Detect Threat and send an alert into Webex, then from webex alert add bad IPs into XDR Firewall Blocking feeds ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/100-SecureX_automation_lab)
 
-## Securex Workflow List from Cisco and others
+## XDR/Securex Workflow List from Cisco and others
 
-* [SecureX Workflows List](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/99-SecureX_Workflow_list) ( updated May 7 2023 )
+* [XDR Workflows List](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/99-SecureX_Workflow_list) ( updated May 7 2023 )
 
 ## My Workflows in this github repo
 
@@ -109,25 +109,25 @@ The recommendation here is to do all the exercices here under one after the othe
 
 I wrote the tool below because I needed to quickly check some of my workflows, for cleaning them and document them. What is better than a visualization tool for this ?
 
-* [SecureX JSON workflow parser](https://github.com/pcardotatgit/SecureX_Workflow_JSON_Tree_viewer)
+* [XDR workflow JSON parser](https://github.com/pcardotatgit/SecureX_Workflow_JSON_Tree_viewer)
 * [SecureX Workflow Analyser](https://ciscosecurity.github.io/sxo-05-security-workflows/analyzer)
 
 ## Cisco Threat Intelligence Model ( CTIM )
 
-SecureX APIs allow anyone to interact with SecureX Threat Hunting services. This is what makes SecureX a very powerful solution to have into any SOC. 
+XDR APIs allow anyone to interact with XDR Threat Hunting services. This is what makes XDR a very powerful solution to have into any SOC. 
 
 - To learn more about **Cisco Threat Intell Model** secrets you can to go to the following [ DEVNET Learning Lab ](https://developer.cisco.com/learning/modules/security-securex-threat-response/), which will help you to understand the details of how the CTIM APÏs can be used into your Threat Hunting Activities.
 - And you will naturally want to intensively use CTIM APIs. Then the [ CTIM API documentation here ](https://github.com/threatgrid/ctim/blob/master/doc/tutorials/modeling-threat-intel-ctim.md) will be very usefull for you.
 
-The [ Detect Threat and send an alert into Webex, then from webex alert add bad IPs into SecureX Firewall Blocking feeds ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/100-SecureX_automation_lab) lab gives an example of direct interaction with CTIM for creating Sigthings and Incidents within SecureX.
+The [ Detect Threat and send an alert into Webex, then from webex alert add bad IPs into XDR Firewall Blocking feeds ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/100-SecureX_automation_lab) lab gives an example of direct interaction with CTIM for creating Sigthings and Incidents within SecureX.
 
 ## 3rd Party Integration Development
 
 This specific topic is the most passioning SecureX topic. But this is the more complex topic for Security Automation Designers.
 
-This topic shows the power of the SecureX Platform.
+This topic shows the power of the XDR Platform.
 
-For integrating an IT solution within SecureX you need to develop what we call a Relay Module. A Relay Module is basically a REST Web Server that will receive REST call from SecureX and that will translate and relay these calls to the 3rd party solution.  This Relay Module will have to receive replies from the 3rd party solution and will have to translate them into valid SecureX JSON answers.
+For integrating an IT solution within XDR you need to develop what we call a Relay Module. A Relay Module is basically a REST Web Server that will receive REST call from XDR and that will translate and relay these calls to the 3rd party solution.  This Relay Module will have to receive replies from the 3rd party solution and will have to translate them into valid SecureX JSON answers.
 
 This component can be developed in any programming language that is able to expose APIs to secureX and that is able to interact with 3rd party solution.
 
@@ -152,6 +152,6 @@ We created some dedicated DEVNET learning labs :
 - [SecureX Integrations](https://developer.cisco.com/learning/modules/security-securex-integrations/)
 - [SecureX Serverless Relay Modules](https://developer.cisco.com/learning/modules/securex-serverless-relay-modules/)
 
-We have more advanced content on this part ( workshop and code ) on this part. Dedicated to teams who will actively develop SecureX Integratations for production.
+We have more advanced content on this part ( workshop and code ) on this part. Dedicated to teams who will actively develop XDR Integratations for production.
 
 - For those who know me, I will be happy to share this content with you. Ping me 
