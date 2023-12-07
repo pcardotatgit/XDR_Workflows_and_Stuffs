@@ -1,25 +1,26 @@
-# SecureX Workflows and Tutos
+# XDR Tutorials
 
-This repository intends to gather some SecureX tutorials that help on Workflow and Integration Modules creation.
+This repository intends to gather some XDR/SecureX tutorials that help on Workflow and Integration Modules creation.
+As the Threat Response part within XDR is an evolution of SecureX, almost all this content is still valid for both platforms
 
-## Start Your SecureX tenant - some "recommended or mandatory steps"
+## Start Your tenant - some "recommended or mandatory steps"
 
-Here are the minimum steps to go thru in order to start your SecureX tenant. And be ready to use SecureX Advanced Services :
+Here are some minimum steps to go thru in order to start your XDR tenant. :
 
-* Step 1 : Create your SecureX Account [sign up to SecureX](https://security.cisco.com/).
+* Step 1 : Start you XDR tenant. Follow the instruction that had been mailed to you when it was spinned up. Regarding SecureX, it is not anymore possible to create a SecureX Tenant. What currently happens is that SecureX owners are switching to XDR.
 
-* Step 2 : Integrate your Cisco Security Solution (Umbrella or Secure Endpoint or any other one). Several videos are available on Youtube. And We published online SecureX Trainings at [Learnsecurex](https://learnsecurex.cisco.com/ ) which show that.
-* Step 3 : Activate Useful/relevant free integrations. Have a look to [Adding 10 Free Threat Intelligence Sources to SecureX in Under 3 Minutes!](https://www.youtube.com/watch?v=7nCRMHo4_9Q&list=PLmuBTVjNfV0dlZ_DYgNiZ7SBlWVB0ae33&index=6). These integrations increase SecureX Enrichment accuracy.
+* Step 2 : Integrate your Cisco Security Solution (Umbrella or Secure Endpoint or any other one). Several videos are available on Youtube. And We published online SecureX Trainings at [Learnsecurex](https://learnsecurex.cisco.com/ ) which show that. If you don't have any Cisco product to integrate, then it is worthit to ask for a Secure Endpoint evaluation and an Umbrella evaluation. These 2 solutions are awesome solution to use to quickly dig into XDR advanced knowledge thru realistic Attack Scenarios
+* Step 3 : Activate Useful/relevant free integrations. Have a look to [Adding 10 Free Threat Intelligence Sources to SecureX in Under 3 Minutes!](https://www.youtube.com/watch?v=7nCRMHo4_9Q&list=PLmuBTVjNfV0dlZ_DYgNiZ7SBlWVB0ae33&index=6). These integrations are really not mandatory. But they are nice to have.
 * Step 4 : Create and Customize your dashboards. Select tiles that are relevant for you. Gather them into one single vue that help you to go fast in the understanding of the situatuion.
-* Step 5 : Activate **Orchestration** Services. Click on the **orchestration** table and the click on the **start orchestration** button that is displayed in the middle of the screen.  Orchestration becomes available a few hours after.
-* Step 6 : In Orchestration : Create a **SecureX_Token**. It will be the most effecient way to use SecureX native Target ( [See instructions](https://ciscosecurity.github.io/sxo-05-security-workflows/account-keys/securex-token) ). **Notice** : not anymore needed since December 8 2022 thanks to the new **SecureX APIs** target which manages it's own token. 
-* Step 7 : Create an Alert / Info Webex Room . Webex is naturally a very good user interface for SecureX. And create a Webex bot as well which is the only way to create a permanent Webec Token. ([ See Instructions here ](https://github.com/pcardotatgit/Create_a_Webex_Team_Bot))
+* Step 5 : Check that **XDR Orchestration** Services are available. Click on the **automation** selection in the left menu panel and check that you can see the default workflow library.
+* Step 6 : In Orchestration : Create a **SecureX_Token**. It will be the most effecient way to use SecureX native Target ( [See instructions](https://ciscosecurity.github.io/sxo-05-security-workflows/account-keys/securex-token) ). **Notice** : not anymore needed since December 8 2022 thanks to the new **SecureX APIs** target which manages it's own token. This action is normaly not needed for XDR but it can help for compatibility of workflows that had been created in SecureX.
+* Step 7 : Create an Alert / Info Webex Room . Webex is naturally an very good user interface for XDR. And for the same reason create a Webex bot is highly recommended. A lot of Security Automation use case can be based on Webex Bots. ([ See Instructions here ](https://github.com/pcardotatgit/Create_a_Webex_Team_Bot))
 * Step 8a : Then you can Customize the **Webex Teams - Post Message to Room** atomic workflow which is "ready" to send Alert Messages to yout Webex Alert Room.
 * Step 8b : OR for pedagogical reasons, then learn about how to create from scratch a **send message to webex team** workflow ( [ See Instructions ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/1-Create_a_Webex_Team_Bot_Target))
-* Step 9 : Create the Cisco Git Repositories for atomic actions and workflows ( [ See Instructions ](https://ciscosecurity.github.io/sxo-05-security-workflows/configuration/))
+* Step 9 : In **orchestration** check that you can import workflows from the Cisco Git Repositories for atomic actions and workflows 
 * Step 10 : Import useful/relevant XDR/SecureX Workflows from the workflow lists ( [See an Example](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/blob/master/100-SecureX_automation_lab/importing_workflows.md)  )
 
-At this point You are ready to use SecureX services and Create New Service which doesn't exist.
+At this point You are ready to use XDR services and Create New Service which doesn't exist.
 
 ## SecureX Token
 
