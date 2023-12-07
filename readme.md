@@ -64,14 +64,14 @@ These examples below cover differents Targets scenarios that will be common in p
 
 In this section you will find some tutorials dedicated to triggers which can Start SecureX workflows.
 
-* [Trigger your workflows from the pivot menu](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/5-Trigger_your_workflow_from_the_ribbon)
+* [Trigger your workflows from the pivot menu ( SecureX only )](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/5-Trigger_your_workflow_from_the_ribbon)
 * [Trigger your workflows from Webhooks](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/10-trigger_your_workflow_with_webhooks)
 
 ## Miscelaneous 
 
 In this section some usefull tutorials.
 
-* [JSON Parsing ( secureX and python )](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/9-JSON_Parsing_within_SecureX)
+* [JSON Parsing ( Thru workflow and thru python )](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/9-JSON_Parsing_within_SecureX)
 
 ## Use Cases for learning about SecureX Orchestration
 
