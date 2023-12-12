@@ -44,7 +44,7 @@ In this lab you will learn
 - Relationships
 - How to trigger a workflow from an incident
 - How to create an alert webex bot
-- How to send Webex Alert Adaptative cards
+- How to send Webex Alert adaptive cards
 - How to trigger a webhook and how to send data to a workflow from a script
 
 Not only that, you will learn as well how to use python flask as simulators that will completly simulate behaviors of all devices involved in this demo. Then you will not need to install any machines. You will just have to use the simulator.
@@ -186,7 +186,7 @@ Webex can be as well an alert system and due to bot automation we can attach to 
 
 The goal of this section is to link you to some tutorials that introduce you Webex Bot programming and Webex Adaptive card
 
-Part 1 :
+**Part 1 :**
 
 Let's start with something basic. In order to avoid to send basic text alerts to Security Operators we can us markdown formatting to create our our alert. This is actually what we do in the **SecureX alert Workflow** example above.
 
@@ -201,13 +201,29 @@ To sumarize this first part. If you look for simplicity and speed to put an Aler
 
 Learn more about markdown formatting and webex team cards here : [ How do we manage Webex Alert Messages ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/blob/master/100-SecureX_automation_lab/webex_team_alert_message.md)
 
-Part 2 :
+**Part 2 :**
 
 If your goal is to create some kind of advanced alerting system, which presents advanced interactive alerts or GUI for Security Operator.
+if your goal is to create XDR based Security Applications for Mobile Phones, then you must study Webex Bots and Adaptive Cards.
 
-In other words if your goal is to create XDR based Security Application for Mobile Phones, then you must learn about Webex Bots and Adaptative Cards
+Webex Cards are much more nice than markdown messages. They act exactly like web pages and actually behave the same.
 
-Learn about Webex Bots and Adaptative Cards : [Webex Bot for XDR - part ](https://github.com/pcardotatgit/webex_for_xdr_part-1_card_examples)
+They offer the capability to create web formulars with complexe behaviors. With colorisation, images, select boxes, check boxes and other nice components dedicated to interactivity with users.
+
+![](assets/img/14.png)
+
+Interactive Webex cards are very powerful, but they require "complex" bot logic behind which is needed to handle actions and selections user does in formulars.
+
+Our simulator is a perfect place to put this "complex" bot logic.
+
+Here are some good Webex Adaptive Cards resources to bookmark.
+
+- [Webex Team Card Designer ](https://developer.webex.com/buttons-and-cards-designer).
+- [PyAdaptiveCards](https://developer.cisco.com/codeexchange/github/repo/CiscoSE/pyadaptivecards)
+
+The **Webex Team Card Designer** is an online tool you can use to create your own Webex team card. The result is a JSON payload you have to pass into the **attachments** key within the POST REST call you send to Webex.
+
+**Learn about Webex Bots and adaptive Cards** : [Webex Bot for XDR - part 1](https://github.com/pcardotatgit/webex_for_xdr_part-1_card_examples)
 
 This current project includes the websocket Webex bot and associated Alert adaptive card presented in the above tutorials.  
 
