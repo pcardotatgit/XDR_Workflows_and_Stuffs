@@ -148,6 +148,8 @@ If you participate to a CTF. Find the answers to questions !.
 
 ## If you use a SecureX Tenant
 
+You can skip this part if you use an XDR tenant.
+
 13. If the previous workflow worked, and **if you use a SecureX tenant**, then import the second workflow. For this, go to **Automate => Workflows** and import the **Check Incidents every 5 minutes.json** workflow. Ignore any errors received during import. Don't stop the operation, but move forward ... you will fix the errors later. If you don't have created the SecureX_Token you will be asked to validate it's creation.
 
 14. Check the SecureX **Private_CTIA_Target** . This one must use a host fqdn that match to your region ( ex : **private.intel.eu.amp.cisco.com** ) and this target must use the **SecureX_Token** you created at the begining of this lab.
@@ -174,7 +176,9 @@ Instead of monitoring every 5 minutes if we have new Incidents within XDR like w
 **UNDER CONSTRUCTION...**
 **UNDER CONSTRUCTION...**
 
-## Webex Bot and Webex Adaptive cards
+### CONGRATULATION !! you are ready for the last part of this lab : Demo Part 3 - Add Malicious ip addresses into SecureX blocking feeds.
+
+## learn about Webex Bot and Webex Adaptive cards 
 
 Webex is a great integration for XDR, that gives to XDR a nice and very efficient user interface. 
 
@@ -205,7 +209,7 @@ In other words if your goal is to create XDR based Security Application for Mobi
 
 Learn about Webex Bots and Adaptative Cards : [Webex Bot for XDR - part ](https://github.com/pcardotatgit/webex_for_xdr_part-1_card_examples)
 
-This current project includes the websocket Webex bot and associated Alert adaptive card presented in the above tutorials. 
+This current project includes the websocket Webex bot and associated Alert adaptive card presented in the above tutorials.  
 
 ## Demo Part 3 - Add Malicious ip addresses into SecureX blocking feeds.
 
