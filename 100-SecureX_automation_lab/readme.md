@@ -98,7 +98,7 @@ You are supposed to have no incidents named **PVT Endpoint Infection Demo**.
 
 Okay...  Now let's attack the victim Web Server.
 
-Open your browser to  **http[:]//localhost:4000** and click on the hacker icon.  This opens web page which displays the Victim Web Server login formular seen from the hacker perspective. This will be where the hacker will launch the attack. And type any thing into one of the fields.  Actually if you are in demo, in order to to something more realistic then you can go to the [Cisco Talos Blog Post](https://blog.talosintelligence.com/apache-log4j-rce-vulnerability/) and scroll down until the **Emerging obfuscations ** paragrah which contains Log4J XSS partern examples in a table. Copy anyone of them and paste it into the username edit box of the web formular. 
+Open your browser to  **http[:]//localhost:4000** and click on the hacker icon.  This opens web page which displays the Victim Web Server login formular seen from the hacker perspective. This will be where the hacker will launch the attack. And type any thing into one of the fields.  Actually if you are in demo, in order to to something more realistic then you can go to the [Cisco Talos Blog Post](https://blog.talosintelligence.com/apache-log4j-rce-vulnerability/) and scroll down until the **Emerging obfuscations** paragrah which contains Log4J XSS partern examples in a table. Copy anyone of them and paste it into the username edit box of the web formular. 
 
 ![](assets/img/4b.png)
 
