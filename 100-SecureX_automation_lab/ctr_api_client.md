@@ -21,7 +21,7 @@ Step 4 - Copy and save somewhere the **client-ID** and **client-Password**. This
 
 That's it !!
 
-## Create a Threat Response API client in SecureX
+## Create a Threat Response API client in Cisco XDR
 
 Step 1 : from the SecureX main page, click on the question **Administration** link on the top menu.
 
