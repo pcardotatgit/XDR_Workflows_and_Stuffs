@@ -73,7 +73,6 @@ In this lab you need the following components :
     
 5.**Notice** DCLOUD instant demos are located in the US.  
 6. This operation actually update a file name **config.py** located into the code root directory. You can edit it manually if you prefer.
-
 7.**Important Notice ! : Flask requires you to stop and restart the simulator in order to make changes to be taken into account**.
 8. Now go to the your Cisco XDR tenant Web GUI, and go to **Automate** for XDR ( or **Orchestration** for SecureX ). Then Create a **SecureX_Token** named **CTR_SecureX_Token** [ See Instructions here ](https://ciscosecurity.github.io/sxo-05-security-workflows/account-keys/securex-token). Or you can use the one you may have already created into your SecureX Tenant. In a few words, for creating it, open the **Orchestration** table then on the left panel go to **Account Keys** . Click on the **New Account Key** button and create a new account key named **CTR_SecureX_Token** with the **SecureX_Token** Account key type.  OR check that a SecureX token already exist and use this one in the next steps.
 9. Start the simulator if not done. Your browser should automatically open on **http[:]//localhost:4000**. And the lab topology must appear.
