@@ -133,19 +133,23 @@ If you participate to a CTF. Find the answers to questions !.
 4. From the Lab Portal Web Page click on the **Check Alert Room** button, you are supposed to receive a message into the Alert Webex Room. Or You can run the **u1_test_webex_room.py** script in the **code** folder which does the same.
 
 5. We are going to use now the existing system **Webex Team** target in XDR/SecureX Tenant. Then we don't need to create any specific new target for interacting with webex.
-6. Next step, go to your XDR / SecureX web console and go to **Orchestration**. Then import the **Receive observables from a rest client.json** workflow available into the resources you downloaded into your working directory (**/secureX_workflows** folder).  From the Orchestration main page, click on the **Import Workflow** link on the top right. Browse your disk, select the workflow and import it.
+6. Next step, go to your XDR web console and go to **Automate => Workflows**. Then import the **Receive observables from a rest client.json** workflow available into the resources you downloaded into your working directory (**/secureX_workflows** folder).  From the **Automate** main page, click on the **Import Workflow** link on the top right. Browse your disk, select the workflow and import it.
 7. Normaly this import operation automatically creates a new webhook ( **PVT_Demo_Webhook** ). Check that the webhook exists.
 8. **If the webhook is not created**. 
-    - In SecureX Orchestration go to the admin panel on the left,then select Create a webhook **Events & Webhook** at the bottom, then create an event named **PVT_Demo_Webhook** and create within it a webhook named **Webhook_trigger**. Once done copy it's **webhook url**
+    - In **Automate => Triggers** go to the admin panel on the left,then select Create a webhook **Events & Webhook** at the bottom, then create an event named **PVT_Demo_Webhook** and create within it a webhook named **Webhook_trigger**. Once done copy it's **webhook url**
     - ( [More information on Webhooks](https://ciscosecurity.github.io/sxo-05-security-workflows/webhooks) )   
     - In the Workflow editor, edit the **Receive observables from a rest client** workflow and assign to it the webhook you created above. Go to the trigger section of the workflow properties panel on the right, then click on the **+ Add Trigger** link, select your Webhook trigger and save
 ![](assets/img/26.png)    
 9. **BUT : If the webhook is created** as expected, copy its **webhook_url**. For this you have to go to **Events & Webhooks**, and then select the **Webhooks** table and display the **PVT_Demo_Webhook** Details. The webhook url is at the bottom of the popup window. 
 10. Then Update the Settings into the Lap Portal Web page. Update the **Webhook URL** field, save and restart the Flask Application !! (  Or edit the **config.py** file and update the **SecureX_Webhook_url** variable. )
-11. **You are now Ready for some tests**.  You can test your setup with the **u2_test_webhook.py** file. You just have to run it from a terminal console openned into the **./code** folder ( with venv activated of course). And when you run this script, then you are supposed to see a message arriving into your alert webex team room. This script send a webhook to the SecureX workflow and the workflow is supposed to send a message to the Webex Team room.
+11. **You are now Ready for some tests**.  You can test your setup with the **u2_test_webhook.py** file. You just have to run it from a terminal console openned into the **./code** folder ( with venv activated of course). And when you run this script, then you are supposed to see a message arriving into your alert webex team room. This script sends a webhook to the XDR/SecureX workflow and the workflow is supposed to send a message to the Alert Webex room.
 ![](assets/img/2.png)
-12. If you received the success message, Congratulation ! you are ready to trigger workflows, and you can move forward. if You didn't receive the message, then In **SecureX Orchestration** edit the **Receive observables from a rest client** workflow and click on the **View Runs** button on the top right. You will be able to see the last run, check that the workflow was triggered and see which workflow activity failed.
-13. If the previous workflow worked, then import the second workflow. For this, go to Orchestration and import the **Check Incidents every 5 minutes.json** workflow. Ignore any errors received during import. Don't stop the operation, but move forward ... you will fix the errors later. If you don't have created the SecureX_Token you will be asked to validate it's creation.
+12. If you received the success message, Congratulation ! you are ready to trigger workflows, and you can move forward. if You didn't receive the message, then In **Automate => Workflows** edit the **Receive observables from a rest client** workflow and click on the **View Runs** button on the top right. You will be able to see the last run, check that the workflow was triggered and see which workflow activity failed.
+
+## If you use a SecureX Tenant
+
+13. If the previous workflow worked, and **if you use a SecureX tenant**, then import the second workflow. For this, go to **Automate => Workflows** and import the **Check Incidents every 5 minutes.json** workflow. Ignore any errors received during import. Don't stop the operation, but move forward ... you will fix the errors later. If you don't have created the SecureX_Token you will be asked to validate it's creation.
+
 14. Check the SecureX **Private_CTIA_Target** . This one must use a host fqdn that match to your region ( ex : **private.intel.eu.amp.cisco.com** ) and this target must use the **SecureX_Token** you created at the begining of this lab.
 ![](assets/img/27.png)
 15. Now Run the **Check Incidents every 5 minutes** workflow. You will be asked to enter the **webex_bot_token** and the **webex_room_id**.
@@ -159,9 +163,49 @@ The expected result is the following an Alert formatted message into your alert 
 
 **TROUBLESHOOTING** : The workflow might fail due to the fact it was not able to retreive incidents we created. This specifically happens when you use the DCLOUD.  If this happens, to be able to move forward run the **u3_send_alert_to_webex_room.py** script from a terminal console. This will simulate what the workflow is supposed to do. 
 
-### CONGRATULATION !! you are ready for the last part of this lab.
+### CONGRATULATION !! you are ready for the last part of this lab : Demo Part 3 - Add Malicious ip addresses into SecureX blocking feeds.
 
-Webex Team is a great integration, that gives to XDR / SecureX a very efficient user interfaces. Learn more about markdown formatting and webex team cards here : [ How do we manage Webex Alert Messages ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/blob/master/100-SecureX_automation_lab/webex_team_alert_message.md)
+## If you use an XDR Tenant 
+
+One key workflow improvment in XDR compared to SecureX is the capability to trigger a workflow from an Incident. We are going to leverage this capability. 
+
+Instead of monitoring every 5 minutes if we have new Incidents within XDR like we documented into the previous paragraph, we are going to trigger our alert workflows when a Secure Endpoint Incident will appear.
+
+**UNDER CONSTRUCTION...**
+**UNDER CONSTRUCTION...**
+
+## Webex Bot and Webex Adaptive cards
+
+Webex is a great integration for XDR, that gives to XDR a nice and very efficient user interface. 
+
+Webex can be as well an alert system and due to bot automation we can attach to webex, we can create complex Security Application that leverage Webex and XDR. One of the big benefits is that Security Operators can have thank to Webex Bot and XDR Application in their phones.
+
+The goal of this section is to link you to some tutorials that introduce you Webex Bot programming and Webex Adaptive card
+
+Part 1 :
+
+Let's start with something basic. In order to avoid to send basic text alerts to Security Operators we can us markdown formatting to create our our alert. This is actually what we do in the **SecureX alert Workflow** example above.
+
+The first benefits of this is that this is very simple. And cherry on the cake we include clickable links like we did in the **SecureX alert Workflow** example above. Which gives efficient interactivity with the formular.  Conterpart is that we have to manage the dynamic url link creation. And we have to manage the Web Server location and Logic of the bot logic attached to this system. Our simulator manages this part.
+
+Second cherry on the cake is that we can send to the room nice adaptive cards. Which is perfect for Alerts or Information purposes. 
+
+But unfortunately adpative cards with edit fields or selection fields can't be handled by anyother webex room than the Webex Bot Room it self.
+Only the Webex Webhook attached to the bot can recieve and compute choices selected into a Webex formular.
+
+To sumarize this first part. If you look for simplicity and speed to put an Alert System in production. Then Markdown messages or information ( only ) adatpive cards are the best choice.
+
+Learn more about markdown formatting and webex team cards here : [ How do we manage Webex Alert Messages ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/blob/master/100-SecureX_automation_lab/webex_team_alert_message.md)
+
+Part 2 :
+
+If your goal is to create some kind of advanced alerting system, which presents advanced interactive alerts or GUI for Security Operator.
+
+In other words if your goal is to create XDR based Security Application for Mobile Phones, then you must learn about Webex Bots and Adaptative Cards
+
+Learn about Webex Bots and Adaptative Cards : [Webex Bot for XDR - part ](https://github.com/pcardotatgit/webex_for_xdr_part-1_card_examples)
+
+This current project includes the websocket Webex bot and associated Alert adaptive card presented in the above tutorials. 
 
 ## Demo Part 3 - Add Malicious ip addresses into SecureX blocking feeds.
 
