@@ -73,8 +73,9 @@ In this lab you need the following components :
     
 4a.**Notice** DCLOUD instant demos are located in the US.  
 4b. This operation actually update a file name **config.py** located into the code root directory. You can edit it manually if you prefer.
+
 5.**Important Notice ! : Flask requires you to stop and restart the simulator in order to make changes to be taken into account**.
-6. Now go to the your Cisco XDR tenant Web GUI, and go to **Automate** for XDR ( or **Orchestration** for SecureX ). Then Create a SecureX Token named **CTR_SecureX_Token** [ See Instructions here ](https://ciscosecurity.github.io/sxo-05-security-workflows/account-keys/securex-token). Or you can use the one you may have already created into your SecureX Tenant. In a few words, for creating it, open the **Orchestration** table then on the left panel go to **Account Keys** . Click on the **New Account Key** button and create a new account key named **CTR_SecureX_Token** with the **SecureX_Token** Account key type.  OR check that a SecureX token already exist and use this one in the next steps.
+6. Now go to the your Cisco XDR tenant Web GUI, and go to **Automate** for XDR ( or **Orchestration** for SecureX ). Then Create a **SecureX_Token** named **CTR_SecureX_Token** [ See Instructions here ](https://ciscosecurity.github.io/sxo-05-security-workflows/account-keys/securex-token). Or you can use the one you may have already created into your SecureX Tenant. In a few words, for creating it, open the **Orchestration** table then on the left panel go to **Account Keys** . Click on the **New Account Key** button and create a new account key named **CTR_SecureX_Token** with the **SecureX_Token** Account key type.  OR check that a SecureX token already exist and use this one in the next steps.
 7. Start the simulator if not done. Your browser should automatically open on **http[:]//localhost:4000**. And the lab topology must appear.
 8. Check that communication between the Lab Simulator and your Cisco XDR/SecureX tenant is Ok. For doing so, click on the **Checks SecureX / Cisco XDR** button on the top left of the lab portal web page. 
 
