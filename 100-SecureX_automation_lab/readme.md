@@ -71,13 +71,13 @@ In this lab you need the following components :
     ![](assets/img/21.png)
 
     
-4a.**Notice** DCLOUD instant demos are located in the US.  
-4b. This operation actually update a file name **config.py** located into the code root directory. You can edit it manually if you prefer.
+5.**Notice** DCLOUD instant demos are located in the US.  
+6. This operation actually update a file name **config.py** located into the code root directory. You can edit it manually if you prefer.
 
-5.**Important Notice ! : Flask requires you to stop and restart the simulator in order to make changes to be taken into account**.
-6. Now go to the your Cisco XDR tenant Web GUI, and go to **Automate** for XDR ( or **Orchestration** for SecureX ). Then Create a **SecureX_Token** named **CTR_SecureX_Token** [ See Instructions here ](https://ciscosecurity.github.io/sxo-05-security-workflows/account-keys/securex-token). Or you can use the one you may have already created into your SecureX Tenant. In a few words, for creating it, open the **Orchestration** table then on the left panel go to **Account Keys** . Click on the **New Account Key** button and create a new account key named **CTR_SecureX_Token** with the **SecureX_Token** Account key type.  OR check that a SecureX token already exist and use this one in the next steps.
-7. Start the simulator if not done. Your browser should automatically open on **http[:]//localhost:4000**. And the lab topology must appear.
-8. Check that communication between the Lab Simulator and your Cisco XDR/SecureX tenant is Ok. For doing so, click on the **Checks SecureX / Cisco XDR** button on the top left of the lab portal web page. 
+7.**Important Notice ! : Flask requires you to stop and restart the simulator in order to make changes to be taken into account**.
+8. Now go to the your Cisco XDR tenant Web GUI, and go to **Automate** for XDR ( or **Orchestration** for SecureX ). Then Create a **SecureX_Token** named **CTR_SecureX_Token** [ See Instructions here ](https://ciscosecurity.github.io/sxo-05-security-workflows/account-keys/securex-token). Or you can use the one you may have already created into your SecureX Tenant. In a few words, for creating it, open the **Orchestration** table then on the left panel go to **Account Keys** . Click on the **New Account Key** button and create a new account key named **CTR_SecureX_Token** with the **SecureX_Token** Account key type.  OR check that a SecureX token already exist and use this one in the next steps.
+9. Start the simulator if not done. Your browser should automatically open on **http[:]//localhost:4000**. And the lab topology must appear.
+10. Check that communication between the Lab Simulator and your Cisco XDR/SecureX tenant is Ok. For doing so, click on the **Checks SecureX / Cisco XDR** button on the top left of the lab portal web page. 
 
     The expected result is the following :
 
@@ -87,7 +87,7 @@ In this lab you need the following components :
 
     FYI : this part is managed by the **@app.route('/check')** route in the **app.py** script. It asks for a token to SecureX/Cisco XDR and reads Incidents. If it succeed to do so then the success message appears.
 
-9. **At this point you are ready to run the first part of the demo ( the Detection and Alert part )**
+11. **At this point you are ready to run the first part of the demo ( the Detection and Alert part )**
 
 First log into your Cisco XDR / SecureX tenant and open the **incident manager** into the **SecureX Ribbon**... Have a look to the existing incidents.
 
