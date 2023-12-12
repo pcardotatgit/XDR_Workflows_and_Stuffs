@@ -128,3 +128,9 @@ Creating the feeds is the role of the following workflow :
 - **0015A-SecureFirewall-BlockObservable-Setup**
 
 You must import it and run it first.
+
+## Additional resources
+
+Don't hesitate tohave a look to this awesome DEVNET learning lab that digs into Incident creation and bundle details.
+
+[Create an Incident with Workflow for Cisco XDR](https://developer.cisco.com/learning/tracks/cisco-xdr/cisco-xdr-advanced/create-incident-with-workflow/introduction/)
