@@ -3,7 +3,7 @@
 
 The goal of this lab is to share with participants every details about how to build an automated threat detection and mitigation Cisco XDR / SecureX Demo.
 
-This scenario is a complete **Cisco XDR / SecureX demonstration**. This lab works on both XDR or SecureX tenants, we don't use into it XDR advanced features.
+This scenario is a complete **Cisco XDR / SecureX demo**. This lab works on both XDR or SecureX tenants, we don't use into it XDR advanced features.
 
 ## Automated Threat Detection and Mitigation scenario
 
@@ -42,6 +42,7 @@ In this lab you will learn
 - How to read Incidents and Sigthings
 - How to parse Incidents and Sigthings thanks to workflows
 - How to trigger a workflow from an incident
+- How to create an alert webex bot
 - How to send Webex Alert Adaptative cards
 - How to trigger a webhook and how to send data to a workflow from a script
 
@@ -57,21 +58,20 @@ In this lab you need the following components :
 - Threat Response API client ID and Client Password generated into your XDR
 - A Webex bot that will be used to send alert into an alert Webex Room
 - An Alert Webex Room which will be actually the Webex Bot room into which you will be in contact with the Alert webex bot
-- 
 
 ## Demo Part 1 - Detect the attack & Create Incident 
 
 1. Check your Cisco XDR or SecureX tenant. If you don't have a SecureX tenant you can use the DCLOUD **Cisco SecureX Orchestration v1 - Instant Demo** [Cisco DCLOUD labs](https://dcloud.cisco.com/) -- [See Instructions here](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/blob/master/100-SecureX_automation_lab/dcloud_lab.md)
 2. Once logged into your Cisco XDR/SecureX tenant, create a Threat Response API client with all scopes. For this, go the **Administration** then Select **API Clients** in the left panel and click on the **Generate API Client** button. Click on the **Select All** link in the **Scopes** Section and click on the **Add New Client** button.  Copy Threat Response **client ID** and **Client Password** and save them somewhere.[ See instructions here](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/blob/master/100-SecureX_automation_lab/ctr_api_client.md)
 3. Install the Lab Simulator into your laptop . [see Instructions here](https://github.com/pcardotatgit/lab_simulator-001). And **Start the lab Simulator**. The lab Portal web page should open.
-4. From the lab Portal web page click on the **Settings** button on the top left. Update the **ctr_client_id** and **ctr_client_password** variables with  CTR client ID and Client Password you got in step 2. Select Your Regions. At this point you can just save your changes. 
+4. From the lab Portal web page click on the **Settings** button on the top left. Update the **ctr_client_id** and **ctr_client_password** variables with  CTR client ID and Client Password you got in step 2. Select Your Regions. Save your changes **and stop and restart the simulator**
     ![](assets/img/21.png)
 4a.**Notice** DCLOUD instant demos are located in the US.  
 4b. This operation actually update a file name **config.py** located into the code root directory. You can edit it manually if you prefer.
 5.**Important Notice ! : Flask requires you to stop and restart the simulator in order to make changes to be taken into account**.
-6. Now go to the your SecureX/Cisco XDR tenant Web GUI, and go to Orchestration. Then Create a SecureX Token named **CTR_SecureX_Token** [ See Instructions here ](https://ciscosecurity.github.io/sxo-05-security-workflows/account-keys/securex-token). Or you can use the one you may have already created into your SecureX Tenant. In a few words, for creating it, open the **Orchestration** table then on the left panel go to **Account Keys** . Click on the **New Account Key** button and create a new account key named **CTR_SecureX_Token** with the **SecureX_Token** Account key type.  OR check that a SecureX token already exist and use this one in the next steps.
-7. Start the simulator if not done. Your browser should automatically open on **http://localhost:4000**. And the lab topology must appear.
-8. Check that communication between the Lab Simulator and your SecureX/Cisco XDR tenant is Ok. For doing this, click on the **Checks SecureX / Cisco XDR** button on the top left of the lab portal web page. 
+6. Now go to the your Cisco XDR tenant Web GUI, and go to **Automate** for XDR ( or **Orchestration** for SecureX ). Then Create a SecureX Token named **CTR_SecureX_Token** [ See Instructions here ](https://ciscosecurity.github.io/sxo-05-security-workflows/account-keys/securex-token). Or you can use the one you may have already created into your SecureX Tenant. In a few words, for creating it, open the **Orchestration** table then on the left panel go to **Account Keys** . Click on the **New Account Key** button and create a new account key named **CTR_SecureX_Token** with the **SecureX_Token** Account key type.  OR check that a SecureX token already exist and use this one in the next steps.
+7. Start the simulator if not done. Your browser should automatically open on **http[:]//localhost:4000**. And the lab topology must appear.
+8. Check that communication between the Lab Simulator and your Cisco XDR/SecureX tenant is Ok. For doing so, click on the **Checks SecureX / Cisco XDR** button on the top left of the lab portal web page. 
 
     The expected result is the following :
 
@@ -83,25 +83,25 @@ In this lab you need the following components :
 
 9. **At this point you are ready to run the first part of the demo ( the Detection and Alert part )**
 
-First log into your SecureX / Cisco XDR tenant and open the **incident manager** into the **SecureX Ribbon**... Have a look to the existing incidents.
+First log into your Cisco XDR / SecureX tenant and open the **incident manager** into the **SecureX Ribbon**... Have a look to the existing incidents.
 
 You are supposed to have no incidents named **PVT Endpoint Infection Demo**.
 
 ![](assets/img/5.png)
 
-Okay...  Now let's send an attack to the victim machine.
+Okay...  Now let's attack the victim Web Server.
 
-Open your browser to  **http://localhost:4000** and click on the hacker icon.  This opens an hacker console that is supposed to be used to send some shell commands to the victim. And type **hackthis** into the console.
+Open your browser to  **http[:]//localhost:4000** and click on the hacker icon.  This opens web page from the hacker perspective which exposes a login formular. This will be where the hacker will launch it's attack. And type any thing into one of the fields.  Actually if you are in demo, in order to to something more realistic then you can go to the [Cisco Talos Blog Post](https://blog.talosintelligence.com/apache-log4j-rce-vulnerability/) and scroll down until the log4J XSS partern examples, copy anyone of them and paste it into the username edit box of the web formular. 
 
 ![](assets/img/4b.png)
 
 After a few seconds you will see the attack process running into the victim machine.
 
-This actually a video that shows what happens into the victim machine. The reason of using a video is to ask to anyone to run real attacks with real hacking tools.  But the events in XDR / SecureX will be real !
+This actually a video that shows what happens into the victim machine. The reason of using a video is to not use a real attack which can be complex to setup an maybe dangerous. the goal is to show what happens without lauching a real attack. This is a simulation. But the events and Incident in XDR will be real !
 
 ![](assets/img/6.png)
 
-Now come back to the SecureX Ribbon. Then you can see now a new incident that was created by Secure Endpoint ( **PVT Endpoint Infection Demo** ).
+Now come back to the XDR Ribbon. Then you can see now a new incident that was created by Secure Endpoint ( **PVT Endpoint Infection Demo** ).
 
 ![](assets/img/7.png)
 
