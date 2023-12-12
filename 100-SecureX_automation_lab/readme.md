@@ -270,21 +270,21 @@ Then Import the two workflows  **CiscoSecurity_Workflows** mentionned above and 
 
 **Next Step** Go to the following instructions and once done come back here and move forward with next steps : 
 
-[ GO TO these Instructions for creating XDR/SecureX Feeds ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/12-create_securex_blocking_lists_for_firewalls)
+[ GO TO these Instructions for creating XDR blocking Feeds ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/12-create_securex_blocking_lists_for_firewalls)
 
-**Have you done previous step ?**
+**Have you completed the previous step ?**
 
 If the anwser is yes, then let's go the last step of this lab.
 
 **This last part is about using the 0015B-SecureFirewall-BlockObservable workflow in another parent workflow, as resource**
 
-We are going to include the **0015B-SecureFirewall-BlockObservable** workflow into the **Receive observables from a rest client** one. Thanks to this, when we will click on an observable in the Webex Alert Message, then we will add it to the XDR/SecureX blocking list.
+We are going to include the **0015B-SecureFirewall-BlockObservable** workflow into the **Receive observables from a rest client** one. Thanks to this, when we will select a malicious objects into the Webex Alert Message, then we will add them to the XDR blocking list.
 
-**Next Step**  In **Orchestration** Go to the workflow editor and edit the **Receive observables from a rest client** workflow.
+**Next Step**  In **Automate** Go to the workflow editor and edit the **Receive observables from a rest client** workflow.
 
 When you used it before, you probably have noticed the parallel block in the middle named **Replace this by an Update Judgment activity**.
 
-This activity skipped is by default . It is not runt.
+This activity is skipped by default . It is not runt.
 
 Replace this activity by the **0015B-SecureFirewall-BlockObservable** activity. 
 
@@ -304,7 +304,7 @@ Then click on it to select it and then go to it's properties right panel.
 
 ## You are ready for the final test !!
 
-Come back to the Alert Webex Team Room and then click on the Malicious IP address ( or anyother IP address ).
+Come back to the Alert Webex Team Room and then select one or more Malicious IP addresses.
 
 ![](assets/img/11.png)
 
@@ -316,7 +316,7 @@ Come back to the feed and refresh it.
 
 ![](assets/img/10.png)
 
-The IP address you clicked on in the Webex Team Message should now appear in the feed. Firewalls will be able to consume this feed and block this IP address.
+The IP addresses you selected in the Webex Alert should now appear in the feed. Then Firewalls will be able to consume this feed and block these new IP addresses.
 
 # CONGRATULATION !!! you completed the full demo !!!
 
@@ -325,7 +325,7 @@ The IP address you clicked on in the Webex Team Message should now appear in the
 Modify the **Check Incidents every 5 minutes.json** workflow to :
 
 - Use BOT Token ID and Webex Team RoomID you store as secret keys into XDR/SecureX tenant.
-- Schedule the workflow every 5 minutes ([See instructions](https://ciscosecurity.github.io/sxo-05-security-workflows/schedules/)).
+- If you use SecureX, then Schedule the workflow every 5 minutes ([See instructions](https://ciscosecurity.github.io/sxo-05-security-workflows/schedules/)).
 
 If you don't want to stop here, you can go the the Firewall part and make the feed automatically translated into Firewall Blocking rules.
 
@@ -337,9 +337,9 @@ Or you can replace or add into the last workflow an new activity that creates Dy
 
 You may have seen the **code** folder contains some additionnal python scripts.
 
-They are utililty scripts for doing maintenance and cleaning operations.
+They are utililty scripts for doing maintenance and cleaning operations within XDR.
 
-You can run these script into a terminal console opened into the **code** folder with venv activated.
+You can run these scripts into a terminal console opened into the **code** folder with venv activated.
 
 Here are the details of these scripts :
 
