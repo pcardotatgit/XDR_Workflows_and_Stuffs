@@ -13,7 +13,7 @@ Imagine a Web server vulnerable to log4J attacks. This vulnerability opens the d
 
 Meaning that an hacker connected to a vulnerable formular exposed by this web server ( login page for example ), can use one of the edit fields of the formular, to trigger execution of shell code on server's operating system.
 
-The log4j vulnerability for example, thanks to a very simple XSS attack on the web formular, can trigger the download on the victim web server, of a malicious script hosted somewhere on the INTERNET. And once the script is downloaded, the same patern sent to the formular can trigger the execution of the downloaded code into servers memory.
+For example, the log4j vulnerability allows an hacker, thanks to a very simple XSS attack on the web formular, to make the victim web server to download a malicious code hosted somewhere on the INTERNET. Malicious script that contents some executable code that will be runt into the server memory just after the download.
 
 For more information about this Threat you can have a look to the following [Cisco Talos Blog Post](https://blog.talosintelligence.com/apache-log4j-rce-vulnerability/). You will find in this article some examples of partners that can trigger what is describe above.
 
@@ -21,43 +21,43 @@ For more information about this Threat you can have a look to the following [Cis
 
 ### Here is the scenario details
 
-For this lab the victim machine is a web server which runs on windows protected by Secure Endpoint. A very vulnerable web server is installed into it. This is the origin of the vulnerability ( not the Operating System )
+For this lab the victim machine is voluntarily a web server which runs on windows protected by Secure Endpoint. A very vulnerable web server is installed into it. So root cause origin of the vulnerability is the Web Server and not the Operating System.
 
 The attacker is connected to a login page on the vulnerable web server.
 
 - **Step 1** : the hacker sends a log4j Attack patern into the web formular. This attack makes the Web server to download  a malicious piece of code that will be executed as shell commands by the Web Servers Operating System. This code is actually a powershell code that runs a version of a "mimikatz" attack into memory ( no copy on disk ). This is actually an fileless attack.
-- **Step 2** : Secure Endpoint is very efficient to detect this attack, and it blocks it instantly. At the same time, Secure Endpoint creates into Cisco XDR / SecureX, a fully documented Incident.
-- **Step 3** : Within Cisco XDR / SecureX  a workflow which runs every 5 minutes checks for new incidents into Cisco XDR / SecureX incident manager. For every new incidents since last poll, the worklow analyse their details and extract targets and malicious observables information from them. 
-- **Step 4** : For every incident with high severity, the workflow will send a meaningful alert to an alert Webex room. The goal is to alert the security operators about this attack attempt. And call them to instantly react.
-- **Step 5** : Thanks to clickable links into the webex Alert message , the security operators will be able to trigger an automation workflow which will add malicious observables into Cisco XDR / SecureX IP blocking feeds.
-- **Step 6** - Final step will be to deploy the blocking feeds into all company firewalls. This process is a completely automated process in Cisco Secure Firewall.  Once malicious observables are added to blocking feeds, then they are automatically deployed a few minutes later as blocking rules into Cisco Secure Firewalls.  **Security Intelligence** or the **Threat Intelligence Director** Secure Firewall features automatically manage this.
+- **Step 2** : Secure Endpoint detects and block instantly this attack. And in parallel At the same time, Secure Endpoint creates fully documented Incident into Cisco XDR.
+- **Step 3** : This incident triggers an XDR workflow which sends an alert to an alert webex room. This alert is a web formular from which the Security Operators that will receive it, will be able to select targeted machines and isolate them, and select malicious observables and block add them into the XDR IPV4 blocking feed.
+- **Step 4** : Security Operator select in the Webex Formular malicious ip addresses to block and click on the **block** button. This triggers a workflow that add all selected  ip addresses into the **XDR IPV4 blocking feed**.
+- **Step 5** : Security Operator select in the Webex Formular targeted machines to isolate. Then a workflow is triggered that isolate the selected machine into at least Secure Endpoint. And isolate it into Identity Service Engine if you have this into your lab
 
-So here is the scenario this demonstration aims to showcase.
 
 ## What will you learn in this lab ?
 
 In this lab you will learn 
 
-- How to create Incidents and Sightings into SecureX
-- How to create feeds
-- How to create judgments for observables and how to add them into XDR / SecureX Feeds
+- How to create Incidents and Sightings into XDR
+- How to create XDR blocking feeds
+- How to create judgments for observables and how to add them into XDR blocking Feeds
 - How to read Incidents and Sigthings
-- How to parse Incidents and Sigthings into automation workflows
-- How to send markdown formatted message to webex room and how to use Webex as a User Interface for XDR / SecureX
+- How to parse Incidents and Sigthings thanks to workflows
+- How to trigger a workflow from an incident
+- How to send Webex Alert Adaptative cards
 - How to trigger a webhook and how to send data to a workflow from a script
 
-Not only that, you will learn as well how to use python flask to simulators that will completly simulate behavior of all devices involved in this demo. Then you will not need to install any machines. You will just have to use the simulator.
+Not only that, you will learn as well how to use python flask as simulators that will completly simulate behaviors of all devices involved in this demo. Then you will not need to install any machines. You will just have to use the simulator.
  
 ## Lab components
 
 In this lab you need the following components :
 
-- A laptop with a python ( 3.7 + ) interperter installed into it
+- A laptop with a python ( 3.10 + ) interperter installed into it
 - The Lab simulator
-- A Cisco XDR or SecureX tenant  ( You can use DCLOUD )
-- Threat Response API client ID and Client Password generated into your XDR or SecureX tenant
-- A Webex Room that will be used a an Alert Webex Room
-- A Webex bot that will be used to send alert into the Webex Room
+- A Cisco XDR tenant
+- Threat Response API client ID and Client Password generated into your XDR
+- A Webex bot that will be used to send alert into an alert Webex Room
+- An Alert Webex Room which will be actually the Webex Bot room into which you will be in contact with the Alert webex bot
+- 
 
 ## Demo Part 1 - Detect the attack & Create Incident 
 
