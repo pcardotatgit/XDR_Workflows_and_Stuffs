@@ -26,10 +26,10 @@ For this lab the victim machine is voluntarily a web server which runs on window
 The attacker is connected to a login page on the vulnerable web server.
 
 - **Step 1** : the hacker sends a log4j Attack patern into the web formular. This attack makes the Web server to download  a malicious piece of code that will be executed as shell commands by the Web Servers Operating System. This code is actually a powershell code that runs a version of a "mimikatz" attack into memory ( no copy on disk ). This is actually an fileless attack.
-- **Step 2** : Secure Endpoint detects and block instantly this attack. And in parallel At the same time, Secure Endpoint creates fully documented Incident into Cisco XDR.
-- **Step 3** : This incident triggers an XDR workflow which sends an alert to an alert webex room. This alert is a web formular from which the Security Operators that will receive it, will be able to select targeted machines and isolate them, and select malicious observables and block add them into the XDR IPV4 blocking feed.
+- **Step 2** : Secure Endpoint detects and block instantly this attack. And at the same time, Secure Endpoint creates a fully documented Incident into Cisco XDR.
+- **Step 3** : This incident triggers an XDR workflow which sends an alert to an alert webex room. This alert is a web formular from which the Security Operators that will receive it, will be able to select targeted machines and isolate them, and select malicious observables and block them. The blocking action will be actually to add malicious IP addresses into the XDR IPV4 blocking feed. This feed is supposed to be consumed by company firewalls. Every IP addresses contained into this feed wil be denied by firewalls.
 - **Step 4** : Security Operator select in the Webex Formular malicious ip addresses to block and click on the **block** button. This triggers a workflow that add all selected  ip addresses into the **XDR IPV4 blocking feed**.
-- **Step 5** : Security Operator select in the Webex Formular targeted machines to isolate. Then a workflow is triggered that isolate the selected machine into at least Secure Endpoint. And isolate it into Identity Service Engine if you have this into your lab
+- **Step 5** : Security Operator select in the Webex Formular targeted machines to isolate and click on the **isolate** button. Then a workflow is triggered that isolate the selected machine. We isolate the targeted machines at least into Secure Endpoint. And we isolate them into Identity Service Engine if we have this into your lab
 
 
 ## What will you learn in this lab ?
@@ -41,6 +41,7 @@ In this lab you will learn
 - How to create judgments for observables and how to add them into XDR blocking Feeds
 - How to read Incidents and Sigthings
 - How to parse Incidents and Sigthings thanks to workflows
+- Relationships
 - How to trigger a workflow from an incident
 - How to create an alert webex bot
 - How to send Webex Alert Adaptative cards
@@ -65,7 +66,11 @@ In this lab you need the following components :
 2. Once logged into your Cisco XDR/SecureX tenant, create a Threat Response API client with all scopes. For this, go the **Administration** then Select **API Clients** in the left panel and click on the **Generate API Client** button. Click on the **Select All** link in the **Scopes** Section and click on the **Add New Client** button.  Copy Threat Response **client ID** and **Client Password** and save them somewhere.[ See instructions here](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/blob/master/100-SecureX_automation_lab/ctr_api_client.md)
 3. Install the Lab Simulator into your laptop . [see Instructions here](https://github.com/pcardotatgit/lab_simulator-001). And **Start the lab Simulator**. The lab Portal web page should open.
 4. From the lab Portal web page click on the **Settings** button on the top left. Update the **ctr_client_id** and **ctr_client_password** variables with  CTR client ID and Client Password you got in step 2. Select Your Regions. Save your changes **and stop and restart the simulator**
+
+
     ![](assets/img/21.png)
+
+    
 4a.**Notice** DCLOUD instant demos are located in the US.  
 4b. This operation actually update a file name **config.py** located into the code root directory. You can edit it manually if you prefer.
 5.**Important Notice ! : Flask requires you to stop and restart the simulator in order to make changes to be taken into account**.
