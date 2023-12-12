@@ -130,7 +130,7 @@ If you participate to a CTF. Find the answers to questions !.
 3. Use the Webex Bot room as an alert room. This is the choice we make.  Because this is the only way to handle selected data from the webex adaptive card formular. To use this option, then the only thing to do from your webex client, is to contact the bot and start a conversation with it. And every Security Operator who must receive the alerts have to do the same. That's it. Then all the rest will be managed by the simulator.
 3. Go to the lab portal web page and then go to **Settings**. Update the **webex_bot_token** and **Webex Room ID** variables.Or :  you can Edit the **config.py** script. **Warning ! ! Don't forget to restart flask !**
 
-4.From the Lab Portal Web Page click on the **Check Alert Room** button, you are supposed to receive a message into the Alert Webex Room. Or You can run the **u1_test_webex_room.py** script in the **code** folder which does the same.
+4. From the Lab Portal Web Page click on the **Check Alert Room** button, you are supposed to receive a message into the Alert Webex Room. Or You can run the **u1_test_webex_room.py** script in the **code** folder which does the same.
 
 5. We are going to use now the existing system **Webex Team** target in XDR/SecureX Tenant. Then we don't need to create any specific new target for interacting with webex.
 6. Next step, go to your XDR / SecureX web console and go to **Orchestration**. Then import the **Receive observables from a rest client.json** workflow available into the resources you downloaded into your working directory (**/secureX_workflows** folder).  From the Orchestration main page, click on the **Import Workflow** link on the top right. Browse your disk, select the workflow and import it.
