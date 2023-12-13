@@ -53,23 +53,4 @@ Have a look to the Webex Post Message activities of the **Receive observables fr
 
 ## Webex Team Cards
 
-Webex Team Cards are much more nice than markdown message. They act exactly like Web Pages and actually behave the same.
 
-They offer the capability to create web formulars with complexe behaviors. With colorisation, images, select boxes, check boxes and other nice components dedicated to interactivity with users.
-
-![](assets/img/14.png)
-
-Interactive Webex Team cards are very powerful, but they require "complex" bot logic needed to handle actions and selections user does in the formular.
-
-Once again, our simulator is a perfect place to put this "complex" bot logic. And to keep the lab simple I decided to not handle this part.
-
-Here are some awesome resources for working with Webex Team Cards :
-
-- [Webex Team Card Designer ](https://developer.webex.com/buttons-and-cards-designer)
-- [PyAdaptiveCards](https://developer.cisco.com/codeexchange/github/repo/CiscoSE/pyadaptivecards)
-
-The Webex Team Card Designer is an online tool you can use to create your own Webex team card. The result is a JSON payload you have to pass into the **attachments** key within the POST REST call you send to Webex.
-
-## Learn more about Webex Team Cards
-
-Go to this link [ buttons-and-cards ](https://developer.webex.com/docs/buttons-and-cards) if you want more information about how to work with Webex Team Cards.
