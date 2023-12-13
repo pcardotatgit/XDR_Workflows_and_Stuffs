@@ -129,6 +129,16 @@ Creating the feeds is the role of the following workflow :
 
 You must import it and run it first.
 
+## XDR and SecureX don't create incidents the same way !
+
+Incident managements principles are exactly the same for XDR and SecureX.  But XDR doesn't use the same APIs for creating **Incidents**.
+
+That means that everything described into this article is valid for both platform.  But **Incidents** APIs are differents.
+
+One main reason of that is that XDR take into account **asset priority** and not SecureX. A consequence of this is that the code for creating the Incident is not the same.
+
+This is why we have 2 separated version of the lab simulator. **lab_simulator-001** is dedicated to SecureX demos, and **lab_simulator-002** is dedicated to XDR demos.
+
 ## Additional resources
 
 Don't hesitate to have a look to this awesome DEVNET learning lab that digs into Incident creation and bundle details.
