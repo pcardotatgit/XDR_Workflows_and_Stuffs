@@ -76,9 +76,14 @@ If we put all this above together, if we want to use XDR APIs to create an Incid
 - Sightings
 - Judgments ( optionnal )
 
+Other APIs are linked to Incident but we don't use them in the context of this article 
+
+- Verdicts
+- Indicators
+
 From the original Security Product events, we have to create one **Sightings per product event**. Every **Sightings** must contain **Observables** and their **targets**. And for every couple of observable to target, we have to find the **Relationship** that link the **observable** to the **target**. 
 
-The CTIM relationships possible values are the following :
+The CTIM Incident relationships possible values are the following :
 
 - attributed-to
 - based-on
@@ -94,6 +99,16 @@ The CTIM relationships possible values are the following :
 - targets
 - uses
 - variant-of
+
+The value to use depends on the context which link object together. Context is mainly lead by the object nature
+
+Have a look to the following documentation in order to have guidelines on this : [Defined Entity Relationships](https://github.com/threatgrid/ctim/blob/master/doc/defined_relationships.md)
+
+In addition to these values observables have dedicated relationships values which are :
+
+[CTIM observable relation map documentation](https://github.com/threatgrid/ctim/blob/74857ac6ffed206b3dcf01f171feb30e08277191/src/ctim/schemas/common.cljc#L408)
+
+
 
 The attack graph is builted upon these relationships. It is a representation of these relationships. 
 At the same time the relationships link objects together into XDR.
