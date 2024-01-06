@@ -53,4 +53,11 @@ Have a look to the Webex Post Message activities of the **Receive observables fr
 
 ## Webex Team Cards
 
+Webex team Adaptative Cards give a much more better user experience in terms of GUI. They are perfect for creating Webex Applications.
+
+But they are a little bit more complex than markdown message to create, and they require a quite advanced bot logic behind the Webex formulars.
+
+If you are Okay to dig into this part have a look to the following documentation :
+
+[webex_for_xdr_part-1_card_examples](https://github.com/pcardotatgit/webex_for_xdr_part-1_card_examples)
 
