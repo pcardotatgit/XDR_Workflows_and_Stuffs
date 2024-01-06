@@ -101,6 +101,7 @@ The recommendation here is to do all the exercices here under one after the othe
 * 8a - XDR Demo - [ Detect Threat and send an alert into Webex, then from webex alert add bad IPs into XDR Firewall Blocking feeds ](https://github.com/pcardotatgit/webex_for_xdr_part-7_The_final_demo)
 * 9 - [Create an XDR Incident with python](https://github.com/pcardotatgit/XDR_create_incident_with_python)
 * 10 - [Delete an Incident and every attached objects](https://github.com/pcardotatgit/clean_XDR_Incidents)
+* 11 - [add an object to XDR feed thanks to python](https://github.com/pcardotatgit/Add_Object_To_XDR_Feed)
 
 ## XDR/Securex Workflow List from Cisco and others
 
