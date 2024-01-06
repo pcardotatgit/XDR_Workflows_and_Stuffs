@@ -102,6 +102,7 @@ The recommendation here is to do all the exercices here under one after the othe
 * 9 - [Create an XDR Incident with python](https://github.com/pcardotatgit/XDR_create_incident_with_python)
 * 10 - [Delete an Incident and every attached objects](https://github.com/pcardotatgit/clean_XDR_Incidents)
 * 11 - [add an object to XDR feed thanks to python](https://github.com/pcardotatgit/Add_Object_To_XDR_Feed)
+* 12 - [Create an XDR Incident from Attack Detection into apache logs](https://github.com/pcardotatgit/XDR_demo_-_create_incident_from_apache_log_threat_analysis)
 
 ## XDR/Securex Workflow List from Cisco and others
 
