@@ -6,7 +6,7 @@ Then the workflow builts an alert which is a webex adaptive card which contains 
 
 The workflow doesn't manage response action. We let the developper to developp this part. But Buttons and example of URLs to call as responses are contained into the adaptive card. Then developpers have to modify them based on their needs.
 
-This workflow is a response workflow. That means that it can be run from the pivot menu into the ribbon or into the XDR plugin. Then the workflow doesn't use the default Risky Domain List, but it use the selected domain into the ribbon.
+This workflow is a response workflow. That means that it can be run from the pivot menu into the ribbon or into the XDR plugin. Then in this case, the workflow doesn't use the default Risky Domain List, but it uses the selected domain into the pivot menu.
 
 ---
 
