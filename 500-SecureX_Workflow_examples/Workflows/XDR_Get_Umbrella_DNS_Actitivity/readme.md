@@ -1,12 +1,12 @@
 # (W0017c) - Search DNS Activity to domain in Umbrella
 
-This workflow collects from Umbrella V2 the last 15000 DNS Activities and check if requests target one of domains contained in a global list of Risky Domains. Anythime an access attempt to one  of these risky domains is discovered, the workflow first adds to a **target** list the internal ip address of the system which asked for this access, and second it adds to an **observable** list the requested domain.
+This workflow collects from Umbrella V2 the last 15000 DNS Activities and check if we have some DNS requests which ask for one of the domains contained in a global list of Risky Domains. Anytime an access attempt to one of these risky domains is discovered, the workflow first adds to a **target** list the internal ip address of the system which asked for this access, and second it adds to an **observable** list the requested domain.
 
 Then the workflow builts an alert which is a webex adaptive card which contains targets and observables and send it into an Webex alert Room.
 
 The workflow doesn't manage response action. We let the developper to developp this part. But Buttons and example of URLs to call as responses are contained into the adaptive card. Then developpers have to modify them based on their needs.
 
-This workflow is a response workflow. That means that it can be run from the pivot menu into the ribbon or into the XXDR plugin. Then the workflow doesn't use the default Risky Domain List, but it use the selected domain into the ribbon.
+This workflow is a response workflow. That means that it can be run from the pivot menu into the ribbon or into the XDR plugin. Then the workflow doesn't use the default Risky Domain List, but it use the selected domain into the ribbon.
 
 ---
 
@@ -49,8 +49,9 @@ You will have to create a dedicated Webex Bot if you don't already have One and 
 
 Then you will need :
 
-XDR_ALERT_BOT_ROOM_ID
-XDR_ALERT_BOT_TOKEN
+-**XDR_ALERT_BOT_ROOM_ID**
+
+-**XDR_ALERT_BOT_TOKEN**
 
 
 **Risky_Domains** is defined as a global XDR variable and contains by default every domains related to **ngrok**. But don't hesitate to add anyother risky domains you want. For this you just have to add these domains at the end of the existing list and use semi column as separator.
