@@ -29,13 +29,13 @@ This workflow requires a few subworkflow that are included into the JSON file. Y
 
 ## Workflow Steps
 
-1. The workflow asks for a Athentication Token to Umbrella V2
-2. Then within a loop it collect 3 time 5000 DNS requests from the Umbrella DNS Activity API
-3. At the same time the collect is done thee worklfow check for every requested  domains that this one belong or not to the Risky Domain List.
-4. The Risky Domain List is either the content of the **Risky_Domains** global variable if No DOMAIN Value was passed to the workflow from the pivot menu. If the workflow is triggered from the pivot menu then Risky Domain List contains the domain name of the domain that was selected. 
+1. The workflow asks for an authentication Token to Umbrella V2
+2. Then within a loop it collects 3 times 5000 DNS requests from the Umbrella DNS Activity API
+3. During  the collect, the worklfow checks for every requested domain that this one belong or not to the Risky Domain List.
+4. The Risky Domain List has the content of the **Risky_Domains** global variable if No DOMAIN Value was passed to the workflow from the pivot menu. If the workflow is triggered from the pivot menu, then Risky Domain List contains the domain name of the domain that was selected. 
 5. Every Time a requested domain belong to the Risky Domain List, the domain name is uniquely added to an observable list and the source internal IP address is added to a target list.
 6. If matches to the Risky Domain List had been found, then the workflow  buit an Alert Adaptive Card which contains targets and observable list.
-7. Finally the workflow Send the adative card to the Webex Alert Room.
+7. Finally the workflow Sends the adative card to the Webex Alert Room.
 
 ---
 
