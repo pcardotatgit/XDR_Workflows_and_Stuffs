@@ -1,0 +1,1111 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_029X6LVX8OAN23dZLHmzOrvcHOgPrDlBB36",
+    "name": "(W0017c) - Search DNS Activity to domain in Umbrella",
+    "title": "(W0017c) - Search DNS Activity to domain in Umbrella",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.integer",
+        "properties": {
+          "value": 3,
+          "scope": "local",
+          "name": "nb_requests",
+          "type": "datatype.integer",
+          "description": "Number of requests to umbrella ( 3 => 3 x 5000 ) 15000 DNS requests ) increase this value in order to collect more DNS activities from umbrella",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02BJGJT7LW3JL1raEb77K5cYcmZ1eqJIc9X",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "[1,2,3]",
+          "scope": "local",
+          "name": "the_loops",
+          "type": "datatype.string",
+          "description": "The number of loops",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_029X6LVXZ1G5X6h8JlhZ3uORG2PAUnsey1L",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "domain",
+          "type": "datatype.string",
+          "description": "domain to search into the DNS activities",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_029X6LVXZ18HR43RuOwUdVdE1XAH2cuR53C",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "0",
+          "scope": "local",
+          "name": "Offset",
+          "type": "datatype.string",
+          "description": "Offset of entry to collect from Umbrella. This variable will increase from 0 to 6000 in 3 steps of 3000",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_029X6LVXZ1N6W3a5QAEUErnTq7NKspy2zNh",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "123456",
+          "scope": "local",
+          "name": "Umbrella Organization ID",
+          "type": "datatype.string",
+          "description": "Your Umbrella organization ID. This can be found in the URL of your Umbrella dashboard. For example, in this URL the organization ID is \"1234567\": https://dashboard.umbrella.com/o/1234567/#/overview",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_029X6LVXZ0W8C1bN3yLROZPTKd8KtFge8TP",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "description": "This workflow searches for DNS activity to a specific domain in Cisco Umbrella DNS activities for the last 30 days. If an activity was found. It sends an alert into Webex Room and create an Incident",
+      "display_name": "(W0017c) - Search DNS Activity to domain in Umbrella",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "execute_on_target_group": true,
+        "target_group": {
+          "target_group_id": "target_group_01EJ0TQWPQWBD0qiWqClJKj9FOzwiZRfOFH",
+          "run_on_all_targets": false,
+          "selected_target_types": [
+            "web-service.endpoint"
+          ],
+          "use_criteria": {
+            "choose_target_using_algorithm": "choose_first_with_matching_criteria",
+            "conditions": [
+              {
+                "operator": "eqi",
+                "left_operand": "$targetgroup.web-service endpoint.input.display_name$",
+                "right_operand": "Umbrella Reporting v2"
+              }
+            ]
+          }
+        }
+      },
+      "wf_metadata": {
+        "coa": {
+          "observable_types": [
+            "domain"
+          ]
+        }
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_02BJG8G37YB5T52mSzUB0U3EZx1dum0ebgn",
+        "name": "HTTP Request",
+        "title": "GET Umbrella Token",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "allow_headers_redirect": false,
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "description": "Ask for an authentication token to umbrella",
+          "display_name": "GET Umbrella Token",
+          "method": "GET",
+          "relative_url": "auth/v2/oauth2/token",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01YEBBQI5ZY8M3uTv8IpRmmP6M5r0b1HdmJ"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_02BJDWI5CJOIO7SZksjzo6LrB8WQqyFk75T",
+        "name": "Execute Python Script",
+        "title": "Get last 15000 DNS activities",
+        "type": "python3.script",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "description": "Get last 15000 DNS activities in Umbrella",
+          "display_name": "Get last 15000 DNS activities",
+          "script": "import sys\nimport requests\nimport json\nnb_reqs=sys.argv[1]\norganization=sys.argv[2]\ntoken_dict=json.loads(sys.argv[3])\ntoken=token_dict['access_token']\nheaders={\"authorization\":\"Bearer \"+ token}\ndomains_to_check=sys.argv[5]\ndomains_to_check_from_input=sys.argv[4].strip()\nif domains_to_check_from_input!='':\n  domains_to_check=domains_to_check_from_input\ntxt_report=''\ndomain_list=[]\nalert=0\ntargets=''\nobservables=''\nfor i in range (0,int(nb_reqs)):\n  offset=i*5000\n  reporting_url=f\"https://reports.api.umbrella.com/v2/organizations/{organization}/activity/dns?from=-30days&to=now&limit=5000&offset={offset}\"\n  response=requests.get(reporting_url,headers=headers)\n  data=response.json()['data']\nfor item in data:  \n  if item['domain'] in domains_to_check:    \n    txt_report=txt_report+'\\n;'+item['date']+';'+item['time']+';'+item['domain']+';'+item['internalip']+';'+item['verdict']\n    if item['internalip'] not in targets:\n      targets=targets+item['internalip']+'\\n'\n    if item['domain'] not in observables:\n      alert=1\n      observables=observables+item['domain']+'\\n'\n  if item['domain'] not in domain_list:\n    domain_list.append(item['domain'])\ndomains=''\nfor domain in domain_list:\n  domains=domains+';'+domain",
+          "script_arguments": [
+            "$workflow.definition_workflow_029X6LVX8OAN23dZLHmzOrvcHOgPrDlBB36.local.variable_workflow_02BJGJT7LW3JL1raEb77K5cYcmZ1eqJIc9X$",
+            "$workflow.definition_workflow_029X6LVX8OAN23dZLHmzOrvcHOgPrDlBB36.local.variable_workflow_029X6LVXZ0W8C1bN3yLROZPTKd8KtFge8TP$",
+            "$activity.definition_activity_02BJG8G37YB5T52mSzUB0U3EZx1dum0ebgn.output.response_body$",
+            "$workflow.definition_workflow_029X6LVX8OAN23dZLHmzOrvcHOgPrDlBB36.input.variable_workflow_029X6LVXZ18HR43RuOwUdVdE1XAH2cuR53C$",
+            "$global.variable_02BJX3E9OX07X7QmUh1tXaYxpkWczc7mE8o.global.variable_02BJX3E9OX07X7QmUh1tXaYxpkWczc7mE8o$"
+          ],
+          "script_queries": [
+            {
+              "script_query": "domains",
+              "script_query_name": "DOMAINS",
+              "script_query_type": "string"
+            },
+            {
+              "script_query": "txt_report",
+              "script_query_name": "SUSPICIOUS_ACTIVITY",
+              "script_query_type": "string"
+            },
+            {
+              "script_query": "alert",
+              "script_query_name": "DETECTED",
+              "script_query_type": "boolean"
+            },
+            {
+              "script_query": "targets",
+              "script_query_name": "TARGETS",
+              "script_query_type": "string"
+            },
+            {
+              "script_query": "observables",
+              "script_query_name": "OBSERVABLES",
+              "script_query_type": "string"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_029X6LW6B1KTJ2qUSWFByiekvFpuKmIEqQF",
+        "name": "Condition Block",
+        "title": "Is domain DNS activity detected ?",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "description": "Check the value of the DETECTED variable ",
+          "display_name": "Is domain DNS activity detected ?",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_029X6LW76P8UU037tZVHHtdh8gouydgjjyT",
+            "name": "Condition Branch",
+            "title": "YES DETECTED - ALERT !",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$activity.definition_activity_02BJDWI5CJOIO7SZksjzo6LrB8WQqyFk75T.output.script_queries.DETECTED$",
+                "operator": "eq",
+                "right_operand": true
+              },
+              "continue_on_failure": false,
+              "description": "Was a access attempt to a risky domain detected into DNS activities ?",
+              "display_name": "YES DETECTED - ALERT !",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_029X6LW8MGPOD42RvN9Fjql3M2fmpeKwZSC",
+                "name": "Parallel Block",
+                "title": "Parallel Block - Webex alert + Incident",
+                "type": "logic.parallel",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Parallel Block - Webex alert + Incident",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_029X6LWCM4K560cnDk7AiDIYeCBPGJ5zmW0",
+                    "name": "Parallel Branch",
+                    "title": "Action 1 - Webex Alert",
+                    "type": "logic.parallel_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "description": "Send an Alert into Webex",
+                      "display_name": "Action 1 - Webex Alert",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_029X6LWEFI8K322LljY2A1BL80dEAdiJ0Az",
+                        "name": "INFECTION ALERT CARD TO WEBEX ROOM",
+                        "title": "INFECTION ALERT CARD TO WEBEX ROOM",
+                        "type": "workflow.sub_workflow",
+                        "base_type": "subworkflow",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "INFECTION ALERT CARD TO WEBEX ROOM",
+                          "input": {
+                            "variable_workflow_0299EZOWEUBOO6pwE9oGPhz8zuZqyaCZ8Fc": "$activity.definition_activity_02BJDWI5CJOIO7SZksjzo6LrB8WQqyFk75T.output.script_queries.TARGETS$",
+                            "variable_workflow_0299EZOWEUVTY7TMmAY5iM9Qd8w1B23Mq0a": "$activity.definition_activity_02BJDWI5CJOIO7SZksjzo6LrB8WQqyFk75T.output.script_queries.OBSERVABLES$",
+                            "variable_workflow_029HYFHOCIOXF3T5nkoilpDQkWp199peJtn": "Internal Machine connextion to confirmed Risky Domains.\\nInvestigate for Data Exfiltration or Remote Control of internal infected machine !",
+                            "variable_workflow_029I2S118TW3G2re7s9OTwUuPxkd05ieqFm": "http://localhost:4000/investigate",
+                            "variable_workflow_029JJ678F4AXN0SARJaDZ8pT4U0hKB8ezeV": "http://localhost:4000/isolate_target",
+                            "variable_workflow_029JK5PKJ4QF85yvMTsTdAmfs2xInDFDMYy": false
+                          },
+                          "runtime_user": {
+                            "target_default": true
+                          },
+                          "skip_execution": false,
+                          "target": {
+                            "execute_on_this_target": true,
+                            "target_id": "definition_target_01GWHP4FUJJDK7Gm74O4nPWmSBBDmh9hdRi",
+                            "target_type": "web-service.endpoint"
+                          },
+                          "workflow_id": "definition_workflow_0299EZOVVESB02hM1aBSuqfMdpWl4GykHGx",
+                          "workflow_name": "INFECTION ALERT CARD TO WEBEX ROOM"
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_029X6LWG294U46VPNthfeBOM4k2Q2P6yHpx",
+            "name": "Condition Branch",
+            "title": "WE ARE SAFE",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$activity.definition_activity_02BJDWI5CJOIO7SZksjzo6LrB8WQqyFk75T.output.script_queries.DETECTED$",
+                "operator": "eq",
+                "right_operand": false
+              },
+              "continue_on_failure": false,
+              "display_name": "WE ARE SAFE",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_02BJY5LB16IH11eEr05aRdLrFNbeAtg84S4",
+                "name": "Webex - Post Message to Alert Rool - No Threat Detected",
+                "title": "Webex - Post Message to Alert Rool - No Threat Detected",
+                "type": "workflow.atomic_workflow",
+                "base_type": "subworkflow",
+                "properties": {
+                  "continue_on_failure": false,
+                  "description": "Send a No Threat Detected message to the Webex Alert Room",
+                  "display_name": "Webex - Post Message to Alert Rool - No Threat Detected",
+                  "input": {
+                    "variable_workflow_01PP78DJH1TI76BYfsu9g0Tqj2S6cUxjtu5": "$global.variable_02AL0ZQT0VXWX4H0rTeQa8XYTJCY2aFuwbN.global.variable_02AL0ZQT0VXWX4H0rTeQa8XYTJCY2aFuwbN$",
+                    "variable_workflow_01PP78DJH1XNQ7gNQ5iZdperRHqrppzARXC": "$global.variable_02AL13ADFJ26W0v7yXXy1H00vr0y4t9SyOa.global.variable_02AL13ADFJ26W0v7yXXy1H00vr0y4t9SyOa$",
+                    "variable_workflow_01PP78DJH1YWL3allalGQbg1VkgKwh9GvCi": "**GOOD NEWS :  No Threat Detected**",
+                    "variable_workflow_01PP78DJH22BB3Ej3I8tJ4OCQur0unYGjj9": "",
+                    "variable_workflow_01SVERQNMKN8N6vqX2djMtAfshphGydGsH8": "",
+                    "variable_workflow_02AENCV86E2FM76Xwk4JaWwHqWfXgNwCOwx": ""
+                  },
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "override_workflow_target": true,
+                    "target_id": "definition_target_01GWHP4FUJJDK7Gm74O4nPWmSBBDmh9hdRi",
+                    "target_type": "web-service.endpoint"
+                  },
+                  "workflow_id": "definition_workflow_01PP78DJMXS415nTjonujf03ROkr6t2PNyw",
+                  "workflow_name": "Webex - Post Message to Room"
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "categories": [
+      "category_01FM7CGPZZCMY0KcvgiGjVH5UaB4y4aDJ7m",
+      "category_01GYI0EWM10QP7ZSB9DVXFANrdSCUVd6nDi"
+    ]
+  },
+  "categories": {
+    "category_01FM7CGPZZCMY0KcvgiGjVH5UaB4y4aDJ7m": {
+      "unique_name": "category_01FM7CGPZZCMY0KcvgiGjVH5UaB4y4aDJ7m",
+      "name": "response",
+      "title": "response",
+      "type": "basic.category",
+      "base_type": "category",
+      "category_type": "custom",
+      "object_type": "category"
+    },
+    "category_01GYI0EWM10QP7ZSB9DVXFANrdSCUVd6nDi": {
+      "unique_name": "category_01GYI0EWM10QP7ZSB9DVXFANrdSCUVd6nDi",
+      "name": "pcardot",
+      "title": "pcardot",
+      "type": "basic.category",
+      "base_type": "category",
+      "category_type": "custom",
+      "object_type": "category"
+    }
+  },
+  "targets": {
+    "definition_target_01GWHP4FUJJDK7Gm74O4nPWmSBBDmh9hdRi": {
+      "unique_name": "definition_target_01GWHP4FUJJDK7Gm74O4nPWmSBBDmh9hdRi",
+      "name": "Webex Teams",
+      "title": "Webex Teams",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "description": "Webex Teams",
+        "disable_certificate_validation": false,
+        "display_name": "Webex Teams",
+        "host": "webexapis.com",
+        "no_runtime_user": true,
+        "port": 443,
+        "protocol": "https"
+      }
+    },
+    "definition_target_01YEBBQI5ZY8M3uTv8IpRmmP6M5r0b1HdmJ": {
+      "unique_name": "definition_target_01YEBBQI5ZY8M3uTv8IpRmmP6M5r0b1HdmJ",
+      "name": "Umbrella OAuth",
+      "title": "Umbrella OAuth",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "default_runtime_user_id": "definition_runtime_user_01YEBAM2T1G9F4sy3YcqMVAS7z7r05WNxTb",
+        "disable_certificate_validation": false,
+        "display_name": "Umbrella OAuth",
+        "host": "management.api.umbrella.com",
+        "ignore_proxy": false,
+        "no_runtime_user": false,
+        "protocol": "https"
+      }
+    },
+    "definition_target_029BAQZBMHDD16OmOjpZF2RlOplDjaqiefp": {
+      "unique_name": "definition_target_029BAQZBMHDD16OmOjpZF2RlOplDjaqiefp",
+      "name": "XDR_CTR_with_secureX_token",
+      "title": "XDR_CTR_with_secureX_token",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "default_runtime_user_id": "definition_runtime_user_01WY3D8QEJOOL4uwZR6xEAD85BeyafJCjpH",
+        "description": "XDR EU Endpoint \nfor following API endpoints : \n\n- inspect \n- invite\n- private intell\n- profile\n- response\n- user\nToken managed by the SecureX_Token",
+        "disable_certificate_validation": false,
+        "display_name": "XDR_CTR_with_secureX_token",
+        "host": "visibility.eu.amp.cisco.com",
+        "ignore_proxy": false,
+        "no_runtime_user": false,
+        "path": "/iroh",
+        "protocol": "https"
+      }
+    }
+  },
+  "runtime_users": {
+    "definition_runtime_user_01WY3D8QEJOOL4uwZR6xEAD85BeyafJCjpH": {
+      "unique_name": "definition_runtime_user_01WY3D8QEJOOL4uwZR6xEAD85BeyafJCjpH",
+      "name": "CTR_SecureX_Token",
+      "title": "CTR_SecureX_Token",
+      "type": "runtime_user.oauth_integration",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "description": "New SecureX Threat Response Authentication Token",
+        "display_name": "CTR_SecureX_Token"
+      }
+    },
+    "definition_runtime_user_01YEBAM2T1G9F4sy3YcqMVAS7z7r05WNxTb": {
+      "unique_name": "definition_runtime_user_01YEBAM2T1G9F4sy3YcqMVAS7z7r05WNxTb",
+      "name": "Umbrella Reporting",
+      "title": "Umbrella Reporting",
+      "type": "runtime_user.web-service_basic_credentials",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "auth_option": "Basic",
+        "basic_password": "*****",
+        "basic_username": "abcdefg",
+        "display_name": "Umbrella Reporting"
+      }
+    }
+  },
+  "target_groups": {
+    "target_group_01EJ0TQWPQWBD0qiWqClJKj9FOzwiZRfOFH": {
+      "unique_name": "target_group_01EJ0TQWPQWBD0qiWqClJKj9FOzwiZRfOFH",
+      "name": "Default TargetGroup",
+      "title": "Default TargetGroup",
+      "type": "generic.target_group",
+      "base_type": "target_group",
+      "version": "1.0.0",
+      "targets": [
+        {
+          "data_target_type": "web-service.endpoint",
+          "view_target_type": "web-service.endpoint",
+          "include_all_targets": true
+        },
+        {
+          "data_target_type": "email.smtp_endpoint",
+          "view_target_type": "email.smtp_endpoint",
+          "include_all_targets": true
+        }
+      ],
+      "object_type": "target_group"
+    }
+  },
+  "variables": {
+    "variable_02AL0ZQT0VXWX4H0rTeQa8XYTJCY2aFuwbN": {
+      "unique_name": "variable_02AL0ZQT0VXWX4H0rTeQa8XYTJCY2aFuwbN",
+      "properties": {
+        "value": "abcdefg",
+        "scope": "global",
+        "name": "XDR_ALERT_BOT_ROOM_ID",
+        "type": "datatype.string",
+        "description": "Room ID of  bot XDR ALERT BOT for pcardot",
+        "is_required": false,
+        "display_on_wizard": false,
+        "is_invisible": false
+      },
+      "object_type": "variable"
+    },
+    "variable_02AL13ADFJ26W0v7yXXy1H00vr0y4t9SyOa": {
+      "unique_name": "variable_02AL13ADFJ26W0v7yXXy1H00vr0y4t9SyOa",
+      "properties": {
+        "value": "*****",
+        "scope": "global",
+        "name": "XDR_ALERT_BOT_TOKEN",
+        "type": "datatype.secure_string",
+        "is_required": false,
+        "display_on_wizard": false,
+        "is_invisible": false
+      },
+      "object_type": "variable"
+    },
+    "variable_02BJX3E9OX07X7QmUh1tXaYxpkWczc7mE8o": {
+      "unique_name": "variable_02BJX3E9OX07X7QmUh1tXaYxpkWczc7mE8o",
+      "properties": {
+        "value": "connect.ngrok-agent.com;connect.us.ngrok-agent.com;connect.eu.ngrok-agent.com;connect.ap.ngrok-agent.com;connect.au.ngrok-agent.com;connect.sa.ngrok-agent.com; connect.jp.ngrok-agent.com;connect.in.ngrok-agent.com;tunnel.ngrok.com;tunnel.us.ngrok.com;tunnel.eu.ngrok.com;tunnel.ap.ngrok.com;tunnel.au.ngrok.com; tunnel.sa.ngrok.com;tunnel.jp.ngrok.com;tunnel.in.ngrok.com",
+        "scope": "global",
+        "name": "Risky_Domains",
+        "type": "datatype.string",
+        "description": "List of Risky Domain to check if some internal machines tried to get access to",
+        "is_required": false,
+        "display_on_wizard": false,
+        "is_invisible": false
+      },
+      "object_type": "variable"
+    }
+  },
+  "subworkflows": [
+    {
+      "workflow": {
+        "unique_name": "definition_workflow_0299EZOVVESB02hM1aBSuqfMdpWl4GykHGx",
+        "name": "INFECTION ALERT CARD TO WEBEX ROOM",
+        "title": "INFECTION ALERT CARD TO WEBEX ROOM",
+        "type": "generic.workflow",
+        "base_type": "workflow",
+        "variables": [
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "local",
+              "name": "chunk_target_temp",
+              "type": "datatype.string",
+              "description": "To store result of create target chunks activities",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_029JKBLNZLUIE6Mbj3uj2PVIJsR9yRXUPhn",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "{\n\"type\": \"ActionSet\",\n\"horizontalAlignment\": \"Center\",\n\"actions\": [\n{\n\"type\": \"Action.OpenUrl\",\n\"url\": \"[URL_TO_REPLACE]\",\n\"title\": \"Take Action\"\n}\n]\n}\n\n]\n}\n}\n]",
+              "scope": "local",
+              "name": "Chunk3_action",
+              "type": "datatype.string",
+              "description": "Chunk 3 for creating the Card JSON Data. Action button",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_0299F89VXP4IX1N9rARj51ZaJV2CeV0SSpN",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "http://localhost/isolate",
+              "scope": "input",
+              "name": "url_action_targets",
+              "type": "datatype.string",
+              "description": "URL action on targets",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_029JJ678F4AXN0SARJaDZ8pT4U0hKB8ezeV",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.boolean",
+            "properties": {
+              "value": false,
+              "scope": "input",
+              "name": "action_on_targets",
+              "type": "datatype.boolean",
+              "description": "Activate Response action for targets",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_029JK5PKJ4QF85yvMTsTdAmfs2xInDFDMYy",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "192.168.128.140\n158.48.65.123",
+              "scope": "input",
+              "name": "target_list",
+              "type": "datatype.string",
+              "description": "target_list",
+              "is_required": true,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_0299EZOWEUBOO6pwE9oGPhz8zuZqyaCZ8Fc",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "[\n{\n\"contentType\": \"application/vnd.microsoft.card.adaptive\",\n\"content\": {\n\"type\": \"AdaptiveCard\",\n\"version\": \"1.2\",\n\"body\": [\n{\n\"type\": \"TextBlock\",\n\"text\": \"! XDR ALERT !\",\n\"color\": \"Attention\",\n\"weight\": \"Bolder\",\n\"size\": \"ExtraLarge\",                        \n\"horizontalAlignment\": \"Center\"\n}",
+              "scope": "local",
+              "name": "Chunk1_header",
+              "type": "datatype.string",
+              "description": "First Chunk for building the Card JSON data ",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_0299F5HPUUYTJ0mBoUhOwzlRlmxPvAFDAkz",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "local",
+              "name": "targets",
+              "type": "datatype.string",
+              "description": "target dictionnaries from inspect",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_029BC54DRR8C92oyAQrcfMtWONwS431GdHR",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "[\n{\n\"contentType\": \"application/vnd.microsoft.card.adaptive\",\n\"content\": {\n\"type\": \"AdaptiveCard\",\n\"version\": \"1.2\",\n\"body\": [\n{\n\"type\": \"TextBlock\",\n\"text\": \"! CISCO XDR ALERTS !\",\n\"size\": \"Large\",\n\"color\": \"Attention\",\n\"horizontalAlignment\": \"Center\"\n},\n{\n\"type\": \"TextBlock\",\n\"text\": \"An Endpoint Infection had been detected into your company. \\nTake Action Now !\",\n\"horizontalAlignment\": \"Center\",\n\"color\": \"Attention\"\n},  \n{\n\"type\": \"TextBlock\",\n\"color\": \"Accent\",                        \n\"text\": \"Targeted Endpoints :\"\n},                    \n{\n\"type\": \"TextBlock\",\n\"color\": \"Light\",   \n\"size\": \"Medium\",                      \n\"text\": \"10.10.10.7 - endpoint\"\n},                  \n{\n\"type\": \"TextBlock\",\n\"text\": \"Suspicious Observables\",\n\"size\": \"Medium\",\n\"color\": \"Warning\",\n\"horizontalAlignment\": \"Center\"                        \n},                     \n{\n\"type\": \"Input.Toggle\",\n\"title\": \"13.15.48.58\",\n\"id\": \"aa\",\n\"value\": \"13.15.48.58\"\n},\n{\n\"type\": \"Input.Toggle\",\n\"title\": \"192.168.158.26\",\n\"id\": \"ab\"\n},\n{\n\"type\": \"ActionSet\",\n\"horizontalAlignment\": \"Center\",\n\"actions\": [\n{\n\"type\": \"Action.OpenUrl\",\n\"iconUrl\": \"http://cmussaperetto.free.fr/securex/hostisolation.png\",\n\"url\": \"http://cmussaperetto.free.fr/securex/hostisolation.png\",\n\"title\": \"Block Threat\"\n}\n]\n}\n\n]\n}\n}\n]",
+              "scope": "local",
+              "name": "webex_card_json_payload",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_0299EZOWEU3O23VQseo6p44LUYnJ7M7Of4Y",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "10.10.10.10\n20.20.20.20\n30.30.30.30",
+              "scope": "input",
+              "name": "observable_list",
+              "type": "datatype.string",
+              "description": "observable_list",
+              "is_required": true,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_0299EZOWEUVTY7TMmAY5iM9Qd8w1B23Mq0a",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "local",
+              "name": "observables",
+              "type": "datatype.string",
+              "description": "Observable dictionnaries from inspect",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_029BC5QWYHS4M53IDjk9feSN6pqy369vo4G",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "http://localhost:4000/block?ip=91.109.190.8",
+              "scope": "input",
+              "name": "url_action_observables",
+              "type": "datatype.string",
+              "description": "URL to invoke in the action Button",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_029I2S118TW3G2re7s9OTwUuPxkd05ieqFm",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "An Endpoint Infection had been detected into your company. \\nTake Action Now !",
+              "scope": "input",
+              "name": "alert_description",
+              "type": "datatype.string",
+              "description": "Alert Description",
+              "is_required": true,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_029HYFHOCIOXF3T5nkoilpDQkWp199peJtn",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "EndPoint Infection Alert !",
+              "scope": "local",
+              "name": "incident_title",
+              "type": "datatype.string",
+              "description": "Incident Title",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_0299EZOWETSI41KrEMjJUqoN2wnI5xmYv4v",
+            "object_type": "variable_workflow"
+          }
+        ],
+        "properties": {
+          "atomic": {
+            "is_atomic": false
+          },
+          "delete_workflow_instance": false,
+          "description": "This workflows sends an alert webex card into the alert webex room. This is a the simple version not for an advanced webex bot but for a web server behind \n\nThis card contain :\n\n- Targets \n- Suspicious observables\n- an Action button",
+          "display_name": "INFECTION ALERT CARD TO WEBEX ROOM",
+          "runtime_user": {
+            "target_default": true
+          },
+          "target": {
+            "target_type": "web-service.endpoint",
+            "target_id": "definition_target_01GWHP4FUJJDK7Gm74O4nPWmSBBDmh9hdRi",
+            "execute_on_workflow_target": true
+          }
+        },
+        "object_type": "definition_workflow",
+        "actions": [
+          {
+            "unique_name": "definition_activity_029BC41G6JBJK4BmOtf42goeM9m3fEOzfOw",
+            "name": "Inspect for Observables",
+            "title": "Inspect for Observables",
+            "type": "workflow.atomic_workflow",
+            "base_type": "subworkflow",
+            "properties": {
+              "continue_on_failure": false,
+              "description": "Take the observable input and create as output  observable dictionnaries that contain observable values and their types.",
+              "display_name": "Inspect for Observables",
+              "input": {
+                "variable_workflow_029BA73JB1U2Q41TikBR9vT2jqB3b8n7GLG": "$workflow.definition_workflow_0299EZOVVESB02hM1aBSuqfMdpWl4GykHGx.input.variable_workflow_0299EZOWEUVTY7TMmAY5iM9Qd8w1B23Mq0a$"
+              },
+              "runtime_user": {
+                "target_default": true
+              },
+              "skip_execution": true,
+              "target": {
+                "execute_on_this_target": true,
+                "target_id": "definition_target_029BAQZBMHDD16OmOjpZF2RlOplDjaqiefp",
+                "target_type": "web-service.endpoint"
+              },
+              "workflow_id": "definition_workflow_029BA73IQEDQM0E1goPlJIhhY3XkqjryWQV",
+              "workflow_name": "XDR- Inspect for Observables"
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_029BCBEYHIY5D0nIeNf9PMw8t0T0LYt0UEt",
+            "name": "Execute Python Script",
+            "title": "Create chunk description",
+            "type": "python3.script",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": false,
+              "description": "Create chunk_description ",
+              "display_name": "Create chunk description",
+              "script": "import sys\ntxt_result=',\\n{\\n\"type\": \"TextBlock\",\\n\"text\": \"'+sys.argv[1]+'\",\\n\"horizontalAlignment\": \"Center\",\\n\"color\": \"Attention\"\\n}'",
+              "script_arguments": [
+                "$workflow.definition_workflow_0299EZOVVESB02hM1aBSuqfMdpWl4GykHGx.input.variable_workflow_029HYFHOCIOXF3T5nkoilpDQkWp199peJtn$"
+              ],
+              "script_queries": [
+                {
+                  "script_query": "txt_result",
+                  "script_query_name": "DESCRIPTION",
+                  "script_query_type": "string"
+                }
+              ],
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_029JK6VZNXXQG1BYb0SB28GZmJfvhHMgUgh",
+            "name": "Condition Block",
+            "title": "Response action on targets ?",
+            "type": "logic.if_else",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "description": "Trigger response action on targets ?",
+              "display_name": "Response action on targets ?",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "blocks": [
+              {
+                "unique_name": "definition_activity_029JK6VZX9PCL2m5grgI0dD34FKGIgREsm6",
+                "name": "Condition Branch",
+                "title": "YES",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$workflow.definition_workflow_0299EZOVVESB02hM1aBSuqfMdpWl4GykHGx.input.variable_workflow_029JK5PKJ4QF85yvMTsTdAmfs2xInDFDMYy$",
+                    "operator": "eq",
+                    "right_operand": true
+                  },
+                  "continue_on_failure": false,
+                  "display_name": "YES",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_029I01RXX2HL22AnOvPbxxP65qwCu0dTftJ",
+                    "name": "Execute Python Script",
+                    "title": "Create chunk targets v2",
+                    "type": "python3.script",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": false,
+                      "description": "Create chunk_target from target variables",
+                      "display_name": "Create chunk targets v2",
+                      "script": "import sys\nimport json\ntxt_result=',\\n{\\n\"type\": \"TextBlock\",\\n\"color\": \"Accent\",\\n\"text\": \"Targets or infected Systems :\"\\n},'\ntarget_list=sys.argv[1].split('\\n')\nindex=0\nfor item in target_list:\n  if item!='':\n    txt_result=txt_result+'\\n{\\n\"type\": \"Input.Toggle\",\\n\"title\": \"'+item+'\",\\n\"id\": \"'+str(index)+'\",\\n\"value\": \"'+item+'\"\\n},'\n    index+=1\ntxt_result=txt_result+'\\n{\\n\"type\": \"ActionSet\",\\n\"horizontalAlignment\": \"Center\",\\n\"actions\": [\\n{\\n\"type\": \"Action.OpenUrl\",\\n\"url\": \"'+sys.argv[2]+'\",\\n\"title\": \"Isolate Hosts\"\\n}\\n]\\n},'",
+                      "script_arguments": [
+                        "$workflow.definition_workflow_0299EZOVVESB02hM1aBSuqfMdpWl4GykHGx.input.variable_workflow_0299EZOWEUBOO6pwE9oGPhz8zuZqyaCZ8Fc$",
+                        "$workflow.definition_workflow_0299EZOVVESB02hM1aBSuqfMdpWl4GykHGx.input.variable_workflow_029JJ678F4AXN0SARJaDZ8pT4U0hKB8ezeV$"
+                      ],
+                      "script_queries": [
+                        {
+                          "script_query": "txt_result",
+                          "script_query_name": "CHUNK_TARGETS",
+                          "script_query_type": "string"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_029JKBSUEC6C93cBiKARzkNuz3ztsXyqAhP",
+                    "name": "Set Variables",
+                    "title": "Set chunk_target_temp",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Set chunk_target_temp",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_0299EZOVVESB02hM1aBSuqfMdpWl4GykHGx.local.variable_workflow_029JKBLNZLUIE6Mbj3uj2PVIJsR9yRXUPhn$",
+                          "variable_value_new": "$activity.definition_activity_029I01RXX2HL22AnOvPbxxP65qwCu0dTftJ.output.script_queries.CHUNK_TARGETS$"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_029JK6W07XQQS0li90WfupzKZ7pxMmm6on7",
+                "name": "Condition Branch",
+                "title": "NO",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$workflow.definition_workflow_0299EZOVVESB02hM1aBSuqfMdpWl4GykHGx.input.variable_workflow_029JK5PKJ4QF85yvMTsTdAmfs2xInDFDMYy$",
+                    "operator": "eq",
+                    "right_operand": false
+                  },
+                  "continue_on_failure": false,
+                  "display_name": "NO",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_029HYBHBQ6LXQ3n156JHNEwPZO8ArtTHYPl",
+                    "name": "Execute Python Script",
+                    "title": "Create chunk targets v1",
+                    "type": "python3.script",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": false,
+                      "description": "Create chunk_target from target variable",
+                      "display_name": "Create chunk targets v1",
+                      "script": "import sys\nimport json\ntxt_result=',\\n{\\n\"type\": \"TextBlock\",\\n\"color\": \"Accent\",\\n\"text\": \"Targeted or Infected Systems :\"\\n},'\nobservable_list=sys.argv[1].split('\\n')\nindex=0\nfor item in observable_list:\n  txt_result=txt_result+'\\n{\\n\"type\": \"TextBlock\",\\n\"color\": \"Light\",\\n\"size\": \"Medium\",\\n\"text\": \"'+item+'\"\\n},'\n  index+=1\n",
+                      "script_arguments": [
+                        "$workflow.definition_workflow_0299EZOVVESB02hM1aBSuqfMdpWl4GykHGx.input.variable_workflow_0299EZOWEUBOO6pwE9oGPhz8zuZqyaCZ8Fc$"
+                      ],
+                      "script_queries": [
+                        {
+                          "script_query": "txt_result",
+                          "script_query_name": "CHUNK_TARGETS",
+                          "script_query_type": "string"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_029JKCNX4EGID5PiXr2fp9zV6DufnbYrD32",
+                    "name": "Set Variables",
+                    "title": "Set chunk_target_temp",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Set chunk_target_temp",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_0299EZOVVESB02hM1aBSuqfMdpWl4GykHGx.local.variable_workflow_029JKBLNZLUIE6Mbj3uj2PVIJsR9yRXUPhn$",
+                          "variable_value_new": "$activity.definition_activity_029HYBHBQ6LXQ3n156JHNEwPZO8ArtTHYPl.output.script_queries.CHUNK_TARGETS$"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_029JJ6AKN1DQ900x5sBnRivJpnVkJzPnfX3",
+            "name": "Execute Python Script",
+            "title": "Create chunk observables v2",
+            "type": "python3.script",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": false,
+              "description": "Create chunk_observables from observable variable",
+              "display_name": "Create chunk observables v2",
+              "script": "import sys\nimport json\ntxt_result='{\\n\"type\": \"TextBlock\",\\n\"text\": \"Suspicious Observables\",\\n\"size\": \"Medium\",\\n\"color\": \"Warning\",\\n\"horizontalAlignment\": \"Center\"\\n},'\nobservable_list=sys.argv[1].split('\\n')\nindex=0\nfor item in observable_list:\n  if item!='':\n    txt_result=txt_result+'\\n{\\n\"type\": \"Input.Toggle\",\\n\"title\": \"'+item+'\",\\n\"id\": \"'+str(index)+'\",\\n\"value\": \"'+item+'\"\\n},'\n    index+=1\n",
+              "script_arguments": [
+                "$workflow.definition_workflow_0299EZOVVESB02hM1aBSuqfMdpWl4GykHGx.input.variable_workflow_0299EZOWEUVTY7TMmAY5iM9Qd8w1B23Mq0a$"
+              ],
+              "script_queries": [
+                {
+                  "script_query": "txt_result",
+                  "script_query_name": "CHUNK_OBSERVABLES",
+                  "script_query_type": "string"
+                }
+              ],
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_029I2T42SB1FU493MwCU8Hfj8kdlwDcMOrw",
+            "name": "Execute Python Script",
+            "title": "Create Chunk Action",
+            "type": "python3.script",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": false,
+              "description": "Update the create action with the action URL to invoke",
+              "display_name": "Create Chunk Action",
+              "script": "import sys\ntxt_result=sys.argv[1].replace('[URL_TO_REPLACE]',sys.argv[2])",
+              "script_arguments": [
+                "$workflow.definition_workflow_0299EZOVVESB02hM1aBSuqfMdpWl4GykHGx.local.variable_workflow_0299F89VXP4IX1N9rARj51ZaJV2CeV0SSpN$",
+                "$workflow.definition_workflow_0299EZOVVESB02hM1aBSuqfMdpWl4GykHGx.input.variable_workflow_029I2S118TW3G2re7s9OTwUuPxkd05ieqFm$"
+              ],
+              "script_queries": [
+                {
+                  "script_query": "txt_result",
+                  "script_query_name": "CHUNK_ACTION",
+                  "script_query_type": "string"
+                }
+              ],
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_029I0LHS9T0227QkCKOZU3QKpTn8nVzs7nl",
+            "name": "Execute Python Script",
+            "title": "Create alert JSON for webex",
+            "type": "python3.script",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": false,
+              "description": "Create alert JSON attachment for Alert messages to be sent in webex",
+              "display_name": "Create alert JSON for webex",
+              "script": "import sys\ntxt_result=sys.argv[1]+sys.argv[2]+sys.argv[3]+sys.argv[4]+sys.argv[5]",
+              "script_arguments": [
+                "$workflow.definition_workflow_0299EZOVVESB02hM1aBSuqfMdpWl4GykHGx.local.variable_workflow_0299F5HPUUYTJ0mBoUhOwzlRlmxPvAFDAkz$",
+                "$activity.definition_activity_029BCBEYHIY5D0nIeNf9PMw8t0T0LYt0UEt.output.script_queries.DESCRIPTION$",
+                "$workflow.definition_workflow_0299EZOVVESB02hM1aBSuqfMdpWl4GykHGx.local.variable_workflow_029JKBLNZLUIE6Mbj3uj2PVIJsR9yRXUPhn$",
+                "$activity.definition_activity_029JJ6AKN1DQ900x5sBnRivJpnVkJzPnfX3.output.script_queries.CHUNK_OBSERVABLES$",
+                "$activity.definition_activity_029I2T42SB1FU493MwCU8Hfj8kdlwDcMOrw.output.script_queries.CHUNK_ACTION$"
+              ],
+              "script_queries": [
+                {
+                  "script_query": "txt_result",
+                  "script_query_name": "ATTACHMENT_JSON",
+                  "script_query_type": "string"
+                }
+              ],
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_029BC9V3JJES06SOG531IDXf5HgH4D4llOX",
+            "name": "Inspect for  Targets",
+            "title": "Inspect for  Targets",
+            "type": "workflow.atomic_workflow",
+            "base_type": "subworkflow",
+            "properties": {
+              "continue_on_failure": false,
+              "description": "Take the target input and create as output  target dictionnaries that containtarget values and their types.",
+              "display_name": "Inspect for  Targets",
+              "input": {
+                "variable_workflow_029BA73JB1U2Q41TikBR9vT2jqB3b8n7GLG": "$workflow.definition_workflow_0299EZOVVESB02hM1aBSuqfMdpWl4GykHGx.input.variable_workflow_0299EZOWEUBOO6pwE9oGPhz8zuZqyaCZ8Fc$"
+              },
+              "runtime_user": {
+                "target_default": true
+              },
+              "skip_execution": true,
+              "target": {
+                "execute_on_this_target": true,
+                "target_id": "definition_target_029BAQZBMHDD16OmOjpZF2RlOplDjaqiefp",
+                "target_type": "web-service.endpoint"
+              },
+              "workflow_id": "definition_workflow_029BA73IQEDQM0E1goPlJIhhY3XkqjryWQV",
+              "workflow_name": "XDR- Inspect for Observables"
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_0299EZP0C0UJW3OhV0A9FUhsVmemfnfOsvF",
+            "name": "Webex - Post Card to Alert Room",
+            "title": "Webex - Post Card to Alert Room",
+            "type": "workflow.atomic_workflow",
+            "base_type": "subworkflow",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Webex - Post Card to Alert Room",
+              "input": {
+                "variable_workflow_01PP78DJH1TI76BYfsu9g0Tqj2S6cUxjtu5": "$global.variable_02AL0ZQT0VXWX4H0rTeQa8XYTJCY2aFuwbN.global.variable_02AL0ZQT0VXWX4H0rTeQa8XYTJCY2aFuwbN$",
+                "variable_workflow_01PP78DJH1XNQ7gNQ5iZdperRHqrppzARXC": "$global.variable_02AL13ADFJ26W0v7yXXy1H00vr0y4t9SyOa.global.variable_02AL13ADFJ26W0v7yXXy1H00vr0y4t9SyOa$",
+                "variable_workflow_01PP78DJH1YWL3allalGQbg1VkgKwh9GvCi": "",
+                "variable_workflow_01PP78DJH22BB3Ej3I8tJ4OCQur0unYGjj9": "",
+                "variable_workflow_01SVERQNMKN8N6vqX2djMtAfshphGydGsH8": "$activity.definition_activity_029I0LHS9T0227QkCKOZU3QKpTn8nVzs7nl.output.script_queries.ATTACHMENT_JSON$"
+              },
+              "runtime_user": {
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "target_type": "web-service.endpoint",
+                "use_workflow_target": true
+              },
+              "workflow_id": "definition_workflow_01PP78DJMXS415nTjonujf03ROkr6t2PNyw",
+              "workflow_name": "Webex - Post Message to Room"
+            },
+            "object_type": "definition_activity"
+          }
+        ],
+        "categories": [
+          "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+        ]
+      },
+      "atomic_workflows": [
+        "definition_workflow_029BA73IQEDQM0E1goPlJIhhY3XkqjryWQV",
+        "definition_workflow_01PP78DJMXS415nTjonujf03ROkr6t2PNyw"
+      ],
+      "dependent_workflows": [
+        "definition_workflow_029BA73IQEDQM0E1goPlJIhhY3XkqjryWQV",
+        "definition_workflow_01PP78DJMXS415nTjonujf03ROkr6t2PNyw"
+      ]
+    }
+  ],
+  "atomic_workflows": [
+    "definition_workflow_01PP78DJMXS415nTjonujf03ROkr6t2PNyw"
+  ],
+  "dependent_workflows": [
+    "definition_workflow_0299EZOVVESB02hM1aBSuqfMdpWl4GykHGx",
+    "definition_workflow_01PP78DJMXS415nTjonujf03ROkr6t2PNyw"
+  ]
+}
