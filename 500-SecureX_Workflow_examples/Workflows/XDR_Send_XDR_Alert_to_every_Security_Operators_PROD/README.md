@@ -77,7 +77,7 @@ No output variables
 ## Installation and Configuration
 
 * Import the **Send_XDR_Alert_to_every_Security_Operators_PROD.json** workflow into your XDR tenant
-* Assign correct values to the **XDR_ALERT_BOT_TOKEN** and **XDR_ALERT_BOT_TOKEN_CLEAR** (**Notice** due to some mysterious reasons the python activity cannot be created with the **Secured String** version of the token... I will fix that later...)
+* Assign correct values to the **XDR_ALERT_BOT_TOKEN** and **XDR_ALERT_BOT_TOKEN_CLEAR** (**Notice** due to some mysterious reasons the python activity cannot be created with the **Secured String** version of the token variable... I will fix that later...)
 * You can run the workflow
 
 ---
@@ -97,6 +97,8 @@ No output variables
 |:-----------------|:-----|:--------|:------|
 | XDR_ALERT_BOT_TOKEN | TOKEN | | declared as a global variable |
 | XDR_ALERT_BOT_TOKEN_CLEAR | TOKEN | | declared as a global variable |
+
+(**Notice** due to some mysterious reasons the python activity cannot be created with the **Secured String** version of the token variable... I will fix that later...)
 
 ## Integrated Products
 
