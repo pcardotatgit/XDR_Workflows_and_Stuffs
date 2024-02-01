@@ -7,15 +7,19 @@ integrated products: Webex
 
 The goal of this workflow is to make XDR able to send alerts to security operators
 
-But instead of send the alert into an Alert Webex Room ( like we do in the [webex_for_xdr_part-6_XDR_send_alert_workflow](https://github.com/pcardotatgit/webex_for_xdr_part-6_XDR_send_alert_workflow) project, the workflow send the alert to every Webex Users ( Security Operators ) that openned a conversation with the XDR Alert Bot.
+Instead of sending the alert into an Alert Webex Room ( like we do in the [webex_for_xdr_part-6_XDR_send_alert_workflow](https://github.com/pcardotatgit/webex_for_xdr_part-6_XDR_send_alert_workflow) project ), this workflow send the alert to every Webex Users ( Security Operators ) that openned a conversation with the XDR Alert Bot.
 
-One benefits of this method is that we dont need to indicated to the workflow the room ID of the webex alert Room. The workflow is able to identify every Webex Room the Bot is registered to. Then the alert will be sent to every of these rooms.
+One benefits of this method is that we don't need to indicated to the workflow the room ID of the webex alert Room. The workflow is able to identify every Webex Room the Bot is registered to. Then the alert will be sent to every of these rooms.
+
+Security Operators who want to receive alerts from the bot must be webex users and they just have to open  a conversation with the XR alert bot.
 
 The alert is actually a Webex Adaptative card which is an interactive formular. 
 
-The bot logic is not managed by XDR but XDR send into it an alert message which allow Security Operators to be aware of a Security issue and make them able to take isolation and blocking actions.
+The bot logic is not managed by XDR. We are supposed to create a bot logic bot ( see [webex_for_xdr_part-5_websocket](https://github.com/pcardotatgit/webex_for_xdr_part-5_websocket)
 
-This workflow expect as inputs a target list, an observable list and an alert description.
+XDR send into it an alert message which allow Security Operators to be aware of a Security issue and make them able to take isolation and blocking actions.
+
+This workflow expects as inputs a target list, an observable list and an alert description.
 
 Target and observable list must be into the following format :
 
