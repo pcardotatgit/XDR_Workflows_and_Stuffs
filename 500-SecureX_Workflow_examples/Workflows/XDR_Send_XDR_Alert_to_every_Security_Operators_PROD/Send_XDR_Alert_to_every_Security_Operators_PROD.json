@@ -1,0 +1,288 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_02BW1NIFRUBKG6ic4f0Y69NOOYqTYhrHDej",
+    "name": "Send_XDR_Alert_to_every_Security_Operators_PROD",
+    "title": "Send_XDR_Alert_to_every_Security_Operators_PROD",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "An Endpoint Infection had been detected into your company.\nTake Action Now !",
+          "scope": "input",
+          "name": "alert_description",
+          "type": "datatype.string",
+          "description": "Alert Description",
+          "is_required": true,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02BW1NIG9O4I41HlA1cDDjODxkqBcMP4BUp",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "10.10.10.10\n20.20.20.20\n30.30.30.30",
+          "scope": "input",
+          "name": "observable_list",
+          "type": "datatype.string",
+          "description": "observable_list",
+          "is_required": true,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02BW1NIG9OE5Q6VBigHy9qBtn8CCkKY4yZs",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "192.168.128.140\n158.48.65.123",
+          "scope": "input",
+          "name": "target_list",
+          "type": "datatype.string",
+          "description": "target_list",
+          "is_required": true,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02BW1NIG9NI694pT9xzyxKPeHB0Hh6waNJO",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.boolean",
+        "properties": {
+          "value": false,
+          "scope": "input",
+          "name": "action_on_targets",
+          "type": "datatype.boolean",
+          "description": "Activate Response ( isolation ) action for targets. Not used yet but the goal is to display or not the action button",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02BW1NIG9NVO85fQqZSPKAmF0A5VhLf8yau",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "description": "This workflow sends an alert webex card into every webex room the Alert Bot is in conversation with\n\nThis card expect as input :\n\n- An Incident title that will be used as the alert description\n- Targets List  \n- Observables List  \n\nthe workflow creates a Webex adaptive card which allow security operators to select objects to isolate or block ",
+      "display_name": "Send_XDR_Alert_to_every_Security_Operators_PROD",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "target_type": "web-service.endpoint",
+        "target_id": "definition_target_01GWHP4FUJJDK7Gm74O4nPWmSBBDmh9hdRi",
+        "execute_on_workflow_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_02BW1NIIBKPIX2PEsWYA1lyY0kvkyPazAGf",
+        "name": "Execute Python Script",
+        "title": "Create alert JSON for webex",
+        "type": "python3.script",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "description": "Create alert JSON attachment for Alert messages to be sent in webex",
+          "display_name": "Create alert JSON for webex",
+          "script": "import sys\nimport json\nalert_description=sys.argv[1]\nlist=sys.argv[2].split('\\n')\ntarget_list=[]\nobject={}\nfor item in list:\n    objet={\"title\": item,\"value\": item}\n    target_list.append(objet)\nlist2=sys.argv[3].split('\\n')\nobservable_list=[]\nobject2={}\nfor item in list2:\n    objet2={\"title\": item,\"value\": item}\n    observable_list.append(objet2)\ncard_dict=[\n    {\n        \"contentType\": \"application/vnd.microsoft.card.adaptive\",\n        \"content\": {    \n            \"type\": \"AdaptiveCard\",\n            \"$schema\": \"http://adaptivecards.io/schemas/adaptive-card.json\",\n            \"version\": \"1.3\",\n            \"backgroundImage\": {\n                \"url\": \"https://i.postimg.cc/vBxnRp06/sky2.jpg\",\n                \"verticalAlignment\": \"Center\"\n            },             \n            \"id\": \"title\",\n            \"body\": [\n                {\n                    \"type\": \"TextBlock\",\n                    \"text\": \"! XDR ALERT !\",\n                    \"color\": \"Attention\",\n                    \"weight\": \"Bolder\",\n                    \"size\": \"ExtraLarge\",                        \n                    \"horizontalAlignment\": \"Center\"\n                },\n                {\n                    \"type\": \"Container\",\n                    \"items\": [\n                        {\n                            \"type\": \"TextBlock\",\n                            \"text\": alert_description,\n                            \"wrap\": True,\n                            \"color\": \"Attention\",\n                            \"horizontalAlignment\": \"Center\"\n                        }\n                    ]\n                }                   \n            ],\n            \"actions\": [\n                {\n                    \"type\": \"Action.ShowCard\",\n                    \"title\": \"Targeted Systems\",\n                    \"card\": {\n                        \"type\": \"AdaptiveCard\",\n                        \"body\": [\n                            {\n                                \"type\": \"TextBlock\",\n                                \"text\": \"Select Systems to isolate\",\n                                \"color\": \"Warning\",\n                                \"size\": \"Medium\",\n                                \"wrap\": True\n                            },\n                            {\n                                \"type\": \"Input.ChoiceSet\",\n                                \"id\": \"targets\",\n                                \"style\": \"expanded\",\n                                \"isMultiSelect\": True,\n                                \"choices\": target_list\n                            },\n                            {\n                                \"type\": \"TextBlock\",\n                                \"text\": \"Isolate in ? :\",\n                                \"color\": \"Warning\",\n                                \"size\": \"Medium\",\n                                \"wrap\": True\n                            },                               \n                            {\n                                \"type\": \"Input.ChoiceSet\",\n                                \"id\": \"isolation_points\", \n                                \"isMultiSelect\": True,\n                                \"style\": \"compact\",\n                                \"choices\": [\n                                    {\n                                        \"title\": \"Isolate in ISE\",\n                                        \"value\": \"ISE\"\n                                    },\n                                    {\n                                        \"title\": \"Isolate in Secure Endpoint\",\n                                        \"value\": \"CSE\"\n                                    },\n                                    {\n                                        \"title\": \"Block in Firewalls\",\n                                        \"value\": \"FW\"\n                                    }\n                                ],\n                                \"placeholder\": \"Isolate in ? :\"\n                            }\n                            ,\n                            {\n                                \"type\":\"ActionSet\",\n                                \"actions\": [\n                                    {\n                                        \"type\": \"Action.Submit\",\n                                        \"title\": \"Isolate Selected Systems\",\n                                        \"data\": {\n                                            \"callback_keyword\": \"Targets\"\n                                        }\n                                    }\n                                ]                                \n                            }\n                        ],\n\n                        \"$schema\": \"http://adaptivecards.io/schemas/adaptive-card.json\"\n                    }\n                },\n                {\n                    \"type\": \"Action.ShowCard\",\n                    \"title\": \"Suspicious observables\",\n                    \"card\": {\n                        \"type\": \"AdaptiveCard\",\n                        \"body\": [\n                            {\n                                \"type\": \"TextBlock\",\n                                \"text\": \"Suspicious Observables :\",\n                                \"color\": \"Warning\",\n                                \"size\": \"Medium\",\n                                \"wrap\": True\n                            },\n                            {\n                                \"type\": \"Input.ChoiceSet\",\n                                \"id\": \"observables\",\n                                \"style\": \"expanded\",\n                                \"isMultiSelect\": True,\n                                \"choices\": observable_list\n                            },\n                            {\n                                \"type\": \"TextBlock\",\n                                \"text\": \"Enforcement Solution :\",\n                                \"color\": \"Warning\",\n                                \"size\": \"Medium\",\n                                \"wrap\": True\n                            },                                \n                            {\n                                \"type\": \"Input.ChoiceSet\",\n                                \"id\": \"enforcement_points\",  \n                                \"style\": \"compact\",\n                                \"choices\": [\n                                    {\n                                        \"title\": \"Isolate in ISE\",\n                                        \"value\": \"ISE\"\n                                    },\n                                    {\n                                        \"title\": \"Block in Internet Firewalls\",\n                                        \"value\": \"FW\"\n                                    }\n                                ],\n                                \"placeholder\": \"Block in ? :\"\n                            }  \n                        ],\n                        \"actions\": [\n                            {\n                                \"type\": \"Action.Submit\",\n                                \"title\": \"Block Selected Objects\",\n                                \"horizontalAlignment\": \"Center\",\n                                \"data\": {\n                                    \"callback_keyword\": \"observables\"\n                                }\n                            }\n                        ],\n                        \"$schema\": \"http://adaptivecards.io/schemas/adaptive-card.json\"\n                    }\n                }                \n            ]          \n        }\n    }\n]\ncard_payload=json.dumps(card_dict)",
+          "script_arguments": [
+            "$workflow.definition_workflow_02BW1NIFRUBKG6ic4f0Y69NOOYqTYhrHDej.input.variable_workflow_02BW1NIG9O4I41HlA1cDDjODxkqBcMP4BUp$",
+            "$workflow.definition_workflow_02BW1NIFRUBKG6ic4f0Y69NOOYqTYhrHDej.input.variable_workflow_02BW1NIG9NI694pT9xzyxKPeHB0Hh6waNJO$",
+            "$workflow.definition_workflow_02BW1NIFRUBKG6ic4f0Y69NOOYqTYhrHDej.input.variable_workflow_02BW1NIG9OE5Q6VBigHy9qBtn8CCkKY4yZs$"
+          ],
+          "script_queries": [
+            {
+              "script_query": "card_payload",
+              "script_query_name": "ATTACHMENT_JSON",
+              "script_query_type": "string"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_02BW4A8NV95O35Q6acxNbZrQdKkSw83njEo",
+        "name": "Execute Python Script",
+        "title": "Get alert bot rooms - Python",
+        "type": "python3.script",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "description": "Retreive every rooms the XDR alert bot is registered to. And store Room IDs into a text list",
+          "display_name": "Get alert bot rooms - Python",
+          "script": "import requests\nimport sys\nimport json\nmaxrooms=100\nmytoken=sys.argv[1]\nheaders = {'Authorization': 'Bearer ' + mytoken, 'content-type': 'application/json; charset=utf-8'}\npayload = {'max': maxrooms}\nresultjson = list()\nid_list=\"\"\nresult = requests.get('https://webexapis.com/v1/rooms', headers=headers, params=payload)\n#id_list=json.dumps(result.json())\nresultjson += result.json()[\"items\"]\nfor item in resultjson:\n  id_list=id_list+item['id']+'\\n'",
+          "script_arguments": [
+            "$global.variable_02BW4RFBXOEE54tBmSzJ4SldI0Ct5kfV5pN.global.variable_02BW4RFBXOEE54tBmSzJ4SldI0Ct5kfV5pN$"
+          ],
+          "script_queries": [
+            {
+              "script_query": "id_list",
+              "script_query_name": "DEST_ROOM_ID_LIST",
+              "script_query_type": "string"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_02BW5K006IBSF5uYzPfivaoRjItePE3U9oq",
+        "name": "Read Table from Text",
+        "title": "Create Workflow ID list for the for each loop",
+        "type": "core.read_table_from_text",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "delimiters": [
+            {
+              "delimiter": "\\n"
+            }
+          ],
+          "description": "Create Workflow ID list for the for each loop",
+          "display_name": "Create Workflow ID list for the for each loop",
+          "input_text": "$activity.definition_activity_02BW4A8NV95O35Q6acxNbZrQdKkSw83njEo.output.script_queries.DEST_ROOM_ID_LIST$",
+          "persist_output": true,
+          "populate_columns": false,
+          "skip_execution": false,
+          "table_columns": [
+            {
+              "column_name": "id",
+              "column_type": "string"
+            }
+          ]
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_02BW5LVNCNQOU0p4KUzv4gaHbY5d83AErLL",
+        "name": "For Each",
+        "title": "For Each Room ID Send an alert",
+        "type": "logic.for_each",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "description": "For Each Room ID Send an alert",
+          "display_name": "For Each Room ID Send an alert",
+          "skip_execution": false,
+          "source_array": "$activity.definition_activity_02BW5K006IBSF5uYzPfivaoRjItePE3U9oq.output.read_table_from_text$"
+        },
+        "object_type": "definition_activity",
+        "actions": [
+          {
+            "unique_name": "definition_activity_02BW1NIK4SAZU0crXrWngNa7yNSLCJBWWQi",
+            "name": "Webex - Post Card to Alert Room",
+            "title": "Webex - Post Card to Alert Room",
+            "type": "workflow.atomic_workflow",
+            "base_type": "subworkflow",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Webex - Post Card to Alert Room",
+              "input": {
+                "variable_workflow_01PP78DJH1TI76BYfsu9g0Tqj2S6cUxjtu5": "$activity.definition_activity_02BW5LVNCNQOU0p4KUzv4gaHbY5d83AErLL.input.source_array[@].id$",
+                "variable_workflow_01PP78DJH1XNQ7gNQ5iZdperRHqrppzARXC": "$global.variable_02AL13ADFJ26W0v7yXXy1H00vr0y4t9SyOa.global.variable_02AL13ADFJ26W0v7yXXy1H00vr0y4t9SyOa$",
+                "variable_workflow_01PP78DJH1YWL3allalGQbg1VkgKwh9GvCi": "",
+                "variable_workflow_01PP78DJH22BB3Ej3I8tJ4OCQur0unYGjj9": "",
+                "variable_workflow_01SVERQNMKN8N6vqX2djMtAfshphGydGsH8": "$activity.definition_activity_02BW1NIIBKPIX2PEsWYA1lyY0kvkyPazAGf.output.script_queries.ATTACHMENT_JSON$",
+                "variable_workflow_02AENCV86E2FM76Xwk4JaWwHqWfXgNwCOwx": ""
+              },
+              "runtime_user": {
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "target_type": "web-service.endpoint",
+                "use_workflow_target": true
+              },
+              "workflow_id": "definition_workflow_01PP78DJMXS415nTjonujf03ROkr6t2PNyw",
+              "workflow_name": "Webex - Post Message to Room"
+            },
+            "object_type": "definition_activity"
+          }
+        ]
+      }
+    ],
+    "categories": [
+      "category_01GYI0EWM10QP7ZSB9DVXFANrdSCUVd6nDi"
+    ]
+  },
+  "categories": {
+    "category_01GYI0EWM10QP7ZSB9DVXFANrdSCUVd6nDi": {
+      "unique_name": "category_01GYI0EWM10QP7ZSB9DVXFANrdSCUVd6nDi",
+      "name": "pcardot",
+      "title": "pcardot",
+      "type": "basic.category",
+      "base_type": "category",
+      "category_type": "custom",
+      "object_type": "category"
+    }
+  },
+  "targets": {
+    "definition_target_01GWHP4FUJJDK7Gm74O4nPWmSBBDmh9hdRi": {
+      "unique_name": "definition_target_01GWHP4FUJJDK7Gm74O4nPWmSBBDmh9hdRi",
+      "name": "Webex Teams",
+      "title": "Webex Teams",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "description": "Webex Teams",
+        "disable_certificate_validation": false,
+        "display_name": "Webex Teams",
+        "host": "webexapis.com",
+        "no_runtime_user": true,
+        "port": 443,
+        "protocol": "https"
+      }
+    }
+  },
+  "variables": {
+    "variable_02AL13ADFJ26W0v7yXXy1H00vr0y4t9SyOa": {
+      "unique_name": "variable_02AL13ADFJ26W0v7yXXy1H00vr0y4t9SyOa",
+      "properties": {
+        "value": "*****",
+        "scope": "global",
+        "name": "XDR_ALERT_BOT_TOKEN",
+        "type": "datatype.secure_string",
+        "is_required": false,
+        "display_on_wizard": false,
+        "is_invisible": false
+      },
+      "object_type": "variable"
+    },
+    "variable_02BW4RFBXOEE54tBmSzJ4SldI0Ct5kfV5pN": {
+      "unique_name": "variable_02BW4RFBXOEE54tBmSzJ4SldI0Ct5kfV5pN",
+      "properties": {
+        "value": "",
+        "scope": "global",
+        "name": "XDR_ALERT_BOT_TOKEN_CLEAR",
+        "type": "datatype.string",
+        "description": "XDR_ALERT_BOT_TOKEN in clear text needed for python activitiy",
+        "is_required": false,
+        "display_on_wizard": false,
+        "is_invisible": false
+      },
+      "object_type": "variable"
+    }
+  },
+  "atomic_workflows": [
+    "definition_workflow_01PP78DJMXS415nTjonujf03ROkr6t2PNyw"
+  ],
+  "dependent_workflows": [
+    "definition_workflow_01PP78DJMXS415nTjonujf03ROkr6t2PNyw"
+  ]
+}

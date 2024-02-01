@@ -15,9 +15,9 @@ When the workflow runs it parses this new incident and extracts :
 
 3 separated variables are created that contain targets in one side in a list with one object per line. And the same for observables in another list. And finally title is kept into another variable as well.
 
-Then All these variables are passed to the [**XDR_ALERT_CARD_WITH_TARGETS_AND_OBSERVABLES_TO_WEBEX_ROOM**](https://github.com/pcardotatgit/webex_for_xdr_part-6_XDR_send_alert_workflow) which is actually included into this current workflow( You don't need to import it separately ).
+Then All these variables are passed to the [**Send_XDR_Alert_to_every_Security_Operators_PROD**]() subworkflow which is included into it.
 
-The result is that the Advanced Alert Webex Card described into the [**XDR_ALERT_CARD_WITH_TARGETS_AND_OBSERVABLES_TO_WEBEX_ROOM**](https://github.com/pcardotatgit/webex_for_xdr_part-6_XDR_send_alert_workflow) article, is sent to every Security Operators in conversation with the XDR Alert Bot.
+The result is that the Advanced Alert Webex Card described into the [**Send_XDR_Alert_to_every_Security_Operators_PROD**](https://github.com/pcardotatgit/webex_for_xdr_part-6_XDR_send_alert_workflow) article, is sent to every Security Operators in conversation with the XDR Alert Bot.
 
 This Alert card has the Incident title and contains two lists Security Operators can display separately, these list are targets in one list, and observables in other list. Then Security Operators can select objects to isolate and block in the list.
 
