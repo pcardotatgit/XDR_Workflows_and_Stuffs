@@ -85,23 +85,24 @@ The recommendation here is to do all the exercices here under one after the othe
 
 * 1 - [ Create a Webex bot ](https://github.com/pcardotatgit/Create_a_Webex_Team_Bot)
 * 2 - [ Create the Webex Target and Send messages to an alert Webex Room ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/1-Create_a_Webex_Team_Bot_Target)
-* 3 - [ Send a webex alert if temperature in Paris is less than 25° ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/9-JSON_Parsing_within_SecureX)
-* 4 - [ Secure End Point detect and alert - which host are infected by this malware ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/8-detect_and_alert_workflow_lab)
+* 3 - [ Send a webex alert if temperature in Paris is less than 25° ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/9-JSON_Parsing_within_SecureX) ( workflow )
+* 4 - [ Secure End Point detect and alert - which host are infected by this malware ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/8-detect_and_alert_workflow_lab) ( workflow )
 * 5 - [Dashboard and tiles for current temperature in Paris](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/6-relay_modules_for_tiles)
 * 6 - Manage XDR Blocking Lists ( XDR Feeds )
-    * 6a - [Create Public Feeds in XDR for Cisco Secure Firewalls ( SI, CTID, Network Objects, Dynamic Objects )](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/12-create_securex_blocking_lists_for_firewalls) workflow
-    * 6b - [Manage Threate Response Authentication token requests](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Atomics/CTR_Generate_Access_Token) workflow
-    * 6c - [Get all judgments in private intell filtered by source](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Workflows/get_all_judgments_in_private_intell_filtered_by_source) workflow
-    * 6d - [Add_an_Observable_into_Judgments_and_feeds](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Atomics/Add_an_Observable_into_Judgments_and_feeds) workflow
-    * 6e - [Update judgments in private intell](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Workflows/update_judgments_in_private_intell) workflow
-    * 6f - [ Create an XDR IP blocking list from TOR entry / exit IP address Blocking List](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Workflows/TOR_IP_blocking_list_to_SecureX_feeds) : the final workflow
-    * 6g - [ The full python version of the all above workflows](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/13-Interact_with_CTIM/judgments)
-* 7 - [Query XDR for dispositions of observables in security logs](https://github.com/pcardotatgit/check_observable_dispositions_in_CTR_from_an_observable_list)
+    * 6a - [Create Public Feeds in XDR for Cisco Secure Firewalls ( SI, CTID, Network Objects, Dynamic Objects )](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/12-create_securex_blocking_lists_for_firewalls)( workflow )
+    * 6b - [Manage Threat Response Authentication token requests](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Atomics/CTR_Generate_Access_Token) ( workflow )
+    * 6c - [Get all judgments in private intell filtered by source](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Workflows/get_all_judgments_in_private_intell_filtered_by_source) ( workflow )
+    * 6d - [Add_an_Observable_into_Judgments_and_feeds](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Atomics/Add_an_Observable_into_Judgments_and_feeds) ( workflow )
+    * 6e - [Update judgments in private intell](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Workflows/update_judgments_in_private_intell) ( workflow )
+    * 6f - [ Create an XDR IP blocking list from TOR entry / exit IP address Blocking List](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Workflows/TOR_IP_blocking_list_to_SecureX_feeds) : ( workflow )
+    * 6g - [ The full python version of the all above workflows](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/13-Interact_with_CTIM/judgments) ( python )
+* 7 - [Query XDR for dispositions of observables in security logs](https://github.com/pcardotatgit/check_observable_dispositions_in_CTR_from_an_observable_list) ( python )
 * 8 - SecureX Demo - [ Detect Threat and send an alert into Webex, then from webex alert add bad IPs into XDR Firewall Blocking feeds ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/100-SecureX_automation_lab)
 * 8a - XDR Demo - [ Detect Threat and send an alert into Webex, then from webex alert add bad IPs into XDR Firewall Blocking feeds ](https://github.com/pcardotatgit/webex_for_xdr_part-7_The_final_demo)
-* 9 - [Create an XDR Incident with python](https://github.com/pcardotatgit/XDR_create_incident_with_python)
-* 10 - [Delete an Incident and every attached objects](https://github.com/pcardotatgit/clean_XDR_Incidents)
-* 11 - [add an object to XDR feed thanks to python](https://github.com/pcardotatgit/Add_Object_To_XDR_Feed)
+* 9 - [Create an XDR Incident with python](https://github.com/pcardotatgit/XDR_create_incident_with_python) ( python )
+* 10a - [Delete XDR Demo Incidents and every attached objects](https://github.com/pcardotatgit/clean_XDR_Incidents) ( python )
+* 10b - [Delete XDR Incidents based on selected Incident ](https://github.com/pcardotatgit/clean_XDR_Incidents_based_on_selected_Incident)
+* 11 - [add an object to XDR feed thanks to python](https://github.com/pcardotatgit/Add_Object_To_XDR_Feed) ( python )
 * 12 - [Create an XDR Incident from Attack Detection into apache logs](https://github.com/pcardotatgit/XDR_demo_-_create_incident_from_apache_log_threat_analysis)
 
 ## XDR/Securex Workflow List from Cisco and others
