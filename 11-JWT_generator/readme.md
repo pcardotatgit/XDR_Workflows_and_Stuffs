@@ -16,10 +16,21 @@ We use this in the XDR Relay Module development context in order to embed the th
 
 Then the token we use within XDR is not the Third party solution token, but a JWT token build on the Third party solution token. That give a way to not store this token in clear into XDR.
 
-## How to use it ?
+## Install python modules
+
+It is a good practice to create a python virtual environment first and work inside it.
+
+This script requires 2 modules : crayons and authlib.
+
+Type the 2 following command lines in order to install these modules
+
+    pip install crayons
+    pip install authlib
+ 
+## Run the script ?
 
 - Step 1 : Modify the payload.json file and copy and paste the third party solution API token in the key value
-- Step 2 : Run the gen_jwt.py file
+- Step 2 : Run the gen_jwt.py file : python gen_jwt.py
 - Step 3 : copy the JWT that appears into the console
 
 Then you can check the JWT content in the online site https://jwt.io/
@@ -32,8 +43,22 @@ In the XDRs content development use the payload.json file as it is. With the key
 
 But in any other case, you can build any other more complex json payload.  As far this payload format is valid, then the generated JWT will secure your data.
 
-## decode the JWT with python
+Then you can copy and paste the generated JWT into the **Authorization Bearer** edit box of the **Generic Serverless Relay** integration panel in XDR.
+
+## decode the JWT with a python script 
 
 The **extract_token_from_jwt.py** gives an example of how to decode a JWT thanks to python.
 
 This script requires the **errors.py** script as a resource.
+
+Edit the **extract_token_from_jwt.py** script and give the correct value to the **SECRET** and the **JWT** variables at the top of the script.
+
+Then run the script
+
+    python extract_token_from_jwt.py 
+
+## decode the JWT within your XDR Relay Module
+
+The Relay Module template decode the JWT for you. But you have to give to it a correct **SECRET** value.
+
+You can do it by editing the **config.py** script of the **Multi Purpose relay Module Template** and by updating the **JWT_SECRET** variable.
