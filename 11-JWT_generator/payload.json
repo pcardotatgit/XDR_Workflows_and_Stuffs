@@ -1,3 +1,5 @@
 {
-  "key": "123456789023456789... third party solution API token here ...890234567890234567890"
+  "key_1": "123456789023456789... third party solution API token here ...890234567890234567890",
+  "host":"_anything_",
+  "other":" anything else "
 }
