@@ -24,29 +24,37 @@ Here are some minimum steps to go thru in order to start correctly your XDR tena
 
 At this point You are ready to use XDR services.
 
-## SecureX Token 
+## Cisco XDR Token 
 
-This section is not needed for XDR. But it will help some old workflows written for SecureX to work within XDR without re writing them.
+This section is not needed for XDR. But .
 
-**Since December 2022 SecureX Token is not anymore needed**. But still, it can be used. So I document it in this tutorial just for keeping knowledge and history of it.
+In theory, **Since December 2022 the XDR Token is not anymore needed**. 
 
-SecureX exposes a lot of APIs for a lot of purposes. From this point of vue SecureX can become a powerful solution to integrate within a SOC. 
+But it can still be used. It can be used for some old workflows written for SecureX to work within XDR. And Avoid re writing them.
 
-This means that SecureX exposes a few "system targets" like CTR_Target, CTIA_Target, or Private_CTIA_Target. Which all require authentication when we interact with them. Then for all of these "SecureX Targets", we are supposed to ask for authentication tokens, we have to manage Token expiration and renewal.
+XDR exposes a lot of APIs for a lot of purposes. From this point of vue XDR becomes a powerful Threat Hunting solution to integrate within a SOC. It exposes a lot of Security Services that can be easily used.
 
-These token management operations are absolutely mandatory and heavy in terms of extra activities within SecureX Workflows.
+XDR exposes a few "system targets" like Platform APIs, Conure APIs Automation APIs, Private Intelligence API and Public API. Which all require authentication when we interact with them. Then for all of these "XDR Targets", we are supposed to ask for authentication tokens, and we have to manage Token expiration and renewal.
 
-The **SecureX Token** makes authentication to these SecureX system targets very easy. 
+These token management operations are absolutely mandatory and are heavy in terms of extra activities within XDR Workflows.
 
-When we use these targets, we just have to use the **SecureX Token** as the account key for all of them. And that's it !. Then Token Generation and renewal is automatically managed.
+The **Cisco XDR Token** makes authentication to these XDR system targets very easy. 
 
-Creating a SecureX Token was one of the installation mandatory steps until December 2022.
+When we use these targets, we just have to use the **Cisco XDR Token** as the account key for all of them. And that's it !. Then Token Generation and renewal is automatically managed by XDR.
+
+**A few word about history of this Token :**
+
+Creating an XDR / SecureX Token was one of the installation mandatory steps until December 2022. It was named at that time **SecureX Token**.
 
 [SecureX Token instructions are here](https://ciscosecurity.github.io/sxo-05-security-workflows/account-keys/securex-token)
 
-**December 8 2022 - Secure Token Update** : A new SecureX native Target named **SecureX APIs** had been released. This one can be use in place of legacy "system targets" : CTR_Target, CTIA_Target, or Private_CTIA_Target. One of the main benefits of this new target it that is manages the Authenthication token, we don't have to take care of it..
+**December 8 2022 - Secure Token Update** : A new SecureX native Target named **SecureX APIs** had been released. This one can be use in place of legacy "system targets" : CTR_Target, CTIA_Target, or Private_CTIA_Target. 
 
-The benefits of this is then, We don't have to take care anymore of the authentication token for **SecureX targets**. We just have to use the targets into our workflows.
+These targets are now within XDR Platform APIs, Conure APIs Automation APIs, Private Intelligence API and Public API.
+
+One of the main benefits of this new target it that is manages the Authenthication token, we don't have to take care of it..
+
+The benefits of this is then, We don't have to take care anymore of the authentication token for **XDR/SecureX targets**. We just have to use the targets into our workflows. and the authentication is automatically managed for us.
 
 ## Targets
 
