@@ -2,16 +2,16 @@
 
 The goal of this tutorials is to share with readers indepth knowledge of services and tools that live within the XDR backend. And give a way to learn about how to program the XDR Platform from the API side. 
 
-Automation examples shared here don't target deployment into production. They are not good for production as they are.  They are given as examples to learn about how to create them and must be tested and improved by yourself if you intent to use them in production. 
+Automation examples shared here don't target deployment into production. They are not good for production as they are.  They are given as examples to learn about how to create them and must be tested and improved by yourself if you intend to use them in production. 
 
 Workflows for production will be shared into the XDR exchange services available into the XDR Platform.
 
 This repository intends to gather some XDR/SecureX tutorials which could help to better understand Workflow and Integration Modules creation.
-A lot of the article here was written in the context of SecureX. And as the Threat Response and workflows part within XDR are just evolutions of what was existing in SecureX, then all the SecureX content here is still valid for anything we do into the XDR platform.
+A lot of the articles here were written in the context of SecureX. And as the Threat Response and workflows part within XDR are just evolutions of what was existing in SecureX, then all the SecureX content here is still valid for anything we do into the XDR platform.
 
-SecureX and XDR GUIs are different but features and access to these features are almost the same.  
+SecureX and XDR GUIs are different but SecureX features and access to these features are still there into XDR.  
 
-For XDR brings new capabilities ( and more power of engines in the backend ). But the good new is that the migration to XDR doesn't break at all the learning curve. 
+XDR brings new capabilities ( and more powerful engines in the backend ). But the good news is that the migration to XDR doesn't break at all the XDR Threat Hunting Automation learning curve. 
 
 ## Start Your tenant - some "recommended or mandatory steps"
 
