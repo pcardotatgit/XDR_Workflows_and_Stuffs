@@ -115,14 +115,14 @@ The recommendation here is to do all the exercices here under one after the othe
 * 7 - [Query XDR for dispositions of observables in security logs](https://github.com/pcardotatgit/check_observable_dispositions_in_CTR_from_an_observable_list) ( python )
 * 8 - XDR Demo - [ Detect Threat and send an alert into Webex, then from webex alert add bad IPs into XDR Firewall Blocking feeds ](https://github.com/pcardotatgit/webex_for_xdr_part-7_The_final_demo)
 * 8b - SecureX Demo - [ Detect Threat and send an alert into Webex, then from webex alert add bad IPs into XDR Firewall Blocking feeds ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/100-SecureX_automation_lab)
-* 9 - [ Understand the XDR CTIM Datastructure ](https://github.com/pcardotatgit/XDR_Workflows_and_Stuffs/tree/master/13-Interact_with_CTIM)
+* 9 - [ Understand the XDR CTIM Datastructure ](https://github.com/pcardotatgit/XDR_Workflows_and_Stuffs/tree/master/13-Interact_with_CTIM)( ( tutorial with labs )
 * 10 - [Create an XDR Incident with python](https://github.com/pcardotatgit/XDR_create_incident_with_python) ( python )
 * 11a - [Delete XDR Demo Incidents and every attached objects](https://github.com/pcardotatgit/clean_XDR_Incidents) ( python )
 * 11b - [Delete XDR Incidents based on selected Incident ](https://github.com/pcardotatgit/clean_XDR_Incidents_based_on_selected_Incident) ( python )
 * 12 - [add an object to XDR feed thanks to python](https://github.com/pcardotatgit/Add_Object_To_XDR_Feed) ( python )
 * 13 - [Create an XDR Incident from Attack Detection into apache logs](https://github.com/pcardotatgit/XDR_demo_-_create_incident_from_apache_log_threat_analysis) ( python )
 * 14 - [ Ransomware Detection and Incident Creation within XDR](https://github.com/pcardotatgit/Ransomware_real_time_detector) ( python )
-* 15 - [ Create an Advanced Webex Alerting System for XDR ](https://github.com/pcardotatgit/webex_for_xdr_part-1_card_examples) ( tutorial )
+* 15 - [ Create an Advanced Webex Alerting System for XDR ](https://github.com/pcardotatgit/webex_for_xdr_part-1_card_examples) ( tutorial with labs )
 
 ## XDR/Securex Workflow List from Cisco and others
 
