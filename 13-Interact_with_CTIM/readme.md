@@ -4,13 +4,15 @@ In this repository You will find  some python scripts given as examples of inter
 
 CTIM is one of the core of XDR. This the Threat Hunting dedicated engine.
 
-The components described into this article are the following here under. But CTIM contains more components not described here.
+The components described into this article are the following here under. 
 
 - Judgments ( for enrichment from private data or for automated Allow / Blocking Feeds creation )
 - Sightings ( Ingest single events from 3rd Party Security Solutions into XDR/SecureX Sightings )
 - Incidents ( Create Incidents )
 - Bundles ( Incidents and attach Sightings to them )
 - Verdicts ( for enrichment )
+
+But CTIM contains more components not described here.
 
 The **create_incidents_from_appache_logs_use_case** subfolder  contains an example of use case.
 
