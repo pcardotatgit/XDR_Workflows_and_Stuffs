@@ -91,7 +91,7 @@ That means that in a lot of cases I show some stuff that are maybe not the best 
 
 The recommendation here is to do all the exercices here under one after the other in the proposed order.
 
-* 1 - [ Create a Webex bot ](https://github.com/pcardotatgit/Create_a_Webex_Team_Bot)
+* 1 - [ Create an Webex Alert Room ](https://github.com/pcardotatgit/Create_a_Webex_Team_Bot)
 * 2 - [ Create the Webex Target and Send messages to an alert Webex Room ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/1-Create_a_Webex_Team_Bot_Target)
 * 3 - [ Send a webex alert if temperature in Paris is less than 25° ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/9-JSON_Parsing_within_SecureX) ( workflow )
 * 4 - [ Secure End Point detect and alert - which host are infected by this malware ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/8-detect_and_alert_workflow_lab) ( workflow )
