@@ -2,21 +2,31 @@
 
 In this repository You will find  some python scripts given as examples of interaction with CTIM components.
 
-CTIM is one of the core of XDR. This the Threat Hunting dedicated engine.
+CTIM is one of the core of XDR. This the Threat Hunting dedicated engine and it's attached storage data structure.
 
 The components described into this article are the following here under. 
 
 - Judgments ( for enrichment from private data or for automated Allow / Blocking Feeds creation )
 - Sightings ( Ingest single events from 3rd Party Security Solutions into XDR/SecureX Sightings )
 - Incidents ( Create Incidents )
+- Relationships ( that link objects together )
+- Indicators ( that identifiy category of attacks )
 - Bundles ( Incidents and attach Sightings to them )
 - Verdicts ( for enrichment )
 
-But CTIM contains more components not described here.
+You have to know that CTIM contains more components not described here. We are going to focus on Incidents, related objects and how to create Incidents within XDR.
+
+For going straight to the goal you can have a look to the documented use case here under :
 
 The **create_incidents_from_appache_logs_use_case** subfolder  contains an example of use case.
 
-The [**Automated Threat Detection and Mitigation scenario**](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/100-SecureX_automation_lab) repository contains a full XDR/SecureX demo which is based on CTIM interaction for creating Incidents and Sightings and read them as well.
+* [Endpoint Infection XDR Demo](https://github.com/pcardotatgit/webex_for_xdr_part-7_The_final_demo)
+* [**Automated Threat Detection and Mitigation scenario**](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/100-SecureX_automation_lab) repository contains a full XDR/SecureX demo which is based on CTIM interaction for creating Incidents and Sightings and read them as well.
+* [XDR_create_incident_with_python](https://github.com/pcardotatgit/XDR_create_incident_with_python)
+* [Create_an_XDR_Incident_from_Ransomware_Detection](https://github.com/pcardotatgit/Create_an_XDR_Incident_from_Ransomware_Detection)
+* [https://github.com/pcardotatgit/Create_an_XDR_incident_from_real_time_Attack_Detection_on_XAMPP_Apache_Web_Server](https://github.com/pcardotatgit/Create_an_XDR_incident_from_real_time_Attack_Detection_on_XAMPP_Apache_Web_Server)
+* [clean_XDR_Incidents_based_on_selected_Incident](https://github.com/pcardotatgit/clean_XDR_Incidents_based_on_selected_Incident)
+* [clean_XDR_Incidents_based_on_source_value](https://github.com/pcardotatgit/clean_XDR_Incidents_based_on_source_value)
 
 ## Instructions
 
