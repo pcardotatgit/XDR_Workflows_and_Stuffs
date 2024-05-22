@@ -32,7 +32,10 @@ And the idea is for you, before going to these use cases, then start here and un
 
 ## Instructions
 
-Before using the python scripts you must first create a XDR / SecureX API client within your tenant, and you must store its **client_id** and **client_password** either into the **./keys/ctr_api_keys.txt** file located into the **/keys** subfolder ( This global configuration file will be used by every scripts in every subfolders ), or into the **config.py** scripts of every subfolders that will be read first by the python scripts.
+Before using the python scripts you must first create a XDR / SecureX API client within your tenant, and you must store its **client_id** and **client_password** 
+
+* either into the **./keys/ctr_api_keys.txt** file located into the **/keys** subfolder ( This global configuration file will be used by every scripts in every subfolders )
+* or into the **config.py** scripts of every subfolders that will be read first by the python scripts.
 
 Depending on your region, You have to uncomment the host fqdn. You have to do this either into the **config.py** scripts or into the **./keys/ctr_api_keys.txt** file.
 
