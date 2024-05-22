@@ -117,6 +117,7 @@ The CTIM Incident relationships possible values are the following :
 - member-of
 - mitigates
 - related-to
+- sighting-of
 - targets
 - uses
 - variant-of
@@ -125,18 +126,18 @@ The value to use depends on the context which link object together. Context is m
 
 Have a look to the following documentation in order to have guidelines on this : [Defined Entity Relationships](https://github.com/threatgrid/ctim/blob/master/doc/defined_relationships.md)
 
-In addition to these values above, at  the **observable** level we foind dedicated relationships values which are :
+In addition to these values above, at  the **observable** level we find dedicated relationships values which are :
 
 [CTIM observable relation map documentation](https://github.com/threatgrid/ctim/blob/74857ac6ffed206b3dcf01f171feb30e08277191/src/ctim/schemas/common.cljc#L408)
-
-
 
 The attack graph is builted upon these relationships. It is a representation of these relationships. 
 At the same time the relationships link objects together into XDR.
 
 Once **Sightings** are created, then we can create an **Incident** and attach every **Sigthings** to it thank to a **member of** relationship.
 
-That means that we are supposed to use several APIs calls to create all what is needed to create an Incident and all the attached objects. 
+**Sightings** are linked to **Indicators** thanks to a **sighting-of** **relationship**.
+
+We understand that we are supposed to use several APIs calls to create all what is needed to create an Incident and all the attached objects. 
 
 CTIM developpers thought about making life easy for programmers. They thought about creating the **bundle** API.
 
@@ -166,13 +167,27 @@ When we create the **Incident** and all **Sightings** it contains, we assign IDs
 
 For reading **sigthings** that belong to an **Incident** we must first retrieve its **target_ref** and search for **relationships** based on this **target_ref** information. Thanks to this, we get the list of all **sightings** that belong to the **Incident** and we can get their **source_ref** IDs. Then, for each **Sighting**, based on its **source_ref** we parse it and extract from it everything which is relevant for additionnal investigation. This is mainly **Targets** and **Observables**
 
-## How to add observable into XDR / SecureX public feeds thanks to CTIM ?
+## XDR Feeds and How to add observables into XDR / SecureX public feeds thanks to CTIM ?
 
 For doing this, we have to deal with **Judgment**, **Indicators** and **Feeds** APIs.
 
 ![](./assets/img/3.png)
 
-In order to assign an **observable** to a public feed, we must create a **judgment** for it and we must link it to an **indicator** that is link the a **feed**. Basically we already created these **indicators** and their attached **feeds** when we created the XDR blocking Feeds.
+Once again, let's start with some terminology in order to make things clear.
+
+We saw that an **observable** is an IOC ( an entity ) that is contained into **Sightings**. It can be an attack **target** and/or a suspicious entity. With XDR the enrichment process is responsible to discover the observable reputation ( disposistion in the XDR terminology ). And this entity disposition is stored by XDR into the **judgment** table which is a local storage of current **observables** dispositions for a given period of time.
+
+**Indicators** can be seen as attack categories. They are used to group events into attack categories. For example a SQL Injection attack and a XSS Attacks on a Web server belong to an **Indicator** which is **Web Attacks**.
+
+**feed** are list of observables maintained by XDR that store **observables** of the same type ( ip, domain, url, ect ...). These **feeds** are commonly used to created allow/block lists to deploy into firewalls. But not only, these **feeds** can collect and group **observables** into a central storage for any purposes like reports, investigation or anything else. An XDR **feed** is an object container that has a public URL with no authentication needed ( which makes feeds easy to consume by firewalls ). We can easily create several **feeds** within XDR that can contain an maximum of 10 000 observable each.  XDR Feeds open the door to a lot of Security Use cases.
+
+So the question becomes how can we add an **observable** to a **feeds** ?
+
+In order to assign an **observable** to an **feed**, we must create a **judgment** for it and we must link it to an **indicator** thanks to a **relationship** ( so we understand that we have to create this **Indicator** first ). 
+
+And we must link this **Indicator** to the **feed** thanks to another **relationship** ( and we understand that we have to create this **feed** first ).
+
+the a **feed**. Basically we already created these **indicators** and their attached **feeds** when we created the XDR blocking Feeds.
 
 In order to add an **observable** to a public feed, we must create a **judgment** for it link it to an **indicator**.
 
