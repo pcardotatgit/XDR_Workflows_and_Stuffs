@@ -175,19 +175,19 @@ For doing this, we have to deal with **Judgment**, **Indicators** and **Feeds** 
 
 Once again, let's start with some terminology in order to make things clear.
 
-We saw that an **observable** is an IOC ( an entity ) that is contained into **Sightings**. It can be an attack **target** and/or a suspicious entity. With XDR the enrichment process is responsible to discover the observable reputation ( disposistion in the XDR terminology ). And this entity disposition is stored by XDR into the **judgment** table which is a local storage of current **observables** dispositions for a given period of time.
+We saw that an **observable** is an IOC ( an entity ) that is contained into **Sightings**. It can be an attacked **target** and/or a suspicious entity. 
 
-**Indicators** can be seen as attack categories. They are used to group events into attack categories. For example a SQL Injection attack and a XSS Attacks on a Web server belong to an **Indicator** which is **Web Attacks**.
+Within XDR, the enrichment process is responsible to discover the observable reputation ( disposition in the XDR terminology : clean , malicious, suspicious, unknown ). And this entity disposition is stored by XDR into the **judgment** table which is a local storage of current **observables** dispositions for a given period of time.
 
-**feed** are list of observables maintained by XDR that store **observables** of the same type ( ip, domain, url, ect ...). These **feeds** are commonly used to created allow/block lists to deploy into firewalls. But not only, these **feeds** can collect and group **observables** into a central storage for any purposes like reports, investigation or anything else. An XDR **feed** is an object container that has a public URL with no authentication needed ( which makes feeds easy to consume by firewalls ). We can easily create several **feeds** within XDR that can contain an maximum of 10 000 observable each.  XDR Feeds open the door to a lot of Security Use cases.
+Let's talk now about **indicators**, . **Indicators** can be seen as attack categories. They are used to group events into groups of attacks. For example SQL Injection attacks and a XSS Attack on a Web server belong to **Web Attacks**. And then **Web Attacks** would be the **Indicator** for them. **Indicators** Named  are not statically predefined. We can create this name as we wish. Cisco Security Product use to used their own predefined **Indicators** name. Using "Well known" names is definitely a good practice if this is possible.
+
+What about **feeds**.  **feeds** are list of observables maintained by XDR that store **observables** of the same type ( ip, domain, url, ect ...). These **feeds** are commonly used to created allow/block lists to deploy into firewalls. But not only, these **feeds** can collect and group **observables** into a central storage for any purposes like reports, investigation or anything else. An XDR **feed** is an object container that has a public URL with no authentication needed ( which makes feeds easy to consume by firewalls ). We can easily create several **feeds** within XDR that can contain an maximum of 10 000 **observables** each.  XDR Feeds open the door to a lot of Security Use cases.
 
 So the question becomes how can we add an **observable** to a **feeds** ?
 
 In order to assign an **observable** to an **feed**, we must create a **judgment** for it and we must link it to an **indicator** thanks to a **relationship** ( so we understand that we have to create this **Indicator** first ). 
 
 And we must link this **Indicator** to the **feed** thanks to another **relationship** ( and we understand that we have to create this **feed** first ).
-
-the a **feed**. Basically we already created these **indicators** and their attached **feeds** when we created the XDR blocking Feeds.
 
 In order to add an **observable** to a public feed, we must create a **judgment** for it link it to an **indicator**.
 
