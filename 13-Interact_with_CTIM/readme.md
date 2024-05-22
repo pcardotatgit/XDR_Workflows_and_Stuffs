@@ -14,19 +14,21 @@ The components described into this article are the following here under.
 - Bundles ( Incidents and attach Sightings to them )
 - Verdicts ( for enrichment )
 
-You have to know that CTIM contains more components not described here. We are going to focus on Incidents, related objects and how to create Incidents within XDR.
+You have to know that CTIM contains more components not described here. 
 
-For going straight to the goal you can have a look to the documented use case here under :
+We are going to focus here on Incidents, related objects and how to create Incidents within XDR.
 
-The **create_incidents_from_appache_logs_use_case** subfolder  contains an example of use case.
+The here under use case are based on the CTIM API knowledge presented here :
 
 * [Endpoint Infection XDR Demo](https://github.com/pcardotatgit/webex_for_xdr_part-7_The_final_demo)
-* [**Automated Threat Detection and Mitigation scenario**](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/100-SecureX_automation_lab) repository contains a full XDR/SecureX demo which is based on CTIM interaction for creating Incidents and Sightings and read them as well.
+* [Automated Threat Detection and Mitigation scenario](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/100-SecureX_automation_lab)
 * [XDR_create_incident_with_python](https://github.com/pcardotatgit/XDR_create_incident_with_python)
 * [Create_an_XDR_Incident_from_Ransomware_Detection](https://github.com/pcardotatgit/Create_an_XDR_Incident_from_Ransomware_Detection)
 * [https://github.com/pcardotatgit/Create_an_XDR_incident_from_real_time_Attack_Detection_on_XAMPP_Apache_Web_Server](https://github.com/pcardotatgit/Create_an_XDR_incident_from_real_time_Attack_Detection_on_XAMPP_Apache_Web_Server)
 * [clean_XDR_Incidents_based_on_selected_Incident](https://github.com/pcardotatgit/clean_XDR_Incidents_based_on_selected_Incident)
 * [clean_XDR_Incidents_based_on_source_value](https://github.com/pcardotatgit/clean_XDR_Incidents_based_on_source_value)
+
+And the idea is for you, before going to these use cases, then start here and understand the CTIM objects we need to manipulate for managing XDR Incidents thru a few python scripts.
 
 ## Instructions
 
