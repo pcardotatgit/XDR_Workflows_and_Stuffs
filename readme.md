@@ -123,7 +123,8 @@ The recommendation here is to do all the exercices here under one after the othe
 * 13 - [Create an XDR Incident from Attack Detection into apache logs](https://github.com/pcardotatgit/XDR_demo_-_create_incident_from_apache_log_threat_analysis) ( python )
 * 14 - [ Ransomware Detection and Incident Creation within XDR](https://github.com/pcardotatgit/Ransomware_real_time_detector) ( python )
 * 15 - [ Copy and Paste Incidents](https://github.com/pcardotatgit/XDR_copy_and_paste_incidents) ( python )
-* 16 - [ Create an Advanced Webex Alerting System for XDR ](https://github.com/pcardotatgit/webex_for_xdr_part-1_card_examples) ( tutorial with labs )
+* 16 - [ Incident Parser tools and functions](https://github.com/pcardotatgit/XDR_Incident_parser) ( python )
+* 17 - [ Create an Advanced Webex Alerting System for XDR ](https://github.com/pcardotatgit/webex_for_xdr_part-1_card_examples) ( tutorial with labs )
 
 ## XDR/Securex Workflow List from Cisco and others
 
