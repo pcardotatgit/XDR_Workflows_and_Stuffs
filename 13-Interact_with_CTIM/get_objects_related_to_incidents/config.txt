@@ -1,4 +1,0 @@
-ctr_client_id=client-id
-ctr_client_password=password
-host=https://private.intel.eu.amp.cisco.com
-host_for_token=https://visibility.eu.amp.cisco.com
