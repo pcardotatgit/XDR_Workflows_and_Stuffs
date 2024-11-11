@@ -52,7 +52,7 @@ Go to the left menu and select **variable**.
 
 ![](img/1.png)
 
-Then create a new variable. Select the **Data Tye**.   Select **Data Type : Secure String** 
+Then create a new variable. Select the **Data Type**.   Select **Data Type : Secure String** 
 
 As you probably understand, **Secure String** means that no one will be able to see the value.  It makes sense to use this Data Type for every variable we don't want to share publicly with others.
 
@@ -60,7 +60,9 @@ The value of this variable must be the Token of the Bot you created into Webex p
 
 ![](img/2.png)
 
-Create another global string variable named **webex_alert_room_id** for example and configure as it's value, the Webex Room ID attached to your Webex Team Bot.
+**Create the XDR_ALERT_BOT_ROOM_ID variable**
+
+Next stept is to create another global string variable named **XDR_ALERT_BOT_ROOM_ID** for example and configure as it's value, the Webex Room ID attached to the Webex Bot you created prior.
 
 OK done, you are good to go to next steps.
 
@@ -93,7 +95,7 @@ Go to the variable section of the properties panel and add to it an **input** va
 
 ![](img/16.png)
 
-Now configure a terget for the this workflow
+Now configure a target for the this workflow
 
 - Go to the target Section : Execute on this target ==> HTTP ENdpoint ==> **Webex_Alert_Target**
 
@@ -160,6 +162,11 @@ And the click on the variable icon located on the top right of the textarea box.
 Click on the save button. This action will concatenate to the Body JSON data at the roomId Line the content of the **XDR_ALERT_BOT_ROOM_ID** variable between the 2 double quotes.
 
 ![](img/21.png)
+
+Then repeat the same operation at the markdown line and insert between the 2 double quotes the **message_to_send_to_webex_room** variable. This one is not a global variable, it is an **Workflow => input** variable.
+
+![](img/22.png)
+![](img/23.png)
 
 **Remark** : the **text** and **markdown** keys are not mandatory together, you need to give one, or the other.
 
