@@ -72,25 +72,37 @@ Create a new workflow.
 
 ![](img/3.png)
 
+Select the option : **Blank Custom Workflow** which is first option.
 
-Give it a name and add to it an **input** variable named **message_to_send_to_webex_team_room** for example. Make it **required**.
+![](img/12.png)
 
-Then go to the activity menu on the left side of the workflow editor and drag an drop in the canvas the **HTTP Request**.
 
-The SecureX workflow activity to use is the **HTTP Request** activity.
+Give a meaningful name to your workflow. 
+
+And better than that decide now about a naming convention for every workflows you will create into the tenant.  After a few month it will be very difficult to find your workflows amon all the workflows created by you and other administrators.  Workflow Naming conventing is a key topic !!.
+
+For now name your workflow : **Send Text Message to Webex**
+
+Click on **continue**.
+
+Go to the variable section of the properties panel and add to it an **input** variable named **message_to_send_to_webex_room** for example. Make it **required**, meaning that the workflow cannot run if no message are given to it.
+
+Then go to the activity menu on the left side of the workflow editor and drag an drop in the canvas the **HTTP Request** activity.
+
+Our XDR workflow activity need the **HTTP Request** activity to send messages to Webex. Actually this activity manage Web connection from XDR to any Web destination which can be either a web site, or a REST API Endpoint.  In Our case the API endpoint is a Webex REST API Endpoint.
 
 And we have to configure it the following way.
 
 - target : **Webex_Team_Room_Target**
-- Relative URL : the Requested Webex API **v1/messages** for example.
+- Relative URL : the Requested Webex API **v1/messages**.
 - Method : **POST** if we want to send a message.
 - CONTENT TYPE : **JSON**
 
 In **CUSTOM HEADER** add a variable that you must mandatory call **Authorization** and give to it the following value :
 
-**Bearer <webex_token>**  
+**Bearer <value_of_webex_token>**  
 
-( Important : there is a space between **Bearer** and the **webex_token** value )
+( Important : there is a space between **Bearer** and the **value_of_webex_token** value )
 
 Pictures of what you are supposed to see :
 
@@ -104,8 +116,8 @@ It must be defined in the following JSON payload :
 
 ```
 {
-    "roomId":"Select from SecureX Variable browser tree, the : webex_bot_room variable, which is a Global Variable ",
-    "text":"Select from SecureX Variable browser tree, the : message_to_send_to_webex_team_room variable, which is a Global Variable "   
+    "roomId":"Select from XDR Variable browser tree, the : webex_bot_room variable, which is a Global Variable ",
+    "text":"Select from XDR Variable browser tree, the : message_to_send_to_webex_room variable, which is a Global Variable "   
 }
 ```
 
@@ -122,9 +134,23 @@ or if you use markdown formatting :
 
 **markdown** allows you to send nice formatted messages to the Webex Team Room.
 
-## why did we configured the HTTP request this way ?
+## Why did we configured the HTTP request XDR activity this way ?
 
-The above values come from the Webex API documentation.
+The above values into the previous paragraph come directly from the Webex API documentation.
+
+What ever the target is, we understand what to configure in the XDR target definition from the product API documentation.
+
+This API documentation give us several information which are :
+
+- The API endpoint
+- The FQDN
+- The HTTP method to use ( POST, GET, DELETE, PATCH,...)
+- How to authenticate
+- How to pass variable to the API Endpoint ( in the header, in the body, As raw text , XML or JSON )
+
+The API target in XDR has every required field needed to configure the target what ever this destination solution is. We just need to understand from the product API documentation how to send a valid API REST Call.
+
+In the case of Webex, the API documentation is very clear and it is easy to understand how to configure the XDR target.
 
 https://developer.webex.com/docs/api/v1/messages/create-a-message
 
@@ -132,9 +158,19 @@ If we have a look to how to create a message all information are there.
 
 ![](img/4.png)
 
-We understand that we have to use the **/v1/messages** api . We must use the **POST** verb. The authentication token is a **bearer** token. Parameters to pass to the API must be in the Body and the variable we are interested in to pass are **roomId** , **text** and **markdown**
+We understand that :
+
+- The Webex FQDN is : webexapis.com
+- The relative URL ( API path ) is **/v1/messages**. Notice, we could have configure **/v1** in the target definition, And then configure **/messages** in the relative URL of the HTTP Request activity. 
+- The method is the **POST** verb. 
+- The authentication token is a **bearer** token we must pass into the header of the call, as a variable named **Authorization**
+- Parameters to pass to the API must be in the Body in the JSON format, and the variable names to pass are **roomId** , **text** and **markdown**.
+
+So let's follow the rules and let's configure the HTTP Request activity as needed.
 
 ## Test your workflow
+
+Once everything done, then we can test our workflow.
 
 Run Your Workflow.
 
