@@ -173,16 +173,15 @@ Then repeat the same operation at the markdown line and insert between the 2 dou
 **markdown** allows you to send nice formatted messages to the Webex Team Room.
 
 
-In **CUSTOM HEADER** add a variable that you must mandatory call **Authorization** and give to it the following value :
+In the **Headers** section add a variable that you must mandatory call **Authorization** and give to it the following value :
 
 **Bearer <value_of_webex_token>**  
 
-( Important : there is a space between **Bearer** and the **value_of_webex_token** value )
+Important : there is a space between the **Bearer** keyword and the **XDR_webex_bot_token** value.
 
-Pictures of what you are supposed to see :
+Select the **XDR_webex_bot_token** thanks to the variable browser by clicking on the variable icon.
 
-![](img/webex_team_target-2.png)
-![](img/webex_team_target-3.png)
+![](img/23.png)
 
 ## Why did we configured the HTTP request XDR activity this way ?
 
