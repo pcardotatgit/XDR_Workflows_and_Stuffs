@@ -93,27 +93,27 @@ Go to the variable section of the properties panel and add to it an **input** va
 
 ![](img/16.png)
 
+Now configure a terget for the this workflow
+
+- Go to the target Section : Execute on this target ==> HTTP ENdpoint ==> **Webex_Alert_Target**
+
+![](img/17.png)
+
 Then go to the activity menu on the left side of the workflow editor and drag an drop in the canvas the **HTTP Request** activity.
 
 Our XDR workflow activity need the **HTTP Request** activity to send messages to Webex. Actually this activity manage Web connection from XDR to any Web destination which can be either a web site, or a REST API Endpoint.  In Our case the API endpoint is a Webex REST API Endpoint.
 
 ![](img/15.png)
 
-And we have to configure it the following way.
+And we have to customize it according to the following details :
 
 - Display Name : POST Message to Webex
 - Description : Send a POST Message that contain the message to send into the alert Webex Room
-- target : **Webex_Alert_Target**
-
-![](img/17.png)
-
-
-
-- Relative URL : the Requested Webex API **v1/messages**.
-- Method : **POST** if we want to send a message.
+- Relative URL : **v1/messages** ( Webex API Endpoint for managing messages )
+- Method : **POST** ( for sending a message to a room )
 - CONTENT TYPE : **JSON**
 
-
+![](img/18.png)
 
 In **CUSTOM HEADER** add a variable that you must mandatory call **Authorization** and give to it the following value :
 
