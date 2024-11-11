@@ -26,7 +26,7 @@ Anything that exist in the IT is a target for XDR and XDR is able to interact wi
 
 # Create a New Target
 
-Because of the fact that as human we interact with Webex thanks to https connections then create an HTTP endpoint. Name id **Webex_Team_Room_Target** for example.
+Because of the fact that as human we interact with Webex thanks to https connections then create an HTTP endpoint. Name id **Webex_Alert_Target** for example.
 
 - Target type : **HTTP Endpoint**
 - NO ACCOUNT KEY : **TRUE**
@@ -103,10 +103,17 @@ And we have to configure it the following way.
 
 - Display Name : POST Message to Webex
 - Description : Send a POST Message that contain the message to send into the alert Webex Room
-- target : **Webex_Team_Room_Target**
+- target : **Webex_Alert_Target**
+
+![](img/17.png)
+
+
+
 - Relative URL : the Requested Webex API **v1/messages**.
 - Method : **POST** if we want to send a message.
 - CONTENT TYPE : **JSON**
+
+
 
 In **CUSTOM HEADER** add a variable that you must mandatory call **Authorization** and give to it the following value :
 
