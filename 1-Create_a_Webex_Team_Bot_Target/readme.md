@@ -109,6 +109,8 @@ And we have to customize it according to the following details :
 
 - Display Name : POST Message to Webex
 - Description : Send a POST Message that contain the message to send into the alert Webex Room
+- target : don't select any target ( it had been done at the workflow level )
+- Credentials => Account Keys : Use target's default account keys
 - Relative URL : **v1/messages** ( Webex API Endpoint for managing messages )
 - Method : **POST** ( for sending a message to a room )
 - CONTENT TYPE : **JSON**
