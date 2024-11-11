@@ -89,6 +89,8 @@ Click on **continue**.
 
 Go to the variable section of the properties panel and add to it an **input** variable named **message_to_send_to_webex_room** for example. Make it **required**, meaning that the workflow cannot run if no message are given to it.
 
+![](img/14.png)
+
 Then go to the activity menu on the left side of the workflow editor and drag an drop in the canvas the **HTTP Request** activity.
 
 Our XDR workflow activity need the **HTTP Request** activity to send messages to Webex. Actually this activity manage Web connection from XDR to any Web destination which can be either a web site, or a REST API Endpoint.  In Our case the API endpoint is a Webex REST API Endpoint.
