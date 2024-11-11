@@ -95,8 +95,12 @@ Then go to the activity menu on the left side of the workflow editor and drag an
 
 Our XDR workflow activity need the **HTTP Request** activity to send messages to Webex. Actually this activity manage Web connection from XDR to any Web destination which can be either a web site, or a REST API Endpoint.  In Our case the API endpoint is a Webex REST API Endpoint.
 
+![](img/15.png)
+
 And we have to configure it the following way.
 
+- Display Name : POST Message to Webex
+- Description : Send a POST Message that contain the message to send into the alert Webex Room
 - target : **Webex_Team_Room_Target**
 - Relative URL : the Requested Webex API **v1/messages**.
 - Method : **POST** if we want to send a message.
