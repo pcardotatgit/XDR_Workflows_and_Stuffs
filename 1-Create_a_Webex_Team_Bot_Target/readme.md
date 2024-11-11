@@ -62,11 +62,11 @@ The value of this variable must be the Token of the Bot you created into Webex p
 
 Create another global string variable named **webex_alert_room_id** for example and configure as it's value, the Webex Room ID attached to your Webex Team Bot.
 
-OK done, you are good to go.
+OK done, you are good to go to next steps.
 
 # Interact with your Webex Team Bot
 
-Let's see how to send messages to our room thanks to a SecureX activity.
+Let's see how to send messages to our room thanks to XDR workflows.
 
 Create a new workflow.
 
