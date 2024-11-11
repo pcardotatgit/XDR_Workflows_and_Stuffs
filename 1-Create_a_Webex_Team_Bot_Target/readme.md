@@ -117,6 +117,50 @@ And we have to customize it according to the following details :
 
 ![](img/18.png)
 
+Now go to the body textarea box and create the JSON data to send to Webex Backend.
+
+The **Request Body** must contain the Destination Webex Room ID and the message to send.
+
+It must be defined in the following JSON payload :
+
+```
+{
+    "roomId":" *Select from XDR Variable browser tree, the : webex_bot_room variable, which is a Global Variable* ",
+    "text":" *Select from XDR Variable browser tree, the : message_to_send_to_webex_room variable, which is a Global Variable* "   
+}
+```
+
+or if you use markdown formatting :
+
+```
+{
+    "roomId":" *Select from XDR Variable browser tree, the : webex_bot_room variable, which is a Global Variable* ",
+    "markdown":" *Select from XDR Variable browser tree, the : message_to_send_to_webex_team_room variable, which is a Global Variable* "    
+}
+```
+
+First create the following JSON data into the Body textarea :
+
+or if you use markdown formatting :
+
+```
+{
+    "roomId":"",
+    "markdown":""    
+}
+```
+
+Then on the roomId line click absolutely between the 2 double quotes. The mouse cursor must absolutely be between these 2 double quotes.
+
+And the click on the variable icon located on the top right of the textarea box. This opens the variable browser windows and from here select in the global variable the 
+
+![](img/19.png)
+
+**Remark** : the **text** and **markdown** keys are not mandatory together, you need to give one, or the other.
+
+**markdown** allows you to send nice formatted messages to the Webex Team Room.
+
+
 In **CUSTOM HEADER** add a variable that you must mandatory call **Authorization** and give to it the following value :
 
 **Bearer <value_of_webex_token>**  
@@ -125,33 +169,8 @@ In **CUSTOM HEADER** add a variable that you must mandatory call **Authorization
 
 Pictures of what you are supposed to see :
 
-
 ![](img/webex_team_target-2.png)
 ![](img/webex_team_target-3.png)
-
-The **Request Body** must contain the Destination Webex Room ID and the message to send.
-
-It must be defined in the following JSON payload :
-
-```
-{
-    "roomId":"Select from XDR Variable browser tree, the : webex_bot_room variable, which is a Global Variable ",
-    "text":"Select from XDR Variable browser tree, the : message_to_send_to_webex_room variable, which is a Global Variable "   
-}
-```
-
-or if you use markdown formatting :
-
-```
-{
-    "roomId":"Select from SecureX Variable browser tree, the : webex_bot_room variable, which is a Global Variable ",
-    "markdown":"Select from SecureX Variable browser tree, the : message_to_send_to_webex_team_room variable, which is a Global Variable "    
-}
-```
-
-**Remark** : the **text** and **markdown** keys are not mandatory together, you need to give one, or the other.
-
-**markdown** allows you to send nice formatted messages to the Webex Team Room.
 
 ## Why did we configured the HTTP request XDR activity this way ?
 
