@@ -2,9 +2,9 @@
 
 This article explains you how to create an XDR Target from scratch for Webex.
 
-XDR already has a Webex target and workflow activities for interacting with Webex. 
+XDR already has a target and workflow activities for interacting with Webex. 
 
-But just for understanding the principle of XDR Target and how we create them, then wa are going to create an XDR Target for Webex from scratch.
+But just for understanding the principle of XDR Targets and how we create them, it is interesting to create a duplicate one from scratch.
 
 For XDR, Webex appears just as an HTTPS target. And generally speaking it is the case for 90 %  of the security solutions XDR will have to interact with. That means that everything you are going to learn here can be used for creating XDR targets for anyother security solutions.
 
@@ -18,20 +18,35 @@ If you don't already have a Webex Bot and a Alert Webex Room, then create them n
 
 If you already did it, then you are ready to go to next steps.
 
+# What is a target ?
+
+For XDR, a target is any end points from which XDR is able to collect data, or to which XDR is able to send instructions. 
+
+Anything that exist in the IT is a target for XDR and XDR is able to interact with it.
+
 # Create a New Target
 
-Create an HTTP endpoint. Name id **Webex_Team_Room_Target** for example.
+Because of the fact that as human we interact with Webex thanks to https connections then create an HTTP endpoint. Name id **Webex_Team_Room_Target** for example.
 
 - Target type : **HTTP Endpoint**
 - NO ACCOUNT KEY : **TRUE**
 - PROTOCOL : **HTTPS**
-- HOST/IP ADDRESS : **webexapis.com** ( old host : api.ciscospark.com )
+- HOST/IP ADDRESS : **webexapis.com** ( old host which still work : api.ciscospark.com )
 
-According to the Webex API documentation ( https://developer.webex.com/docs/api/v1/messages/create-a-message ), the authentication will be passed to the API call as a bearer token within the header. This is the reason why we set **NO ACCOUNT KEY** to **TRUE**. We won't manage authentication at the Target Level. We will do it in the REST call.
+![](img/10.png)
 
-![](img/webex_team_target-1.png)
 
-Create a global ( or environnement ) secured string variable named **SecureX_webex_bot_token** for example. And assign to it the Webex Bearer Token of your Webex Team Bot.
+According to the Webex API documentation ( https://developer.webex.com/docs/api/v1/messages/create-a-message ), the authentication will be passed to the API call as a **bearer token** within the **header**. This is the reason why we set **NO ACCOUNT KEY** to **TRUE**. 
+
+We won't manage authentication at the Target definition Level. We will do it in the REST call into the HTTP Request XDR Activity
+
+![](img/11.png)
+
+Let's decide to store the Webex Bot token into the XDR Tenant ( another choice would be to store it locally later into the XDR workflow ).
+
+Global variables can be accessed by every workflows into the tenant.  Local variables are only available within the workflow.
+
+Create a global ( possible into environnement ) secured string variable named **XDR_webex_bot_token** for example. And assign to it as the value the Webex Bearer Token of your Webex Team Bot. It is a good practice to put a description into the description field. Consider this as a best practice for every descriptions you come accross into XDR.
 
 Go to the left menu and select **variable**.
 
