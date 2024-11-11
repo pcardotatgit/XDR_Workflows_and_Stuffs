@@ -52,9 +52,9 @@ When we use these targets, we just have to use the **Cisco XDR Token** as the ac
 
 **A few word about history of this Token :**
 
-Creating an XDR / SecureX Token was one of the installation mandatory steps until December 2022. It was named at that time **SecureX Token**.
+Creating an XDR Token was one of the installation mandatory steps until December 2022. It was named at that time **SecureX Token**.
 
-[SecureX Token instructions are here](https://ciscosecurity.github.io/sxo-05-security-workflows/account-keys/securex-token)
+[XDR ( or SecureX ) Token instructions are here](https://ciscosecurity.github.io/sxo-05-security-workflows/account-keys/securex-token)
 
 **December 8 2022 - Secure Token Update** : A new SecureX native Target named **SecureX APIs** had been released. This one can be use in place of legacy "system targets" : CTR_Target, CTIA_Target, or Private_CTIA_Target. 
 
@@ -99,7 +99,7 @@ That means that in a lot of cases I show some stuff that are maybe not the best 
 
 The recommendation here is to do all the exercices here under one after the other in the proposed order.
 
-* 1 - [ Create an Webex Alert Room ](https://github.com/pcardotatgit/Create_a_Webex_Team_Bot)
+* 1 - [ Create a Webex Alert Room ](https://github.com/pcardotatgit/Create_a_Webex_Team_Bot)
 * 2 - [ Create the Webex Target and Send messages to an alert Webex Room ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/1-Create_a_Webex_Team_Bot_Target)
 * 3 - [ Send a webex alert if temperature in Paris is less than 25° ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/9-JSON_Parsing_within_SecureX) ( workflow )
 * 4 - [ Secure End Point detect and alert - which host are infected by this malware ](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/8-detect_and_alert_workflow_lab) ( workflow )

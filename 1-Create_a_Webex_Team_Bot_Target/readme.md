@@ -1,13 +1,18 @@
 # Introduction
 
-This article explains you how to create a SecureX Webex Team Target form scratch.
+This article explains you how to create an XDR Target from scratch for Webex.
 
-SecureX already has Webex Team activities for interacting with Webex. But just for understanding how they were created we are going to create a new one from scratch.
+XDR already has a Webex target and workflow activities for interacting with Webex. 
 
+But just for understanding the principle of XDR Target and how we create them, then wa are going to create an XDR Target for Webex from scratch.
 
-For SecureX, Webex Team appears just like an HTTPS target. That means that you can quickly create it as a new target.
+For XDR, Webex appears just as an HTTPS target. And generally speaking it is the case for 90 %  of the security solutions XDR will have to interact with. That means that everything you are going to learn here can be used for creating XDR targets for anyother security solutions.
 
-A mandatory prerequist is to already have created a Webex Team Bot and an Alert Webex Team Room 
+As pre requisit for this lab, it is mandatory to already have created a Webex Bot and an Alert Webex Room.
+
+More generally Webex is a perfect alerting system for XDR. So you will not waste your time by going thru this lab. You will probably keep it for any XDR alerting purposes.
+
+If you don't already have a Webex Bot and a Alert Webex Room, then create them now.
 
 [Create_a_Webex_Team_Bot ](https://github.com/pcardotatgit/Create_a_Webex_Team_Bot)
 
