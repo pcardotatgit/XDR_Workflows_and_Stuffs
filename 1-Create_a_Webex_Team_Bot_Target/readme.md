@@ -56,6 +56,8 @@ Then create a new variable. Select the **Data Tye**.   Select **Data Type : Secu
 
 As you probably understand, **Secure String** means that no one will be able to see the value.  It makes sense to use this Data Type for every variable we don't want to share publicly with others.
 
+The value of this variable must be the Token of the Bot you created into Webex prior.
+
 ![](img/2.png)
 
 Create another global string variable named **webex_alert_room_id** for example and configure as it's value, the Webex Room ID attached to your Webex Team Bot.
