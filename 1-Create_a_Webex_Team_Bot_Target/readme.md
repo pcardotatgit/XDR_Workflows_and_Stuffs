@@ -152,9 +152,10 @@ or if you use markdown formatting :
 
 Then on the roomId line click absolutely between the 2 double quotes. The mouse cursor must absolutely be between these 2 double quotes.
 
-And the click on the variable icon located on the top right of the textarea box. This opens the variable browser windows and from here select in the global variable the 
+And the click on the variable icon located on the top right of the textarea box. This opens the variable browser windows and from here select in the global variable the **XDR_ALERT_BOT_ROOM_ID** variable.
 
 ![](img/19.png)
+![](img/20.png)
 
 **Remark** : the **text** and **markdown** keys are not mandatory together, you need to give one, or the other.
 
