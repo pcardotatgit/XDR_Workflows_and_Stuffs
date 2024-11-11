@@ -85,6 +85,8 @@ For now name your workflow : **Send Text Message to Webex**
 
 Click on **continue**.
 
+![](img/13.png)
+
 Go to the variable section of the properties panel and add to it an **input** variable named **message_to_send_to_webex_room** for example. Make it **required**, meaning that the workflow cannot run if no message are given to it.
 
 Then go to the activity menu on the left side of the workflow editor and drag an drop in the canvas the **HTTP Request** activity.
