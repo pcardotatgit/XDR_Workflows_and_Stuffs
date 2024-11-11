@@ -52,7 +52,9 @@ Go to the left menu and select **variable**.
 
 ![](img/1.png)
 
-Then create a new variable.
+Then create a new variable. Select the **Data Tye**.   Select **Data Type : Secure String** 
+
+As you probably understand, **Secure String** means that no one will be able to see the value.  It makes sense to use this Data Type for every variable we don't want to share publicly with others.
 
 ![](img/2.png)
 
