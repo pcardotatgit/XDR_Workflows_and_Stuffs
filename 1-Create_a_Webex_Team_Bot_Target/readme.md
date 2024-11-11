@@ -157,6 +157,10 @@ And the click on the variable icon located on the top right of the textarea box.
 ![](img/19.png)
 ![](img/20.png)
 
+Click on the save button. This action will concatenate to the Body JSON data at the roomId Line the content of the **XDR_ALERT_BOT_ROOM_ID** variable between the 2 double quotes.
+
+![](img/21.png)
+
 **Remark** : the **text** and **markdown** keys are not mandatory together, you need to give one, or the other.
 
 **markdown** allows you to send nice formatted messages to the Webex Team Room.
