@@ -221,11 +221,15 @@ So let's follow the rules and let's configure the HTTP Request activity as neede
 
 Once everything done, then we can test our workflow.
 
-Run Your Workflow.
+Run Your Workflow. First click on the validate button and then click on the Run button on the top right.
+
+
 
 You should be prompted to enter a message to send.  And then you should receive it into your Webex Team Bot Room.
 
-![](img/webex_team_target-4.png)
+
+![](img/26.png)
+![](img/27.png)
 
 ## Make it Atomic
 
