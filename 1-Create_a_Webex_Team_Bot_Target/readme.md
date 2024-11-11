@@ -181,7 +181,7 @@ Important : there is a space between the **Bearer** keyword and the **XDR_webex_
 
 Select the **XDR_webex_bot_token** thanks to the variable browser by clicking on the variable icon.
 
-![](img/23.png)
+![](img/25.png)
 
 ## Why did we configured the HTTP request XDR activity this way ?
 
