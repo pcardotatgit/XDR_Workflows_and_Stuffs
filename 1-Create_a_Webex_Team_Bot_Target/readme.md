@@ -91,6 +91,8 @@ Go to the variable section of the properties panel and add to it an **input** va
 
 ![](img/14.png)
 
+![](img/16.png)
+
 Then go to the activity menu on the left side of the workflow editor and drag an drop in the canvas the **HTTP Request** activity.
 
 Our XDR workflow activity need the **HTTP Request** activity to send messages to Webex. Actually this activity manage Web connection from XDR to any Web destination which can be either a web site, or a REST API Endpoint.  In Our case the API endpoint is a Webex REST API Endpoint.
