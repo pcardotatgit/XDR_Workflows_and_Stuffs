@@ -1,6 +1,6 @@
-# TOR BLOCKING LIST TO IPV4 XDR FEEDS
+# TOR NETWORK TO IPV4 XDR FEEDS
 
-This workflow read every hour the TOR IP blocking list at the following location https://check.torproject.org/torbulkexitlist . And update the Private Intell Judgment and then Update a public XDR Feed which becomes availabale for Firewalls.
+This workflow is supposed to be triggered every hour thanks to a schedule. It collects the TOR IP address list located at https://check.torproject.org/torbulkexitlist which is the list of the entry / exit IP addresses for the TOR network, and update an XDR feeds meant to be cosummed by INTERNET firewalls.
 
 ---
 
@@ -8,6 +8,7 @@ This workflow read every hour the TOR IP blocking list at the following location
 
 | Date | Notes |
 |:-----|:------|
+| September 10, 2025 | - Public Version 2 |
 | November 20, 2022 | - Initial release |
 
 
@@ -17,16 +18,15 @@ This workflow read every hour the TOR IP blocking list at the following location
 * The following  workflow is used by this workflow:
 	* [Update judgments and public feeds in private intell](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Workflows/update_judgments_in_private_intell)
 * The [targets](#targets) and [account keys](#account-keys)
-* The **Secure_Firewall_SecureX_Indicator_IPv4** indicator and the matching **Secure_Firewall_SecureX_Feed_IPv4** must already exist into the XDR tenant. ( see : [Create Text Public Feeds for firewalls](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/12-create_securex_blocking_lists_for_firewalls))
+* It requires an indicator named **TOR_Feed_Indicator_IPv4** linked to a feed named **XDR_Feed_For_TOR_IPv4**. These two must already exist into the XDR tenant. ( see : [Create Text Public Feeds for firewalls](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/12-create_securex_blocking_lists_for_firewalls))
 ---
 
 ## Workflow Steps
-1. A schedule trigger named **tor_schedule** run this workflow every hours
-1. The Workflow:
-	* Connects to the **https://check.torproject.org/torbulkexitlist** location and download the IP addresse List it contains
-	* Then for every IP address in the downloaded list, the workflow create a judgement into the Private Intelligence and link it to the **Secure_Firewall_SecureX_Indicator_IPv4** indicator, which is linked to the **Secure_Firewall_SecureX_Feed_IPv4**
-
-The final result is to update every hours the XDR **Secure_Firewall_SecureX_Feed_IPv4** feed with the TOR entry / exit IP addresses.
+1. A schedule trigger named **Schedule_for_W0025_TOR_FEED** run this workflow every hour.
+2a. The workflow:
+	* Do a HTTP GET to the **https://check.torproject.org/torbulkexitlist** URL and download the IP addresse List it contains
+	* Then for every IP address in the downloaded list, the workflow create a judgement into the Private Intelligence and a relationship between the new judgment and the **TOR_Feed_Indicator_IPv4** indicator, which automatically add the ip address to the  **XDR_Feed_For_TOR_IPv4**
+2b. Another operation executed by this workflow is to remove from the feed ( delete judgement ) every IP address which no longer bellong to the last TOR IP address list.
 
 ---
 
@@ -55,11 +55,11 @@ No account Key Needed
 
 ## Workflow Justification
 
-The following URL maintains an updated list of IP addresses which are the current entry and exit TOR network IP addresses.
+The following URL maintains an updated list of IP addresses which are the current entry and exit point of TOR network IP.
 
 https://check.torproject.org/torbulkexitlist
 
-This IP address list in constantly updated.
+Then this IP address list is periodically updated, stored into a Feed and exposed thru a public URL.
 
 The recommendation for security administrators is to download this list every hours and deploy it as blocking rules into all company INTERNET firewalls.
 
@@ -74,7 +74,7 @@ This use case is a perfect example where automation is mandatory.
 The whole processes runt by this workflow are discribed here under.
 ![](./assets/img/tor-1.png)
 
-This workflow update a global XDR variable named **generic list of ip addresses** . And this variable is consumed by the **Update Judgement List** subworkflow which synchronizes the XDR Private Intelligence Judgments with it.
+This workflow update a global XDR variable named **generic list of ip addresses** . And this variable is consumed by the **W0026-Update Judgement List for TOR Blocking List** subworkflow. This subworkflow synchronizes the XDR Private Intelligence Judgments with the last version of the TOR IP address list.
 
 ![](./assets/img/tor-3.png)
 
