@@ -8,15 +8,15 @@ This workflow is supposed to be triggered every hour thanks to a schedule. It co
 
 | Date | Notes |
 |:-----|:------|
-| September 10, 2025 | - Public Version 2 |
+| September 10, 2025 | - Public Version 2 - Update for XDR |
 | November 20, 2022 | - Initial release |
 
 
 ---
 
 ## Requirements
-* The following  workflow is used by this workflow:
-	* [Update judgments and public feeds in private intell](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Workflows/update_judgments_in_private_intell)
+* The following workflow are used by this workflow :
+	* [W0026-Update Judgement List for TOR Blocking List-PRODv5](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Workflows/update_judgments_in_private_intell)
 * The [targets](#targets) and [account keys](#account-keys)
 * It requires an indicator named **TOR_Feed_Indicator_IPv4** linked to a feed named **XDR_Feed_For_TOR_IPv4**. These two must already exist into the XDR tenant. ( see : [Create Text Public Feeds for firewalls](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/12-create_securex_blocking_lists_for_firewalls))
 ---
