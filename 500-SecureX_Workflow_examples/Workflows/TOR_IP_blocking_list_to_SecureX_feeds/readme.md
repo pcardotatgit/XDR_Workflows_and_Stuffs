@@ -86,6 +86,4 @@ The final result can be checked into the XDR Judgements and Feeds.
 
 ![](./assets/img/tor-2.png)
 
-![](./assets/img/tor-4.png)
-
 ![](./assets/img/tor-5.png)
