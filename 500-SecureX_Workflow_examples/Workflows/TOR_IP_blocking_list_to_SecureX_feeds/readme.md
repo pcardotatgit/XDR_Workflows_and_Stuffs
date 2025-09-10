@@ -1,6 +1,6 @@
-# TOR BLOCKING LIST TO IPV4 SECUREX FEEDS
+# TOR BLOCKING LIST TO IPV4 XDR FEEDS
 
-This workflow read every hour the TOR IP blocking list at the following location https://check.torproject.org/torbulkexitlist . And update the Private Intell Judgment and then Update a public SecureX Feed which becomes availabale for Firewalls.
+This workflow read every hour the TOR IP blocking list at the following location https://check.torproject.org/torbulkexitlist . And update the Private Intell Judgment and then Update a public XDR Feed which becomes availabale for Firewalls.
 
 ---
 
@@ -17,7 +17,7 @@ This workflow read every hour the TOR IP blocking list at the following location
 * The following  workflow is used by this workflow:
 	* [Update judgments and public feeds in private intell](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/500-SecureX_Workflow_examples/Workflows/update_judgments_in_private_intell)
 * The [targets](#targets) and [account keys](#account-keys)
-* The **Secure_Firewall_SecureX_Indicator_IPv4** indicator and the matching **Secure_Firewall_SecureX_Feed_IPv4** must already exist into the SecureX tenant. ( see : [Create Text Public Feeds for firewalls](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/12-create_securex_blocking_lists_for_firewalls))
+* The **Secure_Firewall_SecureX_Indicator_IPv4** indicator and the matching **Secure_Firewall_SecureX_Feed_IPv4** must already exist into the XDR tenant. ( see : [Create Text Public Feeds for firewalls](https://github.com/pcardotatgit/SecureX_Workflows_and_Stuffs/tree/master/12-create_securex_blocking_lists_for_firewalls))
 ---
 
 ## Workflow Steps
@@ -26,7 +26,7 @@ This workflow read every hour the TOR IP blocking list at the following location
 	* Connects to the **https://check.torproject.org/torbulkexitlist** location and download the IP addresse List it contains
 	* Then for every IP address in the downloaded list, the workflow create a judgement into the Private Intelligence and link it to the **Secure_Firewall_SecureX_Indicator_IPv4** indicator, which is linked to the **Secure_Firewall_SecureX_Feed_IPv4**
 
-The final result is to update every hours the SecureX **Secure_Firewall_SecureX_Feed_IPv4** feed with the TOR entry / exit IP addresses.
+The final result is to update every hours the XDR **Secure_Firewall_SecureX_Feed_IPv4** feed with the TOR entry / exit IP addresses.
 
 ---
 
@@ -63,7 +63,7 @@ This IP address list in constantly updated.
 
 The recommendation for security administrators is to download this list every hours and deploy it as blocking rules into all company INTERNET firewalls.
 
-This is a perfect job for SecureX. And this is the purpose of the workflow described here.
+This is a perfect job for XDR. And this is the purpose of the workflow described here.
 
 This security recommendation is typically a good example of Security Action Human Team CAN'T acheive. We can't imagine to have in the security team someone who update Company firewalls every hours , night and day , with the TOR entry / exit IP addresse list.
 
@@ -74,15 +74,15 @@ This use case is a perfect example where automation is mandatory.
 The whole processes runt by this workflow are discribed here under.
 ![](./assets/img/tor-1.png)
 
-This workflow update a global SecureX variable named **generic list of ip addresses** . And this variable is consumed by the **Update Judgement List** subworkflow which synchronizes the SecureX Private Intelligence Judgments with it.
+This workflow update a global XDR variable named **generic list of ip addresses** . And this variable is consumed by the **Update Judgement List** subworkflow which synchronizes the XDR Private Intelligence Judgments with it.
 
 ![](./assets/img/tor-3.png)
 
-This modular architecture allows to create other IPv4 SecureX feed synchronization workflows, for other sources than TOR IP blocking List. 
+This modular architecture allows to create other IPv4 XDR feed synchronization workflows, for other sources than TOR IP blocking List. 
 
 Other workflows for other Public Sources of malicious IP addresses would be the same as this current workflow except the TOR HTTP Get part.
 
-The final result can be checked into the SecureX Judgements and Feeds.
+The final result can be checked into the XDR Judgements and Feeds.
 
 ![](./assets/img/tor-2.png)
 
